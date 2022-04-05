@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>executor</title>
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="static/assets/css/styles.min.css">
+</head>
+
+<body style="box-shadow: 20px 0px var(--bs-purple);background: var(--bs-gray-900);">
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean"
+        style="color: var(--bs-red);background: var(--bs-red);">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span
+                    class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item"></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false"
+                            data-bs-toggle="dropdown" href="#">Dropdown </a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a
+                                class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third
+                                Item</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: transparent;">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span
+                    class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="container"
+                style="border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;border: 1px solid var(--bs-white);">
+                <div class="collapse navbar-collapse" id="navcol-2">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"></li>
+                        <li class="nav-item"></li>
+                        <li class="nav-item"></li>
+                    </ul>
+                    <form class="me-auto search-form" target="_self">
+                        <div class="d-flex align-items-center">
+                            <h1 style="font-size: 20px;color: var(--bs-white);">Nome do usuário:</h1><input
+                                class="form-control search-field" type="search" id="search-field" name="search"
+                                style="width: 800px;color: var(--bs-white);"><label class="form-label d-flex mb-0"
+                                for="search-field"><i class="fa fa-search"></i></label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h1
+                    style="font-size: 16PX;text-align: center;background: var(--bs-red);width: 150px;margin: 10px;border-top-left-radius: 20px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;margin-left: 80px;margin-right: 0px;">
+                    ABERTO</h1>
+            </div>
+            <div class="col-md-4">
+                <h1
+                    style="font-size: 16PX;text-align: center;background: var(--bs-gray-400);width: 150px;margin: 10px;border-color: var(--bs-gray-500);border-top-left-radius: 20px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;margin-left: 80px;">
+                    EXECUTANDO</h1>
+            </div>
+            <div class="col-md-4">
+                <h1
+                    style="font-size: 16PX;text-align: center;background: var(--bs-success);width: 150px;margin: 10px;border-top-left-radius: 20px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;margin-left: 80px;">
+                    FECHADO</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr style="background: var(--bs-red);padding: 4px;opacity: 1;">
+            </div>
+        </div>
+    </div>
+    <div></div>
+    <div class="container">
+        <div class="row"
+            style="background: var(--bs-gray-200);border-top-left-radius: 10px;border-top-right-radius: 10px;">
+            <div class="col-md-4">
+                <h1
+                    style="color: var(--bs-white);font-size: 20PX;text-align: center;background: var(--bs-red);margin-top: 10px;">
+                    NOME DO CLIENTE</h1>
+                <h1 style="background: var(--bs-red);font-size: 20px;">&nbsp;&nbsp;</h1>
+            </div>
+            <div class="col-md-4">
+                <h1
+                    style="color: var(--bs-white);font-size: 20PX;text-align: center;background: var(--bs-red);margin-top: 10px;">
+                    TIPO DE SERVIÇO</h1>
+                <h1 style="background: var(--bs-red);font-size: 20px;">&nbsp;&nbsp;</h1>
+            </div>
+            <div class="col-md-4">
+                <h1
+                    style="color: var(--bs-white);font-size: 20PX;text-align: center;background: var(--bs-red);margin-top: 10px;">
+                    DESCRIÇÃO DO PEDIDO</h1>
+                <h1 style="background: var(--bs-red);font-size: 20px;">&nbsp;&nbsp;</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row" style="background: var(--bs-gray-200);">
+            <div class="col-md-4">
+                <h1
+                    style="color: var(--bs-white);font-size: 20PX;text-align: center;background: var(--bs-gray);margin-top: 10px;">
+                    NOME DO CLIENTE</h1>
+                <h1 style="background: var(--bs-gray);font-size: 20px;">&nbsp;&nbsp;</h1>
+            </div>
+            <div class="col-md-4">
+                <h1
+                    style="color: var(--bs-white);font-size: 20PX;text-align: center;background: var(--bs-gray);margin-top: 10px;">
+                    TIPO DE SERVIÇO</h1>
+                <h1 style="background: var(--bs-gray);font-size: 20px;">&nbsp;&nbsp;</h1>
+            </div>
+            <div class="col-md-4">
+                <h1
+                    style="color: var(--bs-white);font-size: 20PX;text-align: center;background: var(--bs-gray);margin-top: 10px;">
+                    DESCRIÇÃO DO PEDIDO</h1>
+                <h1 style="background: var(--bs-gray);font-size: 20px;">&nbsp;&nbsp;</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row"
+            style="background: var(--bs-gray-200);border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
+            <div class="col-md-4">
+                <h1
+                    style="color: var(--bs-white);font-size: 20PX;text-align: center;background: var(--bs-success);margin-top: 10px;">
+                    NOME DO CLIENTE</h1>
+                <h1 style="background: var(--bs-success);font-size: 20px;">&nbsp;&nbsp;</h1>
+            </div>
+            <div class="col-md-4">
+                <h1
+                    style="color: var(--bs-white);font-size: 20PX;text-align: center;background: var(--bs-success);margin-top: 10px;">
+                    TIPO DE SERVIÇO</h1>
+                <h1 style="background: var(--bs-success);font-size: 20px;">&nbsp;&nbsp;</h1>
+            </div>
+            <div class="col-md-4">
+                <h1
+                    style="color: var(--bs-white);font-size: 20PX;text-align: center;background: var(--bs-success);margin-top: 10px;">
+                    DESCRIÇÃO DO PEDIDO</h1>
+                <h1 style="background: var(--bs-success);font-size: 20px;">&nbsp;&nbsp;</h1>
+            </div>
+        </div>
+    </div>
+    <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
