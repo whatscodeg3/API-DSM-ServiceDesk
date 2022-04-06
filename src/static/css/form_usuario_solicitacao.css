@@ -1,0 +1,154 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html{
+    height: 100%;
+    min-height: 100%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #292A2F;
+    min-height: 100%;
+}
+
+header{
+    background-color: #ae1414;
+    width: 100%;
+    height: 90px;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+form{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+
+}
+
+p{
+    color: #fff;
+    margin-top: 10px;
+    font-size: 30px;
+    font-family: Inter, sans-serif;
+    font-weight: bold;
+}
+
+input{
+    outline: 0px;
+    padding-left: 5px;
+}
+
+select{
+    outline: 0px;
+}
+
+.div_nome{
+    padding: 0px 50px;
+}
+
+.box_nome{
+    width: 100%;
+    height: 40px;
+    border: 2px solid rgb(174, 20, 20);
+    display: flex;
+    margin-top: -1%;
+    border-radius: 10px;
+}
+
+.selecao_problema{
+    display: block;
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    color: #292A2F;
+    border: 2px solid rgb(174, 20, 20);
+    margin-top: -1%;
+    border-radius: 10px;
+    outline: 0px;
+}
+
+.input_file{
+    border: 2px solid rgb(174, 20, 20);
+    background-color: #fff;
+    margin-top: -1%;
+    border-radius: 10px;
+}
+
+.div_center{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.div_center_servico{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.div_center_anexar{
+    display: flex;
+    flex-direction: column;
+}
+
+.div_desc{
+    padding: 0px 50px;
+
+}
+
+textarea{
+    border: 2px solid rgb(174, 20, 20);
+    height: 70%;
+    resize: none;
+    outline: 0px;;
+    width: 100%;
+    border-radius: 10px;
+    padding: 0px 5px;
+}
+
+#submit{
+    background-color: #ae1414;
+    width: 20%;
+    height: 30%;
+    border: none;
+    color: white;
+    margin-top: 0.4%;
+    margin-left: 50%;
+    transform: translate(-50%);
+    font-size: 20px; 
+    cursor: pointer;
+    border-radius: 10px;
+
+
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+}
+
+#p_footer{
+    font-family: 'Monda';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-variant: small-caps;
+    color: rgba(255, 255, 255, 0.58);
+}
