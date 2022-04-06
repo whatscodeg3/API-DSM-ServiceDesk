@@ -1,3 +1,5 @@
+@import url('http://fonts.cdnfonts.com/css/coolvetica-2');
+
 *{
     margin:0px;
     padding: 0px;
@@ -7,6 +9,7 @@
 body{
     font-size:100%;
     background: #292A2F;
+    overflow: hidden
 }
 
 .topo{
@@ -61,3 +64,53 @@ body{
     background-color: #ffffff;
   }
 
+.titulo {
+    font-size: 150%;
+    font-family: 'coolvetica', cursive;
+    color:#DDD
+}
+
+.desc-principal {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nome-principal {
+    display: flex;
+    flex-direction: column;
+}
+
+.caixa-texto-nome {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    font-family: 'coolvetica', cursive;
+    font-size: 16px;
+}
+
+.caixa-texto-desc {
+    width: 250%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    font-family: 'coolvetica', cursive;
+    font-size: 16px;
+}
+
+.caixa-texto-solucao {
+    width: 40%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    font-family: 'coolvetica', cursive;
+    font-size: 16px;
+}
+
+textarea {
+    height: 300px;
+    resize: none;
+}
