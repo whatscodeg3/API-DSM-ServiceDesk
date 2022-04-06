@@ -1,35 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="br">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>executor</title>
-    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="static/assets/css/styles.min.css">
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/assets/css/styles.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/estilo-usuario-historico.css">
 </head>
 
 <body style="box-shadow: 20px 0px var(--bs-purple);background: var(--bs-gray-900);">
-    <nav class="navbar navbar-light navbar-expand-lg navigation-clean"
-        style="color: var(--bs-red);background: var(--bs-red);">
-        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span
-                    class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false"
-                            data-bs-toggle="dropdown" href="#">Dropdown </a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#">First Item</a><a
-                                class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third
-                                Item</a></div>
-                    </li>
-                </ul>
-            </div>
+    <header class="topo">
+        <h1 class="topo-texto"></h1>
+    <div class="topo-botao">
+        <button class="topo-botao-menu"><img src="../static/img/icon menu.png" alt="botao menu"></button>
+        <div class="topo-menu-expandido ">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
         </div>
-    </nav>
+    </div>
+    </header>
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: transparent;">
         <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span
                     class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -72,7 +64,7 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
             <div class="col">
                 <hr style="background: var(--bs-red);padding: 4px;opacity: 1;">
@@ -147,7 +139,109 @@
                 <h1 style="background: var(--bs-success);font-size: 20px;">&nbsp;&nbsp;</h1>
             </div>
         </div>
-    </div>
+    </div> -->
+    <form class="chamados">
+        <ul class="chamados-lista" type="none">
+            <li class="chamados-itens">
+                <details>
+                    <summary>
+                        <table class="table table-striped table-responsive table-bordered">
+                        <thead class="thead-default">
+                            
+                            <tr>
+                                <th>NOME DO CLIENTE - </th>
+                                <th>  TIPO DE SERVIÇO </th>
+                            </tr>
+                        </thead>
+                        </table>
+
+                        </summary>
+                    <div class=chamados-itens-conteudo>
+                        <p >
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>DESCRIÇÃO DO PEDIDO</td>
+                                    </tr>
+                                    
+                    
+                                </tbody>
+                            </table>
+                        </p>
+                    </div>
+                </details>
+            </li>
+        </ul>
+        <ul class="chamados-lista" type="none">
+            <li class="chamados-itens-aberto">
+                <details>
+                    <summary>
+                        <table class="table table-striped table-responsive table-bordered">
+                        <thead class="thead-default">
+                            
+                            <tr>
+                                <th>NOME DO CLIENTE - </th>
+                                <th>  TIPO DE SERVIÇO </th>
+                            </tr>
+                        </thead>
+                        </table>
+
+                        </summary>
+                    <div class=chamados-itens-conteudo>
+                        <p >
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>DESCRIÇÃO DO PEDIDO</td>
+                                    </tr>
+                                    
+                    
+                                </tbody>
+                            </table>
+                        </p>
+                    </div>
+                </details>
+            </li>
+        </ul>
+        <ul class="chamados-lista" type="none">
+            <li class="chamados-itens-fechado">
+                <details>
+                    <summary>
+                        <table class="table table-striped table-responsive table-bordered">
+                        <thead class="thead-default">
+                            
+                            <tr>
+                                <th>NOME DO CLIENTE - </th>
+                                <th>  TIPO DE SERVIÇO </th>
+                                <th>  AVALIAÇÃO </th>
+                            </tr>
+                        </thead>
+                        </table>
+
+                        </summary>
+                    <div class=chamados-itens-conteudo>
+                        <p >
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>DESCRIÇÃO DO PEDIDO</td>
+                                    </tr>
+                                    
+                    
+                                </tbody>
+                            </table>
+                        </p>
+                    </div>
+                </details>
+            </li>
+        </ul>
+
+    </form>
+</main>
+<footer>
+    <p>DESENVOLVIDO POR WHATSCODE</p>
+</footer>
+</body>
     <script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
