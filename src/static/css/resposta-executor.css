@@ -12,62 +12,85 @@ body{
     flex-direction: column;
     font-size:100%;
     background: #292A2F;
-    overflow: hidden
 }
 
-.topo{
-    display:flex;
-    flex-direction: row;
+header{
+    display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0px 5px;
+    justify-content: flex-end;
+    background-color: #ae1414;
     width: 100%;
-    height: 89px;
-    background: #AE1414;
+    height: 90px;
+    padding: 0% 1.8%;
+    font-family: 'coolvetica', cursive;
 }
 
-.topo-texto {
-    color: white
-}
+/*NAV BAR */
 
-.topo-botao{
-    position: relative;
-    display: inline-block;
-}
-
-.topo-botao-menu{
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-}
-.topo-menu-expandido{
-    display: none;
-    position: absolute;
-    right: 0;
-    min-width: 160px;
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
     z-index: 1;
-    border-radius: 5%;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
   }
-  .topo-menu-expandido a{
-    color: black;
-    padding: 12px 16px;
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
     text-decoration: none;
+    font-size: 25px;
+    color: black;
     display: block;
-    border-radius: 7%;
+    transition: 0.1s;
+  }
+  
+  .sidenav a:hover {
+    color: #666666;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
   }
 
-  .topo-menu-expandido a:hover {
-      background-color: #868686;
-  }
-  .topo-botao:hover .topo-menu-expandido {
-    display: block;
+  .icon_nav_style{
+      font-size: 35px;
+      cursor: pointer;
+      color: #fff;
+
   }
 
-  .topo-botao:hover .topo-menu-expandido {
-    background-color: #ffffff;
+  #hr_black{
+      color: black;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
   }
 
+  /* FIM DA NAVBAR*/
+
+
+  
 .titulo {
+    font-size: 150%;
+    font-family: 'coolvetica', cursive;
+    color:#DDD
+}
+
+.titulo-solucao {
+    display: flex;
+    justify-content: center;
     font-size: 150%;
     font-family: 'coolvetica', cursive;
     color:#DDD
@@ -78,6 +101,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding-top: 2%;
     width: 70%;
 }
 
@@ -91,6 +115,8 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-top: 1%;
+    padding-bottom: 1%;
     gap: 8%;
     width: 100%;
 }
@@ -110,6 +136,8 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 1%;
+    padding-bottom: 2%;
     width: 100%;
 }
 
@@ -148,4 +176,39 @@ body{
 textarea {
     height: 300px;
     resize: none;
+}
+
+.botao {
+    background: #AE1414;
+    color: #DDD;
+    border-radius: 15px;
+    border: #AE1414;
+    height: 50px;
+    width: 100px;
+    font: bold 15px arial, sans-serif;
+    text-shadow: none;
+}
+
+.botao:hover {
+    background: #A01111;
+    cursor: pointer;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding-top: 2%;
+}
+
+.linha-footer {
+    background-color: #AE1414;
+    border: none;
+    height: 0.4vw;
+}
+
+.footer-titulo {
+    color: #DDD;
+    font-family: 'coolvetica', cursive;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
 }

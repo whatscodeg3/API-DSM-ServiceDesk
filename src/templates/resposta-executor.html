@@ -9,15 +9,34 @@
 </head>
 <body>
     <!--Cabecalho-->
-    <header class="topo">
-        <h1 class="topo-texto">NOME DO EXECUTOR</h1>
-    <div class="topo-botao">
-        <button class="topo-botao-menu"><img src="../static/img/icone-menu.png" alt="botao menu"></button>
-        <div class="topo-menu-expandido ">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
+    <header>
+        <div>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <hr id="hr_black">
+                <a href="#">Home</a>
+                <hr id="hr_black">
+                <a href="#">Nova Solicitação</a>
+                <hr id="hr_black">
+                <a href="#">Histórico</a>
+                <hr id="hr_black">
+                <a href="#">Sair</a>
+                <hr id="hr_black">
+              </div>
         </div>
-    </div>
+
+            <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+
+            <script>
+                function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                }
+
+                function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                }
+            </script>
+
     </header>
 
     <!--Principal-->
@@ -35,12 +54,12 @@
 
             <div class="desc-anexo">
                 <p class="titulo">Aquivos anexados:</p>
-                <a href="url" download="nome-arquivo" style="background-color: #DDD; color: #292A2F; font-size: 150%;">Clique aqui para baixar</a>
+                <button><a href="url" download="nome-arquivo" style="color: #292A2F; font-size: 150%;">Clique aqui para baixar</a></button>
             </div>
         </section>
 
         <section class="solucao-principal">
-            <p class="titulo">Solução do problema:</p>
+            <p class="titulo-solucao">Solução do problema:</p>
             <textarea class="caixa-texto-solucao" placeholder="Digite aqui..."></textarea>
         </section>
 
@@ -49,7 +68,7 @@
     
     <footer class="footer">
         <hr class="linha-footer">
-        <p>DESENVOLVIDO POR WHATSCODE</p>
+        <p class="footer-titulo">DESENVOLVIDO POR WHATSCODE</p>
     </footer>
 </body>
 </html>
