@@ -22,31 +22,29 @@
 
     <!--Principal-->
     <main class="geral">
-        <form class="form">
+        <section class="nome-principal">
+                <p class="titulo">Nome:</p>
+                <input class="caixa-texto-nome">
+        </section>
 
-            <section class="nome-principal">
-                    <p class="titulo">Nome:</p>
-                    <input class="caixa-texto-nome">
-            </section>
+        <section class="desc-principal">
+            <div class="desc-pedido">
+                <p class="titulo">Descrição do pedido:</p>
+                <textarea class="caixa-texto-desc"></textarea>
+            </div>
 
-            <section class="desc-principal">
-                <div>
-                    <p class="titulo">Descrição do pedido:</p>
-                    <textarea class="caixa-texto-desc"></textarea>
-                </div>
-                <div>
-                    <p class="titulo">Aquivos anexados:</p>
-                </div>
-            </section>
+            <div class="desc-anexo">
+                <p class="titulo">Aquivos anexados:</p>
+                <a href="url" download="nome-arquivo" style="background-color: #DDD; color: #292A2F; font-size: 150%;">Clique aqui para baixar</a>
+            </div>
+        </section>
 
-            <section class="solucao-principal">
-                <p class="titulo">Solução do problema:</p>
-                <textarea class="caixa-texto-solucao" placeholder="Digite aqui..."></textarea>
-            </section>
+        <section class="solucao-principal">
+            <p class="titulo">Solução do problema:</p>
+            <textarea class="caixa-texto-solucao" placeholder="Digite aqui..."></textarea>
+        </section>
 
-            <input class="botao" type="submit" value="Enviar">
-
-        </form>
+        <input class="botao" type="submit" value="Enviar">
     </main>
     
     <footer class="footer">

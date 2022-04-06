@@ -7,6 +7,9 @@
     text-decoration: none;    
 }
 body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     font-size:100%;
     background: #292A2F;
     overflow: hidden
@@ -70,18 +73,49 @@ body{
     color:#DDD
 }
 
-.desc-principal {
+.geral {
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 70%;
 }
 
 .nome-principal {
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+
+.desc-principal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8%;
+    width: 100%;
+}
+
+.desc-pedido {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.desc-anexo {
+    display: flex;
+    flex-direction: column;
+}
+
+.solucao-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
 }
 
 .caixa-texto-nome {
-    width: 90%;
+    display: flex;
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #DDD;
@@ -91,7 +125,8 @@ body{
 }
 
 .caixa-texto-desc {
-    width: 250%;
+    display: flex;
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #DDD;
@@ -101,7 +136,7 @@ body{
 }
 
 .caixa-texto-solucao {
-    width: 40%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #DDD;
