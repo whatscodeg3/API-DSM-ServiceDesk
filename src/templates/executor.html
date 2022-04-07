@@ -11,22 +11,40 @@
     <link rel="stylesheet" type="text/css" href="../static/css/estilo-usuario-historico.css">
 </head>
 
-<body style="box-shadow: 20px 0px var(--bs-purple);background: var(--bs-gray-900);">
-    <header class="topo">
-        <h1 class="topo-texto"></h1>
-    <div class="topo-botao">
-        <button class="topo-botao-menu"><img src="../static/img/icon menu.png" alt="botao menu"></button>
-        <div class="topo-menu-expandido ">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
+<body>
+    <header>
+        <div>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <hr id="hr_black">
+                <a href="#">Home</a>
+                <hr id="hr_black">
+                <a href="#">Nova Solicitação</a>
+                <hr id="hr_black">
+                <a href="#">Histórico</a>
+                <hr id="hr_black">
+                <a href="#">Sair</a>
+                <hr id="hr_black">
+              </div>
         </div>
-    </div>
+
+            <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+
+            <script>
+                function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                }
+
+                function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                }
+            </script>
+
     </header>
     <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: transparent;">
         <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-2"><span
                     class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="container"
-                style="border-top-left-radius: 10px;border-top-right-radius: 10px;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;border: 1px solid var(--bs-white);">
+            <div class="container-pesquisa">
                 <div class="collapse navbar-collapse" id="navcol-2">
                     <ul class="navbar-nav">
                         <li class="nav-item"></li>
@@ -35,7 +53,7 @@
                     </ul>
                     <form class="me-auto search-form" target="_self">
                         <div class="d-flex align-items-center">
-                            <h1 style="font-size: 20px;color: var(--bs-white);">Nome do usuário:</h1><input
+                            <h1>Nome do usuário:</h1><input
                                 class="form-control search-field" type="search" id="search-field" name="search"
                                 style="width: 800px;color: var(--bs-white);"><label class="form-label d-flex mb-0"
                                 for="search-field"><i class="fa fa-search"></i></label>
@@ -187,18 +205,35 @@
                         </table>
 
                         </summary>
-                    <div class=chamados-itens-conteudo>
-                        <p >
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>DESCRIÇÃO DO PEDIDO</td>
-                                    </tr>
-                                    
+                    <div class="bloco-interno">
+                        <div class=chamados-itens-conteudo>
+                            <p >
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus aliquid excepturi id iusto sequi sapiente quaerat iste quidem neque, nesciunt eveniet fuga ratione suscipit quos alias, error eos. Doloribus, eaque? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi, quidem praesentium amet esse tempore magnam neque ipsum exercitationem voluptate quas nostrum autem dicta consectetur vitae reiciendis dolor. Praesentium, id sapiente. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor delectus nam cumque quas adipisci! Consectetur nulla veniam alias soluta nam quibusdam veritatis, architecto, dolores totam incidunt enim. Laudantium, voluptates alias.-</td>
+                                        </tr>
+                                        
+                        
+                                    </tbody>
+                                </table>
+                            </p>
+                        </div>
                     
-                                </tbody>
-                            </table>
-                        </p>
+                        <div class="container">
+                            <div class="row" style="align-items: center;">
+                                <div class="col-md-4">
+                                    <h1
+                                        style="font-size: 16PX;text-align: center;background: var(--bs-success);width: 150px;margin: 10px;border-top-left-radius: 20px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;margin-left: 80px;">
+                                        ACEITAR</h1>
+                                </div>
+                                <div class="col-md-4">
+                                    <h1
+                                        style="font-size: 16PX;text-align: center;background: var(--bs-red);width: 150px;margin: 10px;border-top-left-radius: 20px;border-top-right-radius: 20px;border-bottom-right-radius: 20px;border-bottom-left-radius: 20px;margin-left: 80px;margin-right: 0px;">
+                                        RECUSAR</h1>
+                                </div>                            
+                            </div>
+                        </div>
                     </div>
                 </details>
             </li>
