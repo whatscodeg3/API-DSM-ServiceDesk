@@ -14,8 +14,37 @@
 <body>
 
     <header>
-        <div></div>
-    </header>
+        <div>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <hr id="hr_black">
+                <a href="#">Home</a>
+                <hr id="hr_black">
+                <a href="#">Nova Solicitação</a>
+                <hr id="hr_black">
+                <a href="#">Histórico</a>
+                <hr id="hr_black">
+                <a href="#">Sair</a>
+                <hr id="hr_black">
+              </div>
+        </div>
+
+            <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+
+            <script>
+                function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                }
+
+                function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                }
+            </script>
+
+        </header>
+
+
+
 
     <main>
         <form>
@@ -54,7 +83,7 @@
         </form>
     </main>
 
-    <footer>
+    <footer> 
         <p id="p_footer">DESENVOLVIDO POR WHATSCODE</p>
     </footer>
 
