@@ -47,7 +47,9 @@
 
 
     <main>
-        <form>
+        <form action="/criar" method="POST">
+        <div>
+            <fieldset>
 
             <div class="div_nome">
                 <p>Nome:</p>
@@ -78,8 +80,10 @@
             <div class="div_desc">
                 <p>Descrição do Problema:</p>
                 <textarea></textarea>
-                <input type="submit" id="submit">
+                <button type="submit" id="botao" class="btn-primary">Solicitar</button>
             </div> 
+        </fieldset>
+    </div>
         </form>
     </main>
 

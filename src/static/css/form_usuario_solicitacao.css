@@ -42,6 +42,7 @@ form{
         display: flex;
         width: 100%;
         flex-direction: column;
+        height: 100%;
 
 }
 
@@ -112,12 +113,13 @@ select{
 
 .div_desc{
     padding: 0px 50px;
+    height: 60%;
 
 }
 
 textarea{
     border: 2px solid rgb(174, 20, 20);
-    height: 70%;
+    height: 50%;
     resize: none;
     outline: 0px;;
     width: 100%;
@@ -127,10 +129,10 @@ textarea{
 
 }
 
-#submit{
+#botao{
     background-color: #ae1414;
     width: 20%;
-    height: 30%;
+    height: 20%;
     border: none;
     color: white;
     margin-top: 0.4%;
@@ -167,6 +169,10 @@ footer{
     height: 300px;
 }
 
+
+fieldset{
+    height: 100%;
+}
 
 
 
