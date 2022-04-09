@@ -123,11 +123,15 @@ html{
             justify-content: space-between;
             width:100%;
             padding-top: 38px;
+            }  
 
-        }  
+                @media only screen and (max-width: 600px) {
+				main{
+                    padding-top: 5%;
+					}
+				}
 
             .pesquisa{
-                /** ATENÇÃO AO DISPLAY SEU TONTO**/
                 display: flex;
                 flex-direction: row;
                 align-items: center;
@@ -150,7 +154,6 @@ html{
 					}
 				}
 
-
 				input{
 					border:none;
 					outline: 0px;
@@ -162,6 +165,7 @@ html{
 					font-weight: 400;
 					font-size: 25px;
 				}
+
 				@media only screen and (max-width: 600px) {
 				input{
 				font-size: 4vw;
@@ -195,6 +199,12 @@ html{
                 border-radius: 50px;
                 width:90%; 
             }
+                @media only screen and (max-width: 600px) {
+                    .chamados{
+                    border-radius: 35px;
+                    }
+                }
+            
 
                 .chamados-lista{
                     display:flex;
@@ -213,26 +223,25 @@ html{
                         flex-direction: row;
                         align-items: center;
                         background-color: #CCCCCC;
-                        width: 97%;
+                        width: 97.1%;
                         padding: 10px 27px;
                         margin-bottom: 1.4%;
-                        border-radius: 41px;
+                        border-radius: 38px;
                         font-family: 'Roboto';
                         font-style: normal;
                         font-weight: 400;
                         font-size:20px;
-                        font-variant: small-caps;
                         text-align: center;
                         }
                         
                         @media only screen and (max-width: 600px) {
                             .chamados-itens{
                             font-size:4.5vw;
-                            text-align: center;
                             justify-content: center;
                             padding: 1vw 2.5vw;
                             width: 96%;
                             margin-bottom: 1.8vw;
+                            border-radius: 30px;
                             }
                          }
 
@@ -248,24 +257,26 @@ html{
                             details{
                                 display: flex;
                                 height: 100%;
+                                width: 100%;
                             }
 
                                 summary {
                                     display: flex;
+                                    justify-content: space-between;
                                     height: 100%;
                                     cursor: pointer;
                                 }
 
-                                    @media only screen and (max-width: 600px) {
+                                    @media only screen and (max-width: 800px) {
                                     summary{
-                                        justify-content: center;
+                                        flex-direction: column;
                                         }
                                     }
 
                                         .chamados-itens-conteudo{
-                                            padding-right: 1%;
                                             display: flex;
-                                            padding-top: 1%;
+                                            flex-direction: column;
+                                            padding: 1% 0px;
                                             margin-top: 1%;
                                             border-top: 2px solid #b1b1b1;
                                         }
