@@ -1,4 +1,6 @@
-@import url('http://fonts.cdnfonts.com/css/coolvetica-2');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap');
 
 *{
     margin:0px;
@@ -22,7 +24,7 @@ header{
     width: 100%;
     height: 90px;
     padding: 0% 1.8%;
-    font-family: 'coolvetica', cursive;
+    font-family: 'roboto';
 }
 
 /*NAV BAR */
@@ -84,7 +86,7 @@ header{
   
 .titulo {
     font-size: 150%;
-    font-family: 'coolvetica', cursive;
+    font-family: 'roboto';
     color:#DDD
 }
 
@@ -92,7 +94,7 @@ header{
     display: flex;
     justify-content: center;
     font-size: 150%;
-    font-family: 'coolvetica', cursive;
+    font-family: 'roboto';
     color:#DDD
 }
 
@@ -148,8 +150,9 @@ header{
     margin-bottom: 15px;
     border: 1px solid #DDD;
     border-radius: 5px;
-    font-family: 'coolvetica', cursive;
+    font-family: 'roboto';
     font-size: 16px;
+    outline: 0px;
 }
 
 .caixa-texto-desc {
@@ -159,8 +162,9 @@ header{
     margin-bottom: 15px;
     border: 1px solid #DDD;
     border-radius: 5px;
-    font-family: 'coolvetica', cursive;
+    font-family: 'roboto';
     font-size: 16px;
+    outline: 0px;
 }
 
 .caixa-texto-solucao {
@@ -169,8 +173,9 @@ header{
     margin-bottom: 15px;
     border: 1px solid #DDD;
     border-radius: 5px;
-    font-family: 'coolvetica', cursive;
+    font-family: 'roboto';
     font-size: 16px;
+    outline: 0px;
 }
 
 textarea {
@@ -208,7 +213,7 @@ textarea {
 
 .footer-titulo {
     color: #DDD;
-    font-family: 'coolvetica', cursive;
+    font-family: 'Monda';
     padding-top: 0.5%;
     padding-bottom: 0.5%;
 }
