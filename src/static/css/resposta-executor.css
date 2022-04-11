@@ -22,7 +22,7 @@ header{
     justify-content: flex-end;
     background-color: #ae1414;
     width: 100%;
-    height: 90px;
+    height: 9%;
     padding: 0% 1.8%;
     font-family: 'roboto';
 }
@@ -67,7 +67,12 @@ header{
       font-size: 35px;
       cursor: pointer;
       color: #fff;
+  }
 
+  @media screen and (max-width: 600px) {
+    .icon_nav_style {
+        font-size: 6vw;
+    }
   }
 
   #hr_black{
@@ -123,15 +128,44 @@ header{
     width: 100%;
 }
 
+@media only screen and (max-width: 936px) {
+    .desc-principal {
+        flex-direction: column;
+    }
+}
+
 .desc-pedido {
     display: flex;
     flex-direction: column;
     width: 60%;
 }
 
+@media only screen and (max-width: 936px) {
+    .desc-pedido {
+        width: 100%;
+    }
+}
+
 .desc-anexo {
     display: flex;
     flex-direction: column;
+}
+
+@media only screen and (max-width: 936px) {
+    .desc-anexo {
+        width: 60%;
+    }
+}
+
+.texto-anexo {
+    color: #292A2F; 
+    font-size: 150%;
+}
+
+@media only screen and (max-width: 936px) {
+    .texto-anexo {
+        font-size: 3vw;
+    }
 }
 
 .solucao-principal {
