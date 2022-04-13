@@ -36,7 +36,7 @@
     </header>
 
     <!--Principal-->
-    <main class="geral">
+    <form class="geral" action="/atualizar/{{solicita.id_solicitacao}}" method="POST">
         <section class="nome-principal">
                 <p class="titulo">Nome:</p>
                 <input class="caixa-texto-nome">
@@ -45,7 +45,7 @@
         <section class="desc-principal">
             <div class="desc-pedido">
                 <p class="titulo">Descrição do pedido:</p>
-                <textarea class="caixa-texto-desc"></textarea>
+                <textarea input type="text" name="descrição do problema" placeholder="{{solicita.descricao_solicitacao}}" class="caixa-texto-desc"></textarea>
             </div>
 
             <div class="desc-anexo">
@@ -56,11 +56,11 @@
 
         <section class="solucao-principal">
             <p class="titulo-solucao">Solução do problema:</p>
-            <textarea class="caixa-texto-solucao" placeholder="Digite aqui..."></textarea>
+            <textarea input type="text" name="resposta" class="caixa-texto-solucao" placeholder="Digite aqui..."></textarea>
         </section>
 
         <input class="botao" type="submit" value="Enviar">
-    </main>
+    </form>
     
     <footer class="footer">
         <hr class="linha-footer">

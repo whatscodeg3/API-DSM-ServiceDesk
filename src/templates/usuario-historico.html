@@ -43,25 +43,33 @@
         </section>
         <form class="chamados">
             <ul class="chamados-lista" type="none">
+                {% for lista in listas %}
                 <li class="chamados-itens">
                     <details>
-                        <summary>
-                            <p>{{27/03/2022}} - TIPO DE SERVIÇO: {{MONITOR NÃO LIGA}}</p>
-                            <p>{{STATUS}}</p>
-                        </summary>
+                        <summary> {{ lista.data_abertura.strftime('%d/%m/%Y ') }} - {{ lista.cat.categoria_solicitacao}}</summary>
                         <div class="chamados-itens-conteudo">
                             <h4>Descrição</h4>
-                            <p > <!--paragráfo com conteúdo do chamado-->
-                            {{ Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid numquam odit dolorum, molestias nulla repudiandae cumque id totam maxime praesentium consequuntur, modi dolorem eum adipisci nesciunt, voluptates suscipit eius enim! }}
+                            <br>
+                            <p >
+                                {{ lista.descricao_solicitacao}}
                             </p>
                             <br>
                             <h4>Solução</h4>
-                             <p>
-                                {{Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique voluptate, voluptatum neque cumque animi aliquid delectus deleniti dolor modi excepturi! Sapiente dolorum voluptate sequi ipsam accusantium atque earum similique aliquam!}}
-                            </p>
+                            {% if lista.resposta_solicitacao == None %}
+                                <br>
+                                <p>
+                                    Solicitação em andamento, por gentileza, aguarde!
+                                </p>
+                            {% else %}
+                                <br>
+                                <p>
+                                    {{ lista.resposta_solicitacao}}
+                                </p>
+                            {% endif %}
                         </div>
                     </details>
                 </li>
+                {% endfor %}
             </ul>
         </form>
     </main>

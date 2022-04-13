@@ -55,11 +55,10 @@
 
                         <div class="div_center_servico">
                             <p class="titulo">Tipo de Serviço:</p>
-                            <select name="service_type" id="service_type" class="selecao_problema">
-                                <option selected disabled>Selecione o serviço</option>
-                                <option value="hardware">Problema de Hardware</option>
-                                <option value="software">Problema de Software</option>
-                                <option value="informacao">Buscando Informação</option>
+                            <select name="Tipo de serviço" id="Tipo de serviço" method="POST" class="selecao_problema">
+                                {% for categoria in categorias %}
+                                <option name="Tipo de serviço" value="{{ categoria.id_categoria_solicitacao}}" selected>{{ categoria.categoria_solicitacao}}</option>            
+                                {% endfor %}
                             </select>
                         </div>
         
@@ -73,7 +72,7 @@
         
                     <div class="div_desc">
                         <p class="titulo">Descrição do Problema:</p>
-                        <textarea class="caixa_texto"></textarea>
+                        <textarea input type="text" name="descrição do problema" class="caixa_texto"></textarea>
                         <button type="submit" id="botao" class="btn-primary">Solicitar</button>
                     </div> 
                 </fieldset>
