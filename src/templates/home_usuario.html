@@ -44,14 +44,11 @@
         </header>
 
         <main>
-            <div class="container-fluid">
-                <div class="linha_cinza">
-                    <p class="ola">Olá, usuário!</p>
-                    <p class="ajuda">Precisa de ajuda?</p>
-                    <p class="pratica">Solicite um serviço de TI de forma rápida e prática.</p>
-                </div>
-
-            </div>              
+            <div class="linha_cinza">
+                <p class="ola">Olá, usuário!</p>
+                <p class="ajuda">Precisa de ajuda?</p>
+                <p class="pratica">Solicite um serviço de TI de forma rápida e prática.</p>
+            </div>        
 
             <div class="container-fluid">
                 <div class="servico">
@@ -59,34 +56,36 @@
                 </div>
             </div>
 
-            <div class="container-fluid">
-                <div class="teste">
+            <div class="container-fluid" id="teste">
                     <div class="row">
-                        <div class="col-sm-6">
-                            <div class="carda red">
-                                <a href="teste2.html">
-                                    <div class="a"><h2>Solicite um novo serviço</h2></div>
+                        <div class="col-sm-2"></div>
+
+                        <div class="col-sm-4">
+                            <div class="carda">
+                                <a href="/src/templates/home_usuario.html">
+                                    <div class="a"><h2 class="solicite">Solicite um novo serviço</h2></div>
                                     <div class="b"><img class="image" src="../static/img/aviao.svg"/></div>
                                 </a>
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="carda blue">
-                                <a href="home_usuario.html">
-                                    <div class="a"><h2>Acompanhe suas solicitações</h2></div>
+
+                        <div class="col-sm-4">
+                            <div class="carda acompanhe">
+                                <a href="/src/templates/home_usuario.html">
+                                    <div class="a"><h2 class="acompanhe">Acompanhe suas solicitações</h2></div>
                                     <div class="b"><img class="image" src="../static/img/soli.svg"/></div>
                                 </a>
                             </div>
                         </div>
+
+                        <div class="col-sm-2"></div>
                     </div>
-                </div>
             </div>
         </main>
 
-        <footer>
-            <div class="container">
-                <p class="whats">DESENVOLVIDO POR WHATSCODE</p>
-            </div>
+        <footer class="footer">
+            <hr class="linha-footer">
+            <p class="footer-titulo">DESENVOLVIDO POR WHATSCODE</p>
         </footer>
 
     </body>
