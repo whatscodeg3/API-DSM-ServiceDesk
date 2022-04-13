@@ -7,7 +7,8 @@
 
 <p align="center">
   <a href ="#configuracoes"> Executando a aplicação </a>  | 
-  <a href ="#sprints"> Planejamento </a>  | 
+  <a href ="#planejamento"> Planejamento </a>  |
+  <a href ="#mvp"> MVP </a>  |
   <a href ="#equipe"> Equipe </a> 
 </p>
 
@@ -31,31 +32,25 @@ Em modo geral, uma Central de Serviços é uma ferramenta que presta assessoria 
 Este projeto será realizado baseado na metodologia ágil SCRUM, que foca no desenvolvimento da proatividade, autonomia e uma melhora da produtividade do time como um todo.
 
 # Configurações <a id="configuracoes"></a>
-Para conseguir testar o sistema em qualquer local é necessário alguns pré-requisitos e seguir o seguinte passo a passo:
+Para conseguir testar o sistema em qualquer local é necessário seguir o seguinte passo a passo:
 
-## Pré-requisitos
+Passo a passo:
+-
+-
+-
 
-## Passo a passo
 
 
 # Planejamento <a id="planejamento"></a>
-Este projeto como mencionado foi baseado na metodologia SCRUM, no qual o desenvolvimento do projeto é dividido em pequenas entregas com o mínimo produto viável (MVP) em cada uma delas. Abaixo estará listado os tempos estipulados pela faculdade para realizarmos os nossos MVPs, juntamente com o link para o planejamento de cada uma delas:
+Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de trÊs sprints com 21 dias cada: 
 
-- <a href="/doc/sprints/sprint1">Sprint 1 (25/03 - 14/04)</a>
+- Sprint 1 (25/03 - 14/04)
 - Sprint 2 (25/04 - 15/05)
 - Sprint 3 (16/05 - 05/06)
 
-# 1ª Sprint
+## Backlog do produto
+Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backlog do produto, uma lista priorizada, refinada e estimada dos recursos que o time de desenvolvimento irá precisar para conseguir atingir o produto final desejado pelo cliente. O backlog foi pirorizados em alto, médio e baixo de acordo com o conversado com o cliente, em cima do valor de cada tópico. Na tabela, segue as tarefas ordenadas por prioridade, dividads pro sprints e mostrando ao lado o status de desenvolvimento de cada uma. 
 
-Neste período de 21 dias (25/03 até 14/04), o nosso time se organizou para trazer um sistema simplificado do que foi pedido pelo cliente. Nesta versão, apresentaremos apenas as funcionalidades de envio de solicitação e armazenamento da mesma. Terá uma página do preenchimento da solicitação com o nome do cliente, tipo de serviço e a descrição do problema. Esta solicitação irá ser redirecionada para outra página onde será a visão do executor, pois neste ambiente ele poderá visualizar a solicitação e poderá dar um retorno.
-
-Abaixo está esquematizado em forma de tabela o planejamento para esta sprint, e o andamento do mesmo:
-
-Legenda do status:
-
-- ✅ Finalizado
-- 🕓 Em andamento
-- 📝 A fazer
 
 | Tarefa                      | Descrição                                                                                                                                                                                                                                      | Requisito     | Prioridade | Status |
 | :-------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------: | :--------: | :---: |
@@ -65,7 +60,24 @@ Legenda do status:
 | Navegabilidade com Flask    | Utilizar do mini framework Flask para realizar a navegabilidade entre as páginas do sistema.                                                                                                                                                   | Não funcional | Média      | ✅ |
 
 
-## Vídeo
+# 1ª Sprint
+
+O time se organizou para trazer um sistema simplificado do que foi pedido pelo cliente. Nesta versão, apresentaremos apenas as funcionalidades de envio de solicitação e armazenamento da mesma. Terá uma página do preenchimento da solicitação com o nome do cliente, tipo de serviço e a descrição do problema. Esta solicitação irá ser redirecionada para outra página onde será a visão do executor, pois neste ambiente ele poderá visualizar a solicitação e poderá dar um retorno.
+
+Em primeiro momento foi realizado o layout do sistema na plataforma Figma, onde no desenvolvimento para esta primeira entrega foi focado apenas nas páginas que será exibidas. Sendo as páginas voltadas para um usuário comum (tela inicial do usuário, nova solicitação e histórico das solicitações) e as páginas para um executor (tela das demandas e resposta). O wireframe completo estará na pasta `doc` localizada neste repositório, em seguida está as imagens das páginas escolhidas:
+
+<img src="#" alt="wireframe sprint 1">
+<img src="#" alt="wireframe sprint 1 (2)">
+
+Paralelamente ao desenvolvimento das páginas, estava sendo modelado e preparado o banco de dados. Pensando em que a modelagem pode ser realizado através de implementaçãoes, priorizou-se apenas as criações das tabelas necessárias para o funcionamento do sistema nesta primeira entrega. Para tal, primeiramente realizaou-se os modelos conceitual e lógico.
+
+Modelo conceitual feito no brModelo:
+<img src="#" alt="modelo conceitual sprint 1">
+
+Modelo lógico feito no Workbench:
+<img src="#" alt="modelo lógico sprint 1">
+
+## MVP <a id="mvp"></a>
 
 
 # Equipe <a id="equipe"></a>
