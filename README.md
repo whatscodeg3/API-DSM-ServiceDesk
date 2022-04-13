@@ -25,4 +25,4 @@ Legenda do status:
 | Layout no Figma | Criação de um layout final do projeto no Figma, para poder retirar prévias dúvidas com o cliente, onde estára em primeiro momento se adequando as necessidades do cliente. Para depois servir como base para o andamento do design do projeto. | Funcional | Alta | ✅ |
 | Protótipo navegável | Começar a digitar os códigos em HTML e CSS para estruturação das páginas se baseando no layout proposto no Figma. Priorizando neste momento apenas as que irão ser utilizadas para a primeira entrega. | Funcional | Alta | 🕓 |
 | Modelagem do banco de dados | Realizar o modelo conceitual e lógico no BrModelo, e a criação das tabelas no Workbench. Por ser uma modelagem incremental, o foco maior será no necessário para a funcionalidade desta primeira entrega. | Não funcional | Alta | 🕓 |
-| Navegabilidade com Flask | Utilizar do mini framework Flask para realizar a navegabilidade entre as páginas do sistema. | Não funcional | Média | 📝 |
+| Navegabilidade com Flask | Utilizar do mini framework Flask para realizar a navegabilidade entre as páginas do sistema. | Não funcional | Média | ✅ |
