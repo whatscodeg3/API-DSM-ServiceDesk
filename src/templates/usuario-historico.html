@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/estilo-usuario-historico.css">
+    <title>Usuário - Histórico</title>
+</head>
+<body>
+    <header>
+        <h1 id="header-nome-usuario">NOME DO USUÁRIO</h1>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <hr id="hr_black">
+                <a href="#">Home</a>
+                <hr id="hr_black">
+                <a href="#">Nova Solicitação</a>
+                <hr id="hr_black">
+                <a href="#">Histórico</a>
+                <hr id="hr_black">
+                <a href="#">Sair</a>
+                <hr id="hr_black">
+              </div>
+        <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+
+        <script>
+            function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            }
+
+            function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+    </header>
+    <main>
+        <section class="pesquisa">
+            <form id="pesquisa-campo" action="" method="get" >
+                <input type="text" name="search" id="busca" placeholder="TIPO DE SERVIÇO" required>
+                <button class="pesquisa-lupa" type="submit"><img id="pesquisa-img" src="../static/img/lupa-arredondada.svg" alt="icone menu"></button>
+            </form>
+        </section>
+        <form class="chamados">
+            <ul class="chamados-lista" type="none">
+                <li class="chamados-itens">
+                    <details>
+                        <summary>
+                            <p>{{27/03/2022}} - TIPO DE SERVIÇO: {{MONITOR NÃO LIGA}}</p>
+                            <p>{{STATUS}}</p>
+                        </summary>
+                        <div class="chamados-itens-conteudo">
+                            <h4>Descrição</h4>
+                            <p > <!--paragráfo com conteúdo do chamado-->
+                            {{ Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid numquam odit dolorum, molestias nulla repudiandae cumque id totam maxime praesentium consequuntur, modi dolorem eum adipisci nesciunt, voluptates suscipit eius enim! }}
+                            </p>
+                            <br>
+                            <h4>Solução</h4>
+                             <p>
+                                {{Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique voluptate, voluptatum neque cumque animi aliquid delectus deleniti dolor modi excepturi! Sapiente dolorum voluptate sequi ipsam accusantium atque earum similique aliquam!}}
+                            </p>
+                        </div>
+                    </details>
+                </li>
+            </ul>
+        </form>
+    </main>
+    <footer>
+        <p>DESENVOLVIDO POR WHATSCODE</p>
+    </footer>
+</body>
+</html>
