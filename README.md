@@ -1,6 +1,6 @@
 # API-DSM-ServiceDesk
 <p align="center">
-      <img src="/doc/front-end/WhatsCode-logo.png" alt="logo da equipe" width="200">
+      <img src="/doc/front-end/logo-whatscode.svg" alt="logo da equipe" width="200">
       <h3 align="center"> WhatsCode | Equipe 3</h3>
 
 <hr>
@@ -32,14 +32,18 @@
 Em modo geral, uma Central de Serviços é uma ferramenta que presta assessoria para solucionar problemas integrado no ambiente de tecnologia da informação.
 Este projeto será realizado baseado na metodologia ágil SCRUM, que foca no desenvolvimento da proatividade, autonomia e uma melhora da produtividade do time como um todo.
 
-# Configurações <a id="configuracoes"></a>
+# Executando a aplicação <a id="configuracoes"></a>
 Para conseguir testar o sistema em qualquer local é necessário seguir o seguinte passo a passo:
 
-Passo a passo:
--
--
--
-
+1. Ao clicar em `tag` aparecerá um arquivo *.zip* nominado v1.0.0 clique para baixá-lo.
+2. Após a instalação, verifique se possui o Phyton já instalado em sua máquina. Apartir do comando no terminal: `python --version`
+3. Caso não possua siga os passos de instalação do site oficial do Python: https://www.python.org/
+4. Caso a resposta seja positiva, pelo terminal, se dirija até a pasta criada pelo arquivo *.zip*. `cd <nome da pasta>`
+5. Vamos criar agora um ambeinte virtual, pelo comando: `py -3 -m venv venv`
+6. Criada, vamos ativa-la: `cd venv\Scripts\activate`
+7. Então, é só instalar o *requirements.txt*: `pip install -r requirements.txt`
+8. Agora apenas digite ainda no terminal: `flask run` para começar a rodar o sistema
+9. Clicando no link disponibilizado. Pronto! Agora é só utilzar.
 
 
 # Planejamento <a id="planejamento"></a>
@@ -81,13 +85,17 @@ Em primeiro momento foi realizado o layout do sistema na plataforma Figma, onde 
 
 Paralelamente ao desenvolvimento das páginas, estava sendo modelado e preparado o banco de dados. Pensando em que a modelagem pode ser realizada através de implementaçãoes, priorizou-se apenas as criações das tabelas necessárias para o funcionamento do sistema nesta primeira entrega. Para tal, primeiramente realizaou-se os modelos conceitual e lógico.
 
-Modelo conceitual feito no brModelo:
+**Modelo conceitual feito no brModelo.**
 <img src="/doc/back-end/modeloConceitual-sprint1.jpg" alt="modelo conceitual sprint 1">
 
-Modelo lógico feito no Workbench:
-<img src="#" alt="modelo lógico sprint 1">
+**Modelo lógico feito no Workbench.**
+<img src="/doc/back-end/modeloLogico-sprint1.jpeg" alt="modelo lógico sprint 1">
 
-## MVP <a id="mvp"></a>
+
+# MVP <a id="mvp"></a>
+Mínimo produto viável (MVP) é uma versão funcional de modo enxuto do serviço inicialmente pensado. Onde uma pequena parcela de pessoas irá testar e experimenta-lo podendo assim opinar para futuras melhoras. Este conceito é implementado no SCRUM, onde geramos um MVP na primeira entrega e apartir dele continuamos implementando-o até chegar ao produto final.
+
+Nosso MVP ficou da seguinte forma: <a href="#">Link para acessar o vídeo</a>
 
 
 # Equipe <a id="equipe"></a>
