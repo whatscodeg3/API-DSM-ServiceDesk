@@ -158,7 +158,7 @@ header{
 }
 
 .desc-anexo {
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 

@@ -14,9 +14,7 @@
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <hr id="hr_black">
-                <a href="#">Solicitações</a>
-                <hr id="hr_black">
-                <a href="#">Sair</a>
+                <a href="/demanda">Solicitações</a>
                 <hr id="hr_black">
               </div>
         </div>
@@ -39,13 +37,13 @@
     <form class="geral" action="/atualizar/{{solicita.id_solicitacao}}" method="POST">
         <section class="nome-principal">
                 <p class="titulo">Nome:</p>
-                <input class="caixa-texto-nome">
+                <input class="caixa-texto-nome" >
         </section>
 
         <section class="desc-principal">
             <div class="desc-pedido">
                 <p class="titulo">Descrição do pedido:</p>
-                <textarea input type="text" name="descrição do problema" placeholder="{{solicita.descricao_solicitacao}}" class="caixa-texto-desc"></textarea>
+                <textarea readonly="True" input type="text" name="descrição do problema" placeholder="{{solicita.descricao_solicitacao}}" class="caixa-texto-desc"></textarea>
             </div>
 
             <div class="desc-anexo">

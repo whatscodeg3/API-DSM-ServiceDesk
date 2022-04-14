@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/executor-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/estilo-executor-demandas.css">
+    <title>Demandas</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="header-nome-usuario">OLÁ, EXECUTOR!</h1>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <hr class="hr_black">
+            <a href="/demanda">MINHAS DEMANDAS</a>
+            <hr class="hr_black">
+            <a href="/nova-solicitacao">NOVA SOLICITAÇÃO</a>
+            <hr class="hr_black">
+            <a href="/historico">HISTÓRICO DE SOLICITAÇÕES</a>
+            <hr class="hr_black">
+        </div>
+        <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "350px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+    </header>
+    <main>
+        <section class="pesquisa">
+            <form id="pesquisa-campo" action="" method="get">
+                <input type="text" name="search" id="busca" placeholder="Nome do usuário" required>
+                <button class="pesquisa-lupa" type="submit"><img id="pesquisa-img" src="lupa-arredondada.svg"
+                        alt="icone menu"></button>
+            </form>
+        </section>
+        <section class="seletor-chamados">
+            <ul id="seletor-botao" class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li id="botao" class="nav-item" role="presentation">
+                    <button id="botao-aberto" class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                        aria-selected="true">ABERTO</button>
+                </li>
+                <li id="botao" class="nav-item" role="presentation">
+                    <button id="botao-fechado" class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                        aria-selected="false">FECHADO</button>
+                </li>
+            </ul>
+        </section>
+        <section id="detalhe-chamados" class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                <form class="chamados">
+                    <ul class="chamados-lista" type="none">
+                        {% for lista in listas %}
+                        <li class="chamados-itens-aberto">
+                            <details>
+                                <summary>  {{ lista.data_abertura.strftime('%d/%m/%Y - ') }} {{ lista.cat.categoria_solicitacao}}</summary>
+                                <div class=chamados-itens-conteudo-aberto>
+                                    <h4>Descrição da Solicitação</h4>
+                                    <p>
+                                        {{ lista.descricao_solicitacao}}
+                                    </p>
+                                </div>
+                                <br>
+                                <a class="resposta-link" href="/atualizar/{{lista.id_solicitacao}}">RESPONDER</a>
+                            </details>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                <form class="chamados">
+                    <ul class="chamados-lista" type="none">
+                        {% for consulta in consultas %}
+                        <li class="chamados-itens-fechado">
+                            <details>
+                                <summary> {{ consulta.data_fechamento.strftime('%d/%m/%Y - ') }} {{ consulta.cat.categoria_solicitacao}}</summary>
+                                <div class=chamados-itens-conteudo-fechado>
+                                    <h4>Descrição da Solicitação</h4>
+                                    <p>
+                                        {{ consulta.descricao_solicitacao}}
+                                    </p>
+                                    <br>
+                                    <h4>Resposta</h4>
+                                    <p>
+                                        {{ consulta.resposta_solicitacao}}
+                                    </p>
+                                </div>
+                            </details>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>DESENVOLVIDO POR WHATSCODE</p>
+    </footer>
+    <script src="../static/assets/bootstrap/js/executor-bootstrap.min.js"></script>
+</body>
+
+</html>

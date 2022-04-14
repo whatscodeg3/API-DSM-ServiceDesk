@@ -151,7 +151,7 @@ header{
 }
 
   .div_center_anexar{
-      display: flex;
+      display: none;
       flex-direction: column;
   }
   

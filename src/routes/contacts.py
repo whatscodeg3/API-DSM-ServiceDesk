@@ -17,15 +17,13 @@ def nova():
 @contacts.route('/historico')
 def historico():
     lista = Solicita.query.all()
-    for x in lista:
-        print(x.resposta_solicitacao)
     return render_template('usuario-historico.html', listas=lista)
 
 @contacts.route('/demanda')
 def demanda():
     lista = Solicita.query.filter_by(resposta_solicitacao = None)
     consulta = Solicita.query.filter(Solicita.resposta_solicitacao.isnot(None))
-    return render_template('executor.html', listas=lista, consultas=consulta)
+    return render_template('executor-demandas.html', listas=lista, consultas=consulta)
 
 @contacts.route('/resposta')
 def resposta():
