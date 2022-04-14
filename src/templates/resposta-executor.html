@@ -37,7 +37,7 @@
     <form class="geral" action="/atualizar/{{solicita.id_solicitacao}}" method="POST">
         <section class="nome-principal">
                 <p class="titulo">Nome:</p>
-                <input class="caixa-texto-nome" >
+                <input class="caixa-texto-nome" readonly="True" placeholder="USUÁRIO GERAL">
         </section>
 
         <section class="desc-principal">
@@ -54,7 +54,7 @@
 
         <section class="solucao-principal">
             <p class="titulo-solucao">Solução do problema:</p>
-            <textarea input type="text" name="resposta" class="caixa-texto-solucao" placeholder="Digite aqui..."></textarea>
+            <textarea input type="text" name="resposta" class="caixa-texto-solucao"></textarea>
         </section>
 
         <input class="botao" type="submit" value="Enviar">
