@@ -36,14 +36,41 @@ Este projeto será realizado baseado na metodologia ágil SCRUM, que foca no des
 Para conseguir testar o sistema em qualquer local é necessário seguir o seguinte passo a passo:
 
 1. Ao clicar em `tag` aparecerá um arquivo *.zip* nominado v1.0.0 clique para baixá-lo.
-2. Após a instalação, verifique se possui o Phyton já instalado em sua máquina. Apartir do comando no terminal: `python --version`
-3. Caso não possua siga os passos de instalação do site oficial do Python: https://www.python.org/
-4. Caso a resposta seja positiva, pelo terminal, se dirija até a pasta criada pelo arquivo *.zip*. `cd <nome da pasta>`
-5. Vamos criar agora um ambeinte virtual, pelo comando: `py -3 -m venv venv`
-6. Criada, vamos ativa-la: `cd venv\Scripts\activate`
-7. Então, é só instalar o *requirements.txt*: `pip install -r requirements.txt`
-8. Agora apenas digite ainda no terminal: `flask run` para começar a rodar o sistema
-9. Clicando no link disponibilizado. Pronto! Agora é só utilzar.
+2. Após a instalação, verifique se possui o Phyton já instalado em sua máquina. Apartir do comando no terminal: 
+```
+python --version
+```
+4. Caso não possua siga os passos de instalação do site oficial do Python: https://www.python.org/
+5. Caso a resposta seja positiva, pelo terminal, se dirija até a pasta criada pelo arquivo *.zip*. 
+```
+cd <nome da pasta>
+```
+7. Vamos criar agora um ambiente virtual, pelo comando: 
+```
+py -3 -m venv venv
+```
+9. Criada, vamos ativa-la: 
+```
+.venv\Scripts\activate
+```
+11. Então, é só instalar o *requirements.txt*: 
+```
+pip install -r requirements.txt
+```
+Caso o comando acima não funcione, segue outra alternativa:
+```
+py -3 -m pip install -r requirements.txt
+```
+13. Certifique-se que está na pasta `src`, caso não esteja, retorne até a pasta principal utilizando o primeiro comando, e depois vá até a pasta
+```
+cd ..
+cd src
+```
+15. Agora ainda no terminal, digite o seguinte código para começar a rodar o sistema:
+```
+flask run
+```
+17. Clique no link disponibilizado (com ctrl + clique). Pronto! Agora é só utilizar.
 
 
 # Planejamento <a id="planejamento"></a>
@@ -62,10 +89,12 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 | Layout no Figma                               | Criação de um layout final do projeto no Figma, para poder retirar prévias dúvidas com o cliente, onde estára em primeiro momento se adequando as necessidades do cliente. Para depois servir como base para o andamento do design do projeto. | Funcional     | Alta       | 1      | ✅ |
 | Protótipo navegável                           | Começar a digitar os códigos em HTML e CSS para estruturação das páginas se baseando no layout proposto no Figma. Priorizando neste momento apenas as que irão ser utilizadas para a primeira entrega.                                         | Funcional     | Alta       | 1      | ✅ |
 | Modelagem do banco de dados                   | Realizar o modelo conceitual e lógico no BrModelo, e a criação das tabelas no Workbench. Por ser uma modelagem incremental, o foco maior será no necessário para a funcionalidade desta primeira entrega.                                      | Não funcional | Alta       | 1      | ✅ |
-| Navegabilidade com Flask                      | Utilizar do mini framework Flask para realizar a navegabilidade entre as páginas do sistema.                                                                                                                                                   | Não funcional | Média      | 1      | ✅ |
-| Banco de dados funcional                      | Através da modelagem do banco de dados feita anteriormente, precisará finalizar a estruração do mesmo.                                                                                                                                         | Não funcional | Alta       | 1      | ✅ | 
+| Banco de dados funcional                      | Através da modelagem do banco de dados feita anteriormente, precisará finalizar a estruração do mesmo.                                                                                                                                         | Não funcional | Alta       | 1      | ✅ |
 | Relatório                                     | Uma das funcionalidades do administrador, em que realiza um cálculo percentual em cima das informaçõs das solcitações registradas do sistema.                                                                                                  | Funcional     | Alta       | 3      | 🕓 | 
-| Distribuição da solicitação de serviços       | No momento em que a solicitação é registrada no sistema, esta deverá ser direcionada para algum executor de forma sequencial.                                                                                                                  | Funcional     | Alta       | 2      | 🕓 | 
+| Distribuição da solicitação de serviços       | No momento em que a solicitação é registrada no sistema, esta deverá ser direcionada para algum executor de forma sequencial.                                                                                                                  | Funcional     | Alta       | 2      | 🕓 |
+| Navegabilidade com Flask                      | Utilizar do mini framework Flask para realizar a navegabilidade entre as páginas do sistema.                                                                                                                                                   | Não funcional | Média      | 1      | ✅ |
+| Vídeo do MVP                                  | Finalizando o desenvolvimento do MVP, algum menbro da equipe deverá gravar seu funcionamento e explicar tecnicamente os aspectos.                                                                                                              | Funcional     | Média      | 1      | ✅ |
+| Documentação no github                        | Escrever descritivamente os passos realizados em cada entrega, realiza-lo de modo incremental a cada entrega.                                                                                                                                  | Não funcional | Média      | 1      | ✅ | 
 | Usuário comum                                 | Determinar que este tipo de pessoa só poderá realizar solicaitações de serviços, verificar o seu histórico de envio e também avaliar a resposta do executor.                                                                                   | Funcional     | Média      | 2      | 🕓 | 
 | Executor                                      | Na sua interface aparecerá apenas as solicitações encaminhadas para ele, e um filtro em que mostre os status de cada solicitação.                                                                                                              | Funcional     | Média      | 2      | 🕓 | 
 | Administrador                                 | Será responsável por todo o sistema, então terá permissão de visualizar os históricos de solicitações (importante deixar filtro por executor), gerar relatórios e terá a permissão de tornar um usuário comum em executor ou vice versa.       | Funcional     | Média      | 2      | 🕓 | 
@@ -74,15 +103,18 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 
 
 
+
 ## 1ª Sprint
 
 O time se organizou para trazer um sistema simplificado do que foi pedido pelo cliente. Nesta versão, apresentaremos apenas as funcionalidades de envio de solicitação e armazenamento da mesma. Terá uma página do preenchimento da solicitação com o nome do cliente, tipo de serviço e a descrição do problema. Esta solicitação irá ser redirecionada para outra página onde será a visão do executor, pois neste ambiente ele poderá visualizar a solicitação e poderá dar um retorno.
 
-Em primeiro momento foi realizado o layout do sistema na plataforma Figma, onde no desenvolvimento para esta primeira entrega foi focado apenas nas páginas que será exibidas. Sendo as páginas voltadas para um usuário comum (tela inicial do usuário, nova solicitação e histórico das solicitações) e as páginas para um executor (tela das demandas e resposta). O wireframe completo estará na pasta `doc/front-end` localizada neste repositório, em seguida está as imagens das páginas escolhidas:
+### Front-end
+Em primeiro momento foi realizado o layout do sistema na plataforma Figma, onde no desenvolvimento para esta primeira entrega foi focado apenas nas páginas que será exibidas. Sendo as páginas voltadas para um usuário comum (tela inicial do usuário, nova solicitação e histórico das solicitações) e as páginas para um executor (tela das demandas e resposta). O wireframe completo estará na pasta `doc/front-end` localizada neste repositório, abaixo está as imagens das páginas escolhidas:
 
 <img src="/doc/front-end/wireframe-sprint1.png" alt="wireframe sprint 1" width="855" >
 <img src="/doc/front-end/wireframe-sprint1(2).PNG" alt="wireframe sprint 1 (2)" width="855">
 
+### Back-end
 Paralelamente ao desenvolvimento das páginas, estava sendo modelado e preparado o banco de dados. Pensando em que a modelagem pode ser realizada através de implementaçãoes, priorizou-se apenas as criações das tabelas necessárias para o funcionamento do sistema nesta primeira entrega. Para tal, primeiramente realizaou-se os modelos conceitual e lógico.
 
 **Modelo conceitual feito no brModelo.**
@@ -91,13 +123,26 @@ Paralelamente ao desenvolvimento das páginas, estava sendo modelado e preparado
 **Modelo lógico feito no Workbench.**
 <img src="/doc/back-end/modeloLogico-sprint1.jpeg" alt="modelo lógico sprint 1">
 
+Na sequência partiu-se para a criação do banco físico, utilizando a linguagem SQL na criação de tabelas. Segue imagens do momento da criação em que a linguagem DDL foi utilizada:
+<img src="/doc/back-end/" alt="criação de tabelas">
+
+
+
 
 # MVP <a id="mvp"></a>
 Mínimo produto viável (MVP) é uma versão funcional de modo enxuto do serviço inicialmente pensado. Onde uma pequena parcela de pessoas irá testar e experimenta-lo podendo assim opinar para futuras melhoras. Este conceito é implementado no SCRUM, onde geramos um MVP na primeira entrega e apartir dele continuamos implementando-o até chegar ao produto final.
 
-Nosso MVP ficou da seguinte forma: <a href="#">Link para acessar o vídeo</a>
+Nosso MVP ficou da seguinte forma: 
+<gif>
+
+Nós também realizamos um vídeo onde explicamos brevemente seu funcionamento e como conseguimos desenvolve-lo, segue o link: 
+<a href="#">Link para acessar o vídeo</a>
 
 
+      
+      
+      
+      
 # Equipe <a id="equipe"></a>
 
 | Membro                | Função        | Github                                                                                                                                                | Linkedin                                                                                                                                                                                         |
