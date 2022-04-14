@@ -1,6 +1,6 @@
 # API-DSM-ServiceDesk
 <p align="center">
-      <img src="#" alt="logo da equipe" width="200" height="150">
+      <img src="/doc/front-end/WhatsCode-logo.png" alt="logo da equipe" width="200">
       <h3 align="center"> WhatsCode | Equipe 3</h3>
 
 <hr>
@@ -19,6 +19,7 @@
  <a href="https://www.python.org/"><img src ="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/></a>
  <a href="https://flask.palletsprojects.com/"><img src ="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"/></a>
  <a href="https://www.mysql.com/"><img src ="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white"/></a>
+ <a href="https://www.sqlalchemy.org/"><img src ="/doc/front-end/badge-sqlalchemy.svg" width="100"></a>
 </h4>
 
 <br>
@@ -42,7 +43,7 @@ Passo a passo:
 
 
 # Planejamento <a id="planejamento"></a>
-Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de trÊs sprints com 21 dias cada: 
+Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de três sprints com 21 dias cada: 
 
 - Sprint 1 (25/03 - 14/04)
 - Sprint 2 (25/04 - 15/05)
@@ -73,15 +74,15 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 
 O time se organizou para trazer um sistema simplificado do que foi pedido pelo cliente. Nesta versão, apresentaremos apenas as funcionalidades de envio de solicitação e armazenamento da mesma. Terá uma página do preenchimento da solicitação com o nome do cliente, tipo de serviço e a descrição do problema. Esta solicitação irá ser redirecionada para outra página onde será a visão do executor, pois neste ambiente ele poderá visualizar a solicitação e poderá dar um retorno.
 
-Em primeiro momento foi realizado o layout do sistema na plataforma Figma, onde no desenvolvimento para esta primeira entrega foi focado apenas nas páginas que será exibidas. Sendo as páginas voltadas para um usuário comum (tela inicial do usuário, nova solicitação e histórico das solicitações) e as páginas para um executor (tela das demandas e resposta). O wireframe completo estará na pasta `doc` localizada neste repositório, em seguida está as imagens das páginas escolhidas:
+Em primeiro momento foi realizado o layout do sistema na plataforma Figma, onde no desenvolvimento para esta primeira entrega foi focado apenas nas páginas que será exibidas. Sendo as páginas voltadas para um usuário comum (tela inicial do usuário, nova solicitação e histórico das solicitações) e as páginas para um executor (tela das demandas e resposta). O wireframe completo estará na pasta `doc/front-end` localizada neste repositório, em seguida está as imagens das páginas escolhidas:
 
-<img src="/doc/wireframe-sprint1.png" alt="wireframe sprint 1" width="855" >
-<img src="/doc/wireframe-sprint1(2).PNG" alt="wireframe sprint 1 (2)" width="855">
+<img src="/doc/front-end/wireframe-sprint1.png" alt="wireframe sprint 1" width="855" >
+<img src="/doc/front-end/wireframe-sprint1(2).PNG" alt="wireframe sprint 1 (2)" width="855">
 
 Paralelamente ao desenvolvimento das páginas, estava sendo modelado e preparado o banco de dados. Pensando em que a modelagem pode ser realizada através de implementaçãoes, priorizou-se apenas as criações das tabelas necessárias para o funcionamento do sistema nesta primeira entrega. Para tal, primeiramente realizaou-se os modelos conceitual e lógico.
 
 Modelo conceitual feito no brModelo:
-<img src="/doc/modeloConceitual-sprint1.jpg" alt="modelo conceitual sprint 1">
+<img src="/doc/back-end/modeloConceitual-sprint1.jpg" alt="modelo conceitual sprint 1">
 
 Modelo lógico feito no Workbench:
 <img src="#" alt="modelo lógico sprint 1">
