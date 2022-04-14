@@ -133,7 +133,7 @@ Na sequência partiu-se para a criação do banco físico, utilizando a linguage
 Mínimo produto viável (MVP) é uma versão funcional de modo enxuto do serviço inicialmente pensado. Onde uma pequena parcela de pessoas irá testar e experimenta-lo podendo assim opinar para futuras melhoras. Este conceito é implementado no SCRUM, onde geramos um MVP na primeira entrega e apartir dele continuamos implementando-o até chegar ao produto final.
 
 Nosso MVP ficou da seguinte forma: 
-<gif>
+![Animação1](https://user-images.githubusercontent.com/93659003/163466894-39f2c6d2-a105-47c0-898f-a6768a7e2360.gif)
 
 Nós também realizamos um vídeo onde explicamos brevemente seu funcionamento e como conseguimos desenvolve-lo, segue o link: 
 <a href="#">Link para acessar o vídeo</a>
