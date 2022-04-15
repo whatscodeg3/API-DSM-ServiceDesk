@@ -90,6 +90,7 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 | Protótipo navegável                           | Começar a digitar os códigos em HTML e CSS para estruturação das páginas se baseando no layout proposto no Figma. Priorizando neste momento apenas as que irão ser utilizadas para a primeira entrega.                                         | Funcional     | Alta       | 1      | ✅ |
 | Modelagem do banco de dados                   | Realizar o modelo conceitual e lógico no BrModelo, e a criação das tabelas no Workbench. Por ser uma modelagem incremental, o foco maior será no necessário para a funcionalidade desta primeira entrega.                                      | Não funcional | Alta       | 1      | ✅ |
 | Banco de dados funcional                      | Através da modelagem do banco de dados feita anteriormente, precisará finalizar a estruração do mesmo.                                                                                                                                         | Não funcional | Alta       | 1      | ✅ |
+| Ligação com o banco de dados | Utilizando o SQLAlchemy e Python para realizar a ligação das páginas feitas pela equipe do front-end | Não funcional | Alta | 1 | ✅|
 | Relatório                                     | Uma das funcionalidades do administrador, em que realiza um cálculo percentual em cima das informaçõs das solcitações registradas do sistema.                                                                                                  | Funcional     | Alta       | 3      | 🕓 | 
 | Distribuição da solicitação de serviços       | No momento em que a solicitação é registrada no sistema, esta deverá ser direcionada para algum executor de forma sequencial.                                                                                                                  | Funcional     | Alta       | 2      | 🕓 |
 | Navegabilidade com Flask                      | Utilizar do mini framework Flask para realizar a navegabilidade entre as páginas do sistema.                                                                                                                                                   | Não funcional | Média      | 1      | ✅ |
@@ -124,10 +125,11 @@ Paralelamente ao desenvolvimento das páginas, estava sendo modelado e preparado
 <img src="/doc/back-end/modeloLogico-sprint1.jpeg" alt="modelo lógico sprint 1">
 
 Na sequência partiu-se para a criação do banco físico, utilizando a linguagem SQL na criação de tabelas. Segue imagens do momento da criação em que a linguagem DDL foi utilizada:
-<img src="/doc/back-end/" alt="criação de tabelas">
+<img src="/doc/back-end/tabela1.jpg" alt="criação de tabelas">
+<img src="/doc/back-end/tabela2.jpg" alt="criação de tabelas">
 
-
-
+### Ligação com o banco de dados
+Após estar finalizado a criação do banco de dados e já estar estruturado todas as páginas necessárias, realizou-se a ligação de ambas. Utilizando o mini framework Flask, linguagem Python e a biblioteca SQLAlchemy.
 
 # MVP <a id="mvp"></a>
 Mínimo produto viável (MVP) é uma versão funcional de modo enxuto do serviço inicialmente pensado. Onde uma pequena parcela de pessoas irá testar e experimenta-lo podendo assim opinar para futuras melhoras. Este conceito é implementado no SCRUM, onde geramos um MVP na primeira entrega e apartir dele continuamos implementando-o até chegar ao produto final.
@@ -136,7 +138,7 @@ Nosso MVP ficou da seguinte forma:
 ![Animação1](https://user-images.githubusercontent.com/93659003/163466894-39f2c6d2-a105-47c0-898f-a6768a7e2360.gif)
 
 Nós também realizamos um vídeo onde explicamos brevemente seu funcionamento e como conseguimos desenvolve-lo, segue o link: 
-<a href="#">Link para acessar o vídeo</a>
+<a href="https://youtu.be/B5IebZFQw_Q">Link para acessar o vídeo</a>
 
 
       
