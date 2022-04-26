@@ -33,27 +33,39 @@ Em modo geral, uma Central de Serviços é uma ferramenta que presta assessoria 
 Este projeto será realizado baseado na metodologia ágil SCRUM, que foca no desenvolvimento da proatividade, autonomia e uma melhora da produtividade do time como um todo.
 
 # Executando a aplicação <a id="configuracoes"></a>
-Para conseguir testar o sistema em qualquer local é necessário seguir o seguinte passo a passo:
+Para a excução deste sistema temos disponibilado duas formas, com a instalação de um banco de dados local ou de um banco em nuvem. Caso a sua rede da máquina que está utilizando seja restrita é recomendado a instalação para o banco local. Caso contrário, pode-se pular as etapas da instalação do banco de dados e ir direto para os passos de Rodar a aplicação.
 
-1. Ao clicar em `tag` aparecerá um arquivo *.zip* nominado v1.0.0 clique para baixá-lo.
-2. Após a instalação, verifique se possui o Phyton já instalado em sua máquina. Apartir do comando no terminal: 
+## Instalação do banco de dados
+1. Ao clicar em `tag` aparecerá um arquivo *.zip* nominado v1.0.1 clique para baixá-lo.
+
+2. 
+
+3.
+```
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://bcda6317f670c5:56674bf3@us-cdbr-east-05.cleardb.net/heroku_041f3b642f4313b'
+app.config['SQLALCHEMY_DATABASE_URI'] =
+```
+
+## Rodar a aplicação
+
+1. Após a instalação, verifique se possui o Phyton já instalado em sua máquina. Apartir do comando no terminal: 
 ```
 python --version
 ```
-4. Caso não possua siga os passos de instalação do site oficial do Python: https://www.python.org/
-5. Caso a resposta seja positiva, pelo terminal, se dirija até a pasta criada pelo arquivo *.zip*. 
+2. Caso não possua siga os passos de instalação do site oficial do Python: https://www.python.org/
+3. Caso a resposta seja positiva, pelo terminal de sua preferência, se dirija até a pasta criada pelo arquivo *.zip*. 
 ```
 cd <nome da pasta>
 ```
-7. Vamos criar agora um ambiente virtual, pelo comando: 
+4. Vamos criar agora um ambiente virtual, pelo comando: 
 ```
 py -3 -m venv venv
 ```
-9. Criada, vamos ativa-la: 
+5. Criada, vamos ativa-la: 
 ```
 .venv\Scripts\activate
 ```
-11. Então, é só instalar o *requirements.txt*: 
+6. Então, é só instalar o *requirements.txt*: 
 ```
 pip install -r requirements.txt
 ```
@@ -61,16 +73,16 @@ Caso o comando acima não funcione, segue outra alternativa:
 ```
 py -3 -m pip install -r requirements.txt
 ```
-13. Certifique-se que está na pasta `src`, caso não esteja, retorne até a pasta principal utilizando o primeiro comando, e depois vá até a pasta
+7. Certifique-se que está na pasta `src`, caso não esteja, retorne até a pasta principal utilizando o primeiro comando, e depois vá até a pasta
 ```
 cd ..
 cd src
 ```
-15. Agora ainda no terminal, digite o seguinte código para começar a rodar o sistema:
+8. Agora ainda no terminal, digite o seguinte código para começar a rodar o sistema:
 ```
 flask run
 ```
-17. Clique no link disponibilizado (com ctrl + clique). Pronto! Agora é só utilizar.
+9. Clique no link disponibilizado (com ctrl + clique). Pronto! Agora é só utilizar.
 
 
 # Planejamento <a id="planejamento"></a>
