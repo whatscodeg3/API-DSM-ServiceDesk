@@ -33,17 +33,93 @@ Em modo geral, uma Central de Serviços é uma ferramenta que presta assessoria 
 Este projeto será realizado baseado na metodologia ágil SCRUM, que foca no desenvolvimento da proatividade, autonomia e uma melhora da produtividade do time como um todo.
 
 # Executando a aplicação <a id="configuracoes"></a>
-Para a excução deste sistema temos disponibilado duas formas, com a instalação de um banco de dados local ou de um banco em nuvem. Caso a sua rede da máquina que está utilizando seja restrita é recomendado a instalação para o banco local. Caso contrário, pode-se pular as etapas da instalação do banco de dados e ir direto para os passos de Rodar a aplicação.
+- Primeiramente, clique em `tag` e aparecerá um arquivo *.zip* nominado v1.0.1. Clique para baixá-lo.
+- Para a excução deste sistema há duas formas: instalar um banco de dados local ou utilizar um banco de dados na nuvem. Caso a sua rede seja restrita é recomendada a instalação de um banco local. Caso contrário, pode-se pular as etapas da instalação do banco de dados local e executar os passos de <i>Rodar a aplicação</i>.
 
 ## Instalação do banco de dados
-1. Ao clicar em `tag` aparecerá um arquivo *.zip* nominado v1.0.1 clique para baixá-lo.
+### Banco de dados:
+1. Execute o MySQL Workbench e selecione a conexão padrão 'Local instance MySQL80'
 
-2. 
+2. Execute o Script SQL abaixo:
+```
+CREATE DATABASE service;
 
-3.
+USE service;
+
+# Categoria dos usuarios e solicitações
+CREATE TABLE IF NOT EXISTS categoria_usuarios (
+	id_categoria_usuario INT NOT NULL AUTO_INCREMENT,
+    categoria_usuario VARCHAR(45) NOT NULL,
+    PRIMARY KEY(id_categoria_usuario)
+);
+
+CREATE TABLE IF NOT EXISTS categoria_solicitacoes (
+	id_categoria_solicitacao INT NOT NULL AUTO_INCREMENT,
+    categoria_solicitacao VARCHAR(45) NOT NULL UNIQUE,
+    PRIMARY KEY(id_categoria_solicitacao)
+);
+
+# Inserindo valores em categoria usuarios e categoria solicitacoes
+INSERT INTO categoria_usuarios(categoria_usuario) VALUES
+("Usuário"),
+("Executor"),
+("Administrador");
+
+INSERT INTO categoria_solicitacoes(categoria_solicitacao) VALUES
+("Problema no Hardware"),
+("Problema com Software"),
+("Dúvidas/Esclarecimentos");
+
+# Criando tabela de usuarios e solicitacoes
+CREATE TABLE IF NOT EXISTS usuarios (
+    id_usuario INT NOT NULL AUTO_INCREMENT ,
+    nome_usuario VARCHAR(255) NOT NULL,
+    email_usuario VARCHAR(255) NOT NULL,
+    senha_usuario VARCHAR(14) NOT NULL UNIQUE,
+    id_categoria_usuario INT,
+    PRIMARY KEY (id_usuario),
+    CONSTRAINT FK_id_categoria_usuario FOREIGN KEY (id_categoria_usuario)
+    REFERENCES categoria_usuarios(id_categoria_usuario)
+);
+
+CREATE TABLE IF NOT EXISTS solicitacoes(
+	id_solicitacao INT NOT NULL AUTO_INCREMENT,
+    data_abertura TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+    data_aceite TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+    data_fechamento TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    descricao_solicitacao TEXT NOT NULL,
+    resposta_solicitacao TEXT,
+    FK_id_usuario INT,
+    FK_id_categoria_usuario INT,
+    FK_id_categoria_solicitacao INT,
+    PRIMARY KEY(id_solicitacao),
+    # Constraint categoria_usuario
+    CONSTRAINT FK_id_categoria_usuario_solicitacao FOREIGN KEY (FK_id_categoria_usuario)
+    REFERENCES categoria_usuarios(id_categoria_usuario),
+    # Constraint categoria_solicitacao
+    CONSTRAINT FK_id_categoria_solicitacao FOREIGN KEY (FK_id_categoria_solicitacao)
+    REFERENCES categoria_solicitacoes(id_categoria_solicitacao),
+    # Constraint id_usuario
+    CONSTRAINT FK_id_usuario FOREIGN KEY (FK_id_usuario)
+    REFERENCES usuarios(id_usuario)
+);
+
+```
+### IDE:
+1. Descompacte o arquivo (projeto) baixado anteriormente.
+
+2. Na sua IDE de preferência, abra o projeto denominado 'API-DSM-ServiceDesk'. 
+
+3. Entre na pasta src e abra o arquivo app.py 
+
+4. Comente a linha 7 desse arquivo (adicionando # no início da linha)
 ```
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://bcda6317f670c5:56674bf3@us-cdbr-east-05.cleardb.net/heroku_041f3b642f4313b'
-app.config['SQLALCHEMY_DATABASE_URI'] =
+
+```
+5. Descomente a linha 8 (retirando o # do início da linha) e altere apenas a palavra 'SENHA' para a senha que você usou para entrar na conexão padrão (passo 2).
+```
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:SENHA@localhost/service'
 ```
 
 ## Rodar a aplicação
