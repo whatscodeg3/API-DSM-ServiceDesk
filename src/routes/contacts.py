@@ -1,4 +1,5 @@
-from flask import Blueprint, redirect, render_template, request, url_for
+import pathlib
+from flask import Blueprint, redirect, render_template, request, url_for, send_from_directory, current_app
 from models.solicita import Categoria, Solicita
 from utils.db import db
 
@@ -37,6 +38,13 @@ def criar():
     novo = Solicita(tipo, descricao)
     db.session.add(novo)
     db.session.commit()
+
+    arquivo = request.files['arquivo']
+    ext = pathlib.Path(arquivo.filename)
+    upload_path = current_app.config['UPLOAD_PATH']
+    
+    arquivo.save(f'{upload_path}/anexo{novo.id_solicitacao}{ext.suffix}')
+
 
     return redirect('/historico')
 
