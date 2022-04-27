@@ -56,12 +56,25 @@ header{
 .section {
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
   gap: 50px;
   width: 60%;
   height: 100%;
   padding: 1%;
 }
+
+@media screen and (max-width: 1080px) {                
+  .section {
+      flex-direction: column;
+      padding: 2.5%;
+  }
+} 
+
+@media screen and (max-width: 1080px) {                
+  .section {
+      flex-direction: column;
+      padding: 3%;
+  }
+} 
 
 .caixa-texto {
   display: flex;
@@ -109,8 +122,14 @@ footer {
 
 .div-autorizacao {
   color: #DDD;
-  font-size: 1vw;
+  font-size: 100%;
 }
+
+@media screen and (max-width: 540px) {                
+  .div-autorizacao {
+      text-align: center;
+  }
+} 
 
 .div-enviar {
   padding-top: 10%;
