@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../static/css/estilo-usuario-historico.css">
+    <script src="../static/assets/bootstrap/js/funcoes.js"></script>
     <title>Usuário - Histórico</title>
 </head>
 <body>
@@ -58,9 +59,27 @@
                                 </p>
                             {% else %}
                                 <br>
-                                <p>
+                                <div class="avaliacao">
+                                    <p>
                                     {{ lista.resposta_solicitacao}}
-                                </p>
+                                    </p>
+                                    <div>
+                                        <a href="javascript:void(0)" onclick="Avaliar(1)" value="1">
+                                            <img src="../static/img/star0.png" id="s1"></a>
+                                    
+                                            <a href="javascript:void(0)" onclick="Avaliar(2)" value="2">
+                                            <img src="../static/img/star0.png" id="s2"></a>
+                                    
+                                            <a href="javascript:void(0)" onclick="Avaliar(3)" value="3">
+                                            <img src="../static/img/star0.png" id="s3"></a>
+                                    
+                                            <a href="javascript:void(0)" onclick="Avaliar(4)" value="4">
+                                            <img src="../static/img/star0.png" id="s4"></a>
+                                    
+                                            <a href="javascript:void(0)" onclick="Avaliar(5)" value="5">
+                                            <img src="../static/img/star0.png" id="s5"></a>
+                                    </div>
+                                </div>
                             {% endif %}
                         </div>
                     </details>
