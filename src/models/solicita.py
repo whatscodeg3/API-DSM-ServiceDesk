@@ -31,3 +31,11 @@ class Categoria(db.Model):
         self.categoria_solicitacao = categoria_solicitacao
 
 
+class Usuarios(db.Model):
+    __tablename__ = 'usuarios'
+    id_usuario = db.Column(db.Integer, primary_key=True)
+    nome_usuario = db.Column(db.String(255))
+    def __init__(self, nome_usuario):
+        self.nome_usuario = nome_usuario
+
+

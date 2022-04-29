@@ -1,5 +1,6 @@
+from email.mime import base
 from flask import Blueprint, redirect, render_template, request, url_for
-from models.solicita import Categoria, Solicita
+from models.solicita import Categoria, Solicita, Usuarios
 from utils.db import db
 
 contacts = Blueprint('contacts', __name__)
@@ -50,3 +51,10 @@ def atualiza(id):
         return redirect('/demanda')
 
     return render_template('resposta-executor.html', solicita=consulta)
+
+
+@contacts.route('/permissoes')
+def permissoes():
+    nome = Usuarios.query.all()
+    return render_template('adm_permissoes.html', nome=nome)
+
