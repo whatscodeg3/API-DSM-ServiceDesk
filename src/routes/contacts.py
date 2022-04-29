@@ -9,6 +9,10 @@ contacts = Blueprint('contacts', __name__)
 def index():
     return render_template('home_usuario.html')
 
+@contacts.route('/admin')
+def admin():
+    return render_template('home_admin.html') 
+
 @contacts.route('/nova-solicitacao')
 def nova():
     categoria = Categoria.query.all()
