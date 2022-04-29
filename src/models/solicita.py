@@ -10,12 +10,15 @@ class Solicita(db.Model):
     descricao_solicitacao = db.Column(db.String)
     resposta_solicitacao = db.Column(db.String)
     fk_id_categoria_solicitacao = db.Column(db.Integer, db.ForeignKey('categoria_solicitacoes.id_categoria_solicitacao'))
+    fk_id_avaliacao = db.Column(db.Integer, db.ForeignKey('avaliacao.id_avaliacao'))
     cat = db.relationship('Categoria', back_populates="solicit")
+    aval = db.relationship('Avaliacao', back_populates="solicit2")
 
-    def __init__(self, fk_id_categoria_solicitacao, descricao_solicitacao):
+    def __init__(self, fk_id_categoria_solicitacao, descricao_solicitacao, fk_id_avaliacao):
         self.fk_id_categoria_solicitacao = fk_id_categoria_solicitacao
         self.descricao_solicitacao=descricao_solicitacao
         #self.data_abertura=data_abertura
+        self.fk_id_avaliacao = fk_id_avaliacao
 
     def executor(self,resposta_solicitacao):
         self.resposta_solicitacao=resposta_solicitacao
@@ -30,4 +33,12 @@ class Categoria(db.Model):
         self.id_categoria_solicitacao = id_categoria_solicitacao
         self.categoria_solicitacao = categoria_solicitacao
 
+class Avaliacao(db.Model):
+    __tablename__ = 'avaliacoes'
+    id_avaliacao = db.Column(db.Integer, primary_key=True)
+    quant_estrelas = db.Column(db.Integer)
+    solicit2 = db.relationship('Solicita', back_populates="aval")
 
+    def __init__(self, id_avaliacao, quant_estrelas):
+        self.id_avaliacao = id_avaliacao
+        self.quant_estrelas = quant_estrelas
