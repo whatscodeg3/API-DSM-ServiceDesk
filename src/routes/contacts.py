@@ -1,3 +1,4 @@
+import os
 import pathlib
 from flask import Blueprint, redirect, render_template, request, url_for, send_from_directory, current_app
 from models.solicita import Categoria, Solicita
@@ -48,13 +49,24 @@ def criar():
 
     return redirect('/historico')
 
+@contacts.route('/uploads/<nome_arquivo>')
+def anexos(nome_arquivo):
+    return send_from_directory('uploads', nome_arquivo)
+
+
 
 @contacts.route('/atualizar/<id>', methods=['POST','GET'])
 def atualiza(id):
     consulta = Solicita.query.get(id)
+    upload_path = current_app.config['UPLOAD_PATH']
+    termo = f'{id}'
+    for raiz, diretorio, arquivos in os.walk(upload_path):
+        for arquivo in arquivos:
+            if termo in arquivo:
+                file = arquivo
     if request.method == "POST":
         consulta.resposta_solicitacao = request.form['resposta']
         db.session.commit()
         return redirect('/demanda')
 
-    return render_template('resposta-executor.html', solicita=consulta)
+    return render_template('resposta-executor.html', solicita=consulta, arquivo_no_html = file)
