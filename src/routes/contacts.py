@@ -17,6 +17,10 @@ def nova():
 @contacts.route('/historico')
 def historico():
     lista = Solicita.query.all()
+    # if request.method == "POST":
+    #     lista.fk_id_avaliacao = request.form['1estrela']
+    #     db.session.commit()
+    #     return redirect('/historico')
     return render_template('usuario-historico.html', listas=lista)
 
 @contacts.route('/demanda')

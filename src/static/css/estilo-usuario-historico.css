@@ -301,7 +301,21 @@ html{
             .avaliacao {
                 display: flex;
                 flex-direction: row;
-                justify-content: space-between;
             }
 
+            .botao {
+                background: #AE1414;
+                color: #DDD;
+                border-radius: 15px;
+                border: #AE1414;
+                height: 50px;
+                width: 100px;
+                font: bold 15px arial, sans-serif;
+                text-shadow: none;
+            }
+            
+            .botao:hover {
+                background: #A01111;
+                cursor: pointer;
+            }
 

@@ -10,15 +10,14 @@ class Solicita(db.Model):
     descricao_solicitacao = db.Column(db.String)
     resposta_solicitacao = db.Column(db.String)
     fk_id_categoria_solicitacao = db.Column(db.Integer, db.ForeignKey('categoria_solicitacoes.id_categoria_solicitacao'))
-    fk_id_avaliacao = db.Column(db.Integer, db.ForeignKey('avaliacao.id_avaliacao'))
+    fk_id_avaliacao = db.Column(db.Integer, db.ForeignKey('avaliacoes.id_avaliacao'))
     cat = db.relationship('Categoria', back_populates="solicit")
-    aval = db.relationship('Avaliacao', back_populates="solicit2")
+    av = db.relationship('Avaliacao', back_populates="sol")
 
-    def __init__(self, fk_id_categoria_solicitacao, descricao_solicitacao, fk_id_avaliacao):
+    def __init__(self, fk_id_categoria_solicitacao, descricao_solicitacao):
         self.fk_id_categoria_solicitacao = fk_id_categoria_solicitacao
         self.descricao_solicitacao=descricao_solicitacao
         #self.data_abertura=data_abertura
-        self.fk_id_avaliacao = fk_id_avaliacao
 
     def executor(self,resposta_solicitacao):
         self.resposta_solicitacao=resposta_solicitacao
@@ -37,7 +36,7 @@ class Avaliacao(db.Model):
     __tablename__ = 'avaliacoes'
     id_avaliacao = db.Column(db.Integer, primary_key=True)
     quant_estrelas = db.Column(db.Integer)
-    solicit2 = db.relationship('Solicita', back_populates="aval")
+    sol = db.relationship('Solicita', back_populates="av")
 
     def __init__(self, id_avaliacao, quant_estrelas):
         self.id_avaliacao = id_avaliacao
