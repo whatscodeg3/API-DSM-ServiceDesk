@@ -14,10 +14,9 @@ class Solicita(db.Model):
     cat = db.relationship('Categoria', back_populates="solicit")
     av = db.relationship('Avaliacao', back_populates="sol")
 
-    def __init__(self, fk_id_categoria_solicitacao, descricao_solicitacao, fk_id_avaliacao):
+    def __init__(self, fk_id_categoria_solicitacao, descricao_solicitacao):
         self.fk_id_categoria_solicitacao = fk_id_categoria_solicitacao
         self.descricao_solicitacao=descricao_solicitacao
-        self.fk_id_avaliacao = fk_id_avaliacao
         #self.data_abertura=data_abertura
 
     def executor(self,resposta_solicitacao):

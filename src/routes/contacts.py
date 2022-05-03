@@ -17,9 +17,9 @@ def nova():
 @contacts.route('/historico')
 def historico():
     lista = Solicita.query.all()
-    for i in lista:
-        id = i.id_solicitacao
-        print(id)
+    # for i in lista:
+    #     id = i.id_solicitacao
+        
     # if request.method == "POST":
     #     lista.fk_id_avaliacao = request.form['1estrela']
     #     db.session.commit()
@@ -51,10 +51,11 @@ def criar():
 @contacts.route('/avaliar/<id>', methods=['POST',])
 def avalia(id):
     print('cheuguei')
-    
     print(id)
+    # teste = request.form['1estrela']
+    # print(teste)
     consulta = Solicita.query.get(id)
-    consulta.fk_id_avaliacao = request.form['1estrela']
+    consulta.fk_id_avaliacao = 4
     db.session.commit()
     return redirect('/historico')
 
