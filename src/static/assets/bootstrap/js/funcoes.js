@@ -94,6 +94,6 @@ function Avaliar(estrela) {
     document.getElementById("s5").src = "../static/img/star0.png";
    }}
     
-    document.getElementById('rating').innerHTML = avaliacao;
+    document.getElementById('rating').innerHTML;
     
    }

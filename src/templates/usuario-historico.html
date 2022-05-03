@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../static/css/estilo-usuario-historico.css">
     <script src="../static/assets/bootstrap/js/funcoes.js"></script>
+
+
     <title>Usuário - Histórico</title>
 </head>
 <body>
@@ -38,7 +40,7 @@
                 <button class="pesquisa-lupa" type="submit"><img id="pesquisa-img" src="../static/img/lupa-arredondada.svg" alt="icone menu"></button>
             </form>
         </section>
-        <form class="chamados">
+        <form class="chamados" action="/avaliar/{{id}}" method="POST"> 
             <ul class="chamados-lista" type="none">
                 {% for lista in listas %}
                 <li class="chamados-itens">
@@ -63,24 +65,30 @@
                                     <p>
                                     {{ lista.resposta_solicitacao}}
                                     </p>
-                                    <form class="estrelas" method="POST">
-                                        <a href="javascript:void(0)" onclick="Avaliar(1)" value="1" name="1estrela">
-                                            <img src="../static/img/star0.png" id="s1"></a>
-                                    
-                                            <a href="javascript:void(0)" onclick="Avaliar(2)" value="2" name="2estrelas">
-                                            <img src="../static/img/star0.png" id="s2"></a>
-                                    
-                                            <a href="javascript:void(0)" onclick="Avaliar(3)" value="3" name="3estrelas">
-                                            <img src="../static/img/star0.png" id="s3"></a>
-                                    
-                                            <a href="javascript:void(0)" onclick="Avaliar(4)" value="4" name="4estrelas">
-                                            <img src="../static/img/star0.png" id="s4"></a>
-                                    
-                                            <a href="javascript:void(0)" onclick="Avaliar(5)" value="5" name="5estrelas">
-                                            <img src="../static/img/star0.png" id="s5"></a>
-                                    </form>
+                                    <div class="estrelas">
+                                        <a href="javascript:void(0)" onclick="Avaliar(1)" value={{lista.id_solicitacao}} name="1estrela">
+                                        <img src="../static/img/star0.png" id="s1"></a>
+                                
+                                        <a href="javascript:void(0)" onclick="Avaliar(2)" value="2" name="2estrelas">
+                                        <img src="../static/img/star0.png" id="s2"></a>
+                                
+                                        <a href="javascript:void(0)" onclick="Avaliar(3)" value="3" name="3estrelas">
+                                        <img src="../static/img/star0.png" id="s3"></a>
+                                
+                                        <a href="javascript:void(0)" onclick="Avaliar(4)" value="4" name="4estrelas">
+                                        <img src="../static/img/star0.png" id="s4"></a>
+                                
+                                        <a href="javascript:void(0)" onclick="Avaliar(5)" value="5" name="5estrelas">
+                                        <img src="../static/img/star0.png" id="s5"></a>
+                                        <input class="botao" type="submit" value="Enviar"  >
+                                                                 
+                                        </div>
                                 </div>
                             {% endif %}
+                            <h4>ID</h4>
+                            <p name="teste" value="{{ lista.id_solicitacao}}">
+                                {{ lista.id_solicitacao}}
+                            </p>
                         </div>
                     </details>
                 </li>
