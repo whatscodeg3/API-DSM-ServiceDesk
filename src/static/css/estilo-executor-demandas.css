@@ -363,6 +363,43 @@ summary {
     font-size: 18px;
 }
 
+.recusa-link{
+    margin: auto;
+    margin-bottom: 0.5%;
+    padding: .5rem 1rem;
+    text-align: center;
+    width: 20%;
+    border-radius: 50px;
+    background-color: #AE1414;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.modal{
+   width: 500px;
+   height: 500px;
+   background-color: cadetblue;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   display: none;
+}
+
+.fechar{
+   width: 30px;
+   height: 30px;
+   background-color: black;
+   color: #FFFFFF;
+   border-radius: 50%;
+   float: right;
+   cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) {
     .resposta-link {
         width: 40%;

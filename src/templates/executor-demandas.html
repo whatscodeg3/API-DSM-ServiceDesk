@@ -71,13 +71,23 @@
                                     </p>
                                 </div>
                                 <br>
-                                <a class="resposta-link" href="/atualizar/{{lista.id_solicitacao}}">RESPONDER</a>
+                                <div class="btn-aceitar-recusar">
+                                    <a href="/atualizar/{{lista.id_solicitacao}}" class="resposta-link">RESPONDER</a>
+                                    <a class="recusa-link" onclick="modal()">RECUSAR</a>
+                                </div>
+
+
                             </details>
                         </li>
                         {% endfor %}
                     </ul>
                 </form>
             </div>
+
+            <div class="modal">
+                <div class="fechar" onclick="fechar()"></div>
+            </div>
+
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                 <form class="chamados">
                     <ul class="chamados-lista" type="none">
@@ -108,6 +118,7 @@
         <p>DESENVOLVIDO POR WHATSCODE</p>
     </footer>
     <script src="../static/assets/bootstrap/js/executor-bootstrap.min.js"></script>
+    <script src="../static/js/executor-modal.js"></script>
 </body>
 
 </html>
