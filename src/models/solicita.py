@@ -30,4 +30,24 @@ class Categoria(db.Model):
         self.id_categoria_solicitacao = id_categoria_solicitacao
         self.categoria_solicitacao = categoria_solicitacao
 
+class Usuario(db.Model):
+    __tablename__ = 'usuarios'
+    # id_usuario
+    # nome_usuario
+    # permissao 
+    print()
+class Operador(db.Model):
+    __tablename__ = 'operadores'
+    # id_operador
+    # nome_operador
+    # permissao 
+    print()
+class Administrador(db.Model):
+    __tablename__ = 'administradores'
+    # id_administrador
+    # nome_administrador
+    # permissao 
+    print()
+
+
 

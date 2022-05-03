@@ -50,3 +50,29 @@ def atualiza(id):
         return redirect('/demanda')
 
     return render_template('resposta-executor.html', solicita=consulta)
+
+@contacts.route('/cadastro')
+def cadastro():
+    return render_template('tela-cadastro.html')
+
+@contacts.route('/cadastrando', methods=['POST', 'GET'])
+def cadastrando():
+    if request.method == 'POST':
+        nome = request.form.get('name')
+        sobrenome = request.form.get('surname')
+        email = request.form.get('email')
+        emailConfirmado = request.form.get('emailConfirmation')
+        senha = request.form.get('password')
+        senhaConfirmada = request.form.get('passwordConfirmation')
+        dataCheckbox = request.form.get('checkboxData')
+
+    if nome and sobrenome and email and emailConfirmado and senha and senhaConfirmada and dataCheckbox:
+        # Aqui chama o banco
+        print('Done, checkbox status: ' + dataCheckbox)
+    else:
+        # Aqui chamar um modal de erro 
+        print('fail')
+
+
+    return redirect('/')
+        
