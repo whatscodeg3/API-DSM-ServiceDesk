@@ -197,8 +197,8 @@ html{
                 justify-content:space-between;
                 background-color: #FFFFFF;
                 margin:1.5%;
-                border-radius: 50px;
-                width:90%; 
+                border-radius: 20px;
+                width: 90%; 
             }
                 @media only screen and (max-width: 600px) {
                     .chamados{
@@ -304,18 +304,36 @@ html{
             }
 
             .botao {
-                background: #AE1414;
+                background: #292A2F;
                 color: #DDD;
-                border-radius: 15px;
+                border-radius: 8px;
                 border: #AE1414;
-                height: 50px;
-                width: 100px;
+                height: 30px;
+                width: 80px;
                 font: bold 15px arial, sans-serif;
                 text-shadow: none;
             }
             
             .botao:hover {
-                background: #A01111;
+                background: #292a2fe7;
                 cursor: pointer;
             }
 
+            .formavaliacao {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 100%;
+                padding-top: 3%;
+            }
+
+            .select {
+                width: 13%;
+                border: 1px solid #DDD;
+                border-radius: 5px;
+                font-family: 'roboto';
+                font-size: 15px;
+                outline: 0px;
+                margin-top: 2%;
+                margin-bottom: 2%;
+            }

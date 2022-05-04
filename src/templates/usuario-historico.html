@@ -5,9 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../static/css/estilo-usuario-historico.css">
-    <script src="../static/assets/bootstrap/js/funcoes.js"></script>
-
-
     <title>Usuário - Histórico</title>
 </head>
 <body>
@@ -40,10 +37,10 @@
                 <button class="pesquisa-lupa" type="submit"><img id="pesquisa-img" src="../static/img/lupa-arredondada.svg" alt="icone menu"></button>
             </form>
         </section>
-        {% for lista in listas %}
-        <form class="chamados" action="/avaliar/{{lista.id_solicitacao}}" method="POST"> 
+
+        <form class="chamados"> 
             <ul class="chamados-lista" type="none">
-                
+                {% for lista in listas %}
                 <li class="chamados-itens">
                     <details>
                         <summary> {{ lista.data_abertura.strftime('%d/%m/%Y ') }} - {{ lista.cat.categoria_solicitacao}}</summary>
@@ -65,33 +62,20 @@
                                     <p>
                                     {{ lista.resposta_solicitacao}}
                                     </p>
-                                <div class="avaliacao">
-                                <form class="estrelas">
-                                    <a href="javascript:void(0)" onclick="Avaliar(1)" >
-                                    <img src="../static/img/star0.png" id="s1" value="1" name="1estrela"></a>
-                            
-                                    <a href="javascript:void(0)" onclick="Avaliar(2)" value="2" name="2estrelas">
-                                    <img src="../static/img/star0.png" id="s2"></a>
-                            
-                                    <a href="javascript:void(0)" onclick="Avaliar(3)" value="3" name="3estrelas">
-                                    <img src="../static/img/star0.png" id="s3"></a>
-                            
-                                    <a href="javascript:void(0)" onclick="Avaliar(4)" value="4" name="4estrelas">
-                                    <img src="../static/img/star0.png" id="s4"></a>
-                            
-                                    <a href="javascript:void(0)" onclick="Avaliar(5)" value="5" name="5estrelas">
-                                    <img src="../static/img/star0.png" id="s5"></a>
-                                    <p id="rating">0</p>
-                                    <input class="botao" type="submit" value="Enviar"  >
-                                                                
+                            <div class="formavaliacao">
+                                <form class="formavaliacao2" action="/avaliar/{{lista.id_solicitacao}}" method="POST">
+                                    <strong><label>Como você avalia nosso atendimento?</label></strong>
+                                    <select class="select" name="avaliacao">
+                                        <option selected disabled >Selecione</option>
+                                        <option value="1">Péssimo</option>
+                                        <option value="2">Regular</option>
+                                        <option value="3">Bom</option>
+                                        <option value="4">Ótimo</option>
+                                    </select>
+                                    <input type="submit" class="botao">
                                 </form>
-                                </div>
-                                </div>
+                            </div>
                             {% endif %}
-                            <h4>ID</h4>
-                            <p name="teste" value="{{ lista.id_solicitacao}}">
-                                {{ lista.id_solicitacao}}
-                            </p>
                         </div>
                     </details>
                 </li>

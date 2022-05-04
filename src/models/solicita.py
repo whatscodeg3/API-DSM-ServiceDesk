@@ -35,9 +35,7 @@ class Categoria(db.Model):
 class Avaliacao(db.Model):
     __tablename__ = 'avaliacoes'
     id_avaliacao = db.Column(db.Integer, primary_key=True)
-    quant_estrelas = db.Column(db.Integer)
     sol = db.relationship('Solicita', back_populates="av")
 
     def __init__(self, id_avaliacao, quant_estrelas):
         self.id_avaliacao = id_avaliacao
-        self.quant_estrelas = quant_estrelas
