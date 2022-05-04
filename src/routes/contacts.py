@@ -1,4 +1,3 @@
-from email.mime import base
 from flask import Blueprint, redirect, render_template, request, url_for
 from models.solicita import Categoria, Solicita, Usuarios
 from utils.db import db
@@ -53,8 +52,29 @@ def atualiza(id):
     return render_template('resposta-executor.html', solicita=consulta)
 
 
-@contacts.route('/permissoes')
+@contacts.route('/admin/permissoes')
 def permissoes():
     nome = Usuarios.query.all()
-    return render_template('adm_permissoes.html', nome=nome)
+    for i in nome:
+       id = i.id_usuario
+    return render_template('adm_permissoes.html', nome=nome, id=id)
 
+# @contacts.route('/updatePermissions/<id>', methods=['POST', 'GET'])
+# def updateP(id):
+#     consulta = Usuarios.query.get(id)
+#     if request.method == "POST":
+#         consulta.nome_usuario = request.form['id_class']
+#         db.session.commit()
+#         print(id)
+#         print(consulta.nome_usuario)
+#         return redirect('/admin/permissoes')
+#     return render_template('adm_permissoes.html', consulta=consulta)
+
+@contacts.route('/updatePermissions/{{<id>}}', methods=['POST',])
+def updateP(id):
+    consulta = Usuarios.query.get(id)
+    consulta.nome_usuario = request.form['botao']
+    db.session.commit()
+    print("cjeguei")
+    print(id)
+    return redirect('/admin/permissoes')

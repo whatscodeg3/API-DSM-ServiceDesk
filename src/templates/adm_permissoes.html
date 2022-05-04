@@ -45,22 +45,48 @@
                 <hr class="hr90">
                 <p class="nome_usuario_titleRight">Torna-lo executor</p>
             </div>
-            <hr class="padraohr">
-
-            {% for nome in nome %}
+    {% for nome in nome %}
+    <form action="/updatePermissions/{{nome.id_usuario}}" method="POST">
+        <fieldset>
+           
+           
             <div class="linha">
                 <p class="nome_usuario">          
                     {{nome.nome_usuario}}
+                    
                 </p>
+                <p>
+                    {{nome.id_usuario}}
+                </p>
+                
+            <div class="linha">
+                <p class="nome_usuario"></p>
+                    {{nome.nome_usuario}}
+
+                    <p>
+                        {{nome.id_usuario}}
+                    </p>
+            </div>
+
+
+
+                
                 <label class="switch">
-                    <input type="checkbox">
+                    <input type="checkbox" id="classificar_usuario">
                     <span class="slider round"></span>
                   </label> 
+
+
+                  <button type="submit" name="botao" value="botao1">Submit</button>
+                  <button type="submit" name="botao" value="botao2">Submit</button>
+
             </div>
            <hr class="padraohr">
             {% endfor %}
 
         </div>
+        </fieldset>
+    </form>
 
     </main>
     
