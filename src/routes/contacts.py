@@ -50,7 +50,7 @@ def criar():
 
 @contacts.route('/avaliar/<id>', methods=['POST',])
 def avalia(id):
-    #print(id)
+    print(id)
     # teste = request.form['1estrela']
     # print(teste)
     consulta = Solicita.query.get(id)
