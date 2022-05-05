@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../static/css/adm_permissoes.css">
-    <title>Administrador - Permissões</title>
+    
+    <title>Gerenciar Permissões</title>
 </head>
 
 
@@ -43,50 +44,30 @@
             <div class="linha">
                 <p class="nome_usuario_title">Nome do Usuário</p>
                 <hr class="hr90">
-                <p class="nome_usuario_titleRight">Torna-lo executor</p>
+                <p class="nome_usuario_titleRight">Gerenciar Permissões</p>
             </div>
-    {% for nome in nome %}
-    <form action="/updatePermissions/{{nome.id_usuario}}" method="POST">
-        <fieldset>
+   
+            
+        
            
-           
-            <div class="linha">
-                <p class="nome_usuario">          
-                    {{nome.nome_usuario}}
-                    
-                </p>
-                <p>
-                    {{nome.id_usuario}}
-                </p>
+            {% for nome in nome %}
+            <form action="/permissoes/{{nome.id_usuario}}" method="POST">
                 
-            <div class="linha">
-                <p class="nome_usuario"></p>
-                    {{nome.nome_usuario}}
-
-                    <p>
-                        {{nome.id_usuario}}
+                <div class="linha">
+                    <p class="nome_usuario">          
+                        {{nome.nome_usuario}}
                     </p>
-            </div>
 
+                    <div class="botoes">
+                    <button type="submit" name="botao" value="1" class="estilo_botao">Torná-lo usuário</button>
+                    <button type="submit" name="botao" value="2" class="estilo_botao">Torná-lo operador</button>
+                    </div>
 
+                </div>
+                <hr class="padraohr">
+            </form>
+           {% endfor %}
 
-                
-                <label class="switch">
-                    <input type="checkbox" id="classificar_usuario">
-                    <span class="slider round"></span>
-                  </label> 
-
-
-                  <button type="submit" name="botao" value="botao1">Submit</button>
-                  <button type="submit" name="botao" value="botao2">Submit</button>
-
-            </div>
-           <hr class="padraohr">
-            {% endfor %}
-
-        </div>
-        </fieldset>
-    </form>
 
     </main>
     

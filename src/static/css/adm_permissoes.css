@@ -149,6 +149,7 @@ html{
                     display: flex;
                     flex-direction: row;
                     justify-content: space-between;
+                    align-self: flex-end;
                     padding-left: 2%;
                     padding-right: 2%;
                     padding-top: 1%;
@@ -208,6 +209,12 @@ html{
 
                 .hr90{
                     transform: rotate(90%);
+                } */
+
+                .divlinha{
+                    height: 10%;
+                    width: 100%;
+                    color: black;
                 }
 
                 .padraohr{
@@ -215,6 +222,32 @@ html{
                     margin-left: 5%;
                 }
 
+
+
+
+                .botoes{
+                    align-self: center;
+                    margin-right: 10%;
+                    size: 25px;
+                    
+                }
+
+                .estilo_botao{
+                    transition-duration: 0.2s;
+                    outline: 0;
+                    border: 0;
+                    cursor: pointer;
+                    background-color: #fff;
+                    font-size: 18px;
+                    width: 150px;
+                    height: 50px;
+
+                }
+
+                    .estilo_botao:hover{
+                        background-color: #AE1414;
+                        color: white;
+                    }
 
 
 
