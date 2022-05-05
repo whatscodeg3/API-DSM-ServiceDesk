@@ -1,12 +1,29 @@
-from flask import Blueprint, redirect, render_template, request, url_for
-from models.solicita import Categoria, Solicita
+from flask import Blueprint, redirect, render_template, request, url_for, flash
+from models.solicita import Categoria, Solicita, Usuario
 from utils.db import db
+from utils.verifica import verifica
 
 contacts = Blueprint('contacts', __name__)
 
-
 @contacts.route('/')
 def index():
+    return render_template('tela-inicial.html')
+
+@contacts.route('/autentica', methods=['POST'])
+def autentica():
+    email = request.form['email']
+    senha = request.form['senha']
+    db_consulta = Usuario.query.all()
+    redir = verifica(db_consulta, email, senha)
+    if redir == 'Senha incorreta':
+        return redirect('/')
+    elif redir == 'Usuario não cadastrado':
+        return redirect('/')
+    else:
+        return redirect(redir)
+    
+@contacts.route('/usuario')
+def usuario():
     return render_template('home_usuario.html')
 
 @contacts.route('/nova-solicitacao')

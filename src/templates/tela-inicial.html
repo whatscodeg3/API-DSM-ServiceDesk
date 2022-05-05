@@ -17,14 +17,14 @@
     <main>
         <section>
             <h1 class="login">Login</h1>
-            <form action="home_usuario.html" method="get">
+            <form action="/autentica" method="POST">
                 <hr>
-                <input type="email" placeholder="Usuário">
-                <input type="password" placeholder="••••••••••••">
+                <input type="email" name="email" placeholder="Usuário">
+                <input type="password"  name="senha" placeholder="••••••••••••">
                 <hr>
                 <button type="submit">Acessar</button>
             </form>
-            <a href="">Crie sua conta</a>
+            <a action="/cadastro"href="">Crie sua conta</a>
         </section>
     </main>
     <footer>
