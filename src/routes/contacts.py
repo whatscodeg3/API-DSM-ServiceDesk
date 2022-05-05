@@ -54,12 +54,6 @@ def atualiza(id):
 
 
 
-
-
-
-
-# ------------TESTEEEEEEEESSSSSSSSS------
-
 @contacts.route('/admin/permissoes')
 def testeperm():
     nome = Usuarios.query.all()
