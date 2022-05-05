@@ -48,7 +48,7 @@
 
             <div class="desc-anexo">
                 <p class="titulo">Aquivos anexados:</p>
-                <button><a href="url" download="nome-arquivo" class="texto-anexo">Clique aqui para baixar</a></button>
+                <button><a href="{{ url_for('contacts.anexos', nome_arquivo=arquivo_no_html) }}" download class="texto-anexo">Clique aqui para baixar</a></button>
             </div>
         </section>
 
