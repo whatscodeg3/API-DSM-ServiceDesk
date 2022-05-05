@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap');
+
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none; 
+}
+html{
+    height: 100%;
+    min-height: 100%;
+}
+
+    body{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #292A2F;
+        min-height: 100%;
+
+    }
+        header{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 9%;
+            background-color: #AE1414;
+            padding: 0.3% 1.5%;
+        }
+		
+            #header-nome-usuario{
+                color:#FFFFFF;
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 25px;
+                line-height: 35px;
+            }
+			
+                @media only screen and (max-width: 600px) {
+                #header-nome-usuario{
+                    font-size:4vw;
+                    }
+                }
+            
+            /*NAV BAR */
+
+            .sidenav {
+                height: 100%;
+				width:0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                right: 0;
+                background-color: #fff;
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 60px;
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 400;
+            }
+            
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 20px;
+                color: black;
+                display: block;
+                transition: 0.1s;
+            }
+			
+			 @media screen and (max-width: 600px) {                
+                .sidenav a {
+                    font-size: 4.5vw;
+                }
+            }
+            
+            .sidenav a:hover {
+                color: #666666;
+            }
+            
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+			
+			@media screen and (max-width: 600px) {                
+                .sidenav .closebtn {
+                    font-size: 8vw;
+                }
+            }
+
+            .icon_nav_style{
+                font-size: 35px;
+                cursor: pointer;
+                color: #fff;
+                padding-bottom: 0.4%;
+            }
+			@media screen and (max-width: 600px) {                
+                .icon_nav_style{
+                    font-size: 6vw;
+                }
+            }
+			
+            #hr_black{
+                color: black;
+                margin:1rem 0;
+            }
+            
+            /* FIM DA NAVBAR*/
+        
+            main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width:100%;
+            padding-top: 38px;
+            }  
+
+                @media only screen and (max-width: 600px) {
+				main{
+                    padding-top: 5%;
+					}
+				}
+
+            .pesquisa{
+                display: none;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                width:90%;
+            }
+                #pesquisa-campo{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    width:100%;
+                    border: 1px solid #FFFFFF;
+                    border-radius: 50px;
+                    padding: 8px 31px;
+                }
+				@media only screen and (max-width: 600px) {
+				#pesquisa-campo{
+                    padding: 1.5vw 5vw;
+					}
+				}
+
+				input{
+					border:none;
+					outline: 0px;
+					width:100%;
+					background-color:transparent;
+					color:#CCCCCC;
+					font-family: 'Roboto';
+					font-style: normal;
+					font-weight: 400;
+					font-size: 25px;
+				}
+
+				@media only screen and (max-width: 600px) {
+				input{
+				font-size: 4vw;
+					}
+				}
+                    .pesquisa-lupa{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border:none;
+                        background-color: transparent;
+                    }
+					
+                    #pesquisa-img{
+                        height: 30px;
+                    }
+					
+					@media only screen and (max-width: 600px) {
+					#pesquisa-img{
+						height:5vw;
+						}
+					}
+
+            .chamados{
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content:space-between;
+                background-color: #FFFFFF;
+                margin:1.5%;
+                border-radius: 50px;
+                width:90%; 
+            }
+                @media only screen and (max-width: 600px) {
+                    .chamados{
+                    border-radius: 35px;
+                    }
+                }
+            
+
+                .chamados-lista{
+                    display:flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 100%;
+                    padding-top: 1.4%;
+                }
+                    @media only screen and (max-width: 600px) {
+                        .chamados-lista{
+                        padding-top: 1.8vw;
+                        }
+                    }
+                    .chamados-itens {
+                        display:flex;
+                        flex-direction: row;
+                        align-items: center;
+                        background-color: #CCCCCC;
+                        width: 97.1%;
+                        padding: 10px 27px;
+                        margin-bottom: 1.4%;
+                        border-radius: 38px;
+                        font-family: 'Roboto';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size:20px;
+                        text-align: center;
+                        }
+                        
+                        @media only screen and (max-width: 600px) {
+                            .chamados-itens{
+                            font-size:4.5vw;
+                            justify-content: center;
+                            padding: 1vw 2.5vw;
+                            width: 96%;
+                            margin-bottom: 1.8vw;
+                            border-radius: 30px;
+                            }
+                         }
+
+                        .chamados-itens-conteudo{
+                            text-align: left;
+                        }
+                            @media only screen and (max-width: 600px) {
+                                .chamados-itens-conteudo{
+                                    text-align: center;
+                                }
+                            }
+
+                            details{
+                                display: flex;
+                                height: 100%;
+                                width: 100%;
+                            }
+
+                                summary {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    height: 100%;
+                                    cursor: pointer;
+                                }
+
+                                    @media only screen and (max-width: 800px) {
+                                    summary{
+                                        flex-direction: column;
+                                        }
+                                    }
+
+                                        .chamados-itens-conteudo{
+                                            display: flex;
+                                            flex-direction: column;
+                                            padding: 1% 0px;
+                                            margin-top: 1%;
+                                            border-top: 2px solid #b1b1b1;
+                                        }
+
+        footer{
+            margin-top: auto;
+            font-family: 'Monda';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 29px;
+            color:rgba(255, 255, 255, 0.58);
+            opacity: 0.2;
+        }
+            @media only screen and (max-width: 600px) {
+            footer{
+                font-size: 3vw;
+                }
+            }
+
+
+

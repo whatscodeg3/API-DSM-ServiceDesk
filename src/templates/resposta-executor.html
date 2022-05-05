@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/resposta-executor.css">
+    <title>Resposta</title>
+</head>
+<body>
+    <!--Cabecalho-->
+    <header>
+        <div>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <hr id="hr_black">
+                <a href="/demanda">SOLICITAÇÕES</a>
+                <hr id="hr_black">
+              </div>
+        </div>
+
+            <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+
+            <script>
+                function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                }
+
+                function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                }
+            </script>
+
+    </header>
+
+    <!--Principal-->
+    <form class="geral" action="/atualizar/{{solicita.id_solicitacao}}" method="POST">
+        <section class="nome-principal">
+                <p class="titulo">Nome:</p>
+                <input class="caixa-texto-nome" readonly="True" placeholder="USUÁRIO GERAL">
+        </section>
+
+        <section class="desc-principal">
+            <div class="desc-pedido">
+                <p class="titulo">Descrição do pedido:</p>
+                <textarea readonly="True" input type="text" name="descrição do problema" placeholder="{{solicita.descricao_solicitacao}}" class="caixa-texto-desc"></textarea>
+            </div>
+
+            <div class="desc-anexo">
+                <p class="titulo">Aquivos anexados:</p>
+                <button><a href="url" download="nome-arquivo" class="texto-anexo">Clique aqui para baixar</a></button>
+            </div>
+        </section>
+
+        <section class="solucao-principal">
+            <p class="titulo-solucao">Solução do problema:</p>
+            <textarea input type="text" name="resposta" class="caixa-texto-solucao"></textarea>
+        </section>
+
+        <input class="botao" type="submit" value="Enviar">
+    </form>
+    
+    <footer class="footer">
+        <hr class="linha-footer">
+        <p class="footer-titulo">DESENVOLVIDO POR WHATSCODE</p>
+    </footer>
+</body>
+</html>

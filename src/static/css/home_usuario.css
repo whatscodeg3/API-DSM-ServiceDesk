@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap');
+
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none; 
+
+}
+
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 100%;
+    min-height: 100%;
+}
+
+html{
+    min-height: 100%;
+    height: 100%;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 9%;
+    background-color: #AE1414;
+    padding: 0.3% 1.5%;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding-top: 2%;
+}
+
+.linha-footer {
+    background-color: #AE1414;
+    border: none;
+    height: 0.4vw;
+}
+
+.footer-titulo {
+    color: #DDD;
+    font-family: 'PT Sans';
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+
+
+
+.linha_cinza{
+    height: 100%;
+    width: 100%;
+    background: #292A2F;
+   
+}
+
+.ola{
+    padding-top: 3%;
+    padding-left: 13%;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-size: 40px;
+    align-items: center;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+.ajuda{
+    padding-top: 5%;
+    padding-left: 13%;
+    margin: 0;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-size: 25px;
+    align-items: center;
+    text-align: left;
+    color: #FFFFFF;
+}
+
+
+.pratica{
+    padding-left: 13%;
+    padding-bottom: 3%;
+    padding-right: 2%;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-size: 25px;
+    align-items: center;
+    text-align: left;
+    color: #FFFFFF;
+    opacity: 0.7;
+}
+
+
+.servico{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    width: 100%;
+    text-align: center;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-size: 26px;
+    line-height: 37px;
+    align-items: center;
+    color: #292A2F;
+}
+  
+.col-sm-4{
+    display: flex;
+    justify-content: center;
+}
+
+.row a{
+    color: #000000;
+    text-decoration: none;
+}
+
+.carda{
+    border-radius: 20px;
+    box-shadow: 4px 4px 10px 0 rgba(50, 50, 50, 0.22);
+    padding: 3%;
+    width: 200px;
+    height: 160px;
+    transition: all 0.3s ease-out;
+    background: #ececec;
+    border: 2px solid black;
+    text-decoration: none;
+    color: #000000;
+}
+  
+.carda:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.row a:hover{
+    color: #000000;
+    text-decoration: none;
+}
+  
+.carda h2 {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-size: 20px;
+    font-variant: small-caps;
+}
+
+.solicite {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-size: 20px;
+    font-variant: small-caps;
+}
+
+.acompanhe {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-size: 20px;
+    font-variant: small-caps;
+}
+
+.a{
+    text-align: center;
+    font-family: 'PT Sans';
+    width: 100%;
+    padding-bottom: 1%;
+}
+
+.b{
+    text-align: center;
+
+}
+  
+.image{
+    align-items: center;
+    width: 27%;
+    height: 27%;
+}
+  
+
+footer{
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+}
+
+.footer-titulo{
+    font-family: 'Monda';
+    color: #292A2F;
+    font-style: normal;
+    font-size: 13px;
+}
+
+.linha-footer {
+    background-color: #AE1414;
+    border: none;
+    height: 1vw;
+}
+
+
+/*NAV BAR */
+
+.sidenav {
+    height: 100%;
+    width:0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    transition: 0.1s;
+}
+
+ @media screen and (max-width: 600px) {                
+    .sidenav a {
+        font-size: 4.5vw;
+    }
+}
+
+.sidenav a:hover {
+    color: #666666;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-width: 600px) {                
+    .sidenav .closebtn {
+        font-size: 8vw;
+    }
+}
+
+.icon_nav_style{
+    font-size: 35px;
+    cursor: pointer;
+    color: #fff;
+    padding-bottom: 0.4%;
+}
+@media screen and (max-width: 600px) {                
+    .icon_nav_style{
+        font-size: 6vw;
+    }
+}
+
+#hr_black{
+    color: black;
+}
+
+
+/* FIM DA NAVBAR*/
+
+
+
+    .solicite{
+        margin-bottom: 5%;
+    }
+
+    .ola{
+        padding-top: 2%;
+        padding-left: 10%;
+    }
+
+    .ajuda{
+        padding-top: 2%;
+        padding-left: 10%;
+        margin: 0;
+    }
+
+    .pratica{
+        padding-left: 10%;
+    }
+
+

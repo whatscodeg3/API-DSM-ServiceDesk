@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/estilo-usuario-historico.css">
+    <title>Usuário - Histórico</title>
+</head>
+<body>
+    <header>
+        <h1 id="header-nome-usuario">OLÁ, USUÁRIO!</h1>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <hr id="hr_black">
+                <a href="/">HOME</a>
+                <hr id="hr_black">
+                <a href="/nova-solicitacao">NOVA SOLICITAÇÃO</a>
+                <hr id="hr_black">
+              </div>
+        <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+
+        <script>
+            function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            }
+
+            function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+    </header>
+    <main>
+        <section class="pesquisa">
+            <form id="pesquisa-campo" action="" method="get" >
+                <input type="text" name="search" id="busca" placeholder="TIPO DE SERVIÇO" required>
+                <button class="pesquisa-lupa" type="submit"><img id="pesquisa-img" src="../static/img/lupa-arredondada.svg" alt="icone menu"></button>
+            </form>
+        </section>
+        <form class="chamados">
+            <ul class="chamados-lista" type="none">
+                {% for lista in listas %}
+                <li class="chamados-itens">
+                    <details>
+                        <summary> {{ lista.data_abertura.strftime('%d/%m/%Y ') }} - {{ lista.cat.categoria_solicitacao}}</summary>
+                        <div class="chamados-itens-conteudo">
+                            <h4>Descrição</h4>
+                            <br>
+                            <p >
+                                {{ lista.descricao_solicitacao}}
+                            </p>
+                            <br>
+                            <h4>Solução</h4>
+                            {% if lista.resposta_solicitacao == None %}
+                                <br>
+                                <p style="color: red;">
+                                    Solicitação em andamento, por gentileza, aguarde!
+                                </p>
+                            {% else %}
+                                <br>
+                                <p>
+                                    {{ lista.resposta_solicitacao}}
+                                </p>
+                            {% endif %}
+                        </div>
+                    </details>
+                </li>
+                {% endfor %}
+            </ul>
+        </form>
+    </main>
+    <footer>
+        <p>DESENVOLVIDO POR WHATSCODE</p>
+    </footer>
+</body>
+</html>
