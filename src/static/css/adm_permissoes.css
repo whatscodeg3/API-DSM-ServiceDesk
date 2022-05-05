@@ -249,6 +249,14 @@ html{
                         color: white;
                     }
 
+                    @media only screen and (max-width: 600px) {
+                        .estilo_botao{
+                            font-size: 9px;
+                            width: 75px;
+                            height: 25px;
+                            }
+                        }
+
 
 
 
