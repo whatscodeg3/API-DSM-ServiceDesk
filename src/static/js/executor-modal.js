@@ -9,3 +9,7 @@ function fechar(){
 
    modal.style.display = 'none';
 }
+
+function alerta(){
+   alert('senha invalída')
+}

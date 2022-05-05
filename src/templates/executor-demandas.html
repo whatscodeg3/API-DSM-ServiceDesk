@@ -71,11 +71,11 @@
                                     </p>
                                 </div>
                                 <br>
+
                                 <div class="btn-aceitar-recusar">
                                     <a href="/atualizar/{{lista.id_solicitacao}}" class="resposta-link">RESPONDER</a>
                                     <a class="recusa-link" onclick="modal()">RECUSAR</a>
                                 </div>
-
 
                             </details>
                         </li>
@@ -85,7 +85,10 @@
             </div>
 
             <div class="modal">
-                <div class="fechar" onclick="fechar()"></div>
+                <form action="/atualizar/{{solicita.id_solicitacao}}" method="post">
+                    <textarea input type="text" name="justificativa" class="caixa-texto-justificativa"></textarea>
+                    <input class="botao" type="submit" value="Enviar">
+                </form>
             </div>
 
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
