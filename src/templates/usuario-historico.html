@@ -63,6 +63,7 @@
                                     {{ lista.resposta_solicitacao}}
                                     </p>
                                 <div class="formavaliacao">
+                                {% if lista.fk_id_avaliacao == None %}
                                     <form class="formavaliacao2" action="/avaliar/{{lista.id_solicitacao}}" method="POST">
                                         <strong><label>Como você avalia nosso atendimento?</label></strong>
                                         <select class="select" name="avaliacao">
@@ -74,6 +75,21 @@
                                         </select>
                                         <input type="submit" class="botao">
                                     </form>
+                                {% else %}
+                                    <form class="formavaliacao2" action="/avaliar/{{lista.id_solicitacao}}" method="POST">
+                                        <strong><p>Você avaliou como:</p></strong>
+                                        <br>
+                                        {% if lista.fk_id_avaliacao == 1 %}
+                                        <p>Péssimo</p>
+                                        {% elif lista.fk_id_avaliacao == 2 %}
+                                        <p>Regular</p>
+                                        {% elif lista.fk_id_avaliacao == 3 %}
+                                        <p>Bom</p>
+                                        {% elif lista.fk_id_avaliacao == 4 %}
+                                        <p>Ótimo</p>
+                                        {% endif %}
+                                    </form>
+                                {% endif %}
                                 </div>
                             {% endif %}
                         </div>
