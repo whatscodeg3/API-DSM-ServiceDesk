@@ -15,12 +15,7 @@ def autentica():
     senha = request.form['senha']
     db_consulta = Usuario.query.all()
     redir = verifica(db_consulta, email, senha)
-    if redir == 'Senha incorreta':
-        return redirect('/')
-    elif redir == 'Usuario não cadastrado':
-        return redirect('/')
-    else:
-        return redirect(redir)
+    return redirect(redir)
     
 @contacts.route('/usuario')
 def usuario():
