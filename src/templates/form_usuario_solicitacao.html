@@ -40,7 +40,7 @@
     
 
         <main class="main_geral">
-            <form action="/criar" method="POST">
+            <form action="/criar" method="POST" enctype="multipart/form-data">
                 <fieldset>
                     
                     <div class="div_nome">
@@ -63,7 +63,7 @@
         
                         <div class="div_center_anexar">
                             <p class="titulo">Anexar Arquivo:</p>
-                            <input type="file" class="input_file">
+                            <input type="file" name="arquivo" class="input_file">
                         </div>
                     </div>
         

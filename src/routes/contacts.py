@@ -1,4 +1,6 @@
-from flask import Blueprint, redirect, render_template, request, url_for
+import os
+import pathlib
+from flask import Blueprint, redirect, render_template, request, url_for, send_from_directory, current_app
 from models.solicita import Avaliacao, Categoria, Solicita
 from utils.db import db
 
@@ -8,6 +10,10 @@ contacts = Blueprint('contacts', __name__)
 @contacts.route('/')
 def index():
     return render_template('home_usuario.html')
+
+@contacts.route('/admin')
+def admin():
+    return render_template('home_admin.html') 
 
 @contacts.route('/nova-solicitacao')
 def nova():
@@ -45,7 +51,19 @@ def criar():
     db.session.add(novo)
     db.session.commit()
 
+    arquivo = request.files['arquivo']
+    ext = pathlib.Path(arquivo.filename)
+    upload_path = current_app.config['UPLOAD_PATH']
+    
+    arquivo.save(f'{upload_path}/anexo{novo.id_solicitacao}{ext.suffix}')
+
+
     return redirect('/historico')
+
+@contacts.route('/uploads/<nome_arquivo>')
+def anexos(nome_arquivo):
+    return send_from_directory('uploads', nome_arquivo)
+
 
 
 @contacts.route('/avaliar/<id>', methods=['POST',])
@@ -61,9 +79,15 @@ def avalia(id):
 @contacts.route('/atualizar/<id>', methods=['POST','GET'])
 def atualiza(id):
     consulta = Solicita.query.get(id)
+    upload_path = current_app.config['UPLOAD_PATH']
+    termo = f'{id}'
+    for raiz, diretorio, arquivos in os.walk(upload_path):
+        for arquivo in arquivos:
+            if termo in arquivo:
+                file = arquivo
     if request.method == "POST":
         consulta.resposta_solicitacao = request.form['resposta']
         db.session.commit()
         return redirect('/demanda')
 
-    return render_template('resposta-executor.html', solicita=consulta)
+    return render_template('resposta-executor.html', solicita=consulta, arquivo_no_html = file)
