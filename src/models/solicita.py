@@ -4,7 +4,7 @@ from datetime import datetime
 class Solicita(db.Model):
     __tablename__ = 'solicitacoes'
     id_solicitacao = db.Column(db.Integer, primary_key=True)
-    data_abertura = db.Column(db.DateTime, default=datetime.utcnow)
+    dataa_abertur = db.Column(db.DateTime, default=datetime.utcnow)
     data_aceite = db.Column(db.Date)
     data_fechamento = db.Column(db.DateTime, default=datetime.utcnow)
     descricao_solicitacao = db.Column(db.String)

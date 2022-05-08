@@ -14,6 +14,11 @@ def nova():
     categoria = Categoria.query.all()
     return render_template('form_usuario_solicitacao.html', categorias=categoria)
 
+@contacts.route('/relatorios')
+def relatorio():
+    solicita = Solicita.query.all()
+    return render_template('relatorios.html', solicitas=solicita)
+
 @contacts.route('/historico')
 def historico():
     lista = Solicita.query.all()
