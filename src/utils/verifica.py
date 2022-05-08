@@ -1,3 +1,6 @@
+from flask import session
+
+
 def verifica(db_consulta, email, senha):
     for verifica in db_consulta:
         db_email = verifica.email_usuario
@@ -6,13 +9,13 @@ def verifica(db_consulta, email, senha):
             if senha == db_senha:
                 categoria_usuario = verifica.id_categoria_usuario
                 if categoria_usuario == 4:
-                    return '/usuario' #página usuario
+                    session['user'] = [categoria_usuario, verifica.nome_usuario]
+                    return 'contacts.usuario' #página usuario
                 elif categoria_usuario == 14:
-                    return '/demanda' #página operador
+                    session['user'] = [categoria_usuario, verifica.nome_usuario]
+                    return 'contacts.demanda' #página operador
                 else:
                     return '/' #página admin
             else:
-                return '/' #senha incorreta
-                
-
+                return 'contacts.index'#senha incorreta
     return '/' #usuario não cadastrado

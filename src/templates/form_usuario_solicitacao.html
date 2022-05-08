@@ -12,32 +12,29 @@
 
 
 <body>
-
     <header>
-        <div>
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <hr id="hr_black">
-                <a href="/">HOME</a>
-                <hr id="hr_black">
-                <a href="/historico">HISTÓRICO</a>
-                <hr id="hr_black">
-              </div>
+        <h1 id="header-nome-usuario">Olá, {{user[1]}}!</h1>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <hr id="hr_black">
+            <a href="/usuario">HOME</a>
+            <hr id="hr_black">
+            <a href="/historico">HISTÓRICO</a>
+            <hr id="hr_black">
+            <a href="/sair">SAIR</a>
+            <hr id="hr_black">
         </div>
+        <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+        <script>
+            function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            }
 
-            <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
-
-            <script>
-                function openNav() {
-                document.getElementById("mySidenav").style.width = "250px";
-                }
-
-                function closeNav() {
-                document.getElementById("mySidenav").style.width = "0";
-                }
-            </script>
-
-        </header>
+            function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+    </header>
     
 
         <main class="main_geral">
@@ -75,14 +72,13 @@
                     </div> 
                 </fieldset>
             </form>
-
-
+        </main>
             <footer class="footer">
                 <hr class="linha-footer">
                 <p class="footer-titulo">DESENVOLVIDO POR WHATSCODE</p>
             </footer>
 
 
-        </main>
+
 </body>
 </html>

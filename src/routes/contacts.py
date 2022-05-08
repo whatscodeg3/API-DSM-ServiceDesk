@@ -1,41 +1,71 @@
-from flask import Blueprint, redirect, render_template, request, url_for, flash
+from flask import Blueprint, redirect, render_template, request, url_for, flash, g, session
 from models.solicita import Categoria, Solicita, Usuario
 from utils.db import db
 from utils.verifica import verifica
 
 contacts = Blueprint('contacts', __name__)
 
+@contacts.before_request
+def before_request():
+    g.user=None
+    if 'user' in session:
+        g.user = session['user']
+
+@contacts.route('/sair')
+def sair():
+    session.pop('user', None)
+    return render_template('tela-inicial.html')
+
 @contacts.route('/')
 def index():
     return render_template('tela-inicial.html')
 
-@contacts.route('/autentica', methods=['POST'])
+@contacts.route('/autentica', methods=['POST', 'GET'])
 def autentica():
-    email = request.form['email']
-    senha = request.form['senha']
-    db_consulta = Usuario.query.all()
-    redir = verifica(db_consulta, email, senha)
-    return redirect(redir)
+    if request.method == 'POST':
+        session.pop('user', None)
+        email = request.form['email']
+        senha = request.form['senha']
+        db_consulta = Usuario.query.all()
+        redir = verifica(db_consulta, email, senha)
+        return redirect(url_for(redir))
+    return render_template('tela-inicial.html')
     
 @contacts.route('/usuario')
 def usuario():
-    return render_template('home_usuario.html')
+    if g.user != None:
+        if g.user[0] == 4 or g.user[0] == 14:
+            return render_template('home_usuario.html', user=session['user'])
+    session.pop('user', None)        
+    return redirect(url_for('contacts.index'))
 
 @contacts.route('/nova-solicitacao')
 def nova():
-    categoria = Categoria.query.all()
-    return render_template('form_usuario_solicitacao.html', categorias=categoria)
+    if g.user != None:
+        if g.user[0] == 4 or g.user[0] == 14:
+            categoria = Categoria.query.all()
+            return render_template('form_usuario_solicitacao.html', categorias=categoria, user=session['user'])
+    session.pop('user', None)        
+    return redirect(url_for('contacts.index'))
 
 @contacts.route('/historico')
 def historico():
-    lista = Solicita.query.all()
-    return render_template('usuario-historico.html', listas=lista)
+    if g.user != None:
+        if g.user[0] == 4 or g.user[0] == 14:
+            lista = Solicita.query.all()
+            return render_template('usuario-historico.html', listas=lista, user=session['user'])
+    session.pop('user', None)        
+    return redirect(url_for('contacts.index'))
 
 @contacts.route('/demanda')
 def demanda():
-    lista = Solicita.query.filter_by(resposta_solicitacao = None)
-    consulta = Solicita.query.filter(Solicita.resposta_solicitacao.isnot(None))
-    return render_template('executor-demandas.html', listas=lista, consultas=consulta)
+    if g.user != None:
+        if g.user[0] == 14:
+            lista = Solicita.query.filter_by(resposta_solicitacao = None)
+            consulta = Solicita.query.filter(Solicita.resposta_solicitacao.isnot(None))
+            return render_template('executor-demandas.html', listas=lista, consultas=consulta, user=session['user'])
+    session.pop('user', None)
+    return redirect(url_for('contacts.index'))
 
 @contacts.route('/resposta')
 def resposta():
