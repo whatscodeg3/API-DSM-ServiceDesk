@@ -57,4 +57,6 @@ def justifica(id):
     if request.method == "POST":
         consulta.resposta_solicitacao = request.form['justificativa']
         db.session.commit()
-        return render_template('executor-demandas.html', solicita=consulta)
+        return redirect('/demanda')
+
+    return render_template('executor-demandas.html', solicita=consulta)

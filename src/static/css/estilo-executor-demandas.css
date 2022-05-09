@@ -469,7 +469,7 @@ footer {
     position: fixed;
     top: 0px;
     left: 0px;
-    z-index: 2000;
+    z-index: 1;
     display: none;
     justify-content: center;
     align-items: center;
@@ -495,6 +495,19 @@ footer {
     width: 100%;
     height: 150px;
     resize: none;
+}
+
+.fechar{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid #FFFFFF;
+    background-color: #AE1414;
+    color: white;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .3);
 }
 
 @keyframes modal {

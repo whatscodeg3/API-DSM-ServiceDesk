@@ -74,7 +74,7 @@
 
                                 <div class="btn-aceitar-recusar">
                                     <a href="/atualizar/{{lista.id_solicitacao}}" class="resposta-link">RESPONDER</a>
-                                    <a class="recusa-link" onclick="abreModal('modal-justi')">RECUSAR</a>
+                                    <a onclick="abreModal('modal-justi')" class="recusa-link">RECUSAR</a>
                                 </div>
                                 
                             </details>
@@ -117,6 +117,7 @@
 
     <div id="modal-justi" class="modal-container">
         <div class="modal">
+            <button class="fechar">X</button>
             <h3 class="titulo-modal">Justifique a situação:</h3>
             {%for lista in listas%}
             <form action="/justificar/{{lista.id_solicitacao}}" method="POST">
