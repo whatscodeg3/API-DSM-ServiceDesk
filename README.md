@@ -173,7 +173,7 @@ Como mencionado no início deste documento o desenvolvimento do projeto foi base
 
 - SPRINT 1 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md)): Concluído ☑️
 - SPRINT 2 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Em Andamento 🚧
-- SPRINT 3: Carregando 🔋
+- SPRINT 3: Carregando 🕓
 
 ## Backlog do produto
 Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backlog do produto, uma lista priorizada, refinada e estimada dos recursos que o time de desenvolvimento irá precisar para conseguir atingir o produto final desejado pelo cliente. O backlog foi pirorizados em alto, médio e baixo de acordo com o conversado com o cliente, em cima do valor de cada tópico. Na tabela, segue as tarefas ordenadas por prioridade, dividads pro sprints e mostrando ao lado o status de desenvolvimento de cada uma. 
