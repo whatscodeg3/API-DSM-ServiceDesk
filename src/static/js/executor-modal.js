@@ -1,15 +1,4 @@
-function modal(){
-   let modal = document.querySelector('.modal')
-
-   modal.style.display = 'block';
-}
-
-function fechar(){
-   let modal = document.querySelector('.modal')
-
-   modal.style.display = 'none';
-}
-
-function alerta(){
-   alert('senha invalída')
+function iniciaModal(modalID) {
+   const modal = document.getElementById(modalID)
+   modal.classList.add('mostrar')
 }
