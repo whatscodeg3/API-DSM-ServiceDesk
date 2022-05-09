@@ -37,23 +37,32 @@ class Categoria(db.Model):
     def __init__(self, id_categoria_solicitacao, categoria_solicitacao):
         self.id_categoria_solicitacao = id_categoria_solicitacao
         self.categoria_solicitacao = categoria_solicitacao
+        
+class CategoriaUsuario(db.Model):
+    __tablename__ = 'categoria_usuarios'
+    id_categoria_usuario = db.Column(db.Integer, primary_key=True)
+    categoria_solicitacao = db.Column(db.String)
+    categoria = db.relationship('Usuario', back_populates="user")
+
+    def __init__(self, id_categoria_usuario, categoria_usuario):
+        self.id_categoria_solicitacao = id_categoria_usuario
+        self.categoria_solicitacao = categoria_usuario      
 
 
-class Usuarios(db.Model):
+class Usuario(db.Model):
     __tablename__ = 'usuarios'
     id_usuario = db.Column(db.Integer, primary_key=True)
     nome_usuario = db.Column(db.String(255))
     email_usuario = db.Column(db.String(255))
     senha_usuario = db.Column(db.String(14))
-    fk_id_categoria_usuario = db.Column(db.Integer, db.ForeignKey(
+    id_categoria_usuario = db.Column(db.Integer, db.ForeignKey(
         'categoria_usuarios.id_categoria_usuario'))
+    user = db.relationship("CategoriaUsuario", back_populates="categoria")
 
-    def __init__(self, id_usuario, nome_usuario, id_categoria_usuario, email_usuario, senha_usuario, fk_id_categoria_usuario):
-        self.id_usuario = id_usuario
+    def __init__(self, nome_usuario,email_usuario, senha_usuario, id_categoria_usuario = 4):
         self.nome_usuario = nome_usuario
         self.email_usuario = email_usuario
         self.senha_usuario = senha_usuario
-        self.fk_id_categoria_usuario = id_categoria_usuario
+        self.id_categoria_usuario = id_categoria_usuario
         
-    def to_json(self, nome_usuario, email_usuario, senha_usuario ):
-        return jsonify({"nome_usuario": nome_usuario, "email_usuario": email_usuario, "senha_usuario": senha_usuario})
+        

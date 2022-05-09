@@ -1,11 +1,18 @@
-from flask import Blueprint, redirect, render_template, request, url_for, jsonify 
-from models.solicita import Categoria, Solicita, Usuarios
+from flask import Blueprint, redirect, render_template, request, url_for, jsonify, Response , json
+from models.solicita import Categoria, Solicita, Usuario
 from utils.db import db
 
 contacts = Blueprint('contacts', __name__)
 
 # flake8: noqa
 
+#def gera_response(status, nome_do_conteudo, conteudo, mensagem=False):
+   # body = {}
+  #  body[nome_do_conteudo] = conteudo
+    
+  #  if(mensagem):
+ #       body["mensagem"] = mensagem
+ #   return Response(jsonify(body), content_type="application/json", status=status)
 
 @contacts.route('/')
 def index():
@@ -69,49 +76,45 @@ def alert():
 
 @contacts.route('/cadastrando', methods=['POST', 'GET'])
 def cadastrando():
-    body = request.get_json()
     if request.method == 'POST':
-        nome = request.form.get('name')
+        nome_usuario = request.form.get('name')
         sobrenome = request.form.get('surname')
-        email = request.form.get('email')
+        email_usuario = request.form.get('email')
         emailConfirmado = request.form.get('emailConfirmation')
-        senha = request.form.get('password')
+        senha_usuario = request.form.get('password')
         senhaConfirmada = request.form.get('passwordConfirmation')
         dataCheckbox = request.form.get('checkboxData')
         print(dataCheckbox)
+    
 
-    if email != emailConfirmado:
+    if email_usuario != emailConfirmado:
         print('Email não confere')
         return redirect('/cadastro')
-    elif senha != senhaConfirmada:
+    elif senha_usuario != senhaConfirmada:
         print('Senha não confere') 
         return redirect('/cadastro')
     elif dataCheckbox != 'check':
         print('Confirme o uso de dados para continuar o cadastro')
         return redirect('/cadastro')
-    elif not nome or not sobrenome:
+    elif not nome_usuario or not sobrenome:
         print('Nome ou sobrenome não preenchido')
         return redirect('/cadastro')
-    elif not email:
+    elif not email_usuario:
         print('Email não preenchido')
         return redirect('/cadastro')
     elif not emailConfirmado:
         print('Confirme seu email')
         return redirect('/cadastro')
-    elif not senha:
+    elif not senha_usuario:
         print('Senha não preenchida')
         return redirect('/cadastro')
     elif not senhaConfirmada:
         print('Confirme sua senha')
         return redirect('/cadastro')
-    else:
-        try:
-           #usuario = Usuarios(nome_usuario = body[f'{nome} {sobrenome}'], email_usuario = body[f'{email}'], senha_usuario = body[f'{senha}'])
-            usuario = Usuarios.to_json(f"{nome} {sobrenome}", f"{email}", f"{senha}")
-            print(usuario)
-            db.session.add(usuario)
-            db.session.commit()
-            return redirect('/')
-        except Exception as e:
-            print(e)
-            return print('error')
+    usuario = Usuario(nome_usuario, email_usuario,  senha_usuario)
+    db.session.add(usuario)
+    db.session.commit()
+    print(usuario)
+   
+    
+    return redirect('/')
