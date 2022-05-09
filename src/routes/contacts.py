@@ -50,3 +50,11 @@ def atualiza(id):
         return redirect('/demanda')
 
     return render_template('resposta-executor.html', solicita=consulta)
+
+@contacts.route('/justificar/<id>', methods=['POST', 'GET'])
+def justifica(id):
+    consulta = Solicita.query.get(id)
+    if request.method == "POST":
+        consulta.resposta_solicitacao = request.form['justificativa']
+        db.session.commit()
+        return render_template('executor-demanda.html', solicita=consulta)

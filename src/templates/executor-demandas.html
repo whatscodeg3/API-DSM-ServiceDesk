@@ -74,7 +74,7 @@
 
                                 <div class="btn-aceitar-recusar">
                                     <a href="/atualizar/{{lista.id_solicitacao}}" class="resposta-link">RESPONDER</a>
-                                    <a class="recusa-link" onclick="iniciaModal('modal-justi')">RECUSAR</a>
+                                    <a class="recusa-link" onclick="abreModal('modal-justi')">RECUSAR</a>
                                 </div>
                                 
                             </details>
@@ -118,15 +118,18 @@
     <div id="modal-justi" class="modal-container">
         <div class="modal">
             <h3 class="titulo-modal">Justifique a situação:</h3>
+            <!-- <form action="/justificar/{{solicita.id_solicitacao}}" method="POST"> -->
             <form>
-                <textarea input type="text" name="justificativa" class="texto-modal"></textarea>
-                <input class="recusa-link" type="button" value="Enviar">
+                <textarea input type="text" name="justificativa"></textarea>
+                
+                <input class="recusa-link" type="submit" value="Enviar">
+            
             </form>
         </div>
     </div>
 
     <script src="../static/assets/bootstrap/js/executor-bootstrap.min.js"></script>
     <script src="../static/js/executor-modal.js"></script>
-    
+
 </body>
 </html>
