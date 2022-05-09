@@ -35,10 +35,18 @@ class Usuarios(db.Model):
     __tablename__ = 'usuarios'
     id_usuario = db.Column(db.Integer, primary_key=True)
     nome_usuario = db.Column(db.String(255))
-    id_categoria_usuario = db.Column(db.Integer)
+    id_categoria_usuario = db.Column(db.Integer, db.ForeignKey('categoria_usuarios.id_categoria_usuario'))
+    cat_usu = db.relationship('CategoriaUsuarios', back_populates="usu")
+
     def __init__(self, id_usuario , nome_usuario, id_categoria_usuario):
         self.id_usuario = id_usuario
         self.nome_usuario = nome_usuario
         self.id_categoria_usuario = id_categoria_usuario
 
 
+class CategoriaUsuarios(db.Model):
+    __tablename__ = 'categoria_usuarios'
+    id_categoria_usuario = db.Column(db.Integer, primary_key=True)
+    categoria_usuario = db.Column(db.String)
+    usu = db.relationship('Usuarios', back_populates="cat_usu")
+    
