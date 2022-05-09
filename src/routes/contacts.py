@@ -14,7 +14,7 @@ def before_request():
 @contacts.route('/sair')
 def sair():
     session.pop('user', None)
-    return render_template('tela-inicial.html')
+    return redirect(url_for('contacts.index'))
 
 @contacts.route('/')
 def index():
