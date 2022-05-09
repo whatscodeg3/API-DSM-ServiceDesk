@@ -118,13 +118,12 @@
     <div id="modal-justi" class="modal-container">
         <div class="modal">
             <h3 class="titulo-modal">Justifique a situação:</h3>
-            <!-- <form action="/justificar/{{solicita.id_solicitacao}}" method="POST"> -->
-            <form>
+            {%for lista in listas%}
+            <form action="/justificar/{{lista.id_solicitacao}}" method="POST">
                 <textarea input type="text" name="justificativa"></textarea>
-                
                 <input class="recusa-link" type="submit" value="Enviar">
-            
             </form>
+            {%endfor%}
         </div>
     </div>
 
