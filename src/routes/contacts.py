@@ -1,7 +1,7 @@
 import os
 import pathlib
 from flask import Blueprint, redirect, render_template, request, url_for, send_from_directory, current_app
-from models.solicita import Categoria, Solicita
+from models.solicita import Avaliacao, Categoria, Solicita
 from utils.db import db
 
 contacts = Blueprint('contacts', __name__)
@@ -23,7 +23,14 @@ def nova():
 @contacts.route('/historico')
 def historico():
     lista = Solicita.query.all()
-    return render_template('usuario-historico.html', listas=lista)
+    # for i in lista:
+    #     id = i.id_solicitacao
+        
+    # if request.method == "POST":
+    #     lista.fk_id_avaliacao = request.form['1estrela']
+    #     db.session.commit()
+    #     return redirect('/historico')
+    return render_template('usuario-historico.html', listas=lista, id=id)
 
 @contacts.route('/demanda')
 def demanda():
@@ -58,6 +65,16 @@ def anexos(nome_arquivo):
     return send_from_directory('uploads', nome_arquivo)
 
 
+
+@contacts.route('/avaliar/<id>', methods=['POST',])
+def avalia(id):
+    print(id)
+    # teste = request.form['1estrela']
+    # print(teste)
+    consulta = Solicita.query.get(id)
+    consulta.fk_id_avaliacao = request.form['avaliacao']
+    db.session.commit()
+    return redirect('/historico')
 
 @contacts.route('/atualizar/<id>', methods=['POST','GET'])
 def atualiza(id):
