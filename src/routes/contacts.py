@@ -1,6 +1,7 @@
 import os
 import pathlib
 from flask import Blueprint, redirect, render_template, request, url_for, send_from_directory, current_app
+from sqlalchemy import text, engine
 from models.solicita import Avaliacao, Categoria, Solicita
 from utils.db import db
 
@@ -19,6 +20,14 @@ def admin():
 def nova():
     categoria = Categoria.query.all()
     return render_template('form_usuario_solicitacao.html', categorias=categoria)
+
+@contacts.route('/relatorios')
+def relatorio():
+    sql1 = text('select count(*) from solicitacoes')
+    sql2 = text('select count(*) from solicitacoes where resposta_solicitacao is not null')
+    results1 = db.engine.execute(sql1)
+    results2 = db.engine.execute(sql2)
+    return render_template('relatorios.html', res1=results1, res2=results2)
 
 @contacts.route('/historico')
 def historico():
