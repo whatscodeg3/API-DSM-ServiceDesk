@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <h1 id="header-nome-usuario">OLÁ, EXECUTOR!</h1>
+        <h1 id="header-nome-usuario"></h1>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <hr class="hr_black">
@@ -36,24 +36,28 @@
     </header>
 
     <main>
-        <div class="container-fluid">
-            <div>
-                {% for solicita in solicitas %}
-        
-                <div>
-                    <p>
-                        {{results}}
-                        <!-- aqui deve ter um count das datas de abertura-->
-                    </p>
-                    <p>
-                        {{ data_fechamento.id_solicitacao}}
-                        <!-- aqui deve ter um count das datas de fechamento-->
-                    </p>
-                </div>
-        
-                {% endfor %}
+        <section class="relatorio_primeiro">
+            <div class="container">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Abertos</th>
+                            <th>Fechados</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for i in res1 %}
+                            <td> {{ i }} </td>
+                            {% endfor %}
+                            {% for i in res2 %}
+                            <td> {{ i }} </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
+        </section>
     </main>
 
     <footer>

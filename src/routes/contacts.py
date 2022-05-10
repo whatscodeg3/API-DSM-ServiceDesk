@@ -23,11 +23,11 @@ def nova():
 
 @contacts.route('/relatorios')
 def relatorio():
-    solicita = Solicita.query.all()
-    return render_template('relatorios.html', solicitas=solicita)
-
-sql = text('select count(*) from solicitacoes')
-results = db.session.commit(sql)
+    sql1 = text('select count(*) from solicitacoes')
+    sql2 = text('select count(*) from solicitacoes where resposta_solicitacao is not null')
+    results1 = db.engine.execute(sql1)
+    results2 = db.engine.execute(sql2)
+    return render_template('relatorios.html', res1=results1, res2=results2)
 
 @contacts.route('/historico')
 def historico():
