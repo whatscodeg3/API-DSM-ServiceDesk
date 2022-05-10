@@ -27,7 +27,19 @@ def relatorio():
     sql2 = text('select count(*) from solicitacoes where resposta_solicitacao is not null')
     results1 = db.engine.execute(sql1)
     results2 = db.engine.execute(sql2)
-    return render_template('relatorios.html', res1=results1, res2=results2)
+    todos = text('select count(*) from solicitacoes')
+    pessimo = text('select count(*) from solicitacoes where FK_id_avaliacao in (1)')
+    regular = text('select count(*) from solicitacoes where FK_id_avaliacao in (2)')
+    bom = text('select count(*) from solicitacoes where FK_id_avaliacao in (3)')
+    otimo = text('select count(*) from solicitacoes where FK_id_avaliacao in (4)')
+    geral =db.engine.execute(todos)
+    geral1 = db.engine.execute(pessimo)
+    geral2 = db.engine.execute(regular)
+    geral3 = db.engine.execute(bom)
+    geral4 = db.engine.execute(otimo)
+    return render_template('relatorios.html', res1=results1, res2=results2, ger=geral, ger1=geral1, ger2=geral2, ger3=geral3, ger4=geral4)
+
+
 
 @contacts.route('/historico')
 def historico():

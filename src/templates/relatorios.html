@@ -38,11 +38,11 @@
     <main>
         <section class="relatorio_primeiro">
             <div class="container">
-                <table class="table table-bordered">
+                <table class="table table-bordered table-primary">
                     <thead>
                         <tr>
-                            <th>Abertos</th>
-                            <th>Fechados</th>
+                            <th>Chamados abertos</th>
+                            <th>Chamados fechados</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +51,63 @@
                             <td> {{ i[0] }} </td>
                             {% endfor %}
                             {% for i in res2 %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container segundo">
+                <table class="table table-bordered table-primary">
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Péssimo</th>
+                            <th>Regular</th>
+                            <th>Bom</th>
+                            <th>Ótimo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container segundo">
+                <table class="table table-bordered table-primary">
+                    <thead>
+                        <tr>
+                            <th>Total de solicitações</th>
+                            <th>Péssimo</th>
+                            <th>Regular</th>
+                            <th>Bom</th>
+                            <th>Ótimo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for i in ger %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
+                            
+                            {% for i in ger1 %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
+                            {% for i in ger2 %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
+                            {% for i in ger3 %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
+                            {% for i in ger4 %}
                             <td> {{ i[0] }} </td>
                             {% endfor %}
                         </tr>
