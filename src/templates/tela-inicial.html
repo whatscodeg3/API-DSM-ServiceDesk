@@ -15,6 +15,11 @@
         </div>
     </header>
     <main>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
+        {% endwith %}
         <section>
             <h1 class="login">Login</h1>
             <form action="/autentica" method="POST">
