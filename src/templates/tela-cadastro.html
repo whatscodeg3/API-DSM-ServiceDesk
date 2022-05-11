@@ -15,6 +15,13 @@
         <p class="titulo">Crie sua conta</p>
         <hr class="linha">
     </header>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div id="notificacao">
+                    <h4 id="msg">{{message}}</h4>
+                </div>
+            {% endfor %}
+        {% endwith %}
 
     <form class="formgeral" action="/cadastrando" method="POST">
         <main class="geral">

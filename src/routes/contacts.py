@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, render_template, request, url_for, jsonify, Response , json
+from flask import Blueprint, redirect, render_template, request, url_for, jsonify, Response , json, flash
 from models.solicita import Categoria, Solicita, Usuario
 from utils.db import db
 
@@ -88,28 +88,28 @@ def cadastrando():
     
 
     if email_usuario != emailConfirmado:
-        print('Email não confere')
+        flash('Email não confere')
         return redirect('/cadastro')
     elif senha_usuario != senhaConfirmada:
-        print('Senha não confere') 
+        flash('Senha não confere') 
         return redirect('/cadastro')
     elif dataCheckbox != 'check':
-        print('Confirme o uso de dados para continuar o cadastro')
+        flash('Confirme o uso de dados para continuar o cadastro')
         return redirect('/cadastro')
     elif not nome_usuario or not sobrenome:
-        print('Nome ou sobrenome não preenchido')
+        flash('Nome ou sobrenome não preenchido')
         return redirect('/cadastro')
     elif not email_usuario:
-        print('Email não preenchido')
+        Flash('Email não preenchido')
         return redirect('/cadastro')
     elif not emailConfirmado:
-        print('Confirme seu email')
+        flash('Confirme seu email')
         return redirect('/cadastro')
     elif not senha_usuario:
-        print('Senha não preenchida')
+        flash('Senha não preenchida')
         return redirect('/cadastro')
     elif not senhaConfirmada:
-        print('Confirme sua senha')
+        flash('Confirme sua senha')
         return redirect('/cadastro')
     usuario = Usuario(nome_usuario, email_usuario,  senha_usuario)
     db.session.add(usuario)
