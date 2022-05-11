@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/estilo-tela-inicial.css">
+    <title>Tela Inicial</title>
+</head>
+<body>
+    <header>
+        <div class="cabecalho">
+            <h1 class="titulo">SERVICE DESK</h1>
+            <P class="descricao">Solicite um serviço de TI de forma rápida e prática.</P>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h1 class="login">Login</h1>
+            <form action="/autentica" method="POST">
+                <hr>
+                <input type="email" name="email" placeholder="Usuário" required>
+                <input type="password"  name="senha" placeholder="••••••••••••" required>
+                <hr>
+                <button type="submit">Acessar</button>
+            </form>
+            <a action="/cadastro"href="">Crie sua conta</a>
+        </section>
+    </main>
+    <footer>
+        <p>DESENVOLVIDO POR WHATSCODE</p>
+    </footer>
+    <img id="img-fundo" src="../static/img/fundo-tela-inicial.svg" alt="imagem de fundo">
+</body>
+</html>
