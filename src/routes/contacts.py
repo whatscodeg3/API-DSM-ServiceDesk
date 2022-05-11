@@ -51,10 +51,17 @@ def atualiza(id):
 
     return render_template('resposta-executor.html', solicita=consulta)
 
-@contacts.route('/justificar/<id>', methods=['POST', 'GET'])
-def justifica(id):
+
+@contacts.route('/demanda/<id>')
+def modal_id(id):
+    just = Solicita.query.get(id)
+    return render_template('executor-demandas.html', just=just)
+
+
+@contacts.route('/demanda/<id>/justificar', methods=['POST', 'GET'])
+def justificativa(id):
     consulta = Solicita.query.get(id)
-    if request.method == "POST":
+    if request.method == 'POST':
         consulta.resposta_solicitacao = request.form['justificativa']
         db.session.commit()
         return redirect('/demanda')
