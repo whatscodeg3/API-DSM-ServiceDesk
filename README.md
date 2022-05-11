@@ -8,6 +8,7 @@
 <p align="center">
   <a href ="#configuracoes"> Executando a aplicação </a>  | 
   <a href ="#planejamento"> Planejamento </a>  |
+  <a href ="#sprints"> Sprints </a>  |
   <a href ="#mvp"> MVP </a>  |
   <a href ="#equipe"> Equipe </a> 
 </p>
@@ -168,6 +169,12 @@ Como mencionado no início deste documento o desenvolvimento do projeto foi base
 - Sprint 2 (25/04 - 15/05)
 - Sprint 3 (16/05 - 05/06)
 
+# Sprints <a id="sprints"></a>
+
+- SPRINT 1 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md)): Concluído ☑️
+- SPRINT 2 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Em Andamento 🚧
+- SPRINT 3: Carregando 🕓
+
 ## Backlog do produto
 Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backlog do produto, uma lista priorizada, refinada e estimada dos recursos que o time de desenvolvimento irá precisar para conseguir atingir o produto final desejado pelo cliente. O backlog foi pirorizados em alto, médio e baixo de acordo com o conversado com o cliente, em cima do valor de cada tópico. Na tabela, segue as tarefas ordenadas por prioridade, dividads pro sprints e mostrando ao lado o status de desenvolvimento de cada uma. 
 
@@ -190,34 +197,6 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 | Cadastro e login de usuários                  | Utilizando HTML, CSS e Python (ou JavaScript) será feito uma página para obter os dados do usuário e registra-lo no banco do sistema, no qual será determinante para definir as tarefas que poderão realizar na plataforma.                    | Funcional     | Baixa      | 2      | 🕓 | 
 | Revisão e implementação do sistema            | Analisando as sugestões e orientações passadas nas entregas, revisar e/ou alterar pontos necessários do sistema.                                                                                                                               | Não funcional | Baixa      | 3      | 🕓 | 
 
-
-
-
-## 1ª Sprint
-
-O time se organizou para trazer um sistema simplificado do que foi pedido pelo cliente. Nesta versão, apresentaremos apenas as funcionalidades de envio de solicitação e armazenamento da mesma. Terá uma página do preenchimento da solicitação com o nome do cliente, tipo de serviço e a descrição do problema. Esta solicitação irá ser redirecionada para outra página onde será a visão do executor, pois neste ambiente ele poderá visualizar a solicitação e poderá dar um retorno.
-
-### Front-end
-Em primeiro momento foi realizado o layout do sistema na plataforma Figma, onde no desenvolvimento para esta primeira entrega foi focado apenas nas páginas que será exibidas. Sendo as páginas voltadas para um usuário comum (tela inicial do usuário, nova solicitação e histórico das solicitações) e as páginas para um executor (tela das demandas e resposta). O wireframe completo estará na pasta `doc/front-end` localizada neste repositório, abaixo está as imagens das páginas escolhidas:
-
-<img src="/doc/front-end/wireframe-sprint1.png" alt="wireframe sprint 1" width="855" >
-<img src="/doc/front-end/wireframe-sprint1(2).PNG" alt="wireframe sprint 1 (2)" width="855">
-
-### Back-end
-Paralelamente ao desenvolvimento das páginas, estava sendo modelado e preparado o banco de dados. Pensando em que a modelagem pode ser realizada através de implementaçãoes, priorizou-se apenas as criações das tabelas necessárias para o funcionamento do sistema nesta primeira entrega. Para tal, primeiramente realizaou-se os modelos conceitual e lógico.
-
-**Modelo conceitual feito no brModelo.**
-<img src="/doc/back-end/modeloConceitual-sprint1.jpg" alt="modelo conceitual sprint 1">
-
-**Modelo lógico feito no Workbench.**
-<img src="/doc/back-end/modeloLogico-sprint1.jpeg" alt="modelo lógico sprint 1">
-
-Na sequência partiu-se para a criação do banco físico, utilizando a linguagem SQL na criação de tabelas. Segue imagens do momento da criação em que a linguagem DDL foi utilizada:
-<img src="/doc/back-end/tabela1.jpg" alt="criação de tabelas">
-<img src="/doc/back-end/tabela2.jpg" alt="criação de tabelas">
-
-### Ligação com o banco de dados
-Após estar finalizado a criação do banco de dados e já estar estruturado todas as páginas necessárias, realizou-se a ligação de ambas. Utilizando o mini framework Flask, linguagem Python e a biblioteca SQLAlchemy.
 
 # MVP <a id="mvp"></a>
 Mínimo produto viável (MVP) é uma versão funcional de modo enxuto do serviço inicialmente pensado. Onde uma pequena parcela de pessoas irá testar e experimenta-lo podendo assim opinar para futuras melhoras. Este conceito é implementado no SCRUM, onde geramos um MVP na primeira entrega e apartir dele continuamos implementando-o até chegar ao produto final.
