@@ -41,10 +41,12 @@
 
         {% with messages = get_flashed_messages() %}
             {% for message in messages %}
-                {{message}}
+                <div id="notificacao">
+                    <h4 id="msg">{{message}}</h4>
+                </div>
             {% endfor %}
         {% endwith %}
-        
+
         <main>
             <div class="linha_cinza">
                 <p class="ola">Olá, {{user[1]}}!</p>

@@ -38,15 +38,15 @@ def autentica():
 @contacts.route('/usuario')
 def usuario():
     if g.user != None:
-        if g.user[0] == 4 or g.user[0] == 14:
+        if g.user[0] == 1 or g.user[0] == 2:
             return render_template('home_usuario.html', user = session['user'])
-    session.pop('user', None)        
+    session.pop('user', None)     
     return redirect(url_for('contacts.index'))
 
 @contacts.route('/nova-solicitacao')
 def nova():
     if g.user != None:
-        if g.user[0] == 4 or g.user[0] == 14:
+        if g.user[0] == 1 or g.user[0] == 2:
             categoria = Categoria.query.all()
             return render_template('form_usuario_solicitacao.html', categorias=categoria, user=session['user'])
     session.pop('user', None)        
@@ -55,7 +55,7 @@ def nova():
 @contacts.route('/historico')
 def historico():
     if g.user != None:
-        if g.user[0] == 4 or g.user[0] == 14:
+        if g.user[0] == 1 or g.user[0] == 2:
             lista = Solicita.query.all()
             return render_template('usuario-historico.html', listas=lista, user=session['user'])
     session.pop('user', None)        
@@ -64,7 +64,7 @@ def historico():
 @contacts.route('/demanda')
 def demanda():
     if g.user != None:
-        if g.user[0] == 14:
+        if g.user[0] == 2:
             lista = Solicita.query.filter_by(resposta_solicitacao = None)
             consulta = Solicita.query.filter(Solicita.resposta_solicitacao.isnot(None))
             return render_template('executor-demandas.html', listas=lista, consultas=consulta, user=session['user'])

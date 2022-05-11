@@ -15,16 +15,18 @@
         </div>
     </header>
     <main>
-        {% with messages = get_flashed_messages() %}
-            {% for message in messages %}
-                {{message}}
-            {% endfor %}
-        {% endwith %}
         <section>
+            {% with messages = get_flashed_messages() %}
+                {% for message in messages %}
+                    <div id="notificacao">
+                        <h4 id="msg">{{message}}</h4>
+                    </div>
+                {% endfor %}
+            {% endwith %}
             <h1 class="login">Login</h1>
             <form action="/autentica" method="POST">
                 <hr>
-                <input type="email" name="email" placeholder="Usuário" required>
+                <input type="email" name="email" placeholder="e-mail" required>
                 <input type="password"  name="senha" placeholder="••••••••••••" required>
                 <hr>
                 <button type="submit">Acessar</button>
