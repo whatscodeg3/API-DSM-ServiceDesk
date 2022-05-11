@@ -60,6 +60,7 @@ CREATE TABLE IF NOT EXISTS categoria_solicitacoes (
     PRIMARY KEY(id_categoria_solicitacao)
 );
 
+
 # Inserindo valores em categoria usuarios e categoria solicitacoes
 INSERT INTO categoria_usuarios(categoria_usuario) VALUES
 ("Usuário"),
@@ -71,7 +72,7 @@ INSERT INTO categoria_solicitacoes(categoria_solicitacao) VALUES
 ("Problema com Software"),
 ("Dúvidas/Esclarecimentos");
 
-# Criando tabela de usuarios e solicitacoes
+# Criando tabela de usuarios, avaliacoes e solicitacoes
 CREATE TABLE IF NOT EXISTS usuarios (
     id_usuario INT NOT NULL AUTO_INCREMENT ,
     nome_usuario VARCHAR(255) NOT NULL,
@@ -83,6 +84,19 @@ CREATE TABLE IF NOT EXISTS usuarios (
     REFERENCES categoria_usuarios(id_categoria_usuario)
 );
 
+CREATE TABLE IF NOT EXISTS avaliacoes (
+	id_avaliacao INT NOT NULL AUTO_INCREMENT,
+	descricao_avaliacao varchar(20),
+    PRIMARY KEY (id_avaliacao)
+);
+
+# Inserindo valores em avaliacoes
+insert into avaliacoes (descricao_avaliacao) values ('Péssimo');
+insert into avaliacoes (descricao_avaliacao) values ('Regular');
+insert into avaliacoes (descricao_avaliacao) values ('Bom');
+insert into avaliacoes (descricao_avaliacao) values ('Ótimo');
+
+
 CREATE TABLE IF NOT EXISTS solicitacoes(
 	id_solicitacao INT NOT NULL AUTO_INCREMENT,
     data_abertura TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
@@ -90,19 +104,30 @@ CREATE TABLE IF NOT EXISTS solicitacoes(
     data_fechamento TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     descricao_solicitacao TEXT NOT NULL,
     resposta_solicitacao TEXT,
-    FK_id_usuario INT,
-    FK_id_categoria_usuario INT,
+    FK_id_usuario_comum INT,
+    FK_id_executor INT,
+    FK_id_categoria_usuario_comun INT,
+    FK_id_categoria_executor INT,
     FK_id_categoria_solicitacao INT,
+    FK_id_avaliacao INT,
     PRIMARY KEY(id_solicitacao),
     # Constraint categoria_usuario
-    CONSTRAINT FK_id_categoria_usuario_solicitacao FOREIGN KEY (FK_id_categoria_usuario)
+    CONSTRAINT FK_id_categoria_usuario_solicitacao FOREIGN KEY (FK_id_categoria_usuario_comun)
+    REFERENCES categoria_usuarios(id_categoria_usuario),
+	CONSTRAINT FK_id_categoria_executor FOREIGN KEY (FK_id_categoria_executor)
     REFERENCES categoria_usuarios(id_categoria_usuario),
     # Constraint categoria_solicitacao
     CONSTRAINT FK_id_categoria_solicitacao FOREIGN KEY (FK_id_categoria_solicitacao)
     REFERENCES categoria_solicitacoes(id_categoria_solicitacao),
-    # Constraint id_usuario
-    CONSTRAINT FK_id_usuario FOREIGN KEY (FK_id_usuario)
-    REFERENCES usuarios(id_usuario)
+    # Constraint id_usuario_comum
+    CONSTRAINT FK_id_usuario_comum FOREIGN KEY (FK_id_usuario_comum)
+    REFERENCES usuarios(id_usuario),
+    # Constraint id_executor
+	CONSTRAINT FK_id_executor FOREIGN KEY (FK_id_executor)
+    REFERENCES usuarios(id_usuario),
+    # Constraint id_avaliacao
+    CONSTRAINT FK_id_avaliacao FOREIGN KEY (FK_id_avaliacao)
+    REFERENCES avaliacoes (id_avaliacao)
 );
 
 ```
