@@ -63,7 +63,11 @@
                         {% for lista in listas %}
                         <li class="chamados-itens-aberto">
                             <details>
-                                <summary>  {{ lista.data_abertura.strftime('%d/%m/%Y - ') }} {{ lista.cat.categoria_solicitacao}}</summary>
+                                <summary class="summary-aberto"> 
+                                    <div class="circulo-aberto"></div>
+
+                                    <div>{{ lista.data_abertura.strftime('%d/%m/%Y - ') }} {{ lista.cat.categoria_solicitacao}} </div>
+                                </summary>
                                 <div class=chamados-itens-conteudo-aberto>
                                     <h4>Descrição da Solicitação</h4>
                                     <p>
@@ -91,7 +95,11 @@
                         {% for consulta in consultas %}
                         <li class="chamados-itens-fechado">
                             <details>
-                                <summary> {{ consulta.data_fechamento.strftime('%d/%m/%Y - ') }} {{ consulta.cat.categoria_solicitacao}}</summary>
+                                <summary class="summary-fechado"> 
+                                    <div class="circulo-fechado"></div>
+
+                                    <div>{{ consulta.data_fechamento.strftime('%d/%m/%Y - ') }} {{ consulta.cat.categoria_solicitacao}}</div>
+                                </summary>
                                 <div class=chamados-itens-conteudo-fechado>
                                     <h4>Descrição da Solicitação</h4>
                                     <p>
@@ -119,7 +127,7 @@
             <a href="/demanda" class="fechar">X</a>
             <h3 class="titulo-modal">Justifique a situação:</h3>
             <form action="{{just.id_solicitacao}}/justificar" method="POST">
-                <textarea input type="text" name="justificativa"></textarea>
+                <textarea input type="text" name="justificativa" style="outline: 0px;"></textarea>
                 <input class="recusa-link" type="submit" value="Enviar">
             </form>
         </div>
