@@ -14,21 +14,21 @@ class Solicita(db.Model):
         'categoria_solicitacoes.id_categoria_solicitacao'))
     fk_id_avaliacao = db.Column(
         db.Integer, db.ForeignKey('avaliacoes.id_avaliacao'))
-    fk_id_usuario_comun = db.Column(
+    fk_id_usuario_comum = db.Column(
         db.Integer, db.ForeignKey('usuarios.id_usuario'))
     fk_id_executor = db.Column(
         db.Integer, db.ForeignKey('usuarios.id_usuario'))
     cat = db.relationship('Categoria', back_populates="solicit")
     av = db.relationship('Avaliacao', back_populates="sol")
     usu_sol = db.relationship(
-        'Usuarios', backref="sol_usu", foreign_keys=[fk_id_usuario_comun])
+        'Usuarios', backref="sol_usu", foreign_keys=[fk_id_usuario_comum])
     usu_sol2 = db.relationship(
         'Usuarios', backref="sol_usu2", foreign_keys=[fk_id_executor])
 
-    def __init__(self, fk_id_categoria_solicitacao, descricao_solicitacao, fk_id_usuario_comun, fk_id_executor):
+    def __init__(self, fk_id_categoria_solicitacao, descricao_solicitacao, fk_id_usuario_comum, fk_id_executor):
         self.fk_id_categoria_solicitacao = fk_id_categoria_solicitacao
         self.descricao_solicitacao = descricao_solicitacao
-        self.fk_id_usuario_comun = fk_id_usuario_comun
+        self.fk_id_usuario_comum = fk_id_usuario_comum
         self.fk_id_executor = fk_id_executor
         # self.data_abertura=data_abertura
 
