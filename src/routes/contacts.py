@@ -10,6 +10,19 @@ from utils.verifica import distribui, verifica
 
 contacts = Blueprint('contacts', __name__)
 
+@contacts.before_request
+def before_request():
+    g.user = None
+    g.id_usuario = None #aqui thiago
+    if 'user' in session:
+        g.user = session['user']
+    if 'id_usuario' in session: #aqui thiago
+        g.id_usuario = session['id_usuario'] #aqui thiago
+
+@contacts.route('/sair')
+def sair():
+    session.pop('user', None)
+    return redirect(url_for('contacts.index'))
 
 @contacts.before_request
 def before_request():
@@ -31,28 +44,25 @@ def sair():
 def index():
     return render_template('tela-inicial.html')
 
-
 @contacts.route('/autentica', methods=['POST', 'GET'])
 def autentica():
     if request.method == 'POST':
         session.pop('user', None)
+        session.pop('id_usuario', None) #aqui thiago
         email = request.form['email']
         senha = request.form['senha']
-        db_consulta = Usuarios.query.all()
+        db_consulta = Usuario.query.all()
         redir = verifica(db_consulta, email, senha)
         return redirect(url_for(redir))
-    return render_template('tela-inicial.html')
-
-
+    return redirect(url_for('contact.index'))
+    
 @contacts.route('/usuario')
 def usuario():
     if g.user != None:
         if g.user[0] == 1 or g.user[0] == 2:
-            print(g.id_usuario)
-            return render_template('home_usuario.html', user=session['user'])
-    session.pop('user', None)
+            return render_template('home_usuario.html', user = session['user'])
+    session.pop('user', None)     
     return redirect(url_for('contacts.index'))
-
 
 @contacts.route('/nova-solicitacao')
 def nova():
@@ -75,12 +85,11 @@ def relatorio():
 @contacts.route('/historico')
 def historico():
     if g.user != None:
-        if g.user[0] == 1 or g.user[0] == 3:
+        if g.user[0] == 1 or g.user[0] == 2:
             lista = Solicita.query.all()
             return render_template('usuario-historico.html', listas=lista, user=session['user'])
-    session.pop('user', None)
+    session.pop('user', None)        
     return redirect(url_for('contacts.index'))
-
 
 @contacts.route('/demanda')
 def demanda():

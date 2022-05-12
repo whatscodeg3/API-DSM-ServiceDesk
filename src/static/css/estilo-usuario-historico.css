@@ -3,10 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Monda:wght@700&display=swap');
 
 *{
-    margin:0px;
-    padding: 0px;
-    box-sizing: border-box;
-    text-decoration: none; 
+margin:0px;
+padding: 0px;
+box-sizing: border-box;
+text-decoration: none; 
 }
 html{
     height: 100%;
