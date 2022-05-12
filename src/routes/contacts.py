@@ -70,10 +70,6 @@ def atualiza(id):
 def cadastro():
     return render_template('tela-cadastro.html')
 
-@contacts.route('/alert')
-def alert():
-    return render_template('sweetalerts.html')
-
 @contacts.route('/cadastrando', methods=['POST', 'GET'])
 def cadastrando():
     if request.method == 'POST':
@@ -84,7 +80,6 @@ def cadastrando():
         senha_usuario = request.form.get('password')
         senhaConfirmada = request.form.get('passwordConfirmation')
         dataCheckbox = request.form.get('checkboxData')
-        print(dataCheckbox)
     
 
     if email_usuario != emailConfirmado:
