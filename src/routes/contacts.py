@@ -2,7 +2,7 @@ from multiprocessing.sharedctypes import Value
 from sqlalchemy import text, engine
 import os
 import pathlib
-from flask import Blueprint, redirect, render_template, request, session, g, url_for, send_from_directory, current_app
+from flask import Blueprint, flash, redirect, render_template, request, session, g, url_for, send_from_directory, current_app
 from models.solicita import Avaliacao, Categoria, Solicita, Usuarios
 from sqlalchemy import text, engine
 from utils.db import db
@@ -73,7 +73,8 @@ def relatorio():
 def historico():
     if g.user != None:
         if g.user[0] == 1 or g.user[0] == 2:
-            lista = Solicita.query.all()
+            print(g.id_usuario)
+            lista = Solicita.query.filter_by(fk_id_usuario_comum=g.id_usuario)
             return render_template('usuario-historico.html', listas=lista, user=session['user'])
     session.pop('user', None)        
     return redirect(url_for('contacts.index'))
@@ -83,6 +84,7 @@ def historico():
 def demanda():
     if g.user != None:
         if g.user[0] == 2:
+            print(g.id_usuario)
             lista = Solicita.query.filter_by(resposta_solicitacao=None, fk_id_executor=g.id_usuario)
             consulta = Solicita.query.filter_by(resposta_solicitacao= not Value, fk_id_executor=g.id_usuario)
             return render_template('executor-demandas.html', listas=lista, consultas=consulta, user=session['user'])
@@ -179,11 +181,11 @@ def cadastro():
 @contacts.route('/cadastrando', methods=['POST', 'GET'])
 def cadastrando():
     if request.method == 'POST':
-        nome_usuario = request.form.get('name')
+        nome_usuario = request.form['name']
         sobrenome = request.form.get('surname')
-        email_usuario = request.form.get('email')
+        email_usuario = request.form['email']
         emailConfirmado = request.form.get('emailConfirmation')
-        senha_usuario = request.form.get('password')
+        senha_usuario = request.form['password']
         senhaConfirmada = request.form.get('passwordConfirmation')
         dataCheckbox = request.form.get('checkboxData')
     
@@ -213,8 +215,8 @@ def cadastrando():
     # elif not senhaConfirmada:
     #     flash('Confirme sua senha')
     #     return redirect('/cadastro')
-
-    usuario = Usuario(nome_usuario, email_usuario,  senha_usuario)
+    id_usuario = None
+    usuario = Usuarios(id_usuario, nome_usuario, email_usuario, senha_usuario, 1)
     db.session.add(usuario)
     db.session.commit()
     print(usuario)

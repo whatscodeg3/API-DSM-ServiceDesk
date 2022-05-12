@@ -12,6 +12,7 @@ def verifica(db_consulta, email, senha):
                 categoria_usuario = verifica.id_categoria_usuario
                 if categoria_usuario == 1: #usuario comum
                     session['user'] = [categoria_usuario, verifica.nome_usuario]
+                    session['id_usuario'] = verifica.id_usuario
                     flash('Usuário logado com sucesso!')
                     return 'contacts.usuario'
                 elif categoria_usuario == 2: #operador
@@ -21,7 +22,7 @@ def verifica(db_consulta, email, senha):
                     return 'contacts.demanda'
                 elif categoria_usuario == 3: #admin
                     flash('Usuário logado com sucesso!')
-                    return 'contact.index'
+                    return 'contacts.index'
             else:
                 flash('Usuário/Senha incorreta')
                 return 'contacts.index'#senha incorreta
