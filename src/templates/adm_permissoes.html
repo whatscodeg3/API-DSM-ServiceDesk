@@ -1,0 +1,81 @@
+<html lang="pt-br">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/css/adm_permissoes.css">
+    
+    <title>Gerenciar Permissões</title>
+</head>
+
+
+<body>
+ <header>
+        <h1 id="header-nome-adm">OLÁ, ADMINISTRADOR!</h1>
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <hr id="hr_black">
+                <a href="/home">HOME</a>
+                <hr id="hr_black">
+                <a href="/nova-solicitacao">NOVA SOLICITAÇÃO</a>
+                <hr id="hr_black">
+                <a href="/demanda">DEMANDAS</a>
+                <hr id="hr_black">
+                <a href="/historico">HISTÓRICO DE SOLICITAÇÕES</a>
+                <hr class="hr_black">
+              </div>
+        <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+
+        <script>
+            function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            }
+
+            function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+    </header>
+
+    <main>
+        <div class="div_card_branco">
+            <div class="linha">
+                <p class="nome_usuario_title">Nome do Usuário</p>
+                <hr class="hr90">
+                <p class="nome_usuario_title">categoria</p>
+                <hr class="hr90">
+                <p class="nome_usuario_titleRight">Gerenciar Permissões</p>
+            </div>
+   
+            
+        
+           
+            {% for nome in nome %}
+            <form action="/permissoes/{{nome.id_usuario}}" method="POST">
+                
+                <div class="linha">
+                    <p class="nome_usuario">          
+                        {{nome.nome_usuario}}
+                    </p>
+                    <p>{{nome.cat_usu.categoria_usuario}}</p>
+
+                    <div class="botoes">
+                    <button type="submit" name="botao" value="1" class="estilo_botao">Torná-lo usuário</button>
+                    <button type="submit" name="botao" value="2" class="estilo_botao">Torná-lo operador</button>
+                    </div>
+
+                </div>
+                <hr class="padraohr">
+            </form>
+           {% endfor %}
+
+
+    </main>
+    
+    <footer>
+        <p>DESENVOLVIDO POR WHATSCODE</p>
+    </footer>
+</body>
+</html>
