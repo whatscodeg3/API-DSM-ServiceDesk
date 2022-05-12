@@ -35,29 +35,16 @@
         </script>
     </header>
     <main>
-        <section class="pesquisa">
-            <form id="pesquisa-campo" action="" method="get">
-                <input type="text" name="search" id="busca" placeholder="Nome do usuário" required>
-                <button class="pesquisa-lupa" type="submit"><img id="pesquisa-img" src="lupa-arredondada.svg"
-                        alt="icone menu"></button>
-            </form>
+        <section>
+            <details class="nav nav-pills mb-3">
+                <summary class="nav nav-pills mb-3">Filtrar por:ﾠ</summary>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-all">TODOS</button>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-home">ABERTO</button>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-profile">FECHADO</button>
+            </details>
         </section>
-        <section class="seletor-chamados">
-            <ul id="seletor-botao" class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li id="botao" class="nav-item" role="presentation">
-                    <button id="botao-aberto" class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                        aria-selected="true">ABERTO</button>
-                </li>
-                <li id="botao" class="nav-item" role="presentation">
-                    <button id="botao-fechado" class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                        aria-selected="false">FECHADO</button>
-                </li>
-            </ul>
-        </section>
-        <section id="detalhe-chamados" class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <section id="detalhe-chamados" class="tab-content" id="pills-tabContent" id="pills-all">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel">
                 <form class="chamados">
                     <ul class="chamados-lista" type="none">
                         {% for lista in listas %}
@@ -89,7 +76,7 @@
             </div>
             
             
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            <div class="tab-pane fade" id="pills-profile" id="pills-all">
                 <form class="chamados">
                     <ul class="chamados-lista" type="none">
                         {% for consulta in consultas %}

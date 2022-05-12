@@ -136,7 +136,7 @@ main {
 }
 
 .pesquisa {
-    display: none;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -227,31 +227,8 @@ input {
     }
 }
 
-#botao-aberto {
-    background-color: #FF4343;
-    border-radius: 50px;
-    width: 100%;
-}
 
-@media only screen and (max-width: 600px) {
-    #botao-aberto {
-        font-size: 3vw;
-    }
-}
 
-#botao-fechado {
-    color: black;
-    background-color: #6CEC90;
-    border-radius: 50px;
-    width: 100%;
-
-}
-
-@media only screen and (max-width: 600px) {
-    #botao-fechado {
-        font-size: 3vw;
-    }
-}
 
 #detalhe-chamados {
     display: flex;
