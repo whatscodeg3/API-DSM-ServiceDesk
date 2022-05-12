@@ -165,7 +165,6 @@ html{
                                 }
                             }
 
-
                 
                     /* .container{
                         display: flex;
@@ -202,6 +201,7 @@ html{
                                 }
                             }
 
+
                 .nomes_titulo{
                     color: #000;
                     font-family: 'Roboto';
@@ -217,17 +217,14 @@ html{
                 }
                         @media only screen and (max-width: 600px) {
                             .nomes{
+
                                 font-size: 15px;
                                 }
                             }
 
-
-                            
                 .hr90{
                     transform: rotate(90%);
                 } */
-
-
 
                 .padraohr{
                     width: 90%;
@@ -289,7 +286,7 @@ html{
                     display: inline-block;
                     width: 60px;
                     height: 34px;
-                
+                    margin-right: 10%;
                   }
 
                   
