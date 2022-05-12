@@ -12,7 +12,6 @@
 
     </head>
     <body>
-
         <header>
             <div>
                 <div id="mySidenav" class="sidenav">
@@ -21,6 +20,8 @@
                     <a href="/nova-solicitacao">NOVA SOLICITAÇÃO</a>
                     <hr id="hr_black">
                     <a href="/historico">HISTÓRICO</a>
+                    <hr id="hr_black">
+                    <a href="/sair">SAIR</a>
                     <hr id="hr_black">
                   </div>
             </div>
@@ -36,12 +37,19 @@
                     document.getElementById("mySidenav").style.width = "0";
                     }
                 </script>
-    
         </header>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div id="notificacao">
+                    <h4 id="msg">{{message}}</h4>
+                </div>
+            {% endfor %}
+        {% endwith %}
 
         <main>
             <div class="linha_cinza">
-                <p class="ola">Olá, usuário!</p>
+                <p class="ola">Olá, {{user[1]}}!</p>
                 <p class="ajuda">Precisa de ajuda?</p>
                 <p class="pratica">Solicite um serviço de TI de forma rápida e prática.</p>
             </div>        
