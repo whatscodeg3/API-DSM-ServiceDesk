@@ -38,13 +38,10 @@ class Usuarios(db.Model):
     id_categoria_usuario = db.Column(db.Integer, db.ForeignKey('categoria_usuarios.id_categoria_usuario'))
     cat_usu = db.relationship('CategoriaUsuarios', back_populates="usu")
 
-
     def __init__(self, id_usuario , nome_usuario, id_categoria_usuario):
         self.id_usuario = id_usuario
         self.nome_usuario = nome_usuario
         self.id_categoria_usuario = id_categoria_usuario
-
-
 
 class CategoriaUsuarios(db.Model):
     __tablename__ = 'categoria_usuarios'
