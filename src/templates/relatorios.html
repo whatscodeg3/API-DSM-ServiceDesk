@@ -15,12 +15,14 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <hr class="hr_black">
-            <a href="/demanda">MINHAS DEMANDAS</a>
-            <hr class="hr_black">
-            <a href="/nova-solicitacao">NOVA SOLICITAÇÃO</a>
-            <hr class="hr_black">
-            <a href="/historico">HISTÓRICO DE SOLICITAÇÕES</a>
-            <hr class="hr_black">
+            <a href="/admin">HOME</a>
+            <hr id="hr_black">
+            <a href="/relatorios">RELATORIOS</a>
+            <hr id="hr_black">
+            <a href="">HISTORICO</a>
+            <hr id="hr_black">
+            <a href="/admin/permissoes">PERMISSÕES</a>
+            <hr id="hr_black">
         </div>
         <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
 
@@ -38,7 +40,7 @@
     <main>
         <section class="relatorio_primeiro">
             <div class="container">
-                <table class="table table-bordered table-primary">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>Chamados abertos</th>
@@ -58,8 +60,8 @@
                 </table>
             </div>
 
-            <div class="container segundo">
-                <table class="table table-bordered table-primary">
+            <!-- <div class="container segundo">
+                <table class="table table-bordered table-dark">
                     <thead>
                         <tr>
                             <th>Operador</th>
@@ -79,10 +81,10 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
 
             <div class="container segundo">
-                <table class="table table-bordered table-primary">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>Total de solicitações</th>

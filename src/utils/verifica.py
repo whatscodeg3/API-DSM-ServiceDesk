@@ -21,7 +21,7 @@ def verifica(db_consulta, email, senha):
                     return 'contacts.demanda'
                 elif categoria_usuario == 3: #admin
                     flash('Usuário logado com sucesso!')
-                    return 'contact.index'
+                    return 'contacts.admin'
             else:
                 flash('Usuário/Senha incorreta')
                 return 'contacts.index'#senha incorreta

@@ -40,7 +40,7 @@ def autentica():
         db_consulta = Usuarios.query.all()
         redir = verifica(db_consulta, email, senha)
         return redirect(url_for(redir))
-    return redirect(url_for('contact.index'))
+    return redirect(url_for('contacts.index'))
     
 @contacts.route('/usuario')
 def usuario():
