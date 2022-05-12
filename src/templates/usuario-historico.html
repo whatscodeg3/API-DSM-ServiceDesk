@@ -39,7 +39,8 @@
                 <button class="pesquisa-lupa" type="submit"><img id="pesquisa-img" src="../static/img/lupa-arredondada.svg" alt="icone menu"></button>
             </form>
         </section>
-        <form class="chamados">
+
+        <div class="chamados"> 
             <ul class="chamados-lista" type="none">
                 {% for lista in listas %}
                 <li class="chamados-itens">
@@ -60,16 +61,45 @@
                                 </p>
                             {% else %}
                                 <br>
-                                <p>
+                                    <p>
                                     {{ lista.resposta_solicitacao}}
-                                </p>
+                                    </p>
+                                <div class="formavaliacao">
+                                {% if lista.fk_id_avaliacao == None %}
+                                    <form class="formavaliacao2" action="/avaliar/{{lista.id_solicitacao}}" method="POST">
+                                        <strong><label>Como você avalia nosso atendimento?</label></strong>
+                                        <select class="select" name="avaliacao">
+                                            <option selected disabled >Selecione</option>
+                                            <option value="1">Péssimo</option>
+                                            <option value="2">Regular</option>
+                                            <option value="3">Bom</option>
+                                            <option value="4">Ótimo</option>
+                                        </select>
+                                        <input type="submit" class="botao">
+                                    </form>
+                                {% else %}
+                                    <form class="formavaliacao2" action="/avaliar/{{lista.id_solicitacao}}" method="POST">
+                                        <strong><p>Você avaliou como:</p></strong>
+                                        <br>
+                                        {% if lista.fk_id_avaliacao == 1 %}
+                                        <p>Péssimo</p>
+                                        {% elif lista.fk_id_avaliacao == 2 %}
+                                        <p>Regular</p>
+                                        {% elif lista.fk_id_avaliacao == 3 %}
+                                        <p>Bom</p>
+                                        {% elif lista.fk_id_avaliacao == 4 %}
+                                        <p>Ótimo</p>
+                                        {% endif %}
+                                    </form>
+                                {% endif %}
+                                </div>
                             {% endif %}
                         </div>
                     </details>
                 </li>
                 {% endfor %}
             </ul>
-        </form>
+        </div>
     </main>
     <footer>
         <p>DESENVOLVIDO POR WHATSCODE</p>
