@@ -4,6 +4,7 @@ import os
 import pathlib
 from flask import Blueprint, redirect, render_template, request, session, g, url_for, send_from_directory, current_app
 from models.solicita import Avaliacao, Categoria, Solicita, Usuarios
+from sqlalchemy import text, engine
 from utils.db import db
 from utils.verifica import distribui, verifica
 
@@ -62,6 +63,14 @@ def nova():
     session.pop('user', None)
     return redirect(url_for('contacts.index'))
 
+
+@contacts.route('/relatorios')
+def relatorio():
+    sql1 = text('select count(*) from solicitacoes')
+    sql2 = text('select count(*) from solicitacoes where resposta_solicitacao is not null')
+    results1 = db.engine.execute(sql1)
+    results2 = db.engine.execute(sql2)
+    return render_template('relatorios.html', res1=results1, res2=results2)
 
 @contacts.route('/historico')
 def historico():
