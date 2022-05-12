@@ -41,35 +41,65 @@
 
     <main>
         <div class="div_card_branco">
+            
             <div class="linha">
-                <p class="nome_usuario_title">Nome do Usuário</p>
-                <hr class="hr90">
-                <p class="nome_usuario_titleRight">Gerenciar Permissões</p>
+
+                <h3 class="nomes_titulo">Nomes</h3>
+                <!-- <hr class="hr90"> -->
+                <h3 class="nomes_titulo">Status</h3>
+                <!-- <hr class="hr90"> -->
+                <h3 class="nomes_titulo">Permissões</h3>
+
             </div>
    
             
         
            
             {% for nome in nome %}
-            <form action="/permissoes/{{nome.id_usuario}}" method="POST">
+            <form action="/permissoes/{{nome.id_usuario}}" method=["POST","GET"]>
+                
                 
                 <div class="linha">
-                    <p class="nome_usuario">          
+                    
+                    <p class="nomes">          
                         {{nome.nome_usuario}}
                     </p>
+                
+                  
+                    <p class="nomes">{{nome.cat_usu.categoria_usuario}}</p>
+                   
 
-                    <div class="botoes">
-                    <button type="submit" name="botao" value="1" class="estilo_botao">Torná-lo usuário</button>
-                    <button type="submit" name="botao" value="2" class="estilo_botao">Torná-lo operador</button>
-                    </div>
+                <div class="botoes">
+                    <!-- <button type="submit" name="botao" value="1" class="estilo_botao">Torná-lo usuário</button>
+                    <button type="submit" name="botao" value="2" class="estilo_botao">Torná-lo operador</button> -->
+
+                
+                    {%if nome.id_categoria_usuario == 1 %}
+                    <label class="switch">
+                        <input type="checkbox" name="checkBox4" id="checkBox4" onclick="this.form.submit()"  >
+                        <span class="slider round" ></span>
+                       
+                      </label>
+                    {%else%}
+                    <label class="switch">
+                        <input type="checkbox" name="checkBox1" id="checkBox1" onclick="this.form.submit()" checked> 
+                        <span class="slider round"></span>
+                        
+                      </label>
+                    {%endif%}
+                    
+                </div>
+
 
                 </div>
                 <hr class="padraohr">
+
             </form>
            {% endfor %}
 
 
     </main>
+
     
     <footer>
         <p>DESENVOLVIDO POR WHATSCODE</p>
