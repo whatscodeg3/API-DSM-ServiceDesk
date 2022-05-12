@@ -163,7 +163,6 @@ def atualiza(id):
         consulta.resposta_solicitacao = request.form['resposta']
         db.session.commit()
         return redirect('/demanda')
-
     return render_template('resposta-executor.html', solicita=consulta, arquivo_no_html=file)
 
 
@@ -172,10 +171,23 @@ def testeperm():
     nome = Usuarios.query.all()
     return render_template('adm_permissoes.html', nome=nome)
 
-
-@contacts.route('/permissoes/<id>', methods=['POST', ])
+@contacts.route('/permissoes/<id>', methods=['POST','GET'])
 def attperm(id):
-    consultar = Usuarios.query.get(id)
-    consultar.id_categoria_usuario = request.form['botao']
-    db.session.commit()
-    return redirect('/admin/permissoes')
+        consultar = Usuarios.query.get(id)
+        if consultar.id_categoria_usuario == 2:
+            consultar.id_categoria_usuario = 1
+            print("Setou OPERADOR pra USUARIO")
+            db.session.commit()
+            return redirect('/admin/permissoes')
+            
+
+        if consultar.id_categoria_usuario == 1:
+            consultar.id_categoria_usuario = 2
+            print("Setou usuario pra operador")
+            db.session.commit()
+            return redirect('/admin/permissoes')
+            
+        return render_template('adm_permissoes.html')
+
+        # return render_template('adm_permissoes.html', consulta=consultar)
+

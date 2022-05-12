@@ -73,7 +73,7 @@ class Usuarios(db.Model):
         self.nome_usuario = nome_usuario
         self.id_categoria_usuario = id_categoria_usuario
 
-
+        
 class CategoriaUsuarios(db.Model):
     __tablename__ = 'categoria_usuarios'
     id_categoria_usuario = db.Column(db.Integer, primary_key=True)
