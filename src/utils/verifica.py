@@ -39,12 +39,15 @@ def distribui():
     for i in results:
         pass
     id1 = i
-    id_operador_anterior = text(
-        "SELECT FK_id_executor FROM solicitacoes where id_solicitacao=:id")
-    results2 = db.engine.execute(id_operador_anterior, id=id1[0])
-    for j in results2:
-        pass
-    id2=j[0]
+    if id1[0] != None:
+        id_operador_anterior = text(
+            "SELECT FK_id_executor FROM solicitacoes where id_solicitacao=:id")
+        results2 = db.engine.execute(id_operador_anterior, id=id1[0])
+        for j in results2:
+            pass
+        id2=j[0]
+    else:
+        id2 = None
     todos_operadores = text(
         'SELECT id_usuario FROM usuarios WHERE id_categoria_usuario = 2')
     todos_operadores = db.engine.execute(todos_operadores)

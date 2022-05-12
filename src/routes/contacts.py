@@ -1,3 +1,4 @@
+from multiprocessing.sharedctypes import Value
 from sqlalchemy import text, engine
 import os
 import pathlib
@@ -76,10 +77,8 @@ def historico():
 def demanda():
     if g.user != None:
         if g.user[0] == 2:
-            print(g.id_usuario)
-            lista = Solicita.query.filter_by(resposta_solicitacao=None)
-            consulta = Solicita.query.filter(
-                Solicita.resposta_solicitacao.isnot(None))
+            lista = Solicita.query.filter_by(resposta_solicitacao=None, fk_id_executor=g.id_usuario)
+            consulta = Solicita.query.filter_by(resposta_solicitacao= not Value, fk_id_executor=g.id_usuario)
             return render_template('executor-demandas.html', listas=lista, consultas=consulta, user=session['user'])
     session.pop('user', None)
     return redirect(url_for('contacts.index'))
@@ -141,9 +140,6 @@ def anexos(nome_arquivo):
 
 @contacts.route('/avaliar/<id>', methods=['POST', ])
 def avalia(id):
-    print(id)
-    # teste = request.form['1estrela']
-    # print(teste)
     consulta = Solicita.query.get(id)
     consulta.fk_id_avaliacao = request.form['avaliacao']
     db.session.commit()
@@ -161,7 +157,6 @@ def atualiza(id):
                 file = arquivo
     if request.method == "POST":
         consulta.resposta_solicitacao = request.form['resposta']
-        consulta.fk_id_executor = g.id_usuario
         db.session.commit()
         return redirect('/demanda')
 
