@@ -34,27 +34,6 @@ header{
     padding: 0.3% 1.5%;
 }
 
-#notificacao{
-    position: fixed;
-    z-index: 1;
-    background-color: rgb(191, 255, 191);
-    border-color: darkgreen;
-    color:darkgreen;
-    border-radius: 3px;
-    top:30px;
-    padding:5px 10px;
-    animation: hide 2s 0.5s forwards
-    }
-
-    @keyframes hide{
-    from{ opacity: 1;}
-    to  { opacity: 0;}
-    }
-    
-#msg{
-    font-size:25px;
-}
-
 main{
     width: 100%;
     height: 100%;
@@ -99,7 +78,7 @@ main{
     color: #FFFFFF;
 }
 
-.ajuda{
+.bem_vindo{
     padding-top: 5%;
     padding-left: 13%;
     margin: 0;
@@ -112,7 +91,7 @@ main{
 }
 
 
-.pratica{
+.config{
     padding-left: 13%;
     padding-bottom: 3%;
     padding-right: 2%;
@@ -126,7 +105,7 @@ main{
 }
 
 
-.servico{
+.operação{
     padding-top: 2%;
     padding-bottom: 2%;
     width: 100%;
@@ -139,7 +118,7 @@ main{
     color: #292A2F;
 }
   
-.col-sm-4{
+.col-sm-3{
     display: flex;
     justify-content: center;
 }
@@ -185,19 +164,7 @@ main{
     font-variant: small-caps;
 }
 
-.solicite {
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-size: 20px;
-    font-variant: small-caps;
-}
 
-.acompanhe {
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-size: 20px;
-    font-variant: small-caps;
-}
 
 .a{
     text-align: center;
@@ -270,7 +237,7 @@ footer{
         font-size: 4.5vw;
     }
 
-    .col-sm-4{
+    .col-sm-3{
         padding-bottom: 3%;
     }
 }
@@ -323,13 +290,13 @@ footer{
         padding-left: 10%;
     }
 
-    .ajuda{
+    .bem_vindo{
         padding-top: 2%;
         padding-left: 10%;
         margin: 0;
     }
 
-    .pratica{
+    .config{
         padding-left: 10%;
     }
 

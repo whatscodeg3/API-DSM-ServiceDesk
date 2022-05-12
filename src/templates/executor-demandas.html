@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <h1 id="header-nome-usuario">OLÁ, EXECUTOR!</h1>
+        <h1 id="header-nome-usuario">Olá, {{user[1]}}!</h1>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <hr class="hr_black">
@@ -21,6 +21,8 @@
             <hr class="hr_black">
             <a href="/historico">HISTÓRICO DE SOLICITAÇÕES</a>
             <hr class="hr_black">
+            <a href="/sair">SAIR</a>
+            <hr id="hr_black">
         </div>
         <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
 
@@ -34,6 +36,15 @@
             }
         </script>
     </header>
+
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <div id="notificacao">
+                <h4 id="msg">{{message}}</h4>
+            </div>
+        {% endfor %}
+    {% endwith %}
+
     <main>
         <section class="pesquisa">
             <form id="pesquisa-campo" action="" method="get">
