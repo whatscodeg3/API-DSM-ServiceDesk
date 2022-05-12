@@ -13,20 +13,6 @@ contacts = Blueprint('contacts', __name__)
 @contacts.before_request
 def before_request():
     g.user = None
-    g.id_usuario = None #aqui thiago
-    if 'user' in session:
-        g.user = session['user']
-    if 'id_usuario' in session: #aqui thiago
-        g.id_usuario = session['id_usuario'] #aqui thiago
-
-@contacts.route('/sair')
-def sair():
-    session.pop('user', None)
-    return redirect(url_for('contacts.index'))
-
-@contacts.before_request
-def before_request():
-    g.user = None
     g.id_usuario = None  # aqui thiago
     if 'user' in session:
         g.user = session['user']
@@ -51,7 +37,7 @@ def autentica():
         session.pop('id_usuario', None) #aqui thiago
         email = request.form['email']
         senha = request.form['senha']
-        db_consulta = Usuario.query.all()
+        db_consulta = Usuarios.query.all()
         redir = verifica(db_consulta, email, senha)
         return redirect(url_for(redir))
     return redirect(url_for('contact.index'))

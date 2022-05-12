@@ -46,22 +46,6 @@ class Categoria(db.Model):
         self.id_categoria_solicitacao = id_categoria_solicitacao
         self.categoria_solicitacao = categoria_solicitacao
 
-class Usuario(db.Model):
-    __tablename__ = 'usuarios'
-    id_usuario = db.Column(db.Integer, primary_key=True)
-    email_usuario = db.Column(db.String(255))
-    senha_usuario = db.Column(db.String(14))
-    nome_usuario = db.Column(db.String(255))
-    id_categoria_usuario = db.Column(db.Integer)
-
-    def __init__(self, id_usuario,email_usuario,id_categoria_usuario, nome_usuario):
-        self.id_usuario = id_usuario
-        self.email_usuario = email_usuario
-        self.senha_usuario = senha_usuario
-        self.nome_usuario = nome_usuario
-        self.id_categoria_usuario = id_categoria_usuario
-
-
 class Avaliacao(db.Model):
     __tablename__ = 'avaliacoes'
     id_avaliacao = db.Column(db.Integer, primary_key=True)
