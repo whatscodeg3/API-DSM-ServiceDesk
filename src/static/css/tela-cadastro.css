@@ -38,7 +38,7 @@ header{
   background-color: rgb(255, 143, 143);
   border-color: darkred;
   color:darkred;
-  top:1%;
+  top:0.8vh;
   border-radius: 3px;
   padding:5px 10px;
   animation: hide 5s 0.5s forwards
@@ -50,7 +50,7 @@ header{
   }
   
   #msg{
-  font-size:25px;
+  font-size:20px;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   
@@ -73,6 +73,7 @@ header{
 
 
 .geral {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
