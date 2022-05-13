@@ -47,17 +47,15 @@
 
     <main>
         <section class="section-filtro">
-            <details class="nav nav-pills mb-3" id="details-filtro">
-                <summary class="nav nav-pills mb-3" id="filtrarpor">ﾠﾠFiltrar por:ﾠ▼ﾠ</summary>
-                <div class="div-botao">
-                    <button data-bs-toggle="pill" data-bs-target="#pills-all" class="filtro-botao">TODOS</button>
-                    <button data-bs-toggle="pill" data-bs-target="#pills-home" class="filtro-botao">ABERTO</button>
-                    <button data-bs-toggle="pill" data-bs-target="#pills-profile" class="filtro-botao">FECHADO</button>
-                </div>
+            <details class="nav nav-pills mb-3" id="details-filtro" role="tablist"> 
+                <summary class="nav-item" role="presentation">ﾠﾠFiltrar por:ﾠ▼ﾠ</summary>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-all" id="filtro-botao">TODOS</button>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-home" id="filtro-botao">ABERTO</button>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-profile" id="filtro-botao">FECHADO</button>
             </details>
         </section>
-        <section id="detalhe-chamados" class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel">
+        <section id="detalhe-chamados" class="tab-content" >
+            <div class="tab-pane fade show active" id="pills-home">
                 <form class="chamados">
                     <ul class="chamados-lista" type="none">
                         {% for lista in listas %}

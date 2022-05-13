@@ -636,6 +636,7 @@ a.fechar:hover{
     }
 }
 
+
 .modal-container.mostrar{
     display: flex;
 }
@@ -671,12 +672,12 @@ a.fechar:hover{
     margin: 1%;
 }
 
-.filtro-botao {
+#filtro-botao {
+    margin:auto;
     background-color: #292A2F;
     color:#fff;
     border: none;
     align-items: center;
-    margin: 1%;
 }
 
 .filtro-botao:hover {
