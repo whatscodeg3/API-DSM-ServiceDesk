@@ -82,6 +82,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
     CONSTRAINT FK_id_categoria_usuario FOREIGN KEY (id_categoria_usuario)
     REFERENCES categoria_usuarios(id_categoria_usuario)
 );
+# Inserindo o Administrador em usuarios:
+INSERT INTO usuarios (nome_usuario, email_usuario, senha_usuario, id_categoria_usuario) VALUES ('Administrador', 'admin@gmail.com', 'adm', 3);
 
 CREATE TABLE IF NOT EXISTS avaliacoes (
 	id_avaliacao INT NOT NULL AUTO_INCREMENT,
@@ -90,10 +92,10 @@ CREATE TABLE IF NOT EXISTS avaliacoes (
 );
 
 # Inserindo valores em avaliacoes
-insert into avaliacoes (descricao_avaliacao) values ('Péssimo');
-insert into avaliacoes (descricao_avaliacao) values ('Regular');
-insert into avaliacoes (descricao_avaliacao) values ('Bom');
-insert into avaliacoes (descricao_avaliacao) values ('Ótimo');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Péssimo');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Regular');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Bom');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Ótimo');
 
 
 CREATE TABLE IF NOT EXISTS solicitacoes(
