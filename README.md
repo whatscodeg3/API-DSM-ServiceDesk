@@ -34,9 +34,9 @@ Este projeto será realizado baseado na metodologia ágil SCRUM, que foca no des
 
 # Executando a aplicação <a id="configuracoes"></a>
 - Primeiramente, clique em `tag` e aparecerá um arquivo *.zip* nominado v1.0.1. Clique para baixá-lo.
-- Para a excução deste sistema há duas formas: instalar um banco de dados local ou utilizar um banco de dados na nuvem. Caso a sua rede seja restrita é recomendada a instalação de um banco local. Caso contrário, pode-se pular as etapas da instalação do banco de dados local e executar os passos de <i>Rodar a aplicação</i>.
+- Para a excução deste sistema há duas formas: instalar um <a href="#instalar-banco">banco de dados local</a> ou utilizar um banco de dados na nuvem. Caso a sua rede seja restrita é recomendada a instalação de um banco local. Caso contrário, pode-se pular as etapas da instalação do banco de dados local e executar os passos de <a href="rodar-app">Rodar a aplicação</a>.
 
-## Instalação do banco de dados
+## Instalação do banco de dados <a id="instalar-banco"></a>
 ### Banco de dados:
 1. Execute o MySQL Workbench e selecione a conexão padrão 'Local instance MySQL80'
 
@@ -147,7 +147,7 @@ CREATE TABLE IF NOT EXISTS solicitacoes(
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:SENHA@localhost/service'
 ```
 
-## Rodar a aplicação
+## Rodar a aplicação <a id="rodar-app"></a>
 
 1. Após a instalação, verifique se possui o Phyton já instalado em sua máquina. Apartir do comando no terminal: 
 ```
@@ -164,7 +164,7 @@ py -3 -m venv venv
 ```
 5. Criada, vamos ativa-la: 
 ```
-.venv\Scripts\activate
+.\venv\Scripts\activate
 ```
 6. Então, é só instalar o *requirements.txt*: 
 ```
@@ -181,7 +181,7 @@ cd src
 ```
 8. Agora ainda no terminal, digite o seguinte código para começar a rodar o sistema:
 ```
-flask run
+python index.py
 ```
 9. Clique no link disponibilizado (com ctrl + clique). Pronto! Agora é só utilizar.
 
@@ -191,6 +191,7 @@ Como mencionado no início deste documento o desenvolvimento do projeto foi base
 
 ## Sprints <a id="sprints"></a>
 
+Abaixo está os links para a documentação individual de cada sprint:
 - SPRINT 1 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md)): Concluído ✅
 - SPRINT 2 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Em Andamento 🕓
 - SPRINT 3: Carregando 🔋
@@ -205,7 +206,7 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 | Protótipo navegável                           | Começar a digitar os códigos em HTML e CSS para estruturação das páginas se baseando no layout proposto no Figma. Priorizando neste momento apenas as que irão ser utilizadas para a primeira entrega.                                         | Funcional     | Alta       | 1      | ✅ |
 | Modelagem do banco de dados                   | Realizar o modelo conceitual e lógico no BrModelo, e a criação das tabelas no Workbench. Por ser uma modelagem incremental, o foco maior será no necessário para a funcionalidade desta primeira entrega.                                      | Não funcional | Alta       | 1      | ✅ |
 | Banco de dados funcional                      | Através da modelagem do banco de dados feita anteriormente, precisará finalizar a estruração do mesmo.                                                                                                                                         | Não funcional | Alta       | 1      | ✅ |
-| Ligação com o banco de dados | Utilizando o SQLAlchemy e Python para realizar a ligação das páginas feitas pela equipe do front-end | Não funcional | Alta | 1 | ✅|
+| Ligação com o banco de dados                  | Utilizando o SQLAlchemy e Python para realizar a ligação das páginas feitas pela equipe do front-end | Não funcional | Alta | 1 | ✅|
 | Relatório                                     | Uma das funcionalidades do administrador, em que realiza um cálculo percentual em cima das informaçõs das solcitações registradas do sistema.                                                                                                  | Funcional     | Alta       | 3      | 🕓 | 
 | Distribuição da solicitação de serviços       | No momento em que a solicitação é registrada no sistema, esta deverá ser direcionada para algum executor de forma sequencial.                                                                                                                  | Funcional     | Alta       | 2      | 🕓 |
 | Navegabilidade com Flask                      | Utilizar do mini framework Flask para realizar a navegabilidade entre as páginas do sistema.                                                                                                                                                   | Não funcional | Média      | 1      | ✅ |
@@ -221,7 +222,8 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 ## Histórias de usuário <a id="storys"></a>
 O backlog mostrado anteriormente foi baseado nas histórias de usuário coletadas também pela PO da equipe. Nelas podemos observar exatamente o valor desejado pelo cliente e assim dividir as tarefas necessárias para o desenvolvimento da aplicação conforme o esperado e combinado.
 
-
+<img src="/doc/historias-usuario.jpg" alt="tabela histórias de usuário">
+Link para exibir a tabela com uma melhor visão da imagem acima <a href="/doc/historias-usuario.pdf"></a>
 
 
 
