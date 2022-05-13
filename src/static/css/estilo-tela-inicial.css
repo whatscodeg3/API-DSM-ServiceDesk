@@ -46,13 +46,7 @@ padding:0% 1.5%;
 
 #notificacao{
 position: absolute;
-background-color: rgb(255, 143, 143);
-border-color: darkred;
-color:darkred;
 top:52%;
-border-radius: 3px;
-padding:5px 10px;
-animation: hide 2s 0.5s forwards
 }
 
 @keyframes hide{
@@ -61,11 +55,29 @@ to  { opacity: 0;}
 }
 
 #msg{
+background-color: rgb(255, 143, 143);
+border-color: darkred;
+color:darkred;
+border-radius: 3px;
+padding:5px 10px;
+animation: hide 4s 0.5s forwards;
 font-size:25px;
 font-family: 'Roboto', sans-serif;
 font-style: normal;
-
 }
+
+#msg2{
+background-color: rgb(191, 255, 191);
+border-color: darkgreen;
+color:darkgreen;
+border-radius: 3px;
+padding:5px 10px;
+animation: hide 4s 0.5s forwards;
+font-size:25px;
+font-family: 'Roboto', sans-serif;
+font-style: normal;
+}
+    
 
 .cabecalho{
 width: 600px;

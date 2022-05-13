@@ -16,13 +16,15 @@ def verifica(db_consulta, email, senha):
                     flash('Usuário logado com sucesso!')
                     return 'contacts.usuario'
                 elif categoria_usuario == 2: #operador
+                    session['user'] = [categoria_usuario, verifica.nome_usuario]
                     session['id_usuario'] = verifica.id_usuario
                     flash('Usuário logado com sucesso!')
-                    session['user'] = [categoria_usuario, verifica.nome_usuario]
                     return 'contacts.demanda'
                 elif categoria_usuario == 3: #admin
+                    session['user'] = [categoria_usuario, verifica.nome_usuario]
+                    session['id_usuario'] = verifica.id_usuario
                     flash('Usuário logado com sucesso!')
-                    return 'contacts.index'
+                    return 'contacts.admin'
             else:
                 flash('Usuário/Senha incorreta')
                 return 'contacts.index'#senha incorreta

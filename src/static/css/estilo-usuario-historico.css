@@ -308,17 +308,18 @@ html{
             .botao {
                 background: #292A2F;
                 color: #DDD;
+                border: #fff solid 1px;
                 border-radius: 8px;
-                border: #AE1414;
                 height: 30px;
                 width: 80px;
                 font: bold 15px arial, sans-serif;
                 text-shadow: none;
+                cursor: pointer;
             }
             
             .botao:hover {
-                background: #292a2fe7;
-                cursor: pointer;
+                background: #292a2f94;
+                color: rgba(221, 221, 221, 0.733)
             }
 
             .formavaliacao {
