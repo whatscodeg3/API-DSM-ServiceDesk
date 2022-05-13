@@ -223,7 +223,7 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 O backlog mostrado anteriormente foi baseado nas histórias de usuário coletadas também pela PO da equipe. Nelas podemos observar exatamente o valor desejado pelo cliente e assim dividir as tarefas necessárias para o desenvolvimento da aplicação conforme o esperado e combinado.
 
 <img src="/doc/historias-usuario.jpg" alt="tabela histórias de usuário">
-Link para exibir a tabela com uma melhor visão da imagem acima <a href="/doc/historias-usuario.pdf"></a>
+Link para exibir a tabela com uma melhor visão da imagem acima <a href="/doc/historias-usuario.pdf">Tabela de história de usuários</a>
 
 
 
