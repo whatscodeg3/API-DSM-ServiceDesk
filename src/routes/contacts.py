@@ -213,27 +213,6 @@ def cadastrando():
     elif senha_usuario != senhaConfirmada:
         flash('Senha não confere') 
         return redirect('/cadastro')
-
-    # elif dataCheckbox != 'check':
-    #     flash('Confirme o uso de dados para continuar o cadastro')
-    #     return redirect('/cadastro')
-    # elif not nome_usuario or not sobrenome:
-    #     flash('Nome ou sobrenome não preenchido')
-    #     return redirect('/cadastro')
-    # elif not email_usuario:
-    #     Flash('Email não preenchido')
-    #     return redirect('/cadastro')
-    # elif not emailConfirmado:
-    #     flash('Confirme seu email')
-    #     return redirect('/cadastro')
-    # elif not senha_usuario:
-    #     flash('Senha não preenchida')
-    #     return redirect('/cadastro')
-    # elif not senhaConfirmada:
-    #     flash('Confirme sua senha')
-    #     return redirect('/cadastro')
-
-
     id_usuario = None
     usuario = Usuarios(id_usuario, nome_usuario, email_usuario, senha_usuario, 1)
     db.session.add(usuario)
