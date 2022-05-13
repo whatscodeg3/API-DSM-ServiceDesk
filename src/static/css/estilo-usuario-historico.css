@@ -195,7 +195,7 @@ html{
                 flex-direction: column;
                 align-items: center;
                 justify-content:space-between;
-                background-color: #FFFFFF;
+                background-color: #292A2F;
                 margin:1.5%;
                 border-radius: 20px;
                 width: 90%; 
@@ -223,16 +223,18 @@ html{
                         display:flex;
                         flex-direction: row;
                         align-items: center;
-                        background-color: #CCCCCC;
+                        background-color: #292A2F;
                         width: 97.1%;
                         padding: 10px 27px;
                         margin-bottom: 1.4%;
+                        border: #fff solid 1px;
                         border-radius: 38px;
                         font-family: 'Roboto';
                         font-style: normal;
                         font-weight: 400;
                         font-size:20px;
                         text-align: center;
+                        color: #fff;
                         }
                         
                         @media only screen and (max-width: 600px) {
@@ -337,3 +339,4 @@ html{
                 margin-top: 2%;
                 margin-bottom: 2%;
             }
+            
