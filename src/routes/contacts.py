@@ -13,17 +13,13 @@ contacts = Blueprint('contacts', __name__)
 @contacts.before_request
 def before_request():
     g.user = None
-    g.id_usuario = None  # aqui thiago
+    g.id_usuario = None
     if 'user' in session:
         g.user = session['user']
-    if 'id_usuario' in session:  # aqui thiago
-        g.id_usuario = session['id_usuario']  # aqui thiago
+    if 'id_usuario' in session:
+        g.id_usuario = session['id_usuario']
 
-
-@contacts.route('/sair')
-def sair():
-    session.pop('user', None)
-    return render_template('tela-inicial.html')
+##################################### Inicio #######################################
 
 @contacts.route('/')
 def index():
@@ -33,22 +29,24 @@ def index():
 def autentica():
     if request.method == 'POST':
         session.pop('user', None)
-        session.pop('id_usuario', None) #aqui thiago
+        session.pop('id_usuario', None)
         email = request.form['email']
         senha = request.form['senha']
         db_consulta = Usuarios.query.all()
         redir = verifica(db_consulta, email, senha)
         return redirect(url_for(redir))
     return redirect(url_for('contact.index'))
-    
+
+##################################### Usuário #######################################
+
 @contacts.route('/usuario')
 def usuario():
     if g.user != None:
         if g.user[0] == 1 or g.user[0] == 2:
             return render_template('home_usuario.html', user = session['user'])
-    session.pop('user', None)     
+    session.pop('user', None) 
+    session.pop('id_usuario', None)    
     return redirect(url_for('contacts.index'))
-
 
 @contacts.route('/nova-solicitacao')
 def nova():
@@ -57,49 +55,8 @@ def nova():
             categoria = Categoria.query.all()
             return render_template('form_usuario_solicitacao.html', categorias=categoria, user=session['user'])
     session.pop('user', None)
+    session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
-
-
-@contacts.route('/relatorios')
-def relatorio():
-    sql1 = text('select count(*) from solicitacoes')
-    sql2 = text('select count(*) from solicitacoes where resposta_solicitacao is not null')
-    results1 = db.engine.execute(sql1)
-    results2 = db.engine.execute(sql2)
-    return render_template('relatorios.html', res1=results1, res2=results2)
-
-
-@contacts.route('/historico')
-def historico():
-    if g.user != None:
-        if g.user[0] == 1 or g.user[0] == 2:
-            print(g.id_usuario)
-            lista = Solicita.query.filter_by(fk_id_usuario_comum=g.id_usuario)
-            return render_template('usuario-historico.html', listas=lista, user=session['user'])
-    session.pop('user', None)        
-    return redirect(url_for('contacts.index'))
-
-
-@contacts.route('/demanda')
-def demanda():
-    if g.user != None:
-        if g.user[0] == 2:
-            print(g.id_usuario)
-            lista = Solicita.query.filter_by(resposta_solicitacao=None, fk_id_executor=g.id_usuario)
-            consulta = Solicita.query.filter_by(resposta_solicitacao= not Value, fk_id_executor=g.id_usuario)
-            return render_template('executor-demandas.html', listas=lista, consultas=consulta, user=session['user'])
-    session.pop('user', None)
-    return redirect(url_for('contacts.index'))
-
-@contacts.route('/admin')
-def admin():
-    return render_template('home_admin.html')
-
-
-@contacts.route('/resposta')
-def resposta():
-    return render_template('resposta-executor.html')
-
 
 @contacts.route('/criar', methods=['POST', ])
 def criar():
@@ -119,11 +76,20 @@ def criar():
 
     return redirect('/historico')
 
+@contacts.route('/historico')
+def historico():
+    if g.user != None:
+        if g.user[0] == 1 or g.user[0] == 2:
+            print(g.id_usuario)
+            lista = Solicita.query.filter_by(fk_id_usuario_comum=g.id_usuario)
+            return render_template('usuario-historico.html', listas=lista, user=session['user'])
+    session.pop('user', None)
+    session.pop('id_usuario', None)       
+    return redirect(url_for('contacts.index'))
 
 @contacts.route('/uploads/<nome_arquivo>')
 def anexos(nome_arquivo):
     return send_from_directory('uploads', nome_arquivo)
-
 
 @contacts.route('/avaliar/<id>', methods=['POST', ])
 def avalia(id):
@@ -132,6 +98,18 @@ def avalia(id):
     db.session.commit()
     return redirect('/historico')
 
+##################################### Executor #######################################
+
+@contacts.route('/demanda')
+def demanda():
+    if g.user != None:
+        if g.user[0] == 2:
+            lista = Solicita.query.filter_by(resposta_solicitacao=None, fk_id_executor=g.id_usuario)
+            consulta = Solicita.query.filter_by(resposta_solicitacao= not Value, fk_id_executor=g.id_usuario)
+            return render_template('executor-demandas.html', listas=lista, consultas=consulta, user=session['user'])
+    session.pop('user', None)
+    session.pop('id_usuario', None)
+    return redirect(url_for('contacts.index'))
 
 @contacts.route('/atualizar/<id>', methods=['POST', 'GET'])
 def atualiza(id):
@@ -148,31 +126,70 @@ def atualiza(id):
         return redirect('/demanda')
     return render_template('resposta-executor.html', solicita=consulta, arquivo_no_html=file)
 
+@contacts.route('/resposta')
+def resposta():
+    return render_template('resposta-executor.html')
+
+##################################### Admin #######################################
+
+@contacts.route('/admin')
+def admin():
+    if g.user != None:
+        if g.user[0] == 3:
+            return render_template('home_admin.html')
+    session.pop('user', None)
+    session.pop('id_usuario', None)
+    return redirect(url_for('contacts.index'))
+
+@contacts.route('/relatorios')
+def relatorio():
+    if g.user != None:
+        if g.user[0] == 3:
+            sql1 = text('select count(*) from solicitacoes')
+            sql2 = text('select count(*) from solicitacoes where resposta_solicitacao is not null')
+            results1 = db.engine.execute(sql1)
+            results2 = db.engine.execute(sql2)
+            return render_template('relatorios.html', res1=results1, res2=results2)
+    session.pop('user', None)
+    session.pop('id_usuario', None)
+    return redirect(url_for('contacts.index'))
 
 @contacts.route('/admin/permissoes')
 def testeperm():
-    nome = Usuarios.query.all()
-    return render_template('adm_permissoes.html', nome=nome)
+    if g.user != None:
+        if g.user[0] == 3:
+            nome = Usuarios.query.all()
+            return render_template('adm_permissoes.html', nome=nome)
+    session.pop('user', None)
+    session.pop('id_usuario', None)
+    return redirect(url_for('contacts.index'))
 
 @contacts.route('/permissoes/<id>', methods=['POST','GET'])
 def attperm(id):
-        consultar = Usuarios.query.get(id)
-        if consultar.id_categoria_usuario == 2:
-            consultar.id_categoria_usuario = 1
-            print("Setou OPERADOR pra USUARIO")
-            db.session.commit()
-            return redirect('/admin/permissoes')
-            
-
-        if consultar.id_categoria_usuario == 1:
-            consultar.id_categoria_usuario = 2
-            print("Setou usuario pra operador")
-            db.session.commit()
-            return redirect('/admin/permissoes')
-            
-        return render_template('adm_permissoes.html')
+    if g.user != None:
+        if g.user[0] == 3:
+            consultar = Usuarios.query.get(id)
+            if consultar.id_categoria_usuario == 2:
+                consultar.id_categoria_usuario = 1
+                print("Setou OPERADOR pra USUARIO")
+                db.session.commit()
+                return redirect('/admin/permissoes')
+                
+            if consultar.id_categoria_usuario == 1:
+                consultar.id_categoria_usuario = 2
+                print("Setou usuario pra operador")
+                db.session.commit()
+                return redirect('/admin/permissoes')
+                
+            return render_template('adm_permissoes.html')
+    session.pop('user', None)
+    session.pop('id_usuario', None)
+    return redirect(url_for('contacts.index'))
 
         # return render_template('adm_permissoes.html', consulta=consultar)
+
+
+##################################### Novo cadastro #######################################
 
 @contacts.route('/cadastro')
 def cadastro():
@@ -215,10 +232,21 @@ def cadastrando():
     # elif not senhaConfirmada:
     #     flash('Confirme sua senha')
     #     return redirect('/cadastro')
+
+
     id_usuario = None
     usuario = Usuarios(id_usuario, nome_usuario, email_usuario, senha_usuario, 1)
     db.session.add(usuario)
     db.session.commit()
     print(usuario)
+    flash('ok')
    
     return redirect('/')
+
+##################################### Sair #######################################
+
+@contacts.route('/sair')
+def sair():
+    session.pop('user', None)
+    return render_template('tela-inicial.html')
+ 
