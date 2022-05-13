@@ -187,6 +187,17 @@ python index.py
 
 
 # Planejamento <a id="planejamento"></a>
+<<<<<<< HEAD
+Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de três sprints com 21 dias cada. Abaixo está os links para vizualizar indivuidualmente o desenvolvimento das <a href='#sprints'>Sprints</a>, o <a href='#backlog'>Backlog do produto</a> e as <a href='#storys'>Histórias de usuário</a>.
+
+## Sprints <a id="sprints"></a>
+
+- Sprint 1 (25/03 - 14/04): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md)): Concluído ✅
+- Sprint 2 (25/04 - 15/05): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Em Andamento 🕓
+- Sprint 3 (16/05 - 05/06): Carregando 🔋
+
+
+=======
 Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de três sprints com 21 dias cada. Abaixo está os links para vizualizar indivuidualmente o desenvolvimento das <a href='#sprints'>Sprints</a>, o <a href='backlog'>Backlog do produto</a> e as <a href='#storys'>Histórias de usuário</a>.
 
 ## Sprints <a id="sprints"></a>
@@ -196,6 +207,7 @@ Abaixo está os links para a documentação individual de cada sprint:
 - SPRINT 2 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Em Andamento 🕓
 - SPRINT 3: Carregando 🔋
 
+>>>>>>> 0b7db36a3ae454743c048e7b5a1dea88c3310c01
 ## Backlog do produto <a id="backlog"></a>
 Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backlog do produto, uma lista priorizada, refinada e estimada dos recursos que o time de desenvolvimento irá precisar para conseguir atingir o produto final desejado pelo cliente. O backlog foi pirorizados em alto, médio e baixo de acordo com o conversado com o cliente, em cima do valor de cada tópico. Na tabela, segue as tarefas ordenadas por prioridade, dividads pro sprints e mostrando ao lado o status de desenvolvimento de cada uma. 
 
@@ -218,6 +230,9 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 | Cadastro e login de usuários                  | Utilizando HTML, CSS e Python (ou JavaScript) será feito uma página para obter os dados do usuário e registra-lo no banco do sistema, no qual será determinante para definir as tarefas que poderão realizar na plataforma.                    | Funcional     | Baixa      | 2      | 🕓 | 
 | Revisão e implementação do sistema            | Analisando as sugestões e orientações passadas nas entregas, revisar e/ou alterar pontos necessários do sistema.                                                                                                                               | Não funcional | Baixa      | 3      | 🕓 | 
 
+## Histórias de usuários <a id='storys'></a>
+O backlog mostrado anteriormente foi baseado nas histórias de usuário coletadas também pela PO da equipe. Nelas podemos observar exatamente o valor desejado pelo cliente e assim dividir as tarefas necessárias para o desenvolvimento da aplicação conforme o esperado e combinado.
+
 
 ## Histórias de usuário <a id="storys"></a>
 O backlog mostrado anteriormente foi baseado nas histórias de usuário coletadas também pela PO da equipe. Nelas podemos observar exatamente o valor desejado pelo cliente e assim dividir as tarefas necessárias para o desenvolvimento da aplicação conforme o esperado e combinado.
@@ -236,10 +251,6 @@ Nosso MVP ficou da seguinte forma:
 Nós também realizamos um vídeo onde explicamos brevemente seu funcionamento e como conseguimos desenvolve-lo, segue o link: 
 <a href="https://youtu.be/B5IebZFQw_Q">Link para acessar o vídeo</a>
 
-
-      
-      
-      
       
 # Equipe <a id="equipe"></a>
 

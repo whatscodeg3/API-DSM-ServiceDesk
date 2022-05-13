@@ -58,6 +58,7 @@ def nova():
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
 
+
 @contacts.route('/criar', methods=['POST', ])
 def criar():
     tipo = request.form['Tipo de serviço']
@@ -111,6 +112,7 @@ def demanda():
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
 
+
 @contacts.route('/atualizar/<id>', methods=['POST', 'GET'])
 def atualiza(id):
     consulta = Solicita.query.get(id)
@@ -141,6 +143,7 @@ def admin():
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
 
+
 @contacts.route('/relatorios')
 def relatorio():
     if g.user != None:
@@ -153,6 +156,24 @@ def relatorio():
     session.pop('user', None)
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
+    
+
+@contacts.route('/demanda/<id>')
+def modal_id(id):
+    just = Solicita.query.get(id)
+    return render_template('executor-demandas.html', just=just, user=session['user'])
+
+
+@contacts.route('/demanda/<id>/justificar', methods=['POST', 'GET'])
+def justificativa(id):
+    consulta = Solicita.query.get(id)
+    if request.method == 'POST':
+        consulta.resposta_solicitacao = request.form['justificativa']
+        db.session.commit()
+        return redirect('/demanda')
+
+    return render_template('executor-demandas.html', solicita=consulta)
+    
 
 @contacts.route('/admin/permissoes')
 def testeperm():
