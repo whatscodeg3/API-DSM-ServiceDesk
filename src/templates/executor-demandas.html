@@ -46,12 +46,14 @@
     {% endwith %}
 
     <main>
-        <section>
-            <details class="nav nav-pills mb-3">
-                <summary class="nav nav-pills mb-3">Filtrar por:ﾠ</summary>
-                    <button data-bs-toggle="pill" data-bs-target="#pills-all">TODOS</button>
-                    <button data-bs-toggle="pill" data-bs-target="#pills-home">ABERTO</button>
-                    <button data-bs-toggle="pill" data-bs-target="#pills-profile">FECHADO</button>
+        <section class="section-filtro">
+            <details class="nav nav-pills mb-3" id="details-filtro">
+                <summary class="nav nav-pills mb-3" id="filtrarpor">ﾠﾠFiltrar por:ﾠ▼ﾠ</summary>
+                <div class="div-botao">
+                    <button data-bs-toggle="pill" data-bs-target="#pills-all" class="filtro-botao">TODOS</button>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-home" class="filtro-botao">ABERTO</button>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-profile" class="filtro-botao">FECHADO</button>
+                </div>
             </details>
         </section>
         <section id="detalhe-chamados" class="tab-content" id="pills-tabContent">
@@ -137,8 +139,8 @@
                                 <br>
 
                                 <div class="btn-aceitar-recusar">
-                                    <a href="/atualizar/{{lista.id_solicitacao}}" class="resposta-link">RESPONDER</a>
-                                    <a href="demanda/{{lista.id_solicitacao}}" class="recusa-link">RECUSAR</a>
+                                    <a href="/atualizar/{{lista.id_solicitacao}}" class="resposta-link-all">RESPONDER</a>
+                                    <a href="demanda/{{lista.id_solicitacao}}" class="recusa-link-all">RECUSAR</a>
                                 </div>
                                 
                             </details>

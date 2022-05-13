@@ -2,7 +2,7 @@ from multiprocessing.sharedctypes import Value
 from sqlalchemy import text, engine
 import os
 import pathlib
-from flask import Blueprint, redirect, render_template, request, session, g, url_for, send_from_directory, current_app
+from flask import Blueprint, flash, redirect, render_template, request, session, g, url_for, send_from_directory, current_app
 from models.solicita import Avaliacao, Categoria, Solicita, Usuarios
 from sqlalchemy import text, engine
 from utils.db import db
@@ -24,7 +24,6 @@ def before_request():
 def sair():
     session.pop('user', None)
     return render_template('tela-inicial.html')
-
 
 @contacts.route('/')
 def index():
@@ -50,6 +49,7 @@ def usuario():
     session.pop('user', None)     
     return redirect(url_for('contacts.index'))
 
+
 @contacts.route('/nova-solicitacao')
 def nova():
     if g.user != None:
@@ -68,19 +68,23 @@ def relatorio():
     results2 = db.engine.execute(sql2)
     return render_template('relatorios.html', res1=results1, res2=results2)
 
+
 @contacts.route('/historico')
 def historico():
     if g.user != None:
         if g.user[0] == 1 or g.user[0] == 2:
-            lista = Solicita.query.all()
+            print(g.id_usuario)
+            lista = Solicita.query.filter_by(fk_id_usuario_comum=g.id_usuario)
             return render_template('usuario-historico.html', listas=lista, user=session['user'])
     session.pop('user', None)        
     return redirect(url_for('contacts.index'))
+
 
 @contacts.route('/demanda')
 def demanda():
     if g.user != None:
         if g.user[0] == 2:
+            print(g.id_usuario)
             lista = Solicita.query.filter_by(resposta_solicitacao=None, fk_id_executor=g.id_usuario)
             consulta = Solicita.query.filter_by(resposta_solicitacao= not Value, fk_id_executor=g.id_usuario)
             tudo = Solicita.query.all()
@@ -88,30 +92,9 @@ def demanda():
     session.pop('user', None)
     return redirect(url_for('contacts.index'))
 
-
-# @contacts.route('/')
-# def index():
-#     return render_template('home_usuario.html')
-
 @contacts.route('/admin')
 def admin():
     return render_template('home_admin.html')
-
-# @contacts.route('/nova-solicitacao')
-# def nova():
-#     categoria = Categoria.query.all()
-#     return render_template('form_usuario_solicitacao.html', categorias=categoria)
-
-# @contacts.route('/historico')
-# def historico():
-#     lista = Solicita.query.all()
-#     return render_template('usuario-historico.html', listas=lista)
-
-# @contacts.route('/demanda')
-# def demanda():
-#     lista = Solicita.query.filter_by(resposta_solicitacao = None)
-#     consulta = Solicita.query.filter(Solicita.resposta_solicitacao.isnot(None))
-#     return render_template('executor-demandas.html', listas=lista, consultas=consulta)
 
 
 @contacts.route('/resposta')
@@ -164,7 +147,6 @@ def atualiza(id):
         consulta.resposta_solicitacao = request.form['resposta']
         db.session.commit()
         return redirect('/demanda')
-
     return render_template('resposta-executor.html', solicita=consulta, arquivo_no_html=file)
 
 
@@ -190,10 +172,71 @@ def testeperm():
     nome = Usuarios.query.all()
     return render_template('adm_permissoes.html', nome=nome)
 
-
-@contacts.route('/permissoes/<id>', methods=['POST', ])
+@contacts.route('/permissoes/<id>', methods=['POST','GET'])
 def attperm(id):
-    consultar = Usuarios.query.get(id)
-    consultar.id_categoria_usuario = request.form['botao']
+        consultar = Usuarios.query.get(id)
+        if consultar.id_categoria_usuario == 2:
+            consultar.id_categoria_usuario = 1
+            print("Setou OPERADOR pra USUARIO")
+            db.session.commit()
+            return redirect('/admin/permissoes')
+            
+
+        if consultar.id_categoria_usuario == 1:
+            consultar.id_categoria_usuario = 2
+            print("Setou usuario pra operador")
+            db.session.commit()
+            return redirect('/admin/permissoes')
+            
+        return render_template('adm_permissoes.html')
+
+        # return render_template('adm_permissoes.html', consulta=consultar)
+
+@contacts.route('/cadastro')
+def cadastro():
+    return render_template('tela-cadastro.html')
+
+@contacts.route('/cadastrando', methods=['POST', 'GET'])
+def cadastrando():
+    if request.method == 'POST':
+        nome_usuario = request.form['name']
+        sobrenome = request.form.get('surname')
+        email_usuario = request.form['email']
+        emailConfirmado = request.form.get('emailConfirmation')
+        senha_usuario = request.form['password']
+        senhaConfirmada = request.form.get('passwordConfirmation')
+        dataCheckbox = request.form.get('checkboxData')
+    
+
+    if email_usuario != emailConfirmado:
+        flash('Email não confere')
+        return redirect('/cadastro')
+    elif senha_usuario != senhaConfirmada:
+        flash('Senha não confere') 
+        return redirect('/cadastro')
+
+    # elif dataCheckbox != 'check':
+    #     flash('Confirme o uso de dados para continuar o cadastro')
+    #     return redirect('/cadastro')
+    # elif not nome_usuario or not sobrenome:
+    #     flash('Nome ou sobrenome não preenchido')
+    #     return redirect('/cadastro')
+    # elif not email_usuario:
+    #     Flash('Email não preenchido')
+    #     return redirect('/cadastro')
+    # elif not emailConfirmado:
+    #     flash('Confirme seu email')
+    #     return redirect('/cadastro')
+    # elif not senha_usuario:
+    #     flash('Senha não preenchida')
+    #     return redirect('/cadastro')
+    # elif not senhaConfirmada:
+    #     flash('Confirme sua senha')
+    #     return redirect('/cadastro')
+    id_usuario = None
+    usuario = Usuarios(id_usuario, nome_usuario, email_usuario, senha_usuario, 1)
+    db.session.add(usuario)
     db.session.commit()
-    return redirect('/admin/permissoes')
+    print(usuario)
+   
+    return redirect('/')
