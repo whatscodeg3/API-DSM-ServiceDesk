@@ -198,13 +198,13 @@ def cadastro():
 @contacts.route('/cadastrando', methods=['POST', 'GET'])
 def cadastrando():
     if request.method == 'POST':
-        nome_usuario = request.form['name']
+        primeiro_nome = request.form['name']
         sobrenome = request.form.get('surname')
         email_usuario = request.form['email']
         emailConfirmado = request.form.get('emailConfirmation')
         senha_usuario = request.form['password']
         senhaConfirmada = request.form.get('passwordConfirmation')
-        dataCheckbox = request.form.get('checkboxData')
+        nome_usuario = f'{primeiro_nome} {sobrenome}'
     
 
     if email_usuario != emailConfirmado:
