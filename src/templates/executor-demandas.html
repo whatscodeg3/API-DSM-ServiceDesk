@@ -46,35 +46,26 @@
     {% endwith %}
 
     <main>
-        <section class="pesquisa">
-            <form id="pesquisa-campo" action="" method="get">
-                <input type="text" name="search" id="busca" placeholder="Nome do usuário" required>
-                <button class="pesquisa-lupa" type="submit"><img id="pesquisa-img" src="lupa-arredondada.svg"
-                        alt="icone menu"></button>
-            </form>
+        <section class="section-filtro">
+            <details class="nav nav-pills mb-3" id="details-filtro" role="tablist"> 
+                <summary class="nav-item" role="presentation">ﾠﾠFiltrar por:ﾠ▼ﾠ</summary>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-all" id="filtro-botao">TODOS</button>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-home" id="filtro-botao">ABERTO</button>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-profile" id="filtro-botao">FECHADO</button>
+            </details>
         </section>
-        <section class="seletor-chamados">
-            <ul id="seletor-botao" class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li id="botao" class="nav-item" role="presentation">
-                    <button id="botao-aberto" class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                        aria-selected="true">ABERTO</button>
-                </li>
-                <li id="botao" class="nav-item" role="presentation">
-                    <button id="botao-fechado" class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                        data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                        aria-selected="false">FECHADO</button>
-                </li>
-            </ul>
-        </section>
-        <section id="detalhe-chamados" class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <section id="detalhe-chamados" class="tab-content" >
+            <div class="tab-pane fade show active" id="pills-home">
                 <form class="chamados">
                     <ul class="chamados-lista" type="none">
                         {% for lista in listas %}
                         <li class="chamados-itens-aberto">
                             <details>
-                                <summary>  {{ lista.data_abertura.strftime('%d/%m/%Y - ') }} {{ lista.cat.categoria_solicitacao}}</summary>
+                                <summary class="summary-aberto"> 
+                                    <div class="circulo-aberto"></div>
+
+                                    <div>{{ lista.data_abertura.strftime('%d/%m/%Y - ') }} {{ lista.cat.categoria_solicitacao}} </div>
+                                </summary>
                                 <div class=chamados-itens-conteudo-aberto>
                                     <h4>Descrição da Solicitação</h4>
                                     <p>
@@ -82,20 +73,90 @@
                                     </p>
                                 </div>
                                 <br>
-                                <a class="resposta-link" href="/atualizar/{{lista.id_solicitacao}}">RESPONDER</a>
+
+                                <div class="btn-aceitar-recusar">
+                                    <a href="/atualizar/{{lista.id_solicitacao}}" class="resposta-link">RESPONDER</a>
+                                    <a href="demanda/{{lista.id_solicitacao}}" class="recusa-link">RECUSAR</a>
+                                </div>
+                                
                             </details>
                         </li>
                         {% endfor %}
                     </ul>
                 </form>
             </div>
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+            
+            
+            <div class="tab-pane fade" id="pills-profile">
                 <form class="chamados">
                     <ul class="chamados-lista" type="none">
                         {% for consulta in consultas %}
                         <li class="chamados-itens-fechado">
                             <details>
-                                <summary> {{ consulta.data_fechamento.strftime('%d/%m/%Y - ') }} {{ consulta.cat.categoria_solicitacao}}</summary>
+                                <summary class="summary-fechado"> 
+                                    <div class="circulo-fechado"></div>
+
+                                    <div>{{ consulta.data_fechamento.strftime('%d/%m/%Y - ') }} {{ consulta.cat.categoria_solicitacao}}</div>
+                                </summary>
+                                <div class=chamados-itens-conteudo-fechado>
+                                    <h4>Descrição da Solicitação</h4>
+                                    <p>
+                                        {{ consulta.descricao_solicitacao}}
+                                    </p>
+                                    <br>
+                                    <h4>Resposta</h4>
+                                    <p>
+                                        {{ consulta.resposta_solicitacao}}
+                                    </p>
+                                </div>
+                            </details>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </form>
+            </div>
+
+
+            <div class="tab-pane fade" id="pills-all">
+                <form class="chamados">
+                    <ul class="chamados-lista" type="none">
+                        {% for lista in listas %}
+                        <li class="chamados-itens-aberto">
+                            <details>
+                                <summary class="summary-aberto"> 
+                                    <div class="circulo-aberto"></div>
+
+                                    <div>{{ lista.data_abertura.strftime('%d/%m/%Y - ') }} {{ lista.cat.categoria_solicitacao}} </div>
+                                </summary>
+                                <div class=chamados-itens-conteudo-aberto>
+                                    <h4>Descrição da Solicitação</h4>
+                                    <p>
+                                        {{ lista.descricao_solicitacao}}
+                                    </p>
+                                </div>
+                                <br>
+
+                                <div class="btn-aceitar-recusar">
+                                    <a href="/atualizar/{{lista.id_solicitacao}}" class="resposta-link-all">RESPONDER</a>
+                                    <a href="demanda/{{lista.id_solicitacao}}" class="recusa-link-all">RECUSAR</a>
+                                </div>
+                                
+                            </details>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </form>
+
+                <form class="chamados">
+                    <ul class="chamados-lista" type="none">
+                        {% for consulta in consultas %}
+                        <li class="chamados-itens-fechado">
+                            <details>
+                                <summary class="summary-fechado"> 
+                                    <div class="circulo-fechado"></div>
+
+                                    <div>{{ consulta.data_fechamento.strftime('%d/%m/%Y - ') }} {{ consulta.cat.categoria_solicitacao}}</div>
+                                </summary>
                                 <div class=chamados-itens-conteudo-fechado>
                                     <h4>Descrição da Solicitação</h4>
                                     <p>
@@ -115,10 +176,28 @@
             </div>
         </section>
     </main>
+
+    {% if just != undefined %}
+
+    <section class="modal-container">
+        <div class="modal">
+            <a href="/demanda" class="fechar">X</a>
+            <h3 class="titulo-modal">Justifique a situação:</h3>
+            <form action="{{just.id_solicitacao}}/justificar" method="POST">
+                <textarea input type="text" name="justificativa" style="outline: 0px;"></textarea>
+                <input class="recusa-link" type="submit" value="Enviar">
+            </form>
+        </div>
+    </section>
+
+    {% endif %}
+
     <footer>
         <p>DESENVOLVIDO POR WHATSCODE</p>
     </footer>
-    <script src="../static/assets/bootstrap/js/executor-bootstrap.min.js"></script>
-</body>
 
+
+    <script src="../static/assets/bootstrap/js/executor-bootstrap.min.js"></script>
+
+</body>
 </html>

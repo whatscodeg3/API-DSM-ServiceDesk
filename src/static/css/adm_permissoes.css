@@ -165,57 +165,66 @@ html{
                                 }
                             }
 
-                .nome_usuario{
+                
+                    /* .container{
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        justify-content: center;
+                        padding-top: 1%;
+                    }
+
+                    .linha_container{
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: nowrap;
+                        justify-content: space-between;
+
+                    } */
+
+                .nomes{
                     color: #000;
                     font-family: 'Roboto';
                     font-style: normal;
-                    font-size: 30px;    
+                    font-size: 18px;    
                     max-width: 50%;
-                    margin-left: 10%;
+                    /* margin-left: 10%; */
+                    width: 33%;
+                    align-self: center;
+                    display: flex;
+                    justify-content: center;
+                    
                 }
                         @media only screen and (max-width: 600px) {
-                            .nome_usuario{
+                            .nomes{
                                 font-size: 15px;
                                 }
                             }
 
 
-
-                .nome_usuario_title{
+                .nomes_titulo{
                     color: #000;
-                    font-family: 'Roboto'; 
+                    font-family: 'Roboto';
                     font-style: normal;
-                    font-size: 35px;
-                    margin-left: 10%;
+                    font-size: 18px;    
+                    max-width: 50%;
+                    /* margin-left: 10%; */
+                    width: 33%;
+                    align-self: center;
+                    display: flex;
+                    justify-content: center;
+                    
                 }
                         @media only screen and (max-width: 600px) {
-                            .nome_usuario_title{
+                            .nomes{
+
                                 font-size: 15px;
                                 }
                             }
-
-                            .nome_usuario_titleRight{
-                                color: #000;
-                                font-family: 'Roboto'; 
-                                font-style: normal;
-                                font-size: 35px;
-                                margin-right: 10%;
-                            }
-                                    @media only screen and (max-width: 600px) {
-                                        .nome_usuario_titleRight{
-                                            font-size: 15px;
-                                            }
-                                        }
 
                 .hr90{
                     transform: rotate(90%);
                 } */
-
-                .divlinha{
-                    height: 10%;
-                    width: 100%;
-                    color: black;
-                }
 
                 .padraohr{
                     width: 90%;
@@ -226,9 +235,16 @@ html{
 
 
                 .botoes{
-                    align-self: center;
-                    margin-right: 10%;
+                    /* display: flex;
+                    justify-content: center; */
+                    /* margin-right: 10%; */
                     size: 25px;
+                    width: 33%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+              
+
                     
                 }
 
@@ -241,12 +257,14 @@ html{
                     font-size: 18px;
                     width: 150px;
                     height: 50px;
+                    border-radius: 5px;
+                    background-color: #e3e3e3;
 
                 }
 
                     .estilo_botao:hover{
                         background-color: #AE1414;
-                        color: white;
+                        color: #fff;
                     }
 
                     @media only screen and (max-width: 600px) {

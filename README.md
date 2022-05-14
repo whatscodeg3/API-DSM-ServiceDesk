@@ -8,7 +8,6 @@
 <p align="center">
   <a href ="#configuracoes"> Executando a aplicação </a>  | 
   <a href ="#planejamento"> Planejamento </a>  |
-  <a href ="#sprints"> Sprints </a>  |
   <a href ="#mvp"> MVP </a>  |
   <a href ="#equipe"> Equipe </a> 
 </p>
@@ -35,9 +34,9 @@ Este projeto será realizado baseado na metodologia ágil SCRUM, que foca no des
 
 # Executando a aplicação <a id="configuracoes"></a>
 - Primeiramente, clique em `tag` e aparecerá um arquivo *.zip* nominado v1.0.1. Clique para baixá-lo.
-- Para a excução deste sistema há duas formas: instalar um banco de dados local ou utilizar um banco de dados na nuvem. Caso a sua rede seja restrita é recomendada a instalação de um banco local. Caso contrário, pode-se pular as etapas da instalação do banco de dados local e executar os passos de <i>Rodar a aplicação</i>.
+- Para a excução deste sistema há duas formas: instalar um <a href="#instalar-banco">banco de dados local</a> ou utilizar um banco de dados na nuvem. Caso a sua rede seja restrita é recomendada a instalação de um banco local. Caso contrário, pode-se pular as etapas da instalação do banco de dados local e executar os passos de <a href="rodar-app">Rodar a aplicação</a>.
 
-## Instalação do banco de dados
+## Instalação do banco de dados <a id="instalar-banco"></a>
 ### Banco de dados:
 1. Execute o MySQL Workbench e selecione a conexão padrão 'Local instance MySQL80'
 
@@ -83,6 +82,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
     CONSTRAINT FK_id_categoria_usuario FOREIGN KEY (id_categoria_usuario)
     REFERENCES categoria_usuarios(id_categoria_usuario)
 );
+# Inserindo o Administrador em usuarios:
+INSERT INTO usuarios (nome_usuario, email_usuario, senha_usuario, id_categoria_usuario) VALUES ('Administrador', 'admin@gmail.com', 'adm', 3);
 
 CREATE TABLE IF NOT EXISTS avaliacoes (
 	id_avaliacao INT NOT NULL AUTO_INCREMENT,
@@ -91,10 +92,10 @@ CREATE TABLE IF NOT EXISTS avaliacoes (
 );
 
 # Inserindo valores em avaliacoes
-insert into avaliacoes (descricao_avaliacao) values ('Péssimo');
-insert into avaliacoes (descricao_avaliacao) values ('Regular');
-insert into avaliacoes (descricao_avaliacao) values ('Bom');
-insert into avaliacoes (descricao_avaliacao) values ('Ótimo');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Péssimo');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Regular');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Bom');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Ótimo');
 
 
 CREATE TABLE IF NOT EXISTS solicitacoes(
@@ -148,7 +149,7 @@ CREATE TABLE IF NOT EXISTS solicitacoes(
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:SENHA@localhost/service'
 ```
 
-## Rodar a aplicação
+## Rodar a aplicação <a id="rodar-app"></a>
 
 1. Após a instalação, verifique se possui o Phyton já instalado em sua máquina. Apartir do comando no terminal: 
 ```
@@ -165,7 +166,7 @@ py -3 -m venv venv
 ```
 5. Criada, vamos ativa-la: 
 ```
-.venv\Scripts\activate
+.\venv\Scripts\activate
 ```
 6. Então, é só instalar o *requirements.txt*: 
 ```
@@ -182,25 +183,34 @@ cd src
 ```
 8. Agora ainda no terminal, digite o seguinte código para começar a rodar o sistema:
 ```
-flask run
+python index.py
 ```
 9. Clique no link disponibilizado (com ctrl + clique). Pronto! Agora é só utilizar.
 
 
 # Planejamento <a id="planejamento"></a>
-Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de três sprints com 21 dias cada: 
+<<<<<<< HEAD
+Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de três sprints com 21 dias cada. Abaixo está os links para vizualizar indivuidualmente o desenvolvimento das <a href='#sprints'>Sprints</a>, o <a href='#backlog'>Backlog do produto</a> e as <a href='#storys'>Histórias de usuário</a>.
 
-- Sprint 1 (25/03 - 14/04)
-- Sprint 2 (25/04 - 15/05)
-- Sprint 3 (16/05 - 05/06)
+## Sprints <a id="sprints"></a>
 
-# Sprints <a id="sprints"></a>
+- Sprint 1 (25/03 - 14/04): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md)): Concluído ✅
+- Sprint 2 (25/04 - 15/05): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Em Andamento 🕓
+- Sprint 3 (16/05 - 05/06): Carregando 🔋
 
-- SPRINT 1 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md)): Concluído ☑️
-- SPRINT 2 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Em Andamento 🚧
-- SPRINT 3: Carregando 🕓
 
-## Backlog do produto
+=======
+Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de três sprints com 21 dias cada. Abaixo está os links para vizualizar indivuidualmente o desenvolvimento das <a href='#sprints'>Sprints</a>, o <a href='backlog'>Backlog do produto</a> e as <a href='#storys'>Histórias de usuário</a>.
+
+## Sprints <a id="sprints"></a>
+
+Abaixo está os links para a documentação individual de cada sprint:
+- SPRINT 1 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md)): Concluído ✅
+- SPRINT 2 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Em Andamento 🕓
+- SPRINT 3: Carregando 🔋
+
+>>>>>>> 0b7db36a3ae454743c048e7b5a1dea88c3310c01
+## Backlog do produto <a id="backlog"></a>
 Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backlog do produto, uma lista priorizada, refinada e estimada dos recursos que o time de desenvolvimento irá precisar para conseguir atingir o produto final desejado pelo cliente. O backlog foi pirorizados em alto, médio e baixo de acordo com o conversado com o cliente, em cima do valor de cada tópico. Na tabela, segue as tarefas ordenadas por prioridade, dividads pro sprints e mostrando ao lado o status de desenvolvimento de cada uma. 
 
 
@@ -210,7 +220,7 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 | Protótipo navegável                           | Começar a digitar os códigos em HTML e CSS para estruturação das páginas se baseando no layout proposto no Figma. Priorizando neste momento apenas as que irão ser utilizadas para a primeira entrega.                                         | Funcional     | Alta       | 1      | ✅ |
 | Modelagem do banco de dados                   | Realizar o modelo conceitual e lógico no BrModelo, e a criação das tabelas no Workbench. Por ser uma modelagem incremental, o foco maior será no necessário para a funcionalidade desta primeira entrega.                                      | Não funcional | Alta       | 1      | ✅ |
 | Banco de dados funcional                      | Através da modelagem do banco de dados feita anteriormente, precisará finalizar a estruração do mesmo.                                                                                                                                         | Não funcional | Alta       | 1      | ✅ |
-| Ligação com o banco de dados | Utilizando o SQLAlchemy e Python para realizar a ligação das páginas feitas pela equipe do front-end | Não funcional | Alta | 1 | ✅|
+| Ligação com o banco de dados                  | Utilizando o SQLAlchemy e Python para realizar a ligação das páginas feitas pela equipe do front-end | Não funcional | Alta | 1 | ✅|
 | Relatório                                     | Uma das funcionalidades do administrador, em que realiza um cálculo percentual em cima das informaçõs das solcitações registradas do sistema.                                                                                                  | Funcional     | Alta       | 3      | 🕓 | 
 | Distribuição da solicitação de serviços       | No momento em que a solicitação é registrada no sistema, esta deverá ser direcionada para algum executor de forma sequencial.                                                                                                                  | Funcional     | Alta       | 2      | 🕓 |
 | Navegabilidade com Flask                      | Utilizar do mini framework Flask para realizar a navegabilidade entre as páginas do sistema.                                                                                                                                                   | Não funcional | Média      | 1      | ✅ |
@@ -222,6 +232,17 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 | Cadastro e login de usuários                  | Utilizando HTML, CSS e Python (ou JavaScript) será feito uma página para obter os dados do usuário e registra-lo no banco do sistema, no qual será determinante para definir as tarefas que poderão realizar na plataforma.                    | Funcional     | Baixa      | 2      | 🕓 | 
 | Revisão e implementação do sistema            | Analisando as sugestões e orientações passadas nas entregas, revisar e/ou alterar pontos necessários do sistema.                                                                                                                               | Não funcional | Baixa      | 3      | 🕓 | 
 
+## Histórias de usuários <a id='storys'></a>
+O backlog mostrado anteriormente foi baseado nas histórias de usuário coletadas também pela PO da equipe. Nelas podemos observar exatamente o valor desejado pelo cliente e assim dividir as tarefas necessárias para o desenvolvimento da aplicação conforme o esperado e combinado.
+
+
+## Histórias de usuário <a id="storys"></a>
+O backlog mostrado anteriormente foi baseado nas histórias de usuário coletadas também pela PO da equipe. Nelas podemos observar exatamente o valor desejado pelo cliente e assim dividir as tarefas necessárias para o desenvolvimento da aplicação conforme o esperado e combinado.
+
+<img src="/doc/historias-usuario.jpg" alt="tabela histórias de usuário">
+Link para exibir a tabela com uma melhor visão da imagem acima <a href="/doc/historias-usuario.pdf">Tabela de história de usuários</a>
+
+
 
 # MVP <a id="mvp"></a>
 Mínimo produto viável (MVP) é uma versão funcional de modo enxuto do serviço inicialmente pensado. Onde uma pequena parcela de pessoas irá testar e experimenta-lo podendo assim opinar para futuras melhoras. Este conceito é implementado no SCRUM, onde geramos um MVP na primeira entrega e apartir dele continuamos implementando-o até chegar ao produto final.
@@ -232,10 +253,6 @@ Nosso MVP ficou da seguinte forma:
 Nós também realizamos um vídeo onde explicamos brevemente seu funcionamento e como conseguimos desenvolve-lo, segue o link: 
 <a href="https://youtu.be/B5IebZFQw_Q">Link para acessar o vídeo</a>
 
-
-      
-      
-      
       
 # Equipe <a id="equipe"></a>
 

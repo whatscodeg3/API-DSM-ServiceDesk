@@ -19,7 +19,11 @@
             {% with messages = get_flashed_messages() %}
                 {% for message in messages %}
                     <div id="notificacao">
-                        <h4 id="msg">{{message}}</h4>
+                        {% if message == 'ok' %}
+                            <h4 id="msg2">Usuário Cadastrado com sucesso!</h4>
+                        {% else %}
+                            <h4 id="msg">{{message}}</h4>
+                        {% endif %}
                     </div>
                 {% endfor %}
             {% endwith %}
