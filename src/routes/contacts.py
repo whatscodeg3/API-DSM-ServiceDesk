@@ -1,5 +1,5 @@
 from multiprocessing.sharedctypes import Value
-from sqlalchemy import text, engine
+from sqlalchemy import false, text, engine
 import os
 import pathlib
 from flask import Blueprint, flash, redirect, render_template, request, session, g, url_for, send_from_directory, current_app
@@ -111,12 +111,17 @@ def criar():
     db.session.commit()
 
     arquivo = request.files['arquivo']
-    ext = pathlib.Path(arquivo.filename)
-    upload_path = current_app.config['UPLOAD_PATH']
+    if len(arquivo.filename) != 0:
+        
+        ext = pathlib.Path(arquivo.filename)
+        
+        upload_path = current_app.config['UPLOAD_PATH']
 
-    arquivo.save(f'{upload_path}/anexo{novo.id_solicitacao}{ext.suffix}')
+        arquivo.save(f'{upload_path}/anexo{novo.id_solicitacao}{ext.suffix}')
 
-    return redirect('/historico')
+        return redirect('/historico')
+    else: 
+        return redirect('/historico')
 
 @contacts.route('/historico')
 def historico():
