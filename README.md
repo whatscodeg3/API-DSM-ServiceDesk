@@ -82,6 +82,8 @@ CREATE TABLE IF NOT EXISTS usuarios (
     CONSTRAINT FK_id_categoria_usuario FOREIGN KEY (id_categoria_usuario)
     REFERENCES categoria_usuarios(id_categoria_usuario)
 );
+# Inserindo o Administrador em usuarios:
+INSERT INTO usuarios (nome_usuario, email_usuario, senha_usuario, id_categoria_usuario) VALUES ('Administrador', 'admin@gmail.com', 'adm', 3);
 
 CREATE TABLE IF NOT EXISTS avaliacoes (
 	id_avaliacao INT NOT NULL AUTO_INCREMENT,
@@ -90,10 +92,10 @@ CREATE TABLE IF NOT EXISTS avaliacoes (
 );
 
 # Inserindo valores em avaliacoes
-insert into avaliacoes (descricao_avaliacao) values ('Péssimo');
-insert into avaliacoes (descricao_avaliacao) values ('Regular');
-insert into avaliacoes (descricao_avaliacao) values ('Bom');
-insert into avaliacoes (descricao_avaliacao) values ('Ótimo');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Péssimo');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Regular');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Bom');
+INSERT INTO avaliacoes (descricao_avaliacao) VALUES ('Ótimo');
 
 
 CREATE TABLE IF NOT EXISTS solicitacoes(
@@ -187,27 +189,19 @@ python index.py
 
 
 # Planejamento <a id="planejamento"></a>
-<<<<<<< HEAD
-Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de três sprints com 21 dias cada. Abaixo está os links para vizualizar indivuidualmente o desenvolvimento das <a href='#sprints'>Sprints</a>, o <a href='#backlog'>Backlog do produto</a> e as <a href='#storys'>Histórias de usuário</a>.
+
+Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de três sprints com 21 dias cada. Abaixo está os links para vizualizar indivuidualmente o desenvolvimento de cada tópico:
+- <a href='#sprints'>Sprints</a>
+- <a href='backlog'>Backlog do produto</a>
+- <a href='#storys'>Histórias de usuário</a>
 
 ## Sprints <a id="sprints"></a>
 
 - Sprint 1 (25/03 - 14/04): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md)): Concluído ✅
-- Sprint 2 (25/04 - 15/05): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Em Andamento 🕓
+- Sprint 2 (25/04 - 15/05): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Concluído ✅
 - Sprint 3 (16/05 - 05/06): Carregando 🔋
 
 
-=======
-Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de três sprints com 21 dias cada. Abaixo está os links para vizualizar indivuidualmente o desenvolvimento das <a href='#sprints'>Sprints</a>, o <a href='backlog'>Backlog do produto</a> e as <a href='#storys'>Histórias de usuário</a>.
-
-## Sprints <a id="sprints"></a>
-
-Abaixo está os links para a documentação individual de cada sprint:
-- SPRINT 1 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md)): Concluído ✅
-- SPRINT 2 ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Em Andamento 🕓
-- SPRINT 3: Carregando 🔋
-
->>>>>>> 0b7db36a3ae454743c048e7b5a1dea88c3310c01
 ## Backlog do produto <a id="backlog"></a>
 Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backlog do produto, uma lista priorizada, refinada e estimada dos recursos que o time de desenvolvimento irá precisar para conseguir atingir o produto final desejado pelo cliente. O backlog foi pirorizados em alto, médio e baixo de acordo com o conversado com o cliente, em cima do valor de cada tópico. Na tabela, segue as tarefas ordenadas por prioridade, dividads pro sprints e mostrando ao lado o status de desenvolvimento de cada uma. 
 
