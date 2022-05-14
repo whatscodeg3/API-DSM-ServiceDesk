@@ -1,6 +1,6 @@
 # 2ª Sprint
 
-Para a segunda sprint, o time se organizou para apresentar...
+PPara a segunda sprint, o time se organizou para implementar o MVP realizado na primeira parte do projeto. Funções como o cadastro/login de usuários, a implementação do administrador, opção para o executor de recusar uma solicitação, modo de atribuição cíclica das solicitações,possibilidade de adicionar arquivos no momento de abrir uma solicitação, usuário poderá avaliar a solução enviada pelo executor e para o administrador, foi implementado um relatório simples sem a adição de gráficos por hora. 
 
 ## Front-end
 No front-end da segunda sprint planejamos terminar as telas restantes, ligando assim com o banco de dados. Segue abaixo o wireframe das páginas restantes feitas:
