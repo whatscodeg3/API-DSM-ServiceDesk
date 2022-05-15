@@ -15,12 +15,14 @@
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <hr class="hr_black">
-            <a href="/demanda">MINHAS DEMANDAS</a>
-            <hr class="hr_black">
-            <a href="/nova-solicitacao">NOVA SOLICITAÇÃO</a>
-            <hr class="hr_black">
-            <a href="/historico">HISTÓRICO DE SOLICITAÇÕES</a>
-            <hr class="hr_black">
+            <a href="/admin">HOME</a>
+            <hr id="hr_black">
+            <a href="/relatorios">RELATORIOS</a>
+            <hr id="hr_black">
+            <a href="">HISTORICO</a>
+            <hr id="hr_black">
+            <a href="/admin/permissoes">PERMISSÕES</a>
+            <hr id="hr_black">
         </div>
         <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
 
@@ -41,8 +43,8 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Abertos</th>
-                            <th>Fechados</th>
+                            <th>Chamados abertos</th>
+                            <th>Chamados fechados</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +53,63 @@
                             <td> {{ i[0] }} </td>
                             {% endfor %}
                             {% for i in res2 %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- <div class="container segundo">
+                <table class="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Péssimo</th>
+                            <th>Regular</th>
+                            <th>Bom</th>
+                            <th>Ótimo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> -->
+
+            <div class="container segundo">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Total de solicitações</th>
+                            <th>Péssimo</th>
+                            <th>Regular</th>
+                            <th>Bom</th>
+                            <th>Ótimo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for i in ger %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
+                            
+                            {% for i in ger1 %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
+                            {% for i in ger2 %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
+                            {% for i in ger3 %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
+                            {% for i in ger4 %}
                             <td> {{ i[0] }} </td>
                             {% endfor %}
                         </tr>

@@ -35,10 +35,8 @@ def autentica():
         db_consulta = Usuarios.query.all()
         redir = verifica(db_consulta, email, senha)
         return redirect(url_for(redir))
-    return redirect(url_for('contact.index'))
-
-##################################### Usuário #######################################
-
+    return redirect(url_for('contacts.index'))
+    
 @contacts.route('/usuario')
 def usuario():
     if g.user != None:
@@ -58,6 +56,49 @@ def nova():
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
 
+
+@contacts.route('/relatorios')
+def relatorio():
+    if g.user != None:
+        if g.user[0] == 3:
+            sql1 = text('select count(*) from solicitacoes')
+            sql2 = text('select count(*) from solicitacoes where resposta_solicitacao is not null')
+            results1 = db.engine.execute(sql1)
+            results2 = db.engine.execute(sql2)
+            todos = text('select count(*) from solicitacoes')
+            pessimo = text('select count(*) from solicitacoes where FK_id_avaliacao in (1)')
+            regular = text('select count(*) from solicitacoes where FK_id_avaliacao in (2)')
+            bom = text('select count(*) from solicitacoes where FK_id_avaliacao in (3)')
+            otimo = text('select count(*) from solicitacoes where FK_id_avaliacao in (4)')
+            geral =db.engine.execute(todos)
+            geral1 = db.engine.execute(pessimo)
+            geral2 = db.engine.execute(regular)
+            geral3 = db.engine.execute(bom)
+            geral4 = db.engine.execute(otimo)
+            return render_template('relatorios.html', res1=results1, res2=results2, ger=geral, ger1=geral1, ger2=geral2, ger3=geral3, ger4=geral4)
+    session.pop('user', None)
+    session.pop('id_usuario', None)
+    return redirect(url_for('contacts.index'))
+
+# @contacts.route('/')
+# def index():
+#     return render_template('home_usuario.html')
+
+# @contacts.route('/nova-solicitacao')
+# def nova():
+#     categoria = Categoria.query.all()
+#     return render_template('form_usuario_solicitacao.html', categorias=categoria)
+
+# @contacts.route('/historico')
+# def historico():
+#     lista = Solicita.query.all()
+#     return render_template('usuario-historico.html', listas=lista)
+
+# @contacts.route('/demanda')
+# def demanda():
+#     lista = Solicita.query.filter_by(resposta_solicitacao = None)
+#     consulta = Solicita.query.filter(Solicita.resposta_solicitacao.isnot(None))
+#     return render_template('executor-demandas.html', listas=lista, consultas=consulta)
 
 @contacts.route('/criar', methods=['POST', ])
 def criar():
@@ -147,21 +188,6 @@ def admin():
     session.pop('user', None)
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
-
-
-@contacts.route('/relatorios')
-def relatorio():
-    if g.user != None:
-        if g.user[0] == 3:
-            sql1 = text('select count(*) from solicitacoes')
-            sql2 = text('select count(*) from solicitacoes where resposta_solicitacao is not null')
-            results1 = db.engine.execute(sql1)
-            results2 = db.engine.execute(sql2)
-            return render_template('relatorios.html', res1=results1, res2=results2)
-    session.pop('user', None)
-    session.pop('id_usuario', None)
-    return redirect(url_for('contacts.index'))
-    
 
 @contacts.route('/demanda/<id>')
 def modal_id(id):
