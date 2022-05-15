@@ -43,12 +43,16 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
+                            <th>Total de solicitações</th>
                             <th>Chamados abertos</th>
                             <th>Chamados fechados</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
+                            {% for i in tot %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
                             {% for i in res1 %}
                             <td> {{ i[0] }} </td>
                             {% endfor %}
@@ -87,7 +91,6 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Total de solicitações</th>
                             <th>Péssimo</th>
                             <th>Regular</th>
                             <th>Bom</th>
@@ -95,11 +98,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            {% for i in ger %}
-                            <td> {{ i[0] }} </td>
-                            {% endfor %}
-                            
+                        <tr>                           
                             {% for i in ger1 %}
                             <td> {{ i[0] }} </td>
                             {% endfor %}
