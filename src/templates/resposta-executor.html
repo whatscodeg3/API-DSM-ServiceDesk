@@ -47,11 +47,18 @@
                 <p class="titulo">Descrição do pedido:</p>
                 <textarea readonly="True" input type="text" name="descrição do problema" placeholder="{{solicita.descricao_solicitacao}}" class="caixa-texto-desc"></textarea>
             </div>
-
+            
+            {% if arquivo_no_html == '' %}
             <div class="desc-anexo">
-                <p class="titulo">Aquivos anexados:</p>
+                <p class="titulo">Nenhum arquivo anexado.</p>
+    
+            </div>
+            {% else %}
+            <div class="desc-anexo">
+                <p class="titulo">Arquivos anexados:</p>
                 <button><a href="{{ url_for('contacts.anexos', nome_arquivo=arquivo_no_html) }}" download class="texto-anexo">Clique aqui para baixar</a></button>
             </div>
+            {% endif %}
         </section>
 
         <section class="solucao-principal">

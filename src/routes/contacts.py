@@ -168,6 +168,8 @@ def atualiza(id):
         for arquivo in arquivos:
             if termo in arquivo:
                 file = arquivo
+            else:
+                file = ''
     if request.method == "POST":
         consulta.resposta_solicitacao = request.form['resposta']
         db.session.commit()
@@ -210,7 +212,8 @@ def justificativa(id):
 def testeperm():
     if g.user != None:
         if g.user[0] == 3:
-            nome = Usuarios.query.all()
+            nome= Usuarios.query.filter(Usuarios.id_categoria_usuario != 3)
+            #nome = Usuarios.query.all()
             return render_template('adm_permissoes.html', nome=nome)
     session.pop('user', None)
     session.pop('id_usuario', None)
