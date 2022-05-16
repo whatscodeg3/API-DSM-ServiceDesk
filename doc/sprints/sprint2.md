@@ -20,8 +20,8 @@ Para o back-end, nós tivemos que alterar o banco de dados, adicionando a tabela
 **DDL alterado.**
 
 <img src="/doc/back-end/tabela1-2sprint.png" alt="tabelas">
-<img src="/doc/back-end/tabela1-2sprint.png" alt="tabelas">
-<img src="/doc/back-end/tabela1-2sprint.png" alt="tabelas">
+<img src="/doc/back-end/tabela2-2sprint.png" alt="tabelas">
+<img src="/doc/back-end/tabela3-2sprint.png" alt="tabelas">
 
 ## Ligação com o banco de dados
 Assim como na [primeira sprint](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md), nós realizamos a ligação das telas 
