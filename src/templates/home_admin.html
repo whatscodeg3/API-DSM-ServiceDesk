@@ -26,6 +26,8 @@
                     <hr id="hr_black">
                     <a href="/admin/permissoes">PERMISSÕES</a>
                     <hr id="hr_black">
+                    <a href="/sair">SAIR</a>
+                    <hr id="hr_black">                    
                   </div>
             </div>
     
@@ -42,6 +44,14 @@
                 </script>
     
         </header>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div id="notificacao">
+                    <h4 id="msg">{{message}}</h4>
+                </div>
+            {% endfor %}
+        {% endwith %}
 
         <main>
             <div class="linha_cinza">
