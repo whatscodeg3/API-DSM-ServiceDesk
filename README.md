@@ -75,8 +75,8 @@ INSERT INTO categoria_solicitacoes(categoria_solicitacao) VALUES
 CREATE TABLE IF NOT EXISTS usuarios (
     id_usuario INT NOT NULL AUTO_INCREMENT ,
     nome_usuario VARCHAR(255) NOT NULL,
-    email_usuario VARCHAR(255) NOT NULL,
-    senha_usuario VARCHAR(14) NOT NULL UNIQUE,
+    email_usuario VARCHAR(255) NOT NULL UNIQUE,
+    senha_usuario VARCHAR(14) NOT NULL,
     id_categoria_usuario INT,
     PRIMARY KEY (id_usuario),
     CONSTRAINT FK_id_categoria_usuario FOREIGN KEY (id_categoria_usuario)
@@ -223,10 +223,6 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 | Administrador                                 | Será responsável por todo o sistema, então terá permissão de visualizar os históricos de solicitações (importante deixar filtro por executor), gerar relatórios e terá a permissão de tornar um usuário comum em executor ou vice versa.       | Funcional     | Média      | 2      | 🕓 | 
 | Cadastro e login de usuários                  | Utilizando HTML, CSS e Python (ou JavaScript) será feito uma página para obter os dados do usuário e registra-lo no banco do sistema, no qual será determinante para definir as tarefas que poderão realizar na plataforma.                    | Funcional     | Baixa      | 2      | 🕓 | 
 | Revisão e implementação do sistema            | Analisando as sugestões e orientações passadas nas entregas, revisar e/ou alterar pontos necessários do sistema.                                                                                                                               | Não funcional | Baixa      | 3      | 🕓 | 
-
-## Histórias de usuários <a id='storys'></a>
-O backlog mostrado anteriormente foi baseado nas histórias de usuário coletadas também pela PO da equipe. Nelas podemos observar exatamente o valor desejado pelo cliente e assim dividir as tarefas necessárias para o desenvolvimento da aplicação conforme o esperado e combinado.
-
 
 ## Histórias de usuário <a id="storys"></a>
 O backlog mostrado anteriormente foi baseado nas histórias de usuário coletadas também pela PO da equipe. Nelas podemos observar exatamente o valor desejado pelo cliente e assim dividir as tarefas necessárias para o desenvolvimento da aplicação conforme o esperado e combinado.
