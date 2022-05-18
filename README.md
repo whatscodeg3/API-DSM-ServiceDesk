@@ -34,7 +34,7 @@ Este projeto será realizado baseado na metodologia ágil SCRUM, que foca no des
 
 # Executando a aplicação <a id="configuracoes"></a>
 - Primeiramente, clique em `tag` e aparecerá um arquivo *.zip* nominado v1.0.1. Clique para baixá-lo.
-- Para a excução deste sistema há duas formas: instalar um <a href="#instalar-banco">banco de dados local</a> ou utilizar um banco de dados na nuvem. Caso a sua rede seja restrita é recomendada a instalação de um banco local. Caso contrário, pode-se pular as etapas da instalação do banco de dados local e executar os passos de <a href="rodar-app">Rodar a aplicação</a>.
+- Para a excução deste sistema há duas formas: instalar um <a href="#instalar-banco">banco de dados local</a> ou utilizar um banco de dados na nuvem. Caso a sua rede seja restrita é recomendada a instalação de um banco local. Caso contrário, pode-se pular as etapas da instalação do banco de dados local e executar os passos de <a href="#rodar-app">Rodar a aplicação</a>.
 
 ## Instalação do banco de dados <a id="instalar-banco"></a>
 ### Banco de dados:
@@ -192,7 +192,7 @@ python index.py
 
 Como mencionado no início deste documento o desenvolvimento do projeto foi baseado na metodologia SCRUM, que possui três principais pilares: transparência, inspeção e adaptação. Para êxito destes, é formulado um formato de entrega denominado sprint. Consistindo em um curto período para realizar tarefas determinadas que garantem entregas funcionais para o cliente. Neste momento, foi implementado a estrutura de três sprints com 21 dias cada. Abaixo está os links para vizualizar indivuidualmente o desenvolvimento de cada tópico:
 - <a href='#sprints'>Sprints</a>
-- <a href='backlog'>Backlog do produto</a>
+- <a href='#backlog'>Backlog do produto</a>
 - <a href='#storys'>Histórias de usuário</a>
 
 ## Sprints <a id="sprints"></a>

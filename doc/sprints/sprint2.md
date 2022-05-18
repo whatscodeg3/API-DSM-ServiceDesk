@@ -27,5 +27,5 @@ Para o back-end, nós tivemos que alterar o banco de dados, adicionando a tabela
 Assim como na [primeira sprint](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md), nós realizamos a ligação das telas 
 restantes com o banco de dados, utilizando o mini framework Flask, linguagem Python e a biblioteca SQLAlchemy.
 
-# Vídeo com a entrega da sprint
+## Vídeo com a entrega da sprint
 Segue o link para visualizar o vídeo explicativo com o produto que realizamos: <a href='https://www.youtube.com/watch?v=UbLVvt1yzLE'>Link do vídeo</a>
