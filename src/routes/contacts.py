@@ -6,7 +6,7 @@ from flask import Blueprint, flash, redirect, render_template, request, session,
 from models.solicita import Avaliacao, Categoria, Solicita, Usuarios
 from sqlalchemy import text, engine
 from utils.db import db
-from utils.verifica import distribui, verifica
+from utils.verifica import distribui, verifica 
 
 contacts = Blueprint('contacts', __name__)
 
@@ -59,26 +59,29 @@ def nova():
 
 @contacts.route('/criar', methods=['POST', ])
 def criar():
-    tipo = request.form['Tipo de serviço']
-    descricao = request.form['descrição do problema']
-    id_user = g.id_usuario
-    proximo_operador = distribui()
-    novo = Solicita(tipo, descricao, id_user, proximo_operador)
-    db.session.add(novo)
-    db.session.commit()
+    if g.user != None:
+        if g.user[0] == 1 or g.user[0] == 2:
+            tipo = request.form['Tipo de serviço']
+            descricao = request.form['descrição do problema']
+            id_user = g.id_usuario
+            proximo_operador = distribui()
+            novo = Solicita(tipo, descricao, id_user, proximo_operador)
+            db.session.add(novo)
+            db.session.commit()
 
-    arquivo = request.files['arquivo']
-    if len(arquivo.filename) != 0:
-        
-        ext = pathlib.Path(arquivo.filename)
-        
-        upload_path = current_app.config['UPLOAD_PATH']
+            arquivo = request.files['arquivo']
+            if len(arquivo.filename) != 0:
+                
+                ext = pathlib.Path(arquivo.filename)
+                
+                upload_path = current_app.config['UPLOAD_PATH']
 
-        arquivo.save(f'{upload_path}/anexo{novo.id_solicitacao}{ext.suffix}')
+                arquivo.save(f'{upload_path}/anexo{novo.id_solicitacao}{ext.suffix}')
 
-        return redirect('/historico')
-    else: 
-        return redirect('/historico')
+                return redirect('/historico')
+            else: 
+                return redirect('/historico')
+    return redirect(url_for('contacts.index'))
 
 @contacts.route('/historico')
 def historico():
@@ -100,7 +103,7 @@ def avalia(id):
     db.session.commit()
     return redirect('/historico')
 
-##################################### Executor #######################################
+##################################### Operador #######################################
 
 @contacts.route('/demanda')
 def demanda():
@@ -128,19 +131,6 @@ def atualiza(id):
         return redirect('/demanda')
     return render_template('resposta-executor.html', solicita=consulta, arquivo_no_html=file)
 
-@contacts.route('/resposta')
-def resposta():
-    return render_template('resposta-executor.html')
-
-##################################### Admin #######################################
-
-@contacts.route('/admin')
-def admin():
-    if g.user != None:
-        if g.user[0] == 3:
-            return render_template('home_admin.html')
-    return redirect(url_for('contacts.index'))
-
 @contacts.route('/demanda/<id>')
 def modal_id(id):
     just = Solicita.query.get(id)
@@ -156,8 +146,23 @@ def justificativa(id):
         return redirect('/demanda')
 
     return render_template('executor-demandas.html', solicita=consulta)
-    
 
+# @contacts.route('/resposta')
+# def resposta():
+#     if g.user != None:
+#         if g.user[0] == 2:
+#             return render_template('resposta-executor.html')
+#     return redirect(url_for('contacts.index'))
+
+##################################### Admin #######################################
+
+@contacts.route('/admin')
+def admin():
+    if g.user != None:
+        if g.user[0] == 3:
+            return render_template('home_admin.html')
+    return redirect(url_for('contacts.index'))
+    
 @contacts.route('/admin/permissoes')
 def testeperm():
     if g.user != None:
@@ -225,20 +230,26 @@ def cadastrando():
         senha_usuario = request.form['password']
         senhaConfirmada = request.form.get('passwordConfirmation')
         nome_usuario = f'{primeiro_nome} {sobrenome}'
-    
+        
+        if email_usuario != emailConfirmado:
+            flash('Email não confere')
+            return redirect('/cadastro')
+        elif senha_usuario != senhaConfirmada:
+            flash('Senha não confere') 
+            return redirect('/cadastro')
+        else:
+            db_consulta = Usuarios.query.all()
+            for verifica in db_consulta:
+                db_email = verifica.email_usuario
+                if db_email == email_usuario:
+                    flash('Email já cadastrado!')
+                    return redirect('/cadastro')
 
-    if email_usuario != emailConfirmado:
-        flash('Email não confere')
-        return redirect('/cadastro')
-    elif senha_usuario != senhaConfirmada:
-        flash('Senha não confere') 
-        return redirect('/cadastro')
-    id_usuario = None
-    usuario = Usuarios(id_usuario, nome_usuario, email_usuario, senha_usuario, 1)
-    db.session.add(usuario)
-    db.session.commit()
-    print(usuario)
-    flash('ok')
+        id_usuario = None
+        usuario = Usuarios(id_usuario, nome_usuario, email_usuario, senha_usuario, 1)
+        db.session.add(usuario)
+        db.session.commit()
+        flash('ok')
    
     return redirect('/')
 
