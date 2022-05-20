@@ -40,6 +40,7 @@ def distribui():
     for i in results:
         pass
     id1 = i
+    print(id1[0])
     if id1[0] != None:
         id_operador_anterior = text(
             "SELECT FK_id_executor FROM solicitacoes where id_solicitacao=:id")
@@ -49,20 +50,33 @@ def distribui():
         id2=j[0]
     else:
         id2 = None
+    print(id2)
     todos_operadores = text(
         'SELECT id_usuario FROM usuarios WHERE id_categoria_usuario = 2')
     todos_operadores = db.engine.execute(todos_operadores)
+    print(todos_operadores)
     lista = []
     for r in todos_operadores:
         lista.append(r)
+    print(lista)
     proximo_operador = ''
+    if lista == []:
+        adm = text(
+        'SELECT id_usuario FROM usuarios WHERE id_categoria_usuario = 3')
+        adm = db.engine.execute(adm)
+        id_adm = ''
+        for i in adm:
+            pass
+        id_adm = i
+        proximo_operador = id_adm[0]
+        return proximo_operador
     tamanho = len(lista) - 1
     if id2 == None:
         proximo_operador = lista[0]
         proximo_operador = proximo_operador[0]
         return proximo_operador
     else:
-        if lista.index(j) == tamanho:
+        if j not in lista or lista.index(j) == tamanho:
             proximo_operador = lista[0]
             proximo_operador = proximo_operador[0]
             return proximo_operador
