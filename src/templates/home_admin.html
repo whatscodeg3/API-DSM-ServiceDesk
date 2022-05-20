@@ -18,11 +18,9 @@
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                     <hr class="hr_black">
-                    <a href="/admin">HOME</a>
+                    <a href="/relatorios">RELATÓRIOS</a>
                     <hr id="hr_black">
-                    <a href="/relatorios">RELATORIOS</a>
-                    <hr id="hr_black">
-                    <a href="">HISTORICO</a>
+                    <a href="">HISTÓRICO</a>
                     <hr id="hr_black">
                     <a href="/admin/permissoes">PERMISSÕES</a>
                     <hr id="hr_black">
@@ -55,7 +53,7 @@
 
         <main>
             <div class="linha_cinza">
-                <p class="ola">Olá, administrador!</p>
+                <p class="ola">Olá, {{user[1]}}!</p>
                 <p class="bem_vindo">Bem vindo a sua home</p>
                 <p class="config">Acesse rapidamente as suas configurações</p>
             </div>        

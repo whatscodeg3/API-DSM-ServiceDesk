@@ -15,6 +15,10 @@
             <hr id="hr_black">
             <a href="/usuario">HOME</a>
             <hr id="hr_black">
+            {% if user[0] == 2 %}
+                <a href="/demanda">MINHAS DEMANDAS</a>
+                <hr id="hr_black">
+            {% endif %}            
             <a href="/nova-solicitacao">NOVA SOLICITAÇÃO</a>
             <hr id="hr_black">
             <a href="/sair">SAIR</a>
@@ -39,7 +43,7 @@
                 <button class="pesquisa-lupa" type="submit"><img id="pesquisa-img" src="../static/img/lupa-arredondada.svg" alt="icone menu"></button>
             </form>
         </section>
-
+        
         <div class="chamados"> 
             <ul class="chamados-lista" type="none">
                 {% for lista in listas %}

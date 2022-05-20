@@ -18,6 +18,10 @@
             <hr id="hr_black">
             <a href="/usuario">HOME</a>
             <hr id="hr_black">
+            {% if user[0] == 2 %}
+                <a href="/demanda">MINHAS DEMANDAS</a>
+                <hr class="hr_black">
+            {% endif %} 
             <a href="/historico">HISTÓRICO</a>
             <hr id="hr_black">
             <a href="/sair">SAIR</a>

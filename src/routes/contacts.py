@@ -160,7 +160,7 @@ def justificativa(id):
 def admin():
     if g.user != None:
         if g.user[0] == 3:
-            return render_template('home_admin.html')
+            return render_template('home_admin.html', user=session['user'])
     return redirect(url_for('contacts.index'))
     
 @contacts.route('/admin/permissoes')
@@ -168,7 +168,7 @@ def testeperm():
     if g.user != None:
         if g.user[0] == 3:
             nome= Usuarios.query.filter(Usuarios.id_categoria_usuario != 3)
-            return render_template('adm_permissoes.html', nome=nome)
+            return render_template('adm_permissoes.html', nome=nome, user=session['user'])
     return redirect(url_for('contacts.index'))
 
 @contacts.route('/permissoes/<id>', methods=['POST','GET'])
