@@ -40,7 +40,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
 
-    <h1 class="titulo">Relatório dos Chamados Abertos e Fechados do dia (dia)</h1>
+    <h1 class="titulo">Relatório dos Chamados Abertos e Fechados do dia(dia)</h1>
 
     <div class="grafico-avaliacoes">
         <canvas id="grafico"></canvas>
@@ -54,7 +54,7 @@
             datasets: [
             {
                 label: 'Chamados',
-                data: [23, 31],
+                data: ['{{res1}}', '{{res2}}'],
                 backgroundColor: ['#6CEC90', '#FF4343'],
                 borderColor: ['#292A2F'],
                 borderWidth: 7,
@@ -69,6 +69,11 @@
 
 
     <h1 class="titulo">Relatório dos Chamados Abertos e Fechados da Semana</h1>
+    <form action="/relatorios">
+        <input type="date" name="filtro"> 
+        <button type="submit">Filtrar</button>
+    </form>
+    
 
     <div class="grafico">
         <canvas id="grafico1"></canvas>
@@ -110,33 +115,24 @@
 
     <h1 class="titulo">Relatório dos Chamados Abertos e Fechados dos 15 Dias</h1>
 
-    <div class="grafico">
+    <div class="grafico-avaliacoes">
         <canvas id="grafico2"></canvas>
     </div>
     <script>
     const ctx2 = document.getElementById('grafico2').getContext('2d');
     const myChart2 = new Chart(ctx2, {
-        type: 'bar',
+        type: 'pie',
         data: {
-            labels: ['Dia 1', 'Dia 2', 'Dia 3', 'Dia 4', 'Dia 5', 'Dia 6', 'Dia 7', 'Dia 8', 'Dia 9', 'Dia 10', 'Dia 11', 'Dia 12', 'Dia 13', 'Dia 14', 'Dia 15'],
+            labels: ['Abertos', 'Fechados'],
             datasets: [
             {
-                label: 'Chamados Abertos',
-                data: [23, 31, 56, 76, 54, 74, 21, 10, 34, 33, 43, 23, 23, 31, 56],
-                backgroundColor: ['#FF4343'],
-                borderColor: ['#FF4343'],
-                borderWidth: 1,
+                label: 'Chamados',
+                data: [23, 15],
+                backgroundColor: ['#6CEC90', '#FF4343'],
+                borderColor: ['#292A2F'],
+                borderWidth: 7,
                 tension: 0.1
-            },
-            {
-                label: 'Chamados Fechados',
-                data: [12, 54, 34, 87, 56, 43, 23, 23, 31, 56, 76, 54, 74, 21, 50],
-                backgroundColor: ['#6CEC90'],
-                borderColor: ['#6CEC90'],
-                borderWidth: 1,
-                tension: 0.1
-            }]
-        },
+            }],
         options: {
             scales: {
                 y: {
@@ -145,6 +141,7 @@
                 }
             }
         }       
+        }
     });
     </script>
 
@@ -154,33 +151,24 @@
 
     <h1 class="titulo">Relatório dos Chamados Abertos e Fechados dos 30 Dias</h1>
 
-    <div class="grafico">
+    <div class="grafico-avaliacoes">
         <canvas id="grafico3"></canvas>
     </div>
     <script>
     const ctx3 = document.getElementById('grafico3').getContext('2d');
     const myChart3 = new Chart(ctx3, {
-        type: 'line',
+         type: 'pie',
         data: {
-            labels: ['Dia 1', 'Dia 2', 'Dia 3', 'Dia 4', 'Dia 5', 'Dia 6', 'Dia 7', 'Dia 8', 'Dia 9', 'Dia 10', 'Dia 11', 'Dia 12', 'Dia 13', 'Dia 14', 'Dia 15', 'Dia 16', 'Dia 17', 'Dia 18', 'Dia 19', 'Dia 20', 'Dia 21', 'Dia 22', 'Dia 23', 'Dia 24', 'Dia 25', 'Dia 26', 'Dia 27', 'Dia 28', 'Dia 29', 'Dia 30'],
+            labels: ['Abertos', 'Fechados'],
             datasets: [
             {
-                label: 'Chamados Abertos',
-                data: [23, 31, 56, 76, 54, 74, 21, 10, 34, 33, 89, 67, 34, 12, 56, 23, 31, 56, 76, 54, 74, 21, 10, 34, 33, 89, 67, 34, 12, 56],
-                backgroundColor: ['#FF4343'],
-                borderColor: ['#FF4343'],
-                borderWidth: 1,
+                label: 'Chamados',
+                data: [50, 32],
+                backgroundColor: ['#6CEC90', '#FF4343'],
+                borderColor: ['#292A2F'],
+                borderWidth: 7,
                 tension: 0.1
-            },
-            {
-                label: 'Chamados Fechados',
-                data: [12, 54, 34, 87, 56, 43, 23, 23, 31, 56, 76, 54, 74, 21, 4, 12, 54, 34, 87, 56, 43, 23, 23, 31, 56, 76, 54, 74, 21, 4],
-                backgroundColor: ['#6CEC90'],
-                borderColor: ['#6CEC90'],
-                borderWidth: 1,
-                tension: 0.1
-            }]
-        },
+            }],
         options: {
             scales: {
                 y: {
@@ -189,6 +177,7 @@
                 }
             }
         }       
+        }
     });
     </script>
 
@@ -211,7 +200,7 @@
             datasets: [
             {
                 label: 'Avaliações',
-                data: [23, 31, 56, 21],
+                data: ['{{ger4}}', '{{ger3}}', '{{ger2}}', '{{ger1}}'],
                 backgroundColor: ['#6CEC90', '#dbaf20', '#C67020', '#FF4343'],
                 borderColor: ['#292A2F'],
                 borderWidth: 7,
@@ -261,15 +250,6 @@
                 </thead>
                 <tbody>
                     <tr>
-                        {% for i in tot %}
-                        <td> {{ i[0] }} </td>
-                        {% endfor %}
-                        {% for i in res1 %}
-                        <td> {{ i[0] }} </td>
-                        {% endfor %}
-                        {% for i in res2 %}
-                        <td> {{ i[0] }} </td>
-                        {% endfor %}
                     </tr>
                 </tbody>
             </table>
@@ -310,18 +290,6 @@
                 </thead>
                 <tbody>
                     <tr>                           
-                        {% for i in ger1 %}
-                        <td> {{ i[0] }} </td>
-                        {% endfor %}
-                        {% for i in ger2 %}
-                        <td> {{ i[0] }} </td>
-                        {% endfor %}
-                        {% for i in ger3 %}
-                        <td> {{ i[0] }} </td>
-                        {% endfor %}
-                        {% for i in ger4 %}
-                        <td> {{ i[0] }} </td>
-                        {% endfor %}
                     </tr>
                 </tbody>
             </table>

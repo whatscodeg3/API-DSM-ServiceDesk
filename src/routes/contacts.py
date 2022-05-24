@@ -57,14 +57,22 @@ def nova():
     return redirect(url_for('contacts.index'))
 
 
-@contacts.route('/relatorios')
+@contacts.route('/relatorios', methods=['POST', 'GET'])
 def relatorio():
     if g.user != None:
         if g.user[0] == 3:
             sql1 = text('select count(*) from solicitacoes where resposta_solicitacao is null')
             sql2 = text('select count(*) from solicitacoes where resposta_solicitacao is not null')
             results1 = db.engine.execute(sql1)
+            print(results1)
+            for i in results1:
+                pass
+            teste = i[0]
+            print(teste)
             results2 = db.engine.execute(sql2)
+            for j in results2:
+                pass
+            teste2=j[0]
             todos = text('select count(*) from solicitacoes')
             pessimo = text('select count(*) from solicitacoes where FK_id_avaliacao in (1)')
             regular = text('select count(*) from solicitacoes where FK_id_avaliacao in (2)')
@@ -72,10 +80,26 @@ def relatorio():
             otimo = text('select count(*) from solicitacoes where FK_id_avaliacao in (4)')
             total =db.engine.execute(todos)
             geral1 = db.engine.execute(pessimo)
+            for i in geral1:
+                pass
+            g1=i[0]
             geral2 = db.engine.execute(regular)
+            for i in geral2:
+                pass
+            g2=i[0]            
             geral3 = db.engine.execute(bom)
+            for i in geral3:
+                pass
+            g3=i[0]  
             geral4 = db.engine.execute(otimo)
-            return render_template('relatorios.html', res1=results1, res2=results2, tot=total, ger1=geral1, ger2=geral2, ger3=geral3, ger4=geral4)
+            for i in geral4:
+                pass
+            g4=i[0]
+            if request.method == "POST":
+                data = request.form['filtro']
+                print(data)
+                return redirect('/relatorios')
+            return render_template('relatorios.html', res1=teste, res2=teste2, tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4)
     session.pop('user', None)
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
