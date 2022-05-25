@@ -3,7 +3,7 @@ from sqlalchemy import false, text, engine
 import os
 import pathlib
 from flask import Blueprint, flash, redirect, render_template, request, session, g, url_for, send_from_directory, current_app
-from models.solicita import Avaliacao, Categoria, Solicita, Usuarios
+from models.solicita import Avaliacao, Categoria, Solicita, Usuarios, CategoriaUsuarios
 from sqlalchemy import text, engine
 from utils.db import db
 from utils.verifica import distribui, verifica
@@ -99,7 +99,8 @@ def relatorio():
                 data = request.form['filtro']
                 print(data)
                 return redirect('/relatorios')
-            return render_template('relatorios.html', res1=teste, res2=teste2, tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4)
+            operador = Usuarios.query.filter_by(id_categoria_usuario=2)
+            return render_template('relatorios.html', res1=teste, res2=teste2, tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4, operadores = operador)
     session.pop('user', None)
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
