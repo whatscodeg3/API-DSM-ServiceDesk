@@ -233,8 +233,15 @@
 
 
 
+    <div class="div-filtro">
+        <h1 class="titulo">Relatório das Avaliações do:</h1>
 
-    <h1 class="titulo">Relatório das Avaliações do (nome do executor)</h1>
+        <select name="" id="" method="POST" class="filtro-operadores">
+            {% for operador in operadores %}
+            <option name="Tipo de serviço" value="#">{{ operador.nome_usuario}}</option>            
+            {% endfor %}
+        </select>
+    </div>
 
     <div class="grafico-avaliacoes">
         <canvas id="grafico5"></canvas>
