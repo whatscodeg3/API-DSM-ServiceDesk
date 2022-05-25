@@ -61,10 +61,19 @@
                         {% for lista in listas %}
                         <li class="chamados-itens-aberto">
                             <details>
-                                <summary class="summary-aberto"> 
-                                    <div class="circulo-aberto"></div>
-
-                                    <div>{{ lista.data_abertura.strftime('%d/%m/%Y - ') }} {{ lista.cat.categoria_solicitacao}}</div>
+                                <summary class="summary-aberto">
+                                    <div class="titulo-summary">
+                                        <div class="circulo-aberto"></div>
+                                        {{ lista.data_abertura.strftime('%d/%m/%Y - ') }} {{ lista.cat.categoria_solicitacao}}
+                                    </div>
+                                    <p>
+                                        Operador responsável:                                     
+                                        {% for usuario in usuarios %}
+                                            {% if usuario.id_usuario == lista.fk_id_executor %}
+                                                {{ usuario.nome_usuario}}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
                                 </summary>
                                 <div class=chamados-itens-conteudo-aberto>
                                     <h4>Descrição da Solicitação</h4>
@@ -87,9 +96,18 @@
                         <li class="chamados-itens-fechado">
                             <details>
                                 <summary class="summary-fechado"> 
-                                    <div class="circulo-fechado"></div>
-
-                                    <div>{{ consulta.data_fechamento.strftime('%d/%m/%Y - ') }} {{ consulta.cat.categoria_solicitacao}}</div>
+                                    <div class="titulo-summary">
+                                        <div class="circulo-fechado"></div>
+                                        {{ consulta.data_fechamento.strftime('%d/%m/%Y - ') }} {{ consulta.cat.categoria_solicitacao}}
+                                    </div>
+                                    <p>
+                                        Operador responsável:                                     
+                                        {% for usuario in usuarios %}
+                                            {% if usuario.id_usuario == consulta.fk_id_executor %}
+                                                {{ usuario.nome_usuario}}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
                                 </summary>
                                 <div class=chamados-itens-conteudo-fechado>
                                     <h4>Descrição da Solicitação</h4>
@@ -116,10 +134,19 @@
                         {% if chamado.resposta_solicitacao == None %}
                         <li class="chamados-itens-aberto">
                             <details>
-                                <summary class="summary-aberto"> 
-                                    <div class="circulo-aberto"></div>
-
-                                    <div>{{ chamado.data_abertura.strftime('%d/%m/%Y - ') }} {{ chamado.cat.categoria_solicitacao}} </div>
+                                <summary class="summary-aberto">
+                                    <div class="titulo-summary">
+                                        <div class="circulo-aberto"></div>
+                                        {{ chamado.data_abertura.strftime('%d/%m/%Y - ') }} {{ chamado.cat.categoria_solicitacao}}
+                                    </div>
+                                    <p>
+                                        Operador responsável:                                     
+                                        {% for usuario in usuarios %}
+                                            {% if usuario.id_usuario == chamado.fk_id_executor %}
+                                                {{ usuario.nome_usuario}}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
                                 </summary>
                                 <div class=chamados-itens-conteudo-aberto>
                                     <h4>Descrição da Solicitação</h4>
@@ -134,9 +161,18 @@
                         <li class="chamados-itens-fechado">
                             <details>
                                 <summary class="summary-fechado"> 
-                                    <div class="circulo-fechado"></div>
-
-                                    <div>{{ chamado.data_fechamento.strftime('%d/%m/%Y - ') }} {{ chamado.cat.categoria_solicitacao}}</div>
+                                    <div class="titulo-summary">
+                                        <div class="circulo-fechado"></div>
+                                        {{ chamado.data_fechamento.strftime('%d/%m/%Y - ') }} {{ chamado.cat.categoria_solicitacao}}
+                                    </div>
+                                    <p>
+                                        Operador responsável:                                     
+                                        {% for usuario in usuarios %}
+                                            {% if usuario.id_usuario == chamado.fk_id_executor %}
+                                                {{ usuario.nome_usuario}}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
                                 </summary>
                                 <div class=chamados-itens-conteudo-fechado>
                                     <h4>Descrição da Solicitação</h4>
@@ -158,6 +194,7 @@
             </div>
         </section>
     </main>
+    <footer>
         <p>DESENVOLVIDO POR WHATSCODE</p>
     </footer>
 

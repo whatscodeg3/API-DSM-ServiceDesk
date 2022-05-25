@@ -255,9 +255,6 @@ input {
     }
 }
 
-
-
-
 #detalhe-chamados {
     display: flex;
     width: 100%;
@@ -299,17 +296,22 @@ summary {
     }
 }
 
+.titulo-summary{
+    display:flex;
+    gap:5px;
+}
+
 .summary-aberto {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 2%;
 }
 
 .summary-fechado {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 2%;
 }
 
@@ -327,14 +329,6 @@ summary {
     width: 25px;
     height: 25px;
 }
-
-.circulo-fechado {
-    background: #6CEC90;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-}
-
 
 .chamados-itens-aberto {
     display: flex;
@@ -365,6 +359,9 @@ summary {
         margin-bottom: 1.8vw;
         border-radius: 30px;
     }
+    .circulo-aberto{
+        display: none;
+    }
 }
 
 .chamados-itens-conteudo-aberto {
@@ -380,6 +377,62 @@ summary {
     .chamados-itens-conteudo-aberto {
         text-align: center;
 
+    }
+}
+
+.circulo-fechado {
+    background: #6CEC90;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+}
+
+.chamados-itens-fechado {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    background-color: #292A2F;
+    border: #6CEC90 solid 2px;
+    border-radius: 38px;
+    width: 100%;
+    padding: 10px 27px;
+    margin-bottom: 1.4%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .chamados-itens-fechado {
+        font-size: 3.5vw;
+        justify-content: center;
+        padding: 1vw 2.5vw;
+        width: 96%;
+        margin-bottom: 1.8vw;
+        border-radius: 30px;
+    }
+
+    .circulo-fechado{
+        display: none;
+    }
+}
+
+.chamados-itens-conteudo-fechado {
+    display: flex;
+    flex-direction: column;
+    padding: 1% 0px;
+    margin-top: 1%;
+    border-top: 2px solid #52b86f;
+    text-align: left;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .chamados-itens-conteudo-fechado {
+        text-align: center;
     }
 }
 
@@ -503,51 +556,6 @@ a.recusa-link-all:hover{
         font-size: 3vw;
     }
 
-}
-
-.chamados-itens-fechado {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    color: rgb(255, 255, 255);
-    background-color: #292A2F;
-    border: #6CEC90 solid 2px;
-    border-radius: 38px;
-    width: 100%;
-    padding: 10px 27px;
-    margin-bottom: 1.4%;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    text-align: center;
-}
-
-@media only screen and (max-width: 600px) {
-    .chamados-itens-fechado {
-        font-size: 3.5vw;
-        justify-content: center;
-        padding: 1vw 2.5vw;
-        width: 96%;
-        margin-bottom: 1.8vw;
-        border-radius: 30px;
-    }
-}
-
-.chamados-itens-conteudo-fechado {
-    display: flex;
-    flex-direction: column;
-    padding: 1% 0px;
-    margin-top: 1%;
-    border-top: 2px solid #52b86f;
-    text-align: left;
-}
-
-
-@media only screen and (max-width: 600px) {
-    .chamados-itens-conteudo-fechado {
-        text-align: center;
-    }
 }
 
 .btn-aceitar-recusar {

@@ -62,9 +62,10 @@
                         <li class="chamados-itens-aberto">
                             <details>
                                 <summary class="summary-aberto"> 
+                                    <div class="titulo-summary">
                                     <div class="circulo-aberto"></div>
-
-                                    <div>{{ lista.data_abertura.strftime('%d/%m/%Y - ') }} {{ lista.cat.categoria_solicitacao}} </div>
+                                    {{ lista.data_abertura.strftime('%d/%m/%Y - ') }} {{ lista.cat.categoria_solicitacao}}
+                                    </div>
                                 </summary>
                                 <div class=chamados-itens-conteudo-aberto>
                                     <h4>Descrição da Solicitação</h4>
