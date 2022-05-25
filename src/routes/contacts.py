@@ -147,13 +147,6 @@ def justificativa(id):
 
     return render_template('executor-demandas.html', solicita=consulta)
 
-# @contacts.route('/resposta')
-# def resposta():
-#     if g.user != None:
-#         if g.user[0] == 2:
-#             return render_template('resposta-executor.html')
-#     return redirect(url_for('contacts.index'))
-
 ##################################### Admin #######################################
 
 @contacts.route('/admin')
@@ -191,6 +184,17 @@ def attperm(id):
             return render_template('adm_permissoes.html')
     return redirect(url_for('contacts.index'))
 
+
+@contacts.route('/admin/historico')
+def adminhist():
+    if g.user != None:
+        if g.user[0] == 3:
+            lista = Solicita.query.filter_by(resposta_solicitacao=None)
+            consulta = Solicita.query.filter_by(resposta_solicitacao= not Value)
+            chamado = Solicita.query.all()
+            usuario = Usuarios.query.all()
+            return render_template('historico-admin.html', listas=lista, consultas=consulta, chamados=chamado, usuarios=usuario, user=session['user'])
+    return redirect(url_for('contacts.index'))    
 
 @contacts.route('/relatorios')
 def relatorio():

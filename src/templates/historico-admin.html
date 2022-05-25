@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/executor-bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/estilo-executor-demandas.css">
+    <title>Demandas</title>
+</head>
+
+<body>
+    <header>
+        <h1 id="header-nome-usuario">Olá, {{user[1]}}!</h1>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <hr class="hr_black">
+            <a href="/usuario">HOME</a>
+            <hr id="hr_black">
+            <a href="/nova-solicitacao">NOVA SOLICITAÇÃO</a>
+            <hr class="hr_black">
+            <a href="/historico">HISTÓRICO</a>
+            <hr class="hr_black">
+            <a href="/sair">SAIR</a>
+            <hr id="hr_black">
+        </div>
+        <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "300px";
+            }
+
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
+    </header>
+
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <div id="notificacao">
+                <h4 id="msg">{{message}}</h4>
+            </div>
+        {% endfor %}
+    {% endwith %}
+
+    <main>
+        <section class="section-filtro">
+            <details class="nav nav-pills mb-3" id="details-filtro" role="tablist"> 
+                <summary class="nav-item" role="presentation">ﾠﾠFiltrar por:ﾠ▼ﾠ</summary>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-all" id="filtro-botao">TODOS</button>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-home" id="filtro-botao">ABERTO</button>
+                    <button data-bs-toggle="pill" data-bs-target="#pills-profile" id="filtro-botao">FECHADO</button>
+            </details>
+        </section>
+        <section id="detalhe-chamados" class="tab-content" >
+            <div class="tab-pane fade show active" id="pills-home">
+                <form class="chamados">
+                    <ul class="chamados-lista" type="none">
+                        {% for lista in listas %}
+                        <li class="chamados-itens-aberto">
+                            <details>
+                                <summary class="summary-aberto"> 
+                                    <div class="circulo-aberto"></div>
+
+                                    <div>{{ lista.data_abertura.strftime('%d/%m/%Y - ') }} {{ lista.cat.categoria_solicitacao}}</div>
+                                </summary>
+                                <div class=chamados-itens-conteudo-aberto>
+                                    <h4>Descrição da Solicitação</h4>
+                                    <p>
+                                        {{ lista.descricao_solicitacao}}
+                                    </p>
+                                </div>                             
+                            </details>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </form>
+            </div>
+            
+            
+            <div class="tab-pane fade" id="pills-profile">
+                <form class="chamados">
+                    <ul class="chamados-lista" type="none">
+                        {% for consulta in consultas %}
+                        <li class="chamados-itens-fechado">
+                            <details>
+                                <summary class="summary-fechado"> 
+                                    <div class="circulo-fechado"></div>
+
+                                    <div>{{ consulta.data_fechamento.strftime('%d/%m/%Y - ') }} {{ consulta.cat.categoria_solicitacao}}</div>
+                                </summary>
+                                <div class=chamados-itens-conteudo-fechado>
+                                    <h4>Descrição da Solicitação</h4>
+                                    <p>
+                                        {{ consulta.descricao_solicitacao}}
+                                    </p>
+                                    <br>
+                                    <h4>Resposta</h4>
+                                    <p>
+                                        {{ consulta.resposta_solicitacao}}
+                                    </p>
+                                </div>
+                            </details>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </form>
+            </div>
+
+            <div class="tab-pane fade" id="pills-all">
+                <form class="chamados">
+                    <ul class="chamados-lista" type="none">
+                        {% for chamado in chamados %}
+                        {% if chamado.resposta_solicitacao == None %}
+                        <li class="chamados-itens-aberto">
+                            <details>
+                                <summary class="summary-aberto"> 
+                                    <div class="circulo-aberto"></div>
+
+                                    <div>{{ chamado.data_abertura.strftime('%d/%m/%Y - ') }} {{ chamado.cat.categoria_solicitacao}} </div>
+                                </summary>
+                                <div class=chamados-itens-conteudo-aberto>
+                                    <h4>Descrição da Solicitação</h4>
+                                    <p>
+                                        {{ chamado.descricao_solicitacao}}
+                                    </p>
+                                </div>                                    
+                            </details>
+                        </li>
+
+                        {% else %}
+                        <li class="chamados-itens-fechado">
+                            <details>
+                                <summary class="summary-fechado"> 
+                                    <div class="circulo-fechado"></div>
+
+                                    <div>{{ chamado.data_fechamento.strftime('%d/%m/%Y - ') }} {{ chamado.cat.categoria_solicitacao}}</div>
+                                </summary>
+                                <div class=chamados-itens-conteudo-fechado>
+                                    <h4>Descrição da Solicitação</h4>
+                                    <p>
+                                        {{ chamado.descricao_solicitacao}}
+                                    </p>
+                                    <br>
+                                    <h4>Resposta</h4>
+                                    <p>
+                                        {{ chamado.resposta_solicitacao}}
+                                    </p>
+                                </div>
+                            </details>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </form>
+            </div>
+        </section>
+    </main>
+        <p>DESENVOLVIDO POR WHATSCODE</p>
+    </footer>
+
+
+    <script src="../static/assets/bootstrap/js/executor-bootstrap.min.js"></script>
+
+</body>
+</html>
