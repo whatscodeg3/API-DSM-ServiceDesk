@@ -43,7 +43,7 @@ header{
     border-radius: 3px;
     top:30px;
     padding:5px 10px;
-    animation: hide 2s 0.5s forwards
+    animation: hide 2s 0.5s forwards;
     }
 
     @keyframes hide{
@@ -53,6 +53,13 @@ header{
     
 #msg{
     font-size:25px;
+    margin-bottom: 0px;
+}
+
+@media screen and (max-width: 600px) {
+    #msg{
+        font-size: 18px;
+    }
 }
 
 main{

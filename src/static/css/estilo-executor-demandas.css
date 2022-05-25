@@ -68,6 +68,13 @@ header {
     
 #msg{
     font-size:25px;
+    margin-bottom: 0px;
+}
+
+@media screen and (max-width: 600px) {
+    #msg{
+        font-size: 18px;
+    }
 }
 
 /*NAV BAR */
