@@ -61,18 +61,53 @@ def nova():
 def relatorio():
     if g.user != None:
         if g.user[0] == 3:
-            sql1 = text('select count(*) from solicitacoes where resposta_solicitacao is null')
-            sql2 = text('select count(*) from solicitacoes where resposta_solicitacao is not null')
+            ############### DIA ATUAL ######################
+            sql1 = text('select count(*) from solicitacoes where resposta_solicitacao is null and Date(data_abertura) = curdate()')
+            sql2 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and Date(data_abertura) = curdate()')
             results1 = db.engine.execute(sql1)
             print(results1)
             for i in results1:
                 pass
-            teste = i[0]
-            print(teste)
+            res1 = i[0]
             results2 = db.engine.execute(sql2)
             for j in results2:
                 pass
-            teste2=j[0]
+            res2=j[0]
+            ############### 7 DIAS ATRÁS ######################
+            sql3 = text('select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
+            sql4 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
+            results3 = db.engine.execute(sql3)
+            for t in results3:
+                pass
+            res3=t[0]
+            results4 = db.engine.execute(sql4)
+            for k in results4:
+                pass
+            res4=k[0]
+            ############### 15 DIAS ATRÁS ######################
+            sql5 = text('select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
+            sql6 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
+            results5 = db.engine.execute(sql5)
+            for m in results5:
+                pass
+            res5=m[0]
+            results6 = db.engine.execute(sql6)
+            for n in results6:
+                pass
+            res6=n[0]
+            ############### 30 DIAS ATRÁS ######################
+            sql7 = text('select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
+            sql8 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
+            results7 = db.engine.execute(sql7)
+            for l in results7:
+                pass
+            res7=l[0]
+            results8 = db.engine.execute(sql8)
+            for p in results8:
+                pass
+            res8=p[0]
+
+            ############### AVALIAÇÃO ######################
             todos = text('select count(*) from solicitacoes')
             pessimo = text('select count(*) from solicitacoes where FK_id_avaliacao in (1)')
             regular = text('select count(*) from solicitacoes where FK_id_avaliacao in (2)')
@@ -99,7 +134,7 @@ def relatorio():
                 data = request.form['filtro']
                 print(data)
                 return redirect('/relatorios')
-            return render_template('relatorios.html', res1=teste, res2=teste2, tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4)
+            return render_template('relatorios.html', res1=res1, res2=res2, res3=res3, res4=res4, res5=res5, res6=res6, res7=res7, res8=res8, tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4)
     session.pop('user', None)
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))

@@ -40,7 +40,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
 
-    <h1 class="titulo">Relatório dos Chamados Abertos e Fechados do dia(dia)</h1>
+    <h1 class="titulo">Relatório dos Chamados Abertos e Fechados do dia</h1>
 
     <div class="grafico-avaliacoes">
         <canvas id="grafico"></canvas>
@@ -65,15 +65,109 @@
     </script>
 
 
+    <h1 class="titulo">Relatório dos Chamados Abertos e Fechados dos últimos 7 dias</h1>
+
+    <div class="grafico-avaliacoes">
+        <canvas id="grafico7"></canvas>
+    </div>
+    <script>
+    const ctx7 = document.getElementById('grafico7').getContext('2d');
+    const myChart7 = new Chart(ctx7, {
+        type: 'pie',
+        data: {
+            labels: ['Abertos', 'Fechados'],
+            datasets: [
+            {
+                label: 'Chamados',
+                data: ['{{res3}}', '{{res4}}'],
+                backgroundColor: ['#6CEC90', '#FF4343'],
+                borderColor: ['#292A2F'],
+                borderWidth: 7,
+                tension: 0.1
+            }]
+        },    
+    });
+    </script>
+
+
+    <h1 class="titulo">Relatório dos Chamados Abertos e Fechados dos últimos 15 Dias</h1>
+
+    <div class="grafico-avaliacoes">
+        <canvas id="grafico2"></canvas>
+    </div>
+    <script>
+    const ctx2 = document.getElementById('grafico2').getContext('2d');
+    const myChart2 = new Chart(ctx2, {
+        type: 'pie',
+        data: {
+            labels: ['Abertos', 'Fechados'],
+            datasets: [
+            {
+                label: 'Chamados',
+                data: ['{{res5}}', '{{res6}}'],
+                backgroundColor: ['#6CEC90', '#FF4343'],
+                borderColor: ['#292A2F'],
+                borderWidth: 7,
+                tension: 0.1
+            }],
+        options: {
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100
+                }
+            }
+        }       
+        }
+    });
+    </script>
 
 
 
+
+
+    <h1 class="titulo">Relatório dos Chamados Abertos e Fechados dos últimos 30 Dias</h1>
+
+    <div class="grafico-avaliacoes">
+        <canvas id="grafico3"></canvas>
+    </div>
+    <script>
+    const ctx3 = document.getElementById('grafico3').getContext('2d');
+    const myChart3 = new Chart(ctx3, {
+         type: 'pie',
+        data: {
+            labels: ['Abertos', 'Fechados'],
+            datasets: [
+            {
+                label: 'Chamados',
+                data: ['{{res7}}', '{{res8}}'],
+                backgroundColor: ['#6CEC90', '#FF4343'],
+                borderColor: ['#292A2F'],
+                borderWidth: 7,
+                tension: 0.1
+            }],
+        options: {
+            scales: {
+                y: {
+                    min: 0,
+                    max: 100
+                }
+            }
+        }       
+        }
+    });
+    </script>
+
+
+
+
+        
     <h1 class="titulo">Relatório dos Chamados Abertos e Fechados da Semana</h1>
     <form action="/relatorios">
         <input type="date" name="filtro"> 
         <button type="submit">Filtrar</button>
     </form>
-    
+
 
     <div class="grafico">
         <canvas id="grafico1"></canvas>
@@ -110,80 +204,6 @@
         }       
     });
     </script>
-
-
-
-    <h1 class="titulo">Relatório dos Chamados Abertos e Fechados dos 15 Dias</h1>
-
-    <div class="grafico-avaliacoes">
-        <canvas id="grafico2"></canvas>
-    </div>
-    <script>
-    const ctx2 = document.getElementById('grafico2').getContext('2d');
-    const myChart2 = new Chart(ctx2, {
-        type: 'pie',
-        data: {
-            labels: ['Abertos', 'Fechados'],
-            datasets: [
-            {
-                label: 'Chamados',
-                data: [23, 15],
-                backgroundColor: ['#6CEC90', '#FF4343'],
-                borderColor: ['#292A2F'],
-                borderWidth: 7,
-                tension: 0.1
-            }],
-        options: {
-            scales: {
-                y: {
-                    min: 0,
-                    max: 100
-                }
-            }
-        }       
-        }
-    });
-    </script>
-
-
-
-
-
-    <h1 class="titulo">Relatório dos Chamados Abertos e Fechados dos 30 Dias</h1>
-
-    <div class="grafico-avaliacoes">
-        <canvas id="grafico3"></canvas>
-    </div>
-    <script>
-    const ctx3 = document.getElementById('grafico3').getContext('2d');
-    const myChart3 = new Chart(ctx3, {
-         type: 'pie',
-        data: {
-            labels: ['Abertos', 'Fechados'],
-            datasets: [
-            {
-                label: 'Chamados',
-                data: [50, 32],
-                backgroundColor: ['#6CEC90', '#FF4343'],
-                borderColor: ['#292A2F'],
-                borderWidth: 7,
-                tension: 0.1
-            }],
-        options: {
-            scales: {
-                y: {
-                    min: 0,
-                    max: 100
-                }
-            }
-        }       
-        }
-    });
-    </script>
-
-
-
-
 
 
     <h1 class="titulo">Relatório das Avaliações Gerais do Sistema</h1>
