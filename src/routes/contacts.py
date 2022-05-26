@@ -3,7 +3,8 @@ from sqlalchemy import false, text, engine
 import os
 import pathlib
 from flask import Blueprint, flash, redirect, render_template, request, session, g, url_for, send_from_directory, current_app
-from models.solicita import Avaliacao, Categoria, Solicita, Usuarios
+from models.solicita import Avaliacao, Categoria, Solicita
+from models.usuario import Usuarios
 from sqlalchemy import text, engine
 from utils.db import db
 from utils.verifica import distribui, verifica
