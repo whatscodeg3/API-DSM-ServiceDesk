@@ -115,7 +115,7 @@
                                         {{ consulta.descricao_solicitacao}}
                                     </p>
                                     <br>
-                                    <h4>Resposta</h4>
+                                    <h4>Resposta {{ consulta.data_fechamento.strftime('%d/%m/%Y') }}:</h4>
                                     <p>
                                         {{ consulta.resposta_solicitacao}}
                                     </p>
@@ -163,7 +163,7 @@
                                 <summary class="summary-fechado"> 
                                     <div class="titulo-summary">
                                         <div class="circulo-fechado"></div>
-                                        {{ chamado.data_fechamento.strftime('%d/%m/%Y - ') }} {{ chamado.cat.categoria_solicitacao}}
+                                        {{ chamado.data_abertura.strftime('%d/%m/%Y - ') }} {{ chamado.cat.categoria_solicitacao}}
                                     </div>
                                     <p>
                                         Operador responsável:                                     
@@ -180,7 +180,7 @@
                                         {{ chamado.descricao_solicitacao}}
                                     </p>
                                     <br>
-                                    <h4>Resposta</h4>
+                                    <h4>Resposta {{ chamado.data_fechamento.strftime('%d/%m/%Y') }}:</h4>
                                     <p>
                                         {{ chamado.resposta_solicitacao}}
                                     </p>
