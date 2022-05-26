@@ -111,7 +111,8 @@ def demanda():
         if g.user[0] == 2:
             lista = Solicita.query.filter_by(resposta_solicitacao=None, fk_id_executor=g.id_usuario)
             consulta = Solicita.query.filter_by(resposta_solicitacao= not Value, fk_id_executor=g.id_usuario)
-            return render_template('executor-demandas.html', listas=lista, consultas=consulta, user=session['user'])
+            chamado = Solicita.query.all()
+            return render_template('executor-demandas.html', listas=lista, consultas=consulta, chamados=chamado, user=session['user'])
     return redirect(url_for('contacts.index'))
 
 @contacts.route('/atualizar/<id>', methods=['POST', 'GET'])
