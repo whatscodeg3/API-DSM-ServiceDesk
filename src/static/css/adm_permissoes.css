@@ -136,7 +136,6 @@ html{
 
                 .div_card_branco{
                     background-color: #FFFFFF;
-                    /* display: flex; */
                     flex-direction: column;
                     align-items: center;
                     border-radius: 10px;
@@ -165,23 +164,6 @@ html{
                                 }
                             }
 
-                
-                    /* .container{
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: nowrap;
-                        justify-content: center;
-                        padding-top: 1%;
-                    }
-
-                    .linha_container{
-                        display: flex;
-                        flex-direction: column;
-                        flex-wrap: nowrap;
-                        justify-content: space-between;
-
-                    } */
-
                 .nomes{
                     color: #000;
                     font-family: 'Roboto';
@@ -197,7 +179,7 @@ html{
                 }
                         @media only screen and (max-width: 600px) {
                             .nomes{
-                                font-size: 15px;
+                                font-size: 10px;
                                 }
                             }
 
@@ -208,7 +190,6 @@ html{
                     font-style: normal;
                     font-size: 18px;    
                     max-width: 50%;
-                    /* margin-left: 10%; */
                     width: 33%;
                     align-self: center;
                     display: flex;
@@ -224,8 +205,7 @@ html{
 
                 .hr90{
                     transform: rotate(90%);
-                } */
-
+                } 
                 .padraohr{
                     width: 90%;
                     margin-left: 5%;
@@ -235,9 +215,6 @@ html{
 
 
                 .botoes{
-                    /* display: flex;
-                    justify-content: center; */
-                    /* margin-right: 10%; */
                     size: 25px;
                     width: 33%;
                     display: flex;
@@ -284,10 +261,21 @@ html{
                 .switch {
                     position: relative;
                     display: inline-block;
+
                     width: 60px;
                     height: 34px;
+                    
                     margin-right: 10%;
                   }
+
+                  @media only screen and (max-width: 600px) {
+                    .switch{
+                        width: 30px;
+                        height: 18px;
+                        }
+                    }
+
+
 
                   
 
@@ -312,14 +300,25 @@ html{
                   .slider:before {
                     position: absolute;
                     content: "";
+
                     height: 26px;
                     width: 26px;
+
                     left: 4px;
                     bottom: 4px;
                     background-color: white;
                     -webkit-transition: .2s;
                     transition: .2s;
                   }
+
+                  @media only screen and (max-width: 600px) {
+                    .slider:before{
+                        height: 12px;
+                        width: 13px;
+                        }
+                    }
+
+
                   
                   input:checked + .slider {
                     background-color: #00ff00;
@@ -330,10 +329,20 @@ html{
                   }
                   
                   input:checked + .slider:before {
-                    -webkit-transform: translateX(26px);
+                    -webkit-transform: translateX(30px);
                     -ms-transform: translateX(26px);
                     transform: translateX(26px);
                   }
+
+                  @media only screen and (max-width: 600px) {
+                    input:checked + .slider:before{
+                    -webkit-transform: translateX(11px);
+                    -ms-transform: translateX(11px);
+                    transform: translateX(11px);
+                        }
+                    }
+
+
 
                     
                   
