@@ -76,10 +76,21 @@ def relatorio():
             geral2 = db.engine.execute(regular)
             geral3 = db.engine.execute(bom)
             geral4 = db.engine.execute(otimo)
-            return render_template('relatorios.html', res1=results1, res2=results2, tot=total, ger1=geral1, ger2=geral2, ger3=geral3, ger4=geral4)
+            
+            teste = text('select count(*) from usuarios where id_categoria_usuario=2')
+            n = 0
+            executor = 0
+            while n < teste:
+                executor = executor + 1
+                n = n + 1
+            pessimo1 = text('select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor = %d and FK_id_avaliacao=1' % executor)
+            ava1 = db.engine.execute(pessimo1)
+            return render_template('relatorios.html', res1=results1, res2=results2, tot=total, ger1=geral1, ger2=geral2, ger3=geral3, ger4=geral4, pes=ava1)
     session.pop('user', None)
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
+
+#teste  pessimo1 = text('select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor = 2 and FK_id_avaliacao=1')
 
 # @contacts.route('/')
 # def index():

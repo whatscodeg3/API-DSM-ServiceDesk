@@ -64,7 +64,7 @@
                 </table>
             </div>
 
-            <!-- <div class="container segundo">
+            <div class="container segundo">
                 <table class="table table-bordered table-dark">
                     <thead>
                         <tr>
@@ -78,14 +78,16 @@
                     <tbody>
                         <tr>
                             <td></td>
-                            <td></td>
+                            {% for i in pes %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
                             <td></td>
                             <td></td>
                             <td></td>
                         </tr>
                     </tbody>
                 </table>
-            </div> -->
+            </div>
 
             <div class="container segundo">
                 <table class="table table-bordered">
