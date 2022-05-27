@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../static/js/graficos.js"></script>
     <link rel="stylesheet" href="../static/css/relatorios.css">
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <h1 id="header-nome-usuario"></h1>
@@ -46,22 +50,22 @@
         <canvas id="grafico"></canvas>
     </div>
     <script>
-    const ctx = document.getElementById('grafico').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Abertos', 'Fechados'],
-            datasets: [
-            {
-                label: 'Chamados',
-                data: ['{{res1}}', '{{res2}}'],
-                backgroundColor: ['#6CEC90', '#FF4343'],
-                borderColor: ['#292A2F'],
-                borderWidth: 7,
-                tension: 0.1
-            }]
-        },    
-    });
+        const ctx = document.getElementById('grafico').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Abertos', 'Fechados'],
+                datasets: [
+                    {
+                        label: 'Chamados',
+                        data: ['{{res1}}', '{{res2}}'],
+                        backgroundColor: ['#6CEC90', '#FF4343'],
+                        borderColor: ['#292A2F'],
+                        borderWidth: 7,
+                        tension: 0.1
+                    }]
+            },
+        });
     </script>
 
 
@@ -71,22 +75,22 @@
         <canvas id="grafico7"></canvas>
     </div>
     <script>
-    const ctx7 = document.getElementById('grafico7').getContext('2d');
-    const myChart7 = new Chart(ctx7, {
-        type: 'pie',
-        data: {
-            labels: ['Abertos', 'Fechados'],
-            datasets: [
-            {
-                label: 'Chamados',
-                data: ['{{res3}}', '{{res4}}'],
-                backgroundColor: ['#6CEC90', '#FF4343'],
-                borderColor: ['#292A2F'],
-                borderWidth: 7,
-                tension: 0.1
-            }]
-        },    
-    });
+        const ctx7 = document.getElementById('grafico7').getContext('2d');
+        const myChart7 = new Chart(ctx7, {
+            type: 'pie',
+            data: {
+                labels: ['Abertos', 'Fechados'],
+                datasets: [
+                    {
+                        label: 'Chamados',
+                        data: ['{{res3}}', '{{res4}}'],
+                        backgroundColor: ['#6CEC90', '#FF4343'],
+                        borderColor: ['#292A2F'],
+                        borderWidth: 7,
+                        tension: 0.1
+                    }]
+            },
+        });
     </script>
 
 
@@ -96,30 +100,30 @@
         <canvas id="grafico2"></canvas>
     </div>
     <script>
-    const ctx2 = document.getElementById('grafico2').getContext('2d');
-    const myChart2 = new Chart(ctx2, {
-        type: 'pie',
-        data: {
-            labels: ['Abertos', 'Fechados'],
-            datasets: [
-            {
-                label: 'Chamados',
-                data: ['{{res5}}', '{{res6}}'],
-                backgroundColor: ['#6CEC90', '#FF4343'],
-                borderColor: ['#292A2F'],
-                borderWidth: 7,
-                tension: 0.1
-            }],
-        options: {
-            scales: {
-                y: {
-                    min: 0,
-                    max: 100
+        const ctx2 = document.getElementById('grafico2').getContext('2d');
+        const myChart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Abertos', 'Fechados'],
+                datasets: [
+                    {
+                        label: 'Chamados',
+                        data: ['{{res5}}', '{{res6}}'],
+                        backgroundColor: ['#6CEC90', '#FF4343'],
+                        borderColor: ['#292A2F'],
+                        borderWidth: 7,
+                        tension: 0.1
+                    }],
+                options: {
+                    scales: {
+                        y: {
+                            min: 0,
+                            max: 100
+                        }
+                    }
                 }
             }
-        }       
-        }
-    });
+        });
     </script>
 
 
@@ -132,78 +136,87 @@
         <canvas id="grafico3"></canvas>
     </div>
     <script>
-    const ctx3 = document.getElementById('grafico3').getContext('2d');
-    const myChart3 = new Chart(ctx3, {
-         type: 'pie',
-        data: {
-            labels: ['Abertos', 'Fechados'],
-            datasets: [
-            {
-                label: 'Chamados',
-                data: ['{{res7}}', '{{res8}}'],
-                backgroundColor: ['#6CEC90', '#FF4343'],
-                borderColor: ['#292A2F'],
-                borderWidth: 7,
-                tension: 0.1
-            }],
-        options: {
-            scales: {
-                y: {
-                    min: 0,
-                    max: 100
+        const ctx3 = document.getElementById('grafico3').getContext('2d');
+        const myChart3 = new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['Abertos', 'Fechados'],
+                datasets: [
+                    {
+                        label: 'Chamados',
+                        data: ['{{res7}}', '{{res8}}'],
+                        backgroundColor: ['#6CEC90', '#FF4343'],
+                        borderColor: ['#292A2F'],
+                        borderWidth: 7,
+                        tension: 0.1
+                    }],
+                options: {
+                    scales: {
+                        y: {
+                            min: 0,
+                            max: 100
+                        }
+                    }
                 }
             }
-        }       
-        }
-    });
+        });
     </script>
 
 
 
 
-        
+
     <h1 class="titulo">Relatório dos Chamados Abertos e Fechados da Semana</h1>
     <form action="/relatorios">
-        <input type="date" name="filtro"> 
+        <p style="color:white">Escolha um período de: </p>
+        <input type="date" name="filtro" id="data_inicio">
+        <p style="color:white">à</p>
+        <input type="date" name="filtro" id="data_fim">
         <button type="submit">Filtrar</button>
     </form>
 
-
     <div class="grafico">
-        <canvas id="grafico1"></canvas>
     </div>
+    <canvas id="grafico1"></canvas>
     <script>
-    const ctx1 = document.getElementById('grafico1').getContext('2d');
-    const myChart1 = new Chart(ctx1, {
-        type: 'bar',
-        data: {
-            labels: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
-            datasets: [
-            {
-                label: 'Chamados Abertos',
-                data: [23, 31, 56, 76, 54, 74, 21],
-                backgroundColor: ['#FF4343'],
-                borderColor: ['#292A2F'],
-                borderWidth: 1
+        var dataVar = '{{ data }}';
+        graficoDinamico(dataVar);
+    </script>
+
+
+
+    <!--<script>
+        const ctx1 = document.getElementById('grafico1').getContext('2d');
+        const myChart1 = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
+                datasets: [
+                    {
+                        label: 'Chamados Abertos',
+                        data: [23, 31, 56, 76, 54, 74, 21],
+                        backgroundColor: ['#FF4343'],
+                        borderColor: ['#292A2F'],
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Chamados Fechados',
+                        data: [12, 54, 34, 87, 56, 43, 23],
+                        backgroundColor: ['#6CEC90'],
+                        borderColor: ['#292A2F'],
+                        borderWidth: 1
+                    }]
             },
-            {
-                label: 'Chamados Fechados',
-                data: [12, 54, 34, 87, 56, 43, 23],
-                backgroundColor: ['#6CEC90'],
-                borderColor: ['#292A2F'],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    min: 0,
-                    max: 100
+            options: {
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 100
+                    }
                 }
             }
-        }       
-    });
-    </script>
+        });
+    </script>-->
 
 
     <h1 class="titulo">Relatório das Avaliações Gerais do Sistema</h1>
@@ -212,24 +225,24 @@
         <canvas id="grafico4"></canvas>
     </div>
     <script>
-    const ctx4 = document.getElementById('grafico4').getContext('2d');
-    const myChart4 = new Chart(ctx4, {
-        type: 'pie',
-        data: {
-            labels: ['Otimo', 'Bom', 'Regular', 'Péssimo'],
-            datasets: [
-            {
-                label: 'Avaliações',
-                data: ['{{ger4}}', '{{ger3}}', '{{ger2}}', '{{ger1}}'],
-                backgroundColor: ['#6CEC90', '#dbaf20', '#C67020', '#FF4343'],
-                borderColor: ['#292A2F'],
-                borderWidth: 7,
-                tension: 0.1
-            }]
-        },    
-    });
+        const ctx4 = document.getElementById('grafico4').getContext('2d');
+        const myChart4 = new Chart(ctx4, {
+            type: 'pie',
+            data: {
+                labels: ['Otimo', 'Bom', 'Regular', 'Péssimo'],
+                datasets: [
+                    {
+                        label: 'Avaliações',
+                        data: ['{{ger4}}', '{{ger3}}', '{{ger2}}', '{{ger1}}'],
+                        backgroundColor: ['#6CEC90', '#dbaf20', '#C67020', '#FF4343'],
+                        borderColor: ['#292A2F'],
+                        borderWidth: 7,
+                        tension: 0.1
+                    }]
+            },
+        });
     </script>
-    
+
 
 
 
@@ -238,7 +251,7 @@
 
         <select name="" id="" method="POST" class="filtro-operadores">
             {% for operador in operadores %}
-            <option name="Tipo de serviço" value="#">{{ operador.nome_usuario}}</option>            
+            <option name="Tipo de serviço" value="#">{{ operador.nome_usuario}}</option>
             {% endfor %}
         </select>
     </div>
@@ -247,22 +260,22 @@
         <canvas id="grafico5"></canvas>
     </div>
     <script>
-    const ctx5 = document.getElementById('grafico5').getContext('2d');
-    const myChart5 = new Chart(ctx5, {
-        type: 'pie',
-        data: {
-            labels: ['Otimo', 'Bom', 'Regular', 'Péssimo'],
-            datasets: [
-            {
-                label: 'Avaliações',
-                data: [23, 31, 56, 21],
-                backgroundColor: ['#6CEC90', '#dbaf20', '#C67020', '#FF4343'],
-                borderColor: ['#292A2F'],
-                borderWidth: 7,
-                tension: 0.1
-            }]
-        },    
-    });
+        const ctx5 = document.getElementById('grafico5').getContext('2d');
+        const myChart5 = new Chart(ctx5, {
+            type: 'pie',
+            data: {
+                labels: ['Otimo', 'Bom', 'Regular', 'Péssimo'],
+                datasets: [
+                    {
+                        label: 'Avaliações',
+                        data: [23, 31, 56, 21],
+                        backgroundColor: ['#6CEC90', '#dbaf20', '#C67020', '#FF4343'],
+                        borderColor: ['#292A2F'],
+                        borderWidth: 7,
+                        tension: 0.1
+                    }]
+            },
+        });
     </script>
 
     <section class="relatorio_primeiro">
@@ -316,7 +329,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>                           
+                    <tr>
                     </tr>
                 </tbody>
             </table>
@@ -326,4 +339,5 @@
 
 
 </body>
+
 </html>
