@@ -29,7 +29,7 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 9%;
+    height: 70px;
     background-color: #AE1414;
     padding: 0.3% 1.5%;
 }
@@ -46,6 +46,9 @@ header {
 @media only screen and (max-width: 600px) {
     #header-nome-usuario {
         font-size: 4vw;
+    }
+    header{
+        height: 50px;
     }
 }
 
@@ -98,17 +101,12 @@ header {
 .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     color: black;
     display: block;
     transition: 0.1s;
 }
 
-@media screen and (max-width: 600px) {
-    .sidenav a {
-        font-size: 4.5vw;
-    }
-}
 
 .sidenav a:hover {
     color: #666666;

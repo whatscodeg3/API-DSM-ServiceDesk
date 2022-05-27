@@ -53,7 +53,7 @@ def usuario():
 @contacts.route('/nova-solicitacao')
 def nova():
     if g.user != None:
-        if g.user[0] == 1 or g.user[0] == 2:
+        if g.user[0] == 1 or g.user[0] == 2 or g.user[0] == 3:
             categoria = Categoria.query.all()
             return render_template('form_usuario_solicitacao.html', categorias=categoria, user=session['user'])
     return redirect(url_for('contacts.index'))
@@ -61,7 +61,7 @@ def nova():
 @contacts.route('/criar', methods=['POST', ])
 def criar():
     if g.user != None:
-        if g.user[0] == 1 or g.user[0] == 2:
+        if g.user[0] == 1 or g.user[0] == 2 or g.user[0] == 3:
             tipo = request.form['Tipo de serviço']
             descricao = request.form['descrição do problema']
             id_user = g.id_usuario
@@ -87,7 +87,7 @@ def criar():
 @contacts.route('/historico')
 def historico():
     if g.user != None:
-        if g.user[0] == 1 or g.user[0] == 2:
+        if g.user[0] == 1 or g.user[0] == 2 or g.user[0] == 3:
             print(g.id_usuario)
             lista = Solicita.query.filter_by(fk_id_usuario_comum=g.id_usuario)
             return render_template('usuario-historico.html', listas=lista, user=session['user'])     
@@ -109,10 +109,10 @@ def avalia(id):
 @contacts.route('/demanda')
 def demanda():
     if g.user != None:
-        if g.user[0] == 2:
+        if g.user[0] == 2 or g.user[0] == 3:
             lista = Solicita.query.filter_by(resposta_solicitacao=None, fk_id_executor=g.id_usuario)
             consulta = Solicita.query.filter_by(resposta_solicitacao= not Value, fk_id_executor=g.id_usuario)
-            chamado = Solicita.query.all()
+            chamado = Solicita.query.filter_by(fk_id_executor=g.id_usuario)
             return render_template('executor-demandas.html', listas=lista, consultas=consulta, chamados=chamado, user=session['user'])
     return redirect(url_for('contacts.index'))
 

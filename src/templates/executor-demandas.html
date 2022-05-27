@@ -14,12 +14,22 @@
         <h1 id="header-nome-usuario">Olá, {{user[1]}}!</h1>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <hr class="hr_black">
-            <a href="/usuario">HOME</a>
+            {% if user[0] == 3 %}
+                <hr class="hr_black">
+                <a href="/admin">HOME</a>
+                <hr class="hr_black">
+                <a href="/relatorios">RELATÓRIOS</a>
+                <hr id="hr_black">
+                <a href="/admin/historico">HISTÓRICO GERAL</a>
+                <hr id="hr_black">
+                <a href="/admin/permissoes">PERMISSÕES</a>
+            {% elif user[0] == 1 %}
+                <a href="/usuario">HOME</a>
+            {% endif %}
             <hr id="hr_black">
             <a href="/nova-solicitacao">NOVA SOLICITAÇÃO</a>
             <hr class="hr_black">
-            <a href="/historico">HISTÓRICO</a>
+            <a href="/historico">{% if user[0] == 3 %}MEU {% endif %}HISTÓRICO</a>
             <hr class="hr_black">
             <a href="/sair">SAIR</a>
             <hr id="hr_black">
@@ -28,7 +38,7 @@
 
         <script>
             function openNav() {
-                document.getElementById("mySidenav").style.width = "300px";
+                document.getElementById("mySidenav").style.width = "250px";
             }
 
             function closeNav() {

@@ -4,18 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/assets/bootstrap/css/executor-bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/estilo-usuario-historico.css">
     <title>Usuário - Histórico</title>
 </head>
 <body>
     <header>
-        <h1 id="header-nome-usuario">OLÁ, {{user[1]}}!</h1>
+        <h1 id="header-nome-usuario">Histórico</h1>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            {% if user[0] == 3 %}                
+                <hr id="hr_black">
+                <a href="/admin">HOME</a>
+                <hr id="hr_black">
+                <a href="/relatorios">RELATÓRIOS</a>
+                <hr id="hr_black">
+                <a href="/admin/historico">HISTÓRICO GERAL</a>
+                <hr id="hr_black">
+                <a href="/admin/permissoes">PERMISSÕES</a>
+            {% elif user[0] == 1 %}
+                <a href="/usuario">HOME</a>
+            {% endif %}
             <hr id="hr_black">
-            <a href="/usuario">HOME</a>
-            <hr id="hr_black">
-            {% if user[0] == 2 %}
+            {% if user[0] == 2 or user[0] == 3 %}
                 <a href="/demanda">MINHAS DEMANDAS</a>
                 <hr id="hr_black">
             {% endif %}            

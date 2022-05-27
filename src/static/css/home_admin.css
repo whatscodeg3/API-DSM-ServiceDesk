@@ -29,9 +29,15 @@ header{
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 9%;
+    height: 70px;
     background-color: #AE1414;
     padding: 0.3% 1.5%;
+}
+
+@media only screen and (max-width: 600px) {
+    header{
+        height: 50px;
+    }
 }
 
 #notificacao{
@@ -220,18 +226,20 @@ footer{
 }
 
 .footer-titulo{
+    margin-bottom: 0px;
     font-family: 'Monda';
-    color: #292A2F;
     font-style: normal;
-    font-size: 13px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 29px;
+    color: black;
+    opacity: 0.8;
 }
-
-.linha-footer {
-    background-color: #AE1414;
-    border: none;
-    height: 1vw;
+@media only screen and (max-width: 600px) {
+    .footer-titulo {
+        font-size: 3vw;
+    }
 }
-
 
 /*NAV BAR */
 
@@ -261,10 +269,7 @@ footer{
 }
 
  @media screen and (max-width: 600px) {                
-    .sidenav a {
-        font-size: 4.5vw;
-    }
-
+ 
     .col-sm-3{
         padding-bottom: 3%;
     }
