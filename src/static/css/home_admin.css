@@ -121,6 +121,7 @@ main{
 .col-sm-3{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .row{
@@ -146,11 +147,7 @@ main{
     text-decoration: none;
     color: #000000;
 }
-  
-.carda:hover {
-    transform: translateY(-5px);
-    cursor: pointer;
-}
+
 
 .row a:hover{
     color: #000000;
@@ -183,7 +180,33 @@ main{
     width: 27%;
     height: 27%;
 }
-  
+
+.opcoes-rel {
+    display: none;
+    width: 200px;
+    height: 160px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.rel {
+    width: 100%;
+    background-color: #ececec;
+    text-align: center;
+    padding: 5%;
+    border-radius: 10px;
+    border: 2px solid #000000;
+}
+
+.col-sm-3:hover .opcoes-rel{
+    display: flex;
+    background-color: #fff;
+}
+
+
 
 footer{
     text-align: center;
