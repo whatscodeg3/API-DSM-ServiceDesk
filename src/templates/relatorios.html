@@ -248,12 +248,15 @@
 
     <div class="div-filtro">
         <h1 class="titulo">Relatório das Avaliações do:</h1>
-
-        <select name="" id="" method="POST" class="filtro-operadores">
-            {% for operador in operadores %}
-            <option name="Tipo de serviço" value="#">{{ operador.nome_usuario}}</option>
-            {% endfor %}
-        </select>
+        <form action="/grafico" method="POST">
+            <select name="id_do_operador" class="filtro-operadores">
+                {% for operador in operadores %}
+                <option value="{{ operador.id_usuario }}">{{ operador.nome_usuario }}</option>  
+                {% endfor %}
+            </select>
+            <button type="submit" class="botao">ﾠGerar gráficoﾠ</button>
+            <p>{{ ops }}</p>
+        </form>
     </div>
 
     <div class="grafico-avaliacoes">

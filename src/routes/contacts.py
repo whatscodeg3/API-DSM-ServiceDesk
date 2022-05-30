@@ -154,6 +154,11 @@ def relatorio():
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
 
+@contacts.route('/grafico', methods=['POST']) 
+def grafico():
+    operador_selecionado = request.form['id_do_operador']
+    return render_template('relatorios.html', ops = operador_selecionado)
+
 # @contacts.route('/')
 # def index():
 #     return render_template('home_usuario.html')

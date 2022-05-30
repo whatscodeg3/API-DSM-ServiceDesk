@@ -171,12 +171,24 @@ main{
 }
 
 .filtro-operadores {
-    width: 10%;
+    width: 50%;
     height: 1%;
     background-color: #292A2F;
     color: #fff;
     border: #fff solid 1px;
     border-radius: 6px;
+}
+
+.botao {
+    color: #fff;
+    background-color: #292A2F;
+    border: #fff solid 1px;
+    border-radius: 6px;
+}
+
+.botao:hover {
+    color: rgba(255, 255, 255, 0.623);
+    border: rgba(255, 255, 255, 0.623) solid 1px;
 }
 
 
