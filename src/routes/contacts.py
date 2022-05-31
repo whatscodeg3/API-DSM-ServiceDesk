@@ -8,6 +8,7 @@ from sqlalchemy import text, engine
 from utils.db import db
 from utils.verifica import distribui, verifica
 
+# flake8: noqa
 contacts = Blueprint('contacts', __name__)
 
 
@@ -116,6 +117,23 @@ def relatorio():
             for p in results8:
                 pass
             res8 = p[0]
+            ############### DINAMICO ######################
+            data_avaliacao_inicial = request.form['filtro_inicial']
+            data_avaliacao_final = request.form['filtro_final']
+            query_solicitacao_sem_resposta = text(
+                'SELECT COUNT(*) FROM solicitacoes WHERE resposta_solicitacao IS NULL AND data_abertura BETWEEN :data_avaliacao_inicial AND :data_avaliacao_final')
+            query_solicitacao_respondida = text(
+                'SELECT COUNT(*) FROM solicitacoes WHERE resposta_solicitacao IS NOT NULL AND data_abertura BETWEEN :data_avaliacao_inicial AND :data_avaliacao_final')
+            resultado_solicitacao_sem_resposta = db.engine.execute(
+                query_solicitacao_sem_resposta)
+            for results_null in resultado_solicitacao_sem_resposta:
+                pass
+            resultado_nulo = results_null[0]
+            resultado_solicitacao_com_resposta = db.engine.execute(
+                query_solicitacao_respondida)
+            for results_not_null in resultado_solicitacao_com_resposta:
+                pass
+            resultado_nao_nulo = results_not_null[0]
 
             ############### AVALIAÇÃO ######################
             todos = text('select count(*) from solicitacoes')
@@ -149,7 +167,7 @@ def relatorio():
                 print(data)
                 return redirect('/relatorios')
             operador = Usuarios.query.filter_by(id_categoria_usuario=2)
-            return render_template('relatorios.html', data="teste", res1=res1, res2=res2, res3=res3, res4=res4, res5=res5, res6=res6, res7=res7, res8=res8, tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4, operadores=operador, )
+            return render_template('relatorios.html', res1=res1, data_avaliacao_inicial=data_avaliacao_inicial, data_avaliacao_final=data_avaliacao_final, res2=res2, res3=res3, res4=res4, res5=res5, res6=res6, res7=res7, res8=res8, tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4, operadores=operador, )
     session.pop('user', None)
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))

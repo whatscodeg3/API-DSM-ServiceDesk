@@ -169,9 +169,9 @@
     <h1 class="titulo">Relatório dos Chamados Abertos e Fechados da Semana</h1>
     <form action="/relatorios">
         <p style="color:white">Escolha um período de: </p>
-        <input type="date" name="filtro" id="data_inicio">
+        <input type="date" name="filtro_inicial" id="data_inicio">
         <p style="color:white">à</p>
-        <input type="date" name="filtro" id="data_fim">
+        <input type="date" name="filtro_final" id="data_fim">
         <button type="submit">Filtrar</button>
     </form>
 
@@ -179,7 +179,7 @@
     </div>
     <canvas id="grafico1"></canvas>
     <script>
-        var dataVar = '{{ data }}';
+        var dataVar = '{{ data_avaliacao_inicial, data_avaliacao_final }}';
         graficoDinamico(dataVar);
     </script>
 
