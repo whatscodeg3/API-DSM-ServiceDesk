@@ -62,102 +62,99 @@ def nova():
     return redirect(url_for('contacts.index'))
 
 
-@contacts.route('/relatorios', methods=['POST', 'GET'])
-def relatorio():
-    if g.user != None:
-        if g.user[0] == 3:
-            ############### DIA ATUAL ######################
-            sql1 = text(
-                'select count(*) from solicitacoes where resposta_solicitacao is null and Date(data_abertura) = curdate()')
-            sql2 = text(
-                'select count(*) from solicitacoes where resposta_solicitacao is not null and Date(data_abertura) = curdate()')
-            results1 = db.engine.execute(sql1)
-            print(results1)
-            for i in results1:
-                pass
-            res1 = i[0]
-            results2 = db.engine.execute(sql2)
-            for j in results2:
-                pass
-            res2 = j[0]
-            ############### 7 DIAS ATRÁS ######################
-            sql3 = text(
-                'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
-            sql4 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
-            results3 = db.engine.execute(sql3)
-            for t in results3:
-                pass
-            res3 = t[0]
-            results4 = db.engine.execute(sql4)
-            for k in results4:
-                pass
-            res4 = k[0]
-            ############### 15 DIAS ATRÁS ######################
-            sql5 = text(
-                'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
-            sql6 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
-            results5 = db.engine.execute(sql5)
-            for m in results5:
-                pass
-            res5 = m[0]
-            results6 = db.engine.execute(sql6)
-            for n in results6:
-                pass
-            res6 = n[0]
-            ############### 30 DIAS ATRÁS ######################
-            sql7 = text(
-                'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
-            sql8 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
-            results7 = db.engine.execute(sql7)
-            for l in results7:
-                pass
-            res7 = l[0]
-            results8 = db.engine.execute(sql8)
-            for p in results8:
-                pass
-            res8 = p[0]
+# @contacts.route('/relatorios', methods=['POST', 'GET'])
+# def relatorio():
+#     if g.user != None:
+#         if g.user[0] == 3:
+#             ############### DIA ATUAL ######################
+#             sql1 = text(
+#                 'select count(*) from solicitacoes where resposta_solicitacao is null and Date(data_abertura) = curdate()')
+#             sql2 = text(
+#                 'select count(*) from solicitacoes where resposta_solicitacao is not null and Date(data_abertura) = curdate()')
+#             results1 = db.engine.execute(sql1)
+#             print(results1)
+#             for i in results1:
+#                 pass
+#             res1 = i[0]
+#             results2 = db.engine.execute(sql2)
+#             for j in results2:
+#                 pass
+#             res2 = j[0]
+#             ############### 7 DIAS ATRÁS ######################
+#             sql3 = text(
+#                 'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
+#             sql4 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
+#             results3 = db.engine.execute(sql3)
+#             for t in results3:
+#                 pass
+#             res3 = t[0]
+#             results4 = db.engine.execute(sql4)
+#             for k in results4:
+#                 pass
+#             res4 = k[0]
+#             ############### 15 DIAS ATRÁS ######################
+#             sql5 = text(
+#                 'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
+#             sql6 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
+#             results5 = db.engine.execute(sql5)
+#             for m in results5:
+#                 pass
+#             res5 = m[0]
+#             results6 = db.engine.execute(sql6)
+#             for n in results6:
+#                 pass
+#             res6 = n[0]
+#             ############### 30 DIAS ATRÁS ######################
+#             sql7 = text(
+#                 'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
+#             sql8 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
+#             results7 = db.engine.execute(sql7)
+#             for l in results7:
+#                 pass
+#             res7 = l[0]
+#             results8 = db.engine.execute(sql8)
+#             for p in results8:
+#                 pass
+#             res8 = p[0]
 
-            ############### AVALIAÇÃO ######################
-            todos = text('select count(*) from solicitacoes')
-            pessimo = text(
-                'select count(*) from solicitacoes where FK_id_avaliacao in (1)')
-            regular = text(
-                'select count(*) from solicitacoes where FK_id_avaliacao in (2)')
-            bom = text(
-                'select count(*) from solicitacoes where FK_id_avaliacao in (3)')
-            otimo = text(
-                'select count(*) from solicitacoes where FK_id_avaliacao in (4)')
-            total = db.engine.execute(todos)
-            geral1 = db.engine.execute(pessimo)
-            for i in geral1:
-                pass
-            g1 = i[0]
-            geral2 = db.engine.execute(regular)
-            for i in geral2:
-                pass
-            g2 = i[0]
-            geral3 = db.engine.execute(bom)
-            for i in geral3:
-                pass
-            g3 = i[0]
-            geral4 = db.engine.execute(otimo)
-            for i in geral4:
-                pass
-            g4 = i[0]
-            if request.method == "POST":
-                data = request.form['filtro']
-                print(data)
-                return redirect('/relatorios')
-            operador = Usuarios.query.filter_by(id_categoria_usuario=2)
-            return render_template('relatorios.html', data="teste", res1=res1, res2=res2, res3=res3, res4=res4, res5=res5, res6=res6, res7=res7, res8=res8, tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4, operadores=operador, )
-    session.pop('user', None)
-    session.pop('id_usuario', None)
-    return redirect(url_for('contacts.index'))
+#             ############### AVALIAÇÃO ######################
+#             todos = text('select count(*) from solicitacoes')
+#             pessimo = text(
+#                 'select count(*) from solicitacoes where FK_id_avaliacao in (1)')
+#             regular = text(
+#                 'select count(*) from solicitacoes where FK_id_avaliacao in (2)')
+#             bom = text(
+#                 'select count(*) from solicitacoes where FK_id_avaliacao in (3)')
+#             otimo = text(
+#                 'select count(*) from solicitacoes where FK_id_avaliacao in (4)')
+#             total = db.engine.execute(todos)
+#             geral1 = db.engine.execute(pessimo)
+#             for i in geral1:
+#                 pass
+#             g1 = i[0]
+#             geral2 = db.engine.execute(regular)
+#             for i in geral2:
+#                 pass
+#             g2 = i[0]
+#             geral3 = db.engine.execute(bom)
+#             for i in geral3:
+#                 pass
+#             g3 = i[0]
+#             geral4 = db.engine.execute(otimo)
+#             for i in geral4:
+#                 pass
+#             g4 = i[0]
+#             if request.method == "POST":
+#                 data = request.form['filtro']
+#                 print(data)
+#                 return redirect('/relatorios')
+#             operador = Usuarios.query.filter_by(id_categoria_usuario=2)
+#             return render_template('relatorios.html', data="teste", res1=res1, res2=res2, res3=res3, res4=res4, res5=res5, res6=res6, res7=res7, res8=res8, tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4, operadores=operador, )
+#     session.pop('user', None)
+#     session.pop('id_usuario', None)
+#     return redirect(url_for('contacts.index'))
 
-@contacts.route('/grafico', methods=['POST']) 
-def grafico():
-    operador_selecionado = request.form['id_do_operador']
-    return render_template('relatorios.html', ops = operador_selecionado)
+
 
 # @contacts.route('/')
 # def index():
@@ -267,18 +264,6 @@ def atualiza(id):
 def resposta():
     return render_template('resposta-executor.html')
 
-##################################### Admin #######################################
-
-
-@contacts.route('/admin')
-def admin():
-    if g.user != None:
-        if g.user[0] == 3:
-            return render_template('home_admin.html')
-    session.pop('user', None)
-    session.pop('id_usuario', None)
-    return redirect(url_for('contacts.index'))
-
 
 @contacts.route('/demanda/<id>')
 def modal_id(id):
@@ -295,6 +280,18 @@ def justificativa(id):
         return redirect('/demanda')
 
     return render_template('executor-demandas.html', solicita=consulta)
+
+##################################### Admin #######################################
+
+
+@contacts.route('/admin')
+def admin():
+    if g.user != None:
+        if g.user[0] == 3:
+            return render_template('home_admin.html')
+    session.pop('user', None)
+    session.pop('id_usuario', None)
+    return redirect(url_for('contacts.index'))
 
 
 @contacts.route('/admin/permissoes')
@@ -333,6 +330,119 @@ def attperm(id):
 
     # return render_template('adm_permissoes.html', consulta=consultar)
 
+
+@contacts.route('/relatorios/instantaneos', methods=['POST', 'GET'])
+def relInstantaneo():
+    if g.user != None:
+        if g.user[0] == 3:
+            ############### DIA ATUAL ######################
+            sql1 = text(
+                'select count(*) from solicitacoes where resposta_solicitacao is null and Date(data_abertura) = curdate()')
+            sql2 = text(
+                'select count(*) from solicitacoes where resposta_solicitacao is not null and Date(data_abertura) = curdate()')
+            results1 = db.engine.execute(sql1)
+            print(results1)
+            for i in results1:
+                pass
+            res1 = i[0]
+            results2 = db.engine.execute(sql2)
+            for j in results2:
+                pass
+            res2 = j[0]
+            ############### 7 DIAS ATRÁS ######################
+            sql3 = text(
+                'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
+            sql4 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
+            results3 = db.engine.execute(sql3)
+            for t in results3:
+                pass
+            res3 = t[0]
+            results4 = db.engine.execute(sql4)
+            for k in results4:
+                pass
+            res4 = k[0]
+            ############### 15 DIAS ATRÁS ######################
+            sql5 = text(
+                'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
+            sql6 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
+            results5 = db.engine.execute(sql5)
+            for m in results5:
+                pass
+            res5 = m[0]
+            results6 = db.engine.execute(sql6)
+            for n in results6:
+                pass
+            res6 = n[0]
+            ############### 30 DIAS ATRÁS ######################
+            sql7 = text(
+                'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
+            sql8 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
+            results7 = db.engine.execute(sql7)
+            for l in results7:
+                pass
+            res7 = l[0]
+            results8 = db.engine.execute(sql8)
+            for p in results8:
+                pass
+            res8 = p[0]
+            operador = Usuarios.query.filter_by(id_categoria_usuario=2)
+            return render_template('rel-instantaneos.html', data="teste", res1=res1, res2=res2, res3=res3, res4=res4, res5=res5, res6=res6, res7=res7, res8=res8, operadores=operador )
+    session.pop('user', None)
+    session.pop('id_usuario', None)
+    return redirect(url_for('contacts.index'))
+
+
+@contacts.route('/relatorios/especificados', methods=['POST', 'GET'])
+def relEspecificados():
+    return render_template('rel-especificado.html')
+
+
+@contacts.route('/relatorios/avaliacoes', methods=['POST', 'GET'])
+def relAvaliacoes():
+    if g.user != None:
+        if g.user[0] == 3:
+            todos = text('select count(*) from solicitacoes')
+            pessimo = text(
+                'select count(*) from solicitacoes where FK_id_avaliacao in (1)')
+            regular = text(
+                'select count(*) from solicitacoes where FK_id_avaliacao in (2)')
+            bom = text(
+                'select count(*) from solicitacoes where FK_id_avaliacao in (3)')
+            otimo = text(
+                'select count(*) from solicitacoes where FK_id_avaliacao in (4)')
+            total = db.engine.execute(todos)
+            geral1 = db.engine.execute(pessimo)
+            for i in geral1:
+                pass
+            g1 = i[0]
+            geral2 = db.engine.execute(regular)
+            for i in geral2:
+                pass
+            g2 = i[0]
+            geral3 = db.engine.execute(bom)
+            for i in geral3:
+                pass
+            g3 = i[0]
+            geral4 = db.engine.execute(otimo)
+            for i in geral4:
+                pass
+            g4 = i[0]
+            if request.method == "POST":
+                data = request.form['filtro']
+                print(data)
+                return redirect('/relatorios')
+            operador = Usuarios.query.filter_by(id_categoria_usuario=2)
+            return render_template('rel-avaliacoes.html', tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4, operadores=operador)
+    
+    session.pop('user', None)
+    session.pop('id_usuario', None)
+    return redirect(url_for('contacts.index'))
+    
+
+@contacts.route('/grafico', methods=['POST']) 
+def grafico():
+    operador_selecionado = request.form['id_do_operador']
+    return render_template('rel-avaliacoes.html', ops = operador_selecionado)
 
 ##################################### Novo cadastro #######################################
 

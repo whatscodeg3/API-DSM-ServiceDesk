@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="../static/css/relatorios.css">
+   <link rel="stylesheet" href="../static/css/menu.css">
+
+   <script src="../static/js/menu.js"></script>
+   <script src="../static/js/graficos.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+
+   <title>Relatórios - especificados</title>
+</head>
+
+<body>
+   <header>
+      <h1 id="header-nome-usuario"></h1>
+      <div id="mySidenav" class="sidenav">
+         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+         <hr class="hr_black">
+         <a href="/admin">HOME</a>
+         <hr id="hr_black">
+         <a href="/relatorios">RELATORIOS</a>
+         <hr id="hr_black">
+         <a href="">HISTORICO</a>
+         <hr id="hr_black">
+         <a href="/admin/permissoes">PERMISSÕES</a>
+         <hr id="hr_black">
+      </div>
+      <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+   </header>
+
+   
+   <h1 class="titulo">Relatório dos Chamados Abertos e Fechados da Semana</h1>
+   <form action="/relatorios/especificados">
+      <p style="color:white">Escolha um período de: </p>
+      <input type="date" name="filtro" id="data_inicio">
+      <p style="color:white">à</p>
+      <input type="date" name="filtro" id="data_fim">
+      <button type="submit">Filtrar</button>
+   </form>
+
+   <div class="grafico-pie">
+      <canvas id="grafico-especifico"></canvas>
+   </div>
+   
+   <script>
+        var dadoVar = [30, 30];
+        graficoChamados('grafico-especifico', dadoVar);
+    </script>
+
+</body>
+
+</html>

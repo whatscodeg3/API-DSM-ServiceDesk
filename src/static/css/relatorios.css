@@ -41,13 +41,13 @@ main{
     height: 100%;
 }
 
-.grafico {
+.grafico-bar {
     width: 70%;
     height: 70%;
     margin: 3%;
 }
 
-.grafico-avaliacoes {
+.grafico-pie {
     width: 40%;
     height: 40%;
     margin: 3%;
@@ -72,75 +72,7 @@ main{
     padding-bottom: 0.5%;
 }
 
-/*NAV BAR */
 
-.sidenav {
-    height: 100%;
-    width:0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 20px;
-    color: black;
-    display: block;
-    transition: 0.1s;
-}
-
- @media screen and (max-width: 600px) {                
-    .sidenav a {
-        font-size: 4.5vw;
-    }
-}
-
-.sidenav a:hover {
-    color: #666666;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-@media screen and (max-width: 600px) {                
-    .sidenav .closebtn {
-        font-size: 8vw;
-    }
-}
-
-.icon_nav_style{
-    font-size: 35px;
-    cursor: pointer;
-    color: #fff;
-    padding-bottom: 0.4%;
-}
-@media screen and (max-width: 600px) {                
-    .icon_nav_style{
-        font-size: 6vw;
-    }
-}
-
-#hr_black{
-    color: black;
-}
-
-
-/* FIM DA NAVBAR*/
 
 .relatorio_primeiro{
     margin: 2%;
