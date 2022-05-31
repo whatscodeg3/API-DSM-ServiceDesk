@@ -77,15 +77,16 @@ def relatorio():
             geral3 = db.engine.execute(bom)
             geral4 = db.engine.execute(otimo)
             
-            teste = text('select count(*) from usuarios where id_categoria_usuario=2')
-            n = 0
-            executor = 0
-            while n < teste:
-                executor = executor + 1
-                n = n + 1
-            pessimo1 = text('select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor = %d and FK_id_avaliacao=1' % executor)
-            ava1 = db.engine.execute(pessimo1)
-            return render_template('relatorios.html', res1=results1, res2=results2, tot=total, ger1=geral1, ger2=geral2, ger3=geral3, ger4=geral4, pes=ava1)
+            id_executor = 4
+            pessimo2 = text('select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=1')
+            regular2 = text('select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=2')
+            bom2 = text('select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=3')
+            otimo2 = text('select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=4')
+            ava1 = db.engine.execute(pessimo2, id=id_executor)
+            ava2 = db.engine.execute(regular2, id=id_executor)
+            ava3 = db.engine.execute(bom2, id=id_executor)
+            ava4 = db.engine.execute(otimo2, id=id_executor)
+            return render_template('relatorios.html', res1=results1, res2=results2, tot=total, ger1=geral1, ger2=geral2, ger3=geral3, ger4=geral4, ava1=ava1, ava2=ava2, ava3=ava3, ava4=ava4)
     session.pop('user', None)
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
