@@ -273,10 +273,6 @@ footer{
 }
 
  @media screen and (max-width: 600px) {                
-    .sidenav a {
-        font-size: 4.5vw;
-    }
-
     .col-sm-4{
         padding-bottom: 3%;
     }

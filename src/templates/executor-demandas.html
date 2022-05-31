@@ -156,8 +156,8 @@
                                 </div>
                                 <br>
                                 <div class="btn-aceitar-recusar">
-                                    <a href="/atualizar/{{chamado.id_solicitacao}}" class="resposta-link-all">RESPONDER</a>
-                                    <a href="demanda/{{chamado.id_solicitacao}}" class="recusa-link-all">RECUSAR</a>
+                                    <a href="/atualizar/{{chamado.id_solicitacao}}" class="resposta-link">RESPONDER</a>
+                                    <a href="demanda/{{chamado.id_solicitacao}}" class="recusa-link">RECUSAR</a>
                                 </div>
                                 
                             </details>
@@ -197,7 +197,7 @@
     <section class="modal-container">
         <div class="modal">
             <a href="/demanda" class="fechar">X</a>
-            <h3 class="titulo-modal">Justifique a situação:</h3>
+            <h3 class="titulo-modal">Justifique a situação</h3>
             <form action="{{just.id_solicitacao}}/justificar" method="POST">
                 <textarea input type="text" name="justificativa" style="outline: 0px;"></textarea>
                 <input class="recusa-link" type="submit" value="Enviar">

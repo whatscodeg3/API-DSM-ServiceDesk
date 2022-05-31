@@ -49,47 +49,37 @@
         </script>
     </header>
     
-
-        <main class="main_geral">
-            <form action="/criar" method="POST" enctype="multipart/form-data">
-                <fieldset>
-                    
-                    <div class="div_nome">
-                        <p class="titulo">Nome:</p>
-                        <input type="text" class="box_nome" readonly="True" placeholder="{{user[1]}}">
-                    </div>
-
-                    <div class="div_center">
-
-                        <div class="div_center_servico">
-                            <p class="titulo">Tipo de Serviço:</p>
-                            <select name="Tipo de serviço" id="Tipo de serviço" method="POST" class="selecao_problema">
-                                {% for categoria in categorias %}
-                                <option name="Tipo de serviço" value="{{ categoria.id_categoria_solicitacao}}" selected>{{ categoria.categoria_solicitacao}}</option>            
-                                {% endfor %}
-                            </select>
-                        </div>
-        
-                            <img src="../static/img/img_headset.png" alt="Imagem Headset">
-        
-                        <div class="div_center_anexar">
-                            <p class="titulo">Anexar Arquivo:</p>
-                            <input type="file" name="arquivo" class="input_file">
-                        </div>
-                    </div>
-        
-                    <div class="div_desc">
-                        <p class="titulo">Descrição do Problema:</p>
-                        <textarea input type="text" name="descrição do problema" class="caixa_texto"></textarea>
-                        <button type="submit" id="botao" class="btn-primary">Solicitar</button>
-                    </div> 
-                </fieldset>
-            </form>
-        </main>
-            <footer class="footer">
-                <hr class="linha-footer">
-                <p class="footer-titulo">DESENVOLVIDO POR WHATSCODE</p>
-            </footer>
+    <main>
+        <form action="/criar" method="POST" enctype="multipart/form-data">
+            <div class="div_nome">
+                <p class="titulo">Nome</p>
+                <input type="text" class="box_nome" readonly="True" placeholder="{{user[1]}}">
+            </div>
+            <div class="div_center">
+                <div class="div_center_servico">
+                    <p class="titulo">Tipo de Serviço</p>
+                    <select name="Tipo de serviço" id="Tipo de serviço" method="POST" class="selecao_problema">
+                        {% for categoria in categorias %}
+                        <option name="Tipo de serviço" value="{{ categoria.id_categoria_solicitacao}}" selected>{{ categoria.categoria_solicitacao}}</option>            
+                        {% endfor %}
+                    </select>
+                </div>
+                <img src="../static/img/img_headset.png" alt="Imagem Headset">
+            </div>
+            <div class="div_center_anexar">
+                <p class="titulo">Anexar Arquivo</p>
+                <input type="file" name="arquivo" class="input_file">
+            </div>
+            <div class="div_desc">
+                <p class="titulo">Descrição do Problema</p>
+                <textarea input type="text" name="descrição do problema" class="caixa_texto"></textarea>
+                <button type="submit" id="botao" class="btn-primary">Solicitar</button>
+            </div> 
+        </form>
+    </main>
+    <footer class="footer">
+        <p class="footer-titulo">DESENVOLVIDO POR WHATSCODE</p>
+    </footer>
 
 
 

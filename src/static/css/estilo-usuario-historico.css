@@ -77,6 +77,11 @@ html{
                 transition: 0.1s;
             }
 			
+            @media screen and (max-width: 600px) {
+                .sidenav a {
+                font-size: 16px;
+                }
+                }
             
             .sidenav a:hover {
                 color: #666666;
@@ -92,7 +97,7 @@ html{
 			
 			@media screen and (max-width: 600px) {                
                 .sidenav .closebtn {
-                    font-size: 8vw;
+                    font-size: 25px;
                 }
             }
 
@@ -104,7 +109,7 @@ html{
             }
 			@media screen and (max-width: 600px) {                
                 .icon_nav_style{
-                    font-size: 6vw;
+                    font-size: 25px;
                 }
             }
 			
@@ -287,14 +292,14 @@ html{
             font-family: 'Monda';
             font-style: normal;
             font-weight: 700;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 29px;
             color:rgba(255, 255, 255, 0.58);
             opacity: 0.2;
         }
             @media only screen and (max-width: 600px) {
             footer{
-                font-size: 3vw;
+                font-size: 10px;
                 }
             }
 
