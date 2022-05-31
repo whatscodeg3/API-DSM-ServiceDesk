@@ -77,7 +77,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
+                            {% for i in ex %}
+                            <td> {{ i[0] }} </td>
+                            {% endfor %}
                             {% for i in ava1 %}
                             <td> {{ i[0] }} </td>
                             {% endfor %}
