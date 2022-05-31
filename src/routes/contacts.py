@@ -131,7 +131,7 @@ def atualiza(id):
         consulta.resposta_solicitacao = request.form['resposta']
         db.session.commit()
         return redirect('/demanda')
-    return render_template('resposta-executor.html', solicita=consulta, arquivo_no_html=file)
+    return render_template('resposta-executor.html', solicita=consulta, arquivo_no_html=file, user=session['user'])
 
 @contacts.route('/demanda/<id>')
 def modal_id(id):

@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/assets/bootstrap/css/executor-bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/estilo-usuario-historico.css">
-    <title>Usuário - Histórico</title>
+    <title>Histórico</title>
 </head>
 <body>
     <header>
-        <h1 id="header-nome-usuario">Histórico</h1>
+        <h1 id="header-nome-usuario">{% if user[0] == 3 %}Meu {% endif %}Histórico</h1>
         <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             {% if user[0] == 3 %}                

@@ -26,6 +26,14 @@ header{
     background-color: #AE1414;
     padding: 0.3% 1.5%;
 }
+#header-nome-usuario {
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 35px;
+}
 
 
 /*NAV BAR */
