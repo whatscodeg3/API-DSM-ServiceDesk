@@ -44,13 +44,14 @@
       <button type="submit">Filtrar</button>
    </form>
 
-   <div class="grafico-pie">
+   <div class="grafico-bar">
       <canvas id="grafico-especifico"></canvas>
    </div>
    
    <script>
-        var dadoVar = [30, 30];
-        graficoChamados('grafico-especifico', dadoVar);
+        var dadoAber = [30, 24, 70];
+        var dadoFech = [24, 25, 26];
+        graficoEspecifico(dadoAber, dadoFech);
     </script>
 
 </body>

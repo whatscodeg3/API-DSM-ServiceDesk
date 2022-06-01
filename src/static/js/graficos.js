@@ -48,3 +48,41 @@ function graficoAvaliacoes(id, dado) {
     },
   });
 }
+
+function graficoEspecifico(dadoAber, dadoFech) {
+  console.log(dadoAber, dadoFech)
+  const ctx1 = document.getElementById('grafico-especifico').getContext('2d');
+  const myChart1 = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: [1, 2, 3],
+      datasets: [
+        {
+          label: 'Abertos',
+          data: dadoAber,
+          backgroundColor: ['#FF4343'],
+          borderColor: ['#292A2F'],
+          borderWidth: 7,
+          tension: 0.1
+        },
+        {
+          label: 'Fechados',
+          data: dadoFech,
+          backgroundColor: ['#6CEC90'],
+          borderColor: ['#292A2F'],
+          borderWidth: 7,
+          tension: 0.1
+        }
+      ]
+    },
+    options: {
+      scales: {
+        y: {
+          min: 0,
+          max: 100
+        }
+      }
+    }
+  });
+
+}
