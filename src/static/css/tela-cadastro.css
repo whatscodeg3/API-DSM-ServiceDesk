@@ -110,6 +110,12 @@ header{
   }
 } 
 
+@media screen and (max-width: 600px) {                
+  .section {
+      gap: 15px;
+  }
+} 
+
 .caixa-texto {
   display: flex;
   width: 100%;
@@ -122,6 +128,14 @@ header{
   font-size: 25px;
   outline: 0px;
 }
+
+  @media only screen and (max-width: 600px) {
+    .caixa-texto {
+        font-size: 15px;
+        width: 100%;
+        padding: 15px;
+    }
+  }
 
 .linha {
   width: 40%;
