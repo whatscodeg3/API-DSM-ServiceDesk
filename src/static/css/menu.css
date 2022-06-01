@@ -30,6 +30,11 @@
    transition: 0.1s;
 }
 
+.sidenav summary{
+   padding: 8px 8px 8px 32px;
+   font-size: 20px;
+}
+
 @media screen and (max-width: 600px) {                
    .sidenav a {
        font-size: 4.5vw;
