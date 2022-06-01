@@ -13,6 +13,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../static/js/menu.js"></script>
+    <script src="../static/js/opcoesRelatorios.js"></script>
 
     <title>Administrador</title>
 
@@ -63,15 +64,15 @@
         <div class="container-fluid" id="teste">
             <div class="row">
                 <div class="col-sm-3">
-                    <div class="carda">
-                        <a href="/relatorios">
+                    <div class="carda" onclick="abreOpcoes()">
+                        <a>
                             <div class="a">
                                 <h2 class="acompanhe">Relatorios</h2>
                             </div>
                             <div class="b"><img class="image" src="../static/img/relatorio_admin.svg" /></div>
                         </a>
                     </div>
-                    <div class="opcoes-rel">
+                    <div id='opcoesRel' class="opcoes-rel">
                         <a class="rel instantaneo" href="/relatorios/instantaneos">Instantâneo</a>
                         <a class="rel especificado" href="/relatorios/especificados">Especificado</a>
                         <a class="rel avaliacoes" href="/relatorios/avaliacoes">Avaliações</a>

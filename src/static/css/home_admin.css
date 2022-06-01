@@ -201,11 +201,6 @@ main{
     border: 2px solid #000000;
 }
 
-.col-sm-3:hover .opcoes-rel{
-    display: flex;
-    background-color: #fff;
-    width: 250px;
-}
 
 
 
