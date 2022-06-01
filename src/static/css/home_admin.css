@@ -72,27 +72,6 @@ main{
     height: 100%;
 }
 
-.footer {
-    width: 100%;
-    text-align: center;
-    padding-top: 2%;
-}
-
-.linha-footer {
-    background-color: #AE1414;
-    border: none;
-    height: 0.4vw;
-}
-
-.footer-titulo {
-    color: #DDD;
-    font-family: 'PT Sans';
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
-}
-
-
-
 .linha_cinza{
     height: 100%;
     width: 100%;

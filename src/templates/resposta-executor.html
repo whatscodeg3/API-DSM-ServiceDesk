@@ -70,7 +70,7 @@
             {% else %}
             <div class="desc-anexo">
                 <p class="titulo">Arquivos anexados</p>
-                <button class="baixar-anexo" href="{{ url_for('contacts.anexos', nome_arquivo=arquivo_no_html) }}" download ><p>Clique aqui para baixar</p></button>
+                <a href="{{ url_for('contacts.anexos', nome_arquivo=arquivo_no_html) }}" class="baixar-anexo" download>Clique aqui para baixar</a>
             </div>
             {% endif %}
         </section>

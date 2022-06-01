@@ -10,21 +10,22 @@
 </head>
 
 <body>
-
     <header class="cabecalho">
         <p class="titulo">Crie sua conta</p>
         <hr class="linha">
     </header>
-    <form class="formgeral" action="/cadastrando" method="POST" autocomplete="off">
-        <main class="geral">
-            {% with messages = get_flashed_messages() %}
-                {% for message in messages %}
-                    <div id="notificacao">
-                        <h4 id="msg">{{message}}</h4>
-                    </div>
-                    {% endfor %}
-            {% endwith %}
 
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <div id="notificacao">
+                <h4 id="msg">{{message}}</h4>
+            </div>
+        {% endfor %}
+    {% endwith %}
+
+    <form class="formgeral" action="/cadastrando" method="POST" autocomplete="off">
+        
+        <main class="geral">
             <section class="section">
                 <input type="text" class="caixa-texto" placeholder="Digite seu nome" name="name" required>
                 <input type="text" class="caixa-texto" placeholder="Digite seu sobrenome" name="surname" required>
@@ -37,8 +38,9 @@
                 <input type="password" class="caixa-texto" type="password" placeholder="Digite uma senha" name="password" required>
                 <input type="password" class="caixa-texto" type="password" placeholder="Confirme sua senha" name="passwordConfirmation" required>
             </section>
-
+            
         </main>
+        
 
         <label class="autorizacao-enviar">
             <div class="div-autorizacao">

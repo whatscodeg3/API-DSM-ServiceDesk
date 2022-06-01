@@ -88,6 +88,12 @@ width: 600px;
 .cabecalho{
 width: 95%;
 }
+#msg{
+    font-size: 18px;
+}
+#msg2{
+    font-size: 18px;
+}
 }
 
 
