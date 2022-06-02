@@ -31,9 +31,28 @@ header{
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 9%;
+    height: 70px;
     background-color: #AE1414;
     padding: 0.3% 1.5%;
+}
+
+#header-nome-usuario {
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 35px;
+    margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+    #header-nome-usuario {
+        font-size: 4vw;
+    }
+    header{
+        height: 50px;
+    }
 }
 
 main{
@@ -87,12 +106,6 @@ main{
     transition: 0.1s;
 }
 
- @media screen and (max-width: 600px) {                
-    .sidenav a {
-        font-size: 4.5vw;
-    }
-}
-
 .sidenav a:hover {
     color: #666666;
 }
@@ -143,7 +156,28 @@ main{
     color: #fff;
 }
 
+footer {
+    margin-top: auto;
+    font-family: 'Monda';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 29px;
+    color: rgba(255, 255, 255, 0.58);
+    opacity: 0.2;
+}
 
+#footer-texto{
+    margin-bottom: 0px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    footer {
+        font-size: 3vw;
+    }
+}
 
 
 

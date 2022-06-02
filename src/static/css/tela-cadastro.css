@@ -34,11 +34,12 @@ header{
 }
 
 #notificacao{
-  position: absolute;
+  position: fixed;
+  z-index: 1;
+  top:30px;
   background-color: rgb(255, 143, 143);
   border-color: darkred;
   color:darkred;
-  top:0.8vh;
   border-radius: 3px;
   padding:5px 10px;
   animation: hide 5s 0.5s forwards
@@ -50,11 +51,16 @@ header{
   }
   
   #msg{
-  font-size:20px;
+  font-size:25px;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
-  
   }
+  
+@media screen and (max-width: 600px) {
+    #msg{
+        font-size: 18px;
+    }
+}
 
 .formgeral {
   width: 100%;
@@ -71,6 +77,11 @@ header{
   padding-bottom: 1%;
 }
 
+@media screen and (max-width: 600px) {
+  .titulo{
+      font-size: 30px;
+  }
+}
 
 .geral {
   position: relative;
@@ -79,7 +90,6 @@ header{
   align-items: center;
   padding-top: 3%;
   width: 100%;
-  height: 100%;
 }
 
 .section {
@@ -95,6 +105,7 @@ header{
   .section {
       flex-direction: column;
       padding: 2.5%;
+      
   }
 } 
 
@@ -102,6 +113,13 @@ header{
   .section {
       flex-direction: column;
       padding: 3%;
+  }
+} 
+
+@media screen and (max-width: 600px) {                
+  .section {
+      gap: 15px;
+      width: 80%;
   }
 } 
 
@@ -118,11 +136,25 @@ header{
   outline: 0px;
 }
 
+  @media only screen and (max-width: 600px) {
+    .caixa-texto {
+        font-size: 15px;
+        width: 100%;
+        padding: 15px;
+    }
+  }
+
 .linha {
   width: 40%;
   height: 10%;
   background-color: #AE1414;
   border: none;
+}
+
+@media screen and (max-width: 500px) {
+  .linha{
+    width: 70%;
+  }
 }
 
 footer {
@@ -140,6 +172,12 @@ footer {
   height: 10%;
   background-color: #AE1414;
   border: none;
+}
+
+@media screen and (max-width: 500px) {
+  .linha-footer{
+    width: 70%;
+  }
 }
 
 .autorizacao-enviar {
@@ -167,7 +205,7 @@ footer {
 .botao {
   background: #AE1414;
   color: #DDD;
-  border-radius: 15px;
+  border-radius: 25px;
   border: #AE1414;
   height: 50px;
   width: 100px;
