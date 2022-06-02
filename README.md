@@ -199,7 +199,7 @@ Como mencionado no início deste documento o desenvolvimento do projeto foi base
 
 - Sprint 1 (25/03 - 14/04): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md)): Concluído ✅
 - Sprint 2 (25/04 - 15/05): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Concluído ✅
-- Sprint 3 (16/05 - 05/06): Carregando 🔋
+- Sprint 3 (16/05 - 05/06): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint3.md)): Em andamento 🕓
 
 
 ## Backlog do produto <a id="backlog"></a>

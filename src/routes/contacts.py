@@ -7,7 +7,7 @@ from models.solicita import Avaliacao, Categoria, Solicita
 from models.usuario import Usuarios
 from sqlalchemy import text, engine
 from utils.db import db
-from utils.verifica import distribui, verifica 
+from utils.verifica import distribui, distribui_permissao, verifica
 
 contacts = Blueprint('contacts', __name__)
 
@@ -172,6 +172,22 @@ def attperm(id):
         if g.user[0] == 3:
             consultar = Usuarios.query.get(id)
             if consultar.id_categoria_usuario == 2:
+                teste = text(
+                "SELECT id_solicitacao FROM solicitacoes where resposta_solicitacao is null and FK_id_executor=:id")
+                results2 = db.engine.execute(teste, id=id)
+                lista_de_chamados = []
+                for a in results2:
+                    lista_de_chamados.append(a[0])
+                if lista_de_chamados != []:
+                    ext=0
+                    print(len(lista_de_chamados))
+                    while len(lista_de_chamados) > ext:
+                        id_solic = lista_de_chamados[ext]
+                        consulta = Solicita.query.filter_by(id_solicitacao=id_solic, resposta_solicitacao=None).first()
+                        proximo_operador = distribui_permissao(id_solic, len(lista_de_chamados), ext)
+                        consulta.fk_id_executor = proximo_operador
+                        db.session.commit()
+                        ext+=1
                 consultar.id_categoria_usuario = 1
                 print("Setou OPERADOR pra USUARIO")
                 db.session.commit()
