@@ -1,5 +1,7 @@
 function abreOpcoes() {
-    document.getElementById('opcoesRel').style.width = '250px';
-    document.getElementById('opcoesRel').style.display = 'flex';
-    document.getElementById('opcoesRel').style.background = '#fff';
+    var opcs = document.getElementById('opcoesRel');
+    opcs.style.display = 'flex';
+    
+    var carda = document.getElementById('cardRel');
+    carda.style.display = 'none';
 }
