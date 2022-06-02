@@ -1,3 +1,4 @@
+from itertools import cycle
 from flask import session, flash, g
 from sqlalchemy import text, engine
 from utils.db import db
@@ -86,3 +87,51 @@ def distribui():
             proximo_operador = proximo_operador[0]
             return proximo_operador
         
+def distribui_permissao(id_da_solicitacao, qtd_chamados, ext):
+    if id_da_solicitacao != None:
+        id_operador_anterior = text(
+            "SELECT FK_id_executor FROM solicitacoes where id_solicitacao=:id")
+        results2 = db.engine.execute(id_operador_anterior, id=id_da_solicitacao)
+        for j in results2:
+            pass
+        id2=j[0]
+    else:
+        id2 = None
+    todos_operadores = text(
+        'SELECT id_usuario FROM usuarios WHERE id_categoria_usuario = 2')
+    todos_operadores = db.engine.execute(todos_operadores)
+    print(todos_operadores)
+    lista = []
+    for r in todos_operadores:
+        lista.append(r)
+    proximo_operador = ''
+    tamanho = len(lista) - 1
+    if lista == []:
+        adm = text(
+        'SELECT id_usuario FROM usuarios WHERE id_categoria_usuario = 3')
+        adm = db.engine.execute(adm)
+        id_adm = ''
+        for i in adm:
+            pass
+        id_adm = i
+        proximo_operador = id_adm[0]
+        return proximo_operador
+    else:
+        if j not in lista or lista.index(j) == tamanho:
+            proximo_operador = lista[0]
+            proximo_operador = proximo_operador[0]
+            return proximo_operador
+        else:
+            contador = 0
+            lista.remove(j)
+            nova_lista = []
+            ciclo = cycle(lista)
+            for m in ciclo:
+                if contador > qtd_chamados:
+                    break
+                else:
+                    nova_lista.append(m)
+                    contador+=1
+            proximo_operador = nova_lista[ext]
+            proximo_operador = proximo_operador[0]
+            return proximo_operador
