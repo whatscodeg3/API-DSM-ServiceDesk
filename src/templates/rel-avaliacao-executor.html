@@ -20,9 +20,7 @@
    <title>Relatórios - avaliações</title>
 </head>
 
-<body>
-   <div class="fundo">
-
+<body class="fundo">
    <header>
       <div>
           <div id="mySidenav" class="sidenav">
@@ -50,30 +48,18 @@
 
   </header>
 
-   <!-- -------------avaliações gerais------------- -->
-   <h1 class="titulo">Relatório das Avaliações Gerais do Sistema</h1>
-
-   <div class="grafico-bar">
-      <canvas id="grafico-av-geral"></canvas>
-   </div>
-   <script>
-      var dadoVar = ['{{ger4}}', '{{ger3}}', '{{ger2}}', '{{ger1}}'];
-      graficoAvaliacoes('grafico-av-geral', dadoVar);
-   </script>
-
-
    <!-- -------------avaliações por executor------------- -->
    <div class="div-filtro">
-      <h1 class="titulo">Relatório das Avaliações do:</h1>
-      <form action="/grafico" method="POST">
-         <select name="id_do_operador" class="filtro-operadores">
-            {% for operador in operadores %}
-            <option value="{{ operador.id_usuario }}">{{ operador.nome_usuario }}</option>
-            {% endfor %}
-         </select>
-         <button type="submit" class="botao">ﾠGerar gráficoﾠ</button>
-      </form>
-   </div>
+    <h1 class="titulo">Relatório das Avaliações do:</h1>
+    <form action="/grafico" method="POST">
+       <select name="id_do_operador" class="filtro-operadores">
+          {% for operador in operadores %}
+          <option value="{{ operador.id_usuario }}">{{ operador.nome_usuario }}</option>
+          {% endfor %}
+       </select>
+       <button type="submit" class="botao">ﾠGerar gráficoﾠ</button>
+    </form>
+    </div> 
 
    <div class="grafico-bar">
       <canvas id="grafico-av-executor"></canvas>
@@ -82,7 +68,6 @@
       var dadoVar = ['{{Ex}}', '{{ava4}}', '{{ava3}}', '{{ava2}}', '{{ava1}}'];;
       graficoAvaliacoes('grafico-av-executor', dadoVar)
    </script>
-   </div>
-
 </body>
+
 </html>
