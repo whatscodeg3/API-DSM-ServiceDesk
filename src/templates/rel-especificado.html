@@ -34,24 +34,27 @@
       <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
    </header>
 
-   
+
    <h1 class="titulo">Relatório dos Chamados Abertos e Fechados da Semana</h1>
-   <form action="/relatorios/especificados">
+   <form action="/relatorios/especificados" method="POST">
       <p style="color:white">Escolha um período de: </p>
-      <input type="date" name="filtro" id="data_inicio">
+      <input type="date" name="data_inicio" id="data_inicio">
       <p style="color:white">à</p>
-      <input type="date" name="filtro" id="data_fim">
-      <button type="submit">Filtrar</button>
+      <input type="date" name="data_fim" id="data_fim">
+      <button type="submit" name="botaoFiltroDinamico">Filtrar</button>
    </form>
 
    <div class="grafico-pie">
       <canvas id="grafico-especifico"></canvas>
    </div>
-   
+
    <script>
-        var dadoVar = [30, 30];
-        graficoChamados('grafico-especifico', dadoVar);
-    </script>
+      const dado_solicitacoes_fechadas = '{{ total_solicitacoes_fechadas }}';
+      const dado_solicitacoes_abertas = '{{ total_solicitacoes_abertas }}'
+      const data_inicio = '{{ data_inicio }}';
+      const data_fim = '{{ data_fim }}';
+      graficoDinamico(dado_solicitacoes_fechadas, dado_solicitacoes_abertas, data_inicio, data_fim);
+   </script>
 
 </body>
 

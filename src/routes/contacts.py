@@ -7,8 +7,10 @@ from models.solicita import Avaliacao, Categoria, Solicita, Usuarios, CategoriaU
 from sqlalchemy import text, engine
 from utils.db import db
 from utils.verifica import distribui, verifica
+import json
 
 contacts = Blueprint('contacts', __name__)
+    
 
 
 @contacts.before_request
@@ -176,6 +178,35 @@ def nova():
 #     consulta = Solicita.query.filter(Solicita.resposta_solicitacao.isnot(None))
 #     return render_template('executor-demandas.html', listas=lista, consultas=consulta)
 
+@contacts.route('/relatorios/especificados', methods=['GET', 'POST'])
+def teste():
+    if g.user != None:
+         if g.user[0] == 3:
+            if request.method == 'POST':
+                data_inicio = request.form['data_inicio']
+                data_fim = request.form['data_fim']
+                print(data_inicio, data_fim)
+                # usar COUNT(*)
+                query_solicitacoes_abertas = text(
+                        'SELECT COUNT(*) FROM solicitacoes WHERE data_abertura between DATE(:data_inicio) and DATE(:data_fim) and resposta_solicitacao is null')
+                query_solicitacoes_fechadas = text(
+                        'SELECT COUNT(*) FROM solicitacoes WHERE resposta_solicitacao is not null and data_abertura between :data_inicio and :data_fim')
+                resultado_solicitacoes_abertas = db.engine.execute(query_solicitacoes_abertas, data_fim=data_fim, data_inicio=data_inicio)
+                print(resultado_solicitacoes_abertas)
+                for solicitacoes in resultado_solicitacoes_abertas:
+                    pass
+                total_solicitacoes_abertas = solicitacoes[0]
+                resultado_solicitacoes_fechadas = db.engine.execute(query_solicitacoes_fechadas, data_fim=data_fim, data_inicio=data_inicio)
+                for solicitacoes_fechadas in resultado_solicitacoes_fechadas:
+                    pass
+                total_solicitacoes_fechadas = solicitacoes_fechadas[0]
+                print(total_solicitacoes_fechadas, total_solicitacoes_abertas)
+                session['total_solicitacoes_fechadas'] = total_solicitacoes_fechadas
+                session['total_solicitacoes_abertas'] = total_solicitacoes_abertas
+                
+                return render_template('rel-especificado.html', total_solicitacoes_fechadas=total_solicitacoes_fechadas, total_solicitacoes_abertas=total_solicitacoes_abertas, data_inicio=data_inicio, data_fim=data_fim)
+    return render_template('rel-especificado.html')
+    
 
 @contacts.route('/criar', methods=['POST', ])
 def criar():
@@ -392,9 +423,10 @@ def relInstantaneo():
     return redirect(url_for('contacts.index'))
 
 
-@contacts.route('/relatorios/especificados', methods=['POST', 'GET'])
-def relEspecificados():
-    return render_template('rel-especificado.html')
+#@contacts.route('/relatorios/especificados', methods=['POST', 'GET'])
+#def relEspecificados(): 
+#    return render_template('rel-especificado.html')
+     
 
 
 @contacts.route('/relatorios/avaliacoes', methods=['POST', 'GET'])
