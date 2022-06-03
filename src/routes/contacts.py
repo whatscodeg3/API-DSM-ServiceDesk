@@ -347,7 +347,6 @@ def relAvaliacoes():
                 data = request.form['filtro']
                 print(data)
                 return redirect('/relatorios')
-
             operador = Usuarios.query.filter_by(id_categoria_usuario=2)
             return render_template('rel-avaliacoes.html', tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4, ava1=a1, ava2=a2, ava3=a3, ava4=a4, Ex=ex, 
             operadores=operador)
@@ -360,7 +359,8 @@ def relAvaliacoes():
 @contacts.route('/grafico', methods=['POST']) 
 def grafico():
     operador_selecionado = request.form['id_do_operador']
-    return render_template('rel-avaliacao-executor.html', ops = operador_selecionado)
+    operador = Usuarios.query.filter_by(id_categoria_usuario=2)
+    return render_template('rel-avaliacao-executor.html', ops = operador_selecionado, operadores=operador)
 
 ##################################### Novo cadastro #######################################
 
