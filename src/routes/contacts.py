@@ -361,8 +361,6 @@ def grafico():
         if g.user[0] == 3:
             operador_selecionado = request.form['id_do_operador']
             operador = Usuarios.query.filter_by(id_categoria_usuario=2)
-            executor = text(
-                'select * from usuarios where id_usuario=:id;')
             pessimo2 = text(
                 'select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=1')
             regular2 = text(
@@ -387,11 +385,7 @@ def grafico():
             for i in ava4:
                 pass
             a4 = i[0]
-            Ex = db.engine.execute(executor, id=operador_selecionado)
-            for i in Ex:
-                pass
-            ex = i[0]
-            return render_template('rel-avaliacao-executor.html', ops = operador_selecionado, operadores=operador, ava1=a1, ava2=a2, ava3=a3, ava4=a4, Ex=ex)
+            return render_template('rel-avaliacao-executor.html', ops = operador_selecionado, operadores=operador, ava1=a1, ava2=a2, ava3=a3, ava4=a4)
     session.pop('user', None)
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))

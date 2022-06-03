@@ -23,6 +23,7 @@ html{
     min-height: 100%;
     height: 100%;
     width: 100%;
+    background-color: #292A2F;
 }
 
 header{
@@ -92,18 +93,39 @@ main{
     font-size: 100%;
 }
 
+.titulo-avaliacao-geral {
+    color: #fff;
+    font-size: 120%;
+    padding-top: 5%;
+}
+
+@media screen and (max-width: 440px) {                
+    .titulo-avaliacao-geral {
+        font-size: 15px;
+        text-align: center;
+    }
+  }
+
 .div-filtro {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
     align-items: center;
     gap: 1%;
     width: 100%;
     height: 100%;
 }
 
+@media screen and (max-width: 440px) {                
+    .div-filtro {
+        flex-direction: column;
+    }    
+  } 
+
 .filtro-operadores {
-    width: 50%;
+    width: 60%;
     height: 1%;
     background-color: #292A2F;
     color: #fff;
@@ -116,6 +138,7 @@ main{
     background-color: #292A2F;
     border: #fff solid 1px;
     border-radius: 6px;
+    width: 70%;
 }
 
 .botao:hover {
@@ -124,5 +147,22 @@ main{
 }
 
 
+.form-filtro-operador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5%;
+}
 
 
+.linha-meio {
+    width: 80%;
+    height: 0.4vw;
+    background-color: #fff;
+    border: none;
+}
+
+.div-grafico-geral {
+    padding-top: 5%;
+}

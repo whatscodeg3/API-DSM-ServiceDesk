@@ -48,23 +48,13 @@
 
   </header>
 
-  <!-- -------------avaliações gerais------------- -->
-  <h1 class="titulo">Relatório das Avaliações Gerais do Sistema</h1>
-
-  <div class="grafico-bar">
-     <canvas id="grafico-av-geral"></canvas>
-  </div>
-  <script>
-     var dadoVar = ['{{ger4}}', '{{ger3}}', '{{ger2}}', '{{ger1}}'];
-     graficoAvaliacoes('grafico-av-geral', dadoVar);
-  </script>
-
    <!-- -------------avaliações por executor------------- -->
    
    <div class="div-filtro">
-      <h1 class="titulo">Relatório das Avaliações do:</h1>
-      <form action="/grafico" method="POST">
+      <h1 class="titulo">Filtrar pelo operador:</h1>
+      <form action="/grafico" method="POST" class="form-filtro-operador">
          <select name="id_do_operador" class="filtro-operadores">
+            <option disabled selected>Selecione</option>
             {% for operador in operadores %}
             <option value="{{ operador.id_usuario }}">{{ operador.nome_usuario }}</option>
             {% endfor %}
@@ -77,7 +67,7 @@
       <canvas id="grafico-av-executor"></canvas>
    </div>
    <script>
-      var dadoVar = ['{{Ex}}', '{{ava4}}', '{{ava3}}', '{{ava2}}', '{{ava1}}'];;
+      var dadoVar = ['{{ava4}}', '{{ava3}}', '{{ava2}}', '{{ava1}}'];;
       graficoAvaliacoes('grafico-av-executor', dadoVar)
    </script>
 </body>
