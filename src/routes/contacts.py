@@ -348,8 +348,7 @@ def relAvaliacoes():
                 print(data)
                 return redirect('/relatorios')
             operador = Usuarios.query.filter_by(id_categoria_usuario=2)
-            return render_template('rel-avaliacoes.html', tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4, ava1=a1, ava2=a2, ava3=a3, ava4=a4, Ex=ex, 
-            operadores=operador)
+            return render_template('rel-avaliacoes.html', tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4, ava1=a1, ava2=a2, ava3=a3, ava4=a4, Ex=ex, operadores=operador)
     
     session.pop('user', None)
     session.pop('id_usuario', None)
@@ -358,9 +357,44 @@ def relAvaliacoes():
 
 @contacts.route('/grafico', methods=['POST']) 
 def grafico():
-    operador_selecionado = request.form['id_do_operador']
-    operador = Usuarios.query.filter_by(id_categoria_usuario=2)
-    return render_template('rel-avaliacao-executor.html', ops = operador_selecionado, operadores=operador)
+    if g.user != None:
+        if g.user[0] == 3:
+            operador_selecionado = request.form['id_do_operador']
+            operador = Usuarios.query.filter_by(id_categoria_usuario=2)
+            executor = text(
+                'select * from usuarios where id_usuario=:id;')
+            pessimo2 = text(
+                'select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=1')
+            regular2 = text(
+                'select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=2')
+            bom2 = text(
+                'select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=3')
+            otimo2 = text(
+                'select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=4')
+            ava1 = db.engine.execute(pessimo2, id=operador_selecionado)
+            for i in ava1:
+                pass
+            a1 = i[0]
+            ava2 = db.engine.execute(regular2, id=operador_selecionado)
+            for i in ava2:
+                pass
+            a2 = i[0]
+            ava3 = db.engine.execute(bom2, id=operador_selecionado)
+            for i in ava3:
+                pass
+            a3 = i[0]
+            ava4 = db.engine.execute(otimo2, id=operador_selecionado)
+            for i in ava4:
+                pass
+            a4 = i[0]
+            Ex = db.engine.execute(executor, id=operador_selecionado)
+            for i in Ex:
+                pass
+            ex = i[0]
+            return render_template('rel-avaliacao-executor.html', ops = operador_selecionado, operadores=operador, ava1=a1, ava2=a2, ava3=a3, ava4=a4, Ex=ex)
+    session.pop('user', None)
+    session.pop('id_usuario', None)
+    return redirect(url_for('contacts.index'))
 
 ##################################### Novo cadastro #######################################
 
