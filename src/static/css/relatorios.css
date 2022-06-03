@@ -93,10 +93,16 @@ main{
     font-size: 100%;
 }
 
-.titulo-avaliacao-geral {
+.titulo-geral {
     color: #fff;
     font-size: 120%;
     padding-top: 5%;
+}
+
+.subtitulo {
+    color: #fff;
+    font-size: 100%;
+    margin: 0%;
 }
 
 @media screen and (max-width: 440px) {                
@@ -133,12 +139,28 @@ main{
     border-radius: 6px;
 }
 
+.filtro-por-data {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 3%;
+}
+
 .botao {
     color: #fff;
     background-color: #292A2F;
     border: #fff solid 1px;
     border-radius: 6px;
     width: 70%;
+}
+
+.botao2 {
+    color: #fff;
+    background-color: #292A2F;
+    border: #fff solid 1px;
+    border-radius: 6px;
+    width: 40%;
 }
 
 .botao:hover {
@@ -165,4 +187,24 @@ main{
 
 .div-grafico-geral {
     padding-top: 5%;
+}
+
+#data_inicio, #data_fim {
+    background-color: #292A2F;
+    color: #fff;
+    border: #fff solid 1px;
+    border-radius: 3px;
+    text-align: center;
+    width: 100%;
+}
+
+.form-filtro {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 3%;
+    width: 50%;
+    height: 100%;
+    padding-top: 2%;
 }

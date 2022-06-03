@@ -52,13 +52,15 @@
   </header>
 
    
-   <h1 class="titulo">Relatório dos Chamados Abertos e Fechados da Semana</h1>
-   <form action="/relatorios/especificados">
-      <p style="color:white">Escolha um período de: </p>
-      <input type="date" name="filtro" id="data_inicio">
-      <p style="color:white">à</p>
-      <input type="date" name="filtro" id="data_fim">
-      <button type="submit">Filtrar</button>
+   <h1 class="titulo-geral">Relatório dos Chamados Abertos e Fechados da Semana</h1>
+   <form action="/relatorios/especificados" class="form-filtro">
+      <p class="subtitulo">Escolha um período de: </p>
+      <div class="filtro-por-data">
+         <input type="date" name="filtro" id="data_inicio">
+         <p class="subtitulo">à</p>
+         <input type="date" name="filtro" id="data_fim">
+         <button type="submit" class="botao2">Filtrar</button>
+      </div>
    </form>
 
    <div class="grafico-bar">
