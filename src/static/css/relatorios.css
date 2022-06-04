@@ -99,6 +99,14 @@ main{
     padding-top: 5%;
 }
 
+@media screen and (max-width: 380px) {                
+    .titulo-geral {
+        font-size: 15px;
+        text-align: center;
+    }    
+  } 
+
+
 .subtitulo {
     color: #fff;
     font-size: 100%;
@@ -152,7 +160,7 @@ main{
     background-color: #292A2F;
     border: #fff solid 1px;
     border-radius: 6px;
-    width: 70%;
+    width: 90%;
 }
 
 .botao2 {

@@ -361,6 +361,63 @@ def grafico():
         if g.user[0] == 3:
             operador_selecionado = request.form['id_do_operador']
             operador = Usuarios.query.filter_by(id_categoria_usuario=2)
+            todos = text('select count(*) from solicitacoes')
+            pessimo = text(
+                'select count(*) from solicitacoes where FK_id_avaliacao in (1)')
+            regular = text(
+                'select count(*) from solicitacoes where FK_id_avaliacao in (2)')
+            bom = text(
+                'select count(*) from solicitacoes where FK_id_avaliacao in (3)')
+            otimo = text(
+                'select count(*) from solicitacoes where FK_id_avaliacao in (4)')
+            executor = text(
+                'select * from usuarios where id_usuario=:id;')
+            pessimo2 = text(
+                'select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=1')
+            regular2 = text(
+                'select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=2')
+            bom2 = text(
+                'select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=3')
+            otimo2 = text(
+                'select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=4')
+            id_executor = 2
+            ava1 = db.engine.execute(pessimo2, id=id_executor)
+            for i in ava1:
+                pass
+            a1 = i[0]
+            ava2 = db.engine.execute(regular2, id=id_executor)
+            for i in ava2:
+                pass
+            a2 = i[0]
+            ava3 = db.engine.execute(bom2, id=id_executor)
+            for i in ava3:
+                pass
+            a3 = i[0]
+            ava4 = db.engine.execute(otimo2, id=id_executor)
+            for i in ava4:
+                pass
+            a4 = i[0]
+            Ex = db.engine.execute(executor, id=id_executor)
+            for i in Ex:
+                pass
+            ex = i[0]
+            geral1 = db.engine.execute(pessimo)
+            for i in geral1:
+                pass
+            g1 = i[0]
+            geral2 = db.engine.execute(regular)
+            for i in geral2:
+                pass
+            g2 = i[0]
+            geral3 = db.engine.execute(bom)
+            for i in geral3:
+                pass
+            g3 = i[0]
+            geral4 = db.engine.execute(otimo)
+            for i in geral4:
+                pass
+            g4 = i[0]
+            total = db.engine.execute(todos)
             pessimo2 = text(
                 'select count(*) as FK_id_executor, count(*) as FK_id_avaliacao from solicitacoes where FK_id_executor=:id and FK_id_avaliacao=1')
             regular2 = text(
@@ -385,7 +442,7 @@ def grafico():
             for i in ava4:
                 pass
             a4 = i[0]
-            return render_template('rel-avaliacao-executor.html', ops = operador_selecionado, operadores=operador, ava1=a1, ava2=a2, ava3=a3, ava4=a4)
+            return render_template('rel-avaliacao-executor.html', ops = operador_selecionado, operadores=operador, ava1=a1, ava2=a2, ava3=a3, ava4=a4, tot=total, ger1=g1, ger2=g2, ger3=g3, ger4=g4, Ex=ex)
     session.pop('user', None)
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))

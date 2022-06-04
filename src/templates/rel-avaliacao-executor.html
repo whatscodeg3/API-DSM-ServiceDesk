@@ -48,6 +48,19 @@
 
   </header>
 
+     <!-- -------------avaliações gerais------------- -->
+     <h1 class="titulo-geral">Relatório das Avaliações Gerais do Sistema</h1>
+
+     <div class="grafico-bar">
+        <canvas id="grafico-av-geral"></canvas>
+     </div>
+     <script>
+        var dadoVar = ['{{ger4}}', '{{ger3}}', '{{ger2}}', '{{ger1}}'];
+        graficoAvaliacoes('grafico-av-geral', dadoVar);
+     </script>
+  
+     <hr class="linha-meio">
+
    <!-- -------------avaliações por executor------------- -->
    
    <div class="div-filtro">
