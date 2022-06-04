@@ -157,6 +157,14 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 865px) {
+    #row{
+        flex-direction: column;
+        gap:50px;
+    }
 }
 
 .row a{
@@ -167,7 +175,7 @@ main{
 .carda{
     border-radius: 20px;
     box-shadow: 4px 4px 10px 0 rgba(50, 50, 50, 0.22);
-    padding: 3%;
+    padding: 7%;
     width: 200px;
     height: 160px;
     transition: all 0.3s ease-out;
@@ -176,6 +184,7 @@ main{
     text-decoration: none;
     color: #000000;
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items:center;
 }
@@ -209,14 +218,15 @@ main{
 }
 
 .b{
+    display: flex;
+    justify-content: center;
     text-align: center;
-
+    width:100%
 }
   
 .image{
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 27%;
 }
   
 

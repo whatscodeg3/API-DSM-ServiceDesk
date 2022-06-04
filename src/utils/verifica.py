@@ -106,7 +106,7 @@ def distribui_permissao(id_da_solicitacao, qtd_chamados, ext):
         lista.append(r)
     proximo_operador = ''
     tamanho = len(lista) - 1
-    if lista == []:
+    if len(lista) == 1:
         adm = text(
         'SELECT id_usuario FROM usuarios WHERE id_categoria_usuario = 3')
         adm = db.engine.execute(adm)
