@@ -38,9 +38,9 @@
    <h1 class="titulo">Relatório dos Chamados Abertos e Fechados da Semana</h1>
    <form action="/relatorios/especificados" method="POST">
       <p style="color:white">Escolha um período de: </p>
-      <input type="date" name="data_inicio" id="data_inicio">
+      <input onchange="StartFilterData(this)" type="date" name="data_inicio" id="data_inicio">
       <p style="color:white">à</p>
-      <input type="date" name="data_fim" id="data_fim">
+      <input onchange="EndFilterData(this)" type="date" name="data_fim" id="data_fim">
       <button type="submit" name="botaoFiltroDinamico">Filtrar</button>
    </form>
 
@@ -48,14 +48,29 @@
       <canvas id="grafico-especifico"></canvas>
    </div>
 
+   <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+
    <script>
       const dado_solicitacoes_fechadas = '{{ total_solicitacoes_fechadas }}';
       const dado_solicitacoes_abertas = '{{ total_solicitacoes_abertas }}'
       const data_inicio = '{{ data_inicio }}';
       const data_fim = '{{ data_fim }}';
-      graficoDinamico(dado_solicitacoes_fechadas, dado_solicitacoes_abertas, data_inicio, data_fim);
+      const lista_datas_abertas = '{{lista_datas_abertas|tojson}}';
+      const lista_quantidade_abertas = '{{lista_quantidade_abertas}}';
+      const lista_quantidade_fechadas = '{{lista_quantidade_fechadas}}';
+      function StartFilterData(date){
+         const startdate = new Date(date.value)
+         myChart1.config.options.scales.x.min = startdate.setHours(0, 0, 0, 0)
+         myChart1.update()
+      }
+      function EndFilterData(date){
+         const endDate = new Date(date.value)
+         myChart1.config.options.scales.x.max = endDate.setHours(0, 0, 0, 0)
+         myChart1.update()
+      }
+      graficoDinamico(dado_solicitacoes_fechadas, dado_solicitacoes_abertas, data_inicio, data_fim, lista_datas_abertas, lista_quantidade_abertas, lista_quantidade_fechadas);
    </script>
-
 </body>
 
 </html>

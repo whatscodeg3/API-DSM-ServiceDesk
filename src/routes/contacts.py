@@ -188,23 +188,33 @@ def teste():
                 print(data_inicio, data_fim)
                 # usar COUNT(*)
                 query_solicitacoes_abertas = text(
-                        'SELECT COUNT(*) FROM solicitacoes WHERE data_abertura between DATE(:data_inicio) and DATE(:data_fim) and resposta_solicitacao is null')
+                        'SELECT DATE(data_abertura), COUNT(*) FROM solicitacoes WHERE data_abertura between DATE(:data_inicio) and DATE(:data_fim) and resposta_solicitacao is null group by DATE(data_abertura)')
                 query_solicitacoes_fechadas = text(
-                        'SELECT COUNT(*) FROM solicitacoes WHERE resposta_solicitacao is not null and data_abertura between :data_inicio and :data_fim')
+                        'SELECT data_abertura, COUNT(*) FROM solicitacoes WHERE resposta_solicitacao is not null and data_abertura between :data_inicio and :data_fim group by DATE(data_abertura)')
                 resultado_solicitacoes_abertas = db.engine.execute(query_solicitacoes_abertas, data_fim=data_fim, data_inicio=data_inicio)
                 print(resultado_solicitacoes_abertas)
+                lista_datas_abertas = []
+                lista_quantidade_abertas = []
                 for solicitacoes in resultado_solicitacoes_abertas:
-                    pass
+                    lista_datas_abertas.append(solicitacoes[0])
+                    lista_quantidade_abertas.append(solicitacoes[1])
+                print(lista_datas_abertas)
+                print(lista_quantidade_abertas)
                 total_solicitacoes_abertas = solicitacoes[0]
                 resultado_solicitacoes_fechadas = db.engine.execute(query_solicitacoes_fechadas, data_fim=data_fim, data_inicio=data_inicio)
+                lista_datas_fechadas = []
+                lista_quantidade_fechadas = []
                 for solicitacoes_fechadas in resultado_solicitacoes_fechadas:
-                    pass
+                    #lista_datas_abertas.append(solicitacoes[0])
+                    lista_quantidade_fechadas.append(solicitacoes[1])
+                print(lista_datas_fechadas)
+                print(lista_quantidade_fechadas)
                 total_solicitacoes_fechadas = solicitacoes_fechadas[0]
                 print(total_solicitacoes_fechadas, total_solicitacoes_abertas)
                 session['total_solicitacoes_fechadas'] = total_solicitacoes_fechadas
                 session['total_solicitacoes_abertas'] = total_solicitacoes_abertas
                 
-                return render_template('rel-especificado.html', total_solicitacoes_fechadas=total_solicitacoes_fechadas, total_solicitacoes_abertas=total_solicitacoes_abertas, data_inicio=data_inicio, data_fim=data_fim)
+                return render_template('rel-especificado.html', total_solicitacoes_fechadas=total_solicitacoes_fechadas, total_solicitacoes_abertas=total_solicitacoes_abertas, data_inicio=data_inicio, data_fim=data_fim, lista_datas_abertas = lista_datas_abertas, lista_quantidade_abertas = lista_quantidade_abertas, lista_quantidade_fechadas=lista_quantidade_fechadas)
     return render_template('rel-especificado.html')
     
 
