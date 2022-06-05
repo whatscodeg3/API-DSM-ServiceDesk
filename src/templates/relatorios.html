@@ -44,6 +44,15 @@
                 </thead>
                 <tbody>
                     <tr>
+                        {% for i in tot %}
+                        <td> {{ i }} </td> <!-- dias --> 
+                        {% endfor %}
+                        {% for i in tot %}
+                        <td> {{ i }} </td> <!-- total de abertos --> 
+                        {% endfor %}
+                        {% for i in tot %}
+                        <td> {{ i }} </td> <!-- total de fechados --> 
+                        {% endfor %} 
                     </tr>
                 </tbody>
             </table>
