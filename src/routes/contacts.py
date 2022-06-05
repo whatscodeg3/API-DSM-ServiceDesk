@@ -486,6 +486,19 @@ def grafico():
     operador_selecionado = request.form['id_do_operador']
     return render_template('rel-avaliacoes.html', ops = operador_selecionado)
 
+@contacts.route('/apagar')
+def apagar():
+    todos = text(
+        'select count(*) from solicitacoes')
+    pessimo = text(
+        'select count(*) from solicitacoes where FK_id_avaliacao in (1)')
+    regular = text(
+        'select count(*) from solicitacoes where FK_id_avaliacao in (2)')
+    geral1 = db.engine.execute(pessimo)
+    geral2 = db.engine.execute(regular)
+    total = db.engine.execute(todos)
+    return render_template('apagar.html', tot=total, ger1=geral1, ger2=geral2)
+
 ##################################### Novo cadastro #######################################
 
 @contacts.route('/cadastro')
