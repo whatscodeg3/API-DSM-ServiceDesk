@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/assets/bootstrap/css/executor-bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/estilo-usuario-historico.css">
-    <title>Histórico</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css">
+    <title>Usuário - Histórico</title>
 </head>
 <body>
     <header>
@@ -83,15 +84,16 @@
                                 {% if lista.fk_id_avaliacao == None %}
                                     <form class="formavaliacao2" action="/avaliar/{{lista.id_solicitacao}}" method="POST">
                                         <strong><label>Como você avalia nosso atendimento?</label></strong>
-                                        <select class="select" name="avaliacao">
-                                            <option selected disabled >Selecione</option>
-                                            <option value="1">Péssimo</option>
-                                            <option value="2">Regular</option>
-                                            <option value="3">Bom</option>
-                                            <option value="4">Ótimo</option>
-                                        </select>
-                                        <input type="submit" class="botao">
+
+                                            <div class="icones_avaliacao">
+                                                <button class="btn_avaliacao" name="avaliacao" value="1"> <img src="../static/img/avaliacao_pessimo.svg" alt="emoji pessimo" class="img_avaliacao" id="filter_branco"> </button>
+                                                <button class="btn_avaliacao" name="avaliacao" value="2"> <img src="../static/img/avaliacao_regular.svg" alt="emoji regular" class="img_avaliacao" id="filter_branco"> </button>
+                                                <button class="btn_avaliacao" name="avaliacao" value="3"> <img src="../static/img/avaliacao_bom.svg" alt="emoji bom" class="img_avaliacao" id="filter_branco"> </button>
+                                                <button class="btn_avaliacao" name="avaliacao" value="4"> <img src="../static/img/avaliacao_otimo.svg" alt="emoji ótimo" class="img_avaliacao" id="filter_branco"> </button>
+                                            </div>
                                     </form>
+
+
                                 {% else %}
                                     <form class="formavaliacao2" action="/avaliar/{{lista.id_solicitacao}}" method="POST">
                                         <strong><p>Você avaliou como:</p></strong>
@@ -102,7 +104,7 @@
                                         <p>Regular</p>
                                         {% elif lista.fk_id_avaliacao == 3 %}
                                         <p>Bom</p>
-                                        {% elif lista.fk_id_avaliacao == 4 %}
+                                         {% elif lista.fk_id_avaliacao == 4 %}
                                         <p>Ótimo</p>
                                         {% endif %}
                                     </form>
