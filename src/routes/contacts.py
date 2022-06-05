@@ -119,6 +119,7 @@ def demanda():
 @contacts.route('/atualizar/<id>', methods=['POST', 'GET'])
 def atualiza(id):
     consulta = Solicita.query.get(id)
+    consulta_usuario = Usuarios.query.get(consulta.fk_id_usuario_comum)
     upload_path = current_app.config['UPLOAD_PATH']
     termo = f'{id}'
     for raiz, diretorio, arquivos in os.walk(upload_path):
@@ -131,7 +132,7 @@ def atualiza(id):
         consulta.resposta_solicitacao = request.form['resposta']
         db.session.commit()
         return redirect('/demanda')
-    return render_template('resposta-executor.html', solicita=consulta, arquivo_no_html=file, user=session['user'])
+    return render_template('resposta-executor.html', quem_abriu=consulta_usuario, solicita=consulta, arquivo_no_html=file, user=session['user'])
 
 @contacts.route('/demanda/<id>')
 def modal_id(id):

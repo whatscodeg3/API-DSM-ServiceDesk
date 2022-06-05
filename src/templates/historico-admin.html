@@ -82,6 +82,15 @@
                                     </p>
                                 </summary>
                                 <div class=chamados-itens-conteudo-aberto>
+                                    <h4>Solicitante</h4>
+                                    <p>
+                                        {% for usuario in usuarios %}
+                                            {% if usuario.id_usuario == lista.fk_id_usuario_comum %}
+                                                {{ usuario.nome_usuario}}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                    <br>  
                                     <h4>Descrição da Solicitação</h4>
                                     <p>
                                         {{ lista.descricao_solicitacao}}
@@ -116,6 +125,15 @@
                                     </p>
                                 </summary>
                                 <div class=chamados-itens-conteudo-fechado>
+                                    <h4>Solicitante</h4>
+                                    <p>
+                                        {% for usuario in usuarios %}
+                                            {% if usuario.id_usuario == consulta.fk_id_usuario_comum %}
+                                                {{ usuario.nome_usuario}}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                    <br>  
                                     <h4>Descrição da Solicitação</h4>
                                     <p>
                                         {{ consulta.descricao_solicitacao}}
@@ -155,6 +173,15 @@
                                     </p>
                                 </summary>
                                 <div class=chamados-itens-conteudo-aberto>
+                                    <h4>Solicitante</h4>
+                                    <p>
+                                        {% for usuario in usuarios %}
+                                            {% if usuario.id_usuario == chamado.fk_id_usuario_comum %}
+                                                {{ usuario.nome_usuario}}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                    <br>
                                     <h4>Descrição da Solicitação</h4>
                                     <p>
                                         {{ chamado.descricao_solicitacao}}
@@ -181,6 +208,15 @@
                                     </p>
                                 </summary>
                                 <div class=chamados-itens-conteudo-fechado>
+                                    <h4>Solicitante</h4>
+                                    <p>
+                                        {% for usuario in usuarios %}
+                                            {% if usuario.id_usuario == chamado.fk_id_usuario_comum %}
+                                                {{ usuario.nome_usuario}}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
+                                    <br>                                    
                                     <h4>Descrição da Solicitação</h4>
                                     <p>
                                         {{ chamado.descricao_solicitacao}}
