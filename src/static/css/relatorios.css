@@ -32,9 +32,28 @@ header{
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 9%;
+    height: 70px;
     background-color: #AE1414;
     padding: 0.3% 1.5%;
+}
+
+#header-nome-usuario {
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 35px;
+    margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+    #header-nome-usuario {
+        font-size: 4vw;
+    }
+    header{
+        height: 50px;
+    }
 }
 
 main{
@@ -74,6 +93,70 @@ main{
 }
 
 
+<<<<<<< HEAD
+=======
+.sidenav {
+    height: 100%;
+    width:0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    transition: 0.1s;
+}
+
+.sidenav a:hover {
+    color: #666666;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-width: 600px) {                
+    .sidenav .closebtn {
+        font-size: 8vw;
+    }
+}
+
+.icon_nav_style{
+    font-size: 35px;
+    cursor: pointer;
+    color: #fff;
+    padding-bottom: 0.4%;
+}
+@media screen and (max-width: 600px) {                
+    .icon_nav_style{
+        font-size: 6vw;
+    }
+}
+
+#hr_black{
+    color: black;
+}
+
+
+/* FIM DA NAVBAR*/
+>>>>>>> 35d1908dbad0026b414dfd6ae561c7eecc26a21d
 
 .relatorio_primeiro{
     margin: 2%;
@@ -88,6 +171,7 @@ main{
     color: #fff;
 }
 
+<<<<<<< HEAD
 .titulo {
     color: #fff;
     font-size: 100%;
@@ -106,6 +190,30 @@ main{
     }    
   } 
 
+=======
+footer {
+    margin-top: auto;
+    font-family: 'Monda';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 29px;
+    color: rgba(255, 255, 255, 0.58);
+    opacity: 0.2;
+}
+
+#footer-texto{
+    margin-bottom: 0px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    footer {
+        font-size: 3vw;
+    }
+}
+>>>>>>> 35d1908dbad0026b414dfd6ae561c7eecc26a21d
 
 .subtitulo {
     color: #fff;

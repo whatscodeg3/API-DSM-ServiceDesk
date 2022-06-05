@@ -14,19 +14,20 @@
             <P class="descricao">Solicite um serviço de TI de forma rápida e prática.</P>
         </div>
     </header>
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <div id="notificacao">
+                {% if message == 'ok' %}
+                    <h4 id="msg2">Usuário cadastrado com sucesso!</h4>
+                {% else %}
+                    <h4 id="msg">{{message}}</h4>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% endwith %}
     <main>
         <section>
-            {% with messages = get_flashed_messages() %}
-                {% for message in messages %}
-                    <div id="notificacao">
-                        {% if message == 'ok' %}
-                            <h4 id="msg2">Usuário Cadastrado com sucesso!</h4>
-                        {% else %}
-                            <h4 id="msg">{{message}}</h4>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-            {% endwith %}
+
             <h1 class="login">Login</h1>
             <form action="/autentica" method="POST">
                 <hr>
@@ -35,7 +36,7 @@
                 <hr>
                 <button type="submit">Acessar</button>
             </form>
-            <a href="/cadastro">Crie sua conta</a>
+            <a href="/cadastro">Ainda não tem cadastro? Cadastre-se!</a>
         </section>
     </main>
     <footer>

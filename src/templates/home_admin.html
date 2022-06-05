@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,33 +18,49 @@
 </head>
 
 <body>
-
-    <header>
-        <div>
-            <div id="mySidenav" class="sidenav">
-                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <hr class="hr_black">
-                <a href="/admin">HOME</a>
-                <hr id="hr_black">
-                <details>
-                    <summary>
-                       RELATORIOS
-                    </summary>
-                    <a href="/relatorios/instantaneos">Instantâneo</a>
-                    <a href="/relatorios/especificados">Especificado</a>
-                    <a href="/relatorios/avaliacoes">Avaliações</a>
-                </details>
-                <hr id="hr_black">
-                <a href="">HISTORICO</a>
-                <hr id="hr_black">
-                <a href="/admin/permissoes">PERMISSÕES</a>
-                <hr id="hr_black">
+        <header>
+            <div>
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <hr class="hr_black">
+                    <a href="/admin">HOME</a>
+                    <hr id="hr_black">
+                    <details>
+                        <summary>
+                        RELATÓRIOS
+                        </summary>
+                        <a href="/relatorios/instantaneos">Instantâneo</a>
+                        <a href="/relatorios/especificados">Especificado</a>
+                        <a href="/relatorios/avaliacoes">Avaliações</a>
+                    </details>
+                    <a href="/relatorios">RELATÓRIOS</a>
+                    <hr id="hr_black">
+                    <a href="/admin/historico">HISTÓRICO GERAL</a>
+                    <hr id="hr_black">
+                    <a href="/admin/permissoes">PERMISSÕES</a>
+                    <hr id="hr_black">
+                    <a href="/demanda">MINHAS DEMANDAS</a>
+                    <hr id="hr_black">
+                    <a href="/historico">MEU HISTÓRICO</a>
+                    <hr id="hr_black">
+                    <a href="/nova-solicitacao">NOVA SOLICITAÇÃO</a>
+                    <hr class="hr_black">
+                    <a href="/sair">SAIR</a>
+                    <hr id="hr_black">                    
+                  </div>
             </div>
-        </div>
-
         <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
 
     </header>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div id="notificacao">
+                    <h4 id="msg">{{message}}</h4>
+                </div>
+            {% endfor %}
+        {% endwith %}
+
 
     <main>
         <div class="linha_cinza">
@@ -78,36 +92,33 @@
                         <a class="rel avaliacoes" href="/relatorios/avaliacoes">Avaliações</a>
                     </div>
                 </div>
-
-                <div class="col-sm-3">
-                    <div class="carda">
-                        <a href="">
-                            <div class="a">
-                                <h2 class="acompanhe">Acessar o historico de solicitações</h2>
-                            </div>
-                            <div class="b"><img class="image" src="../static/img/historico_admin.svg" /></div>
+                    <div class="col-sm-3">
+                        <a href="/admin/historico">
+                        <div class="carda">
+                                <div class="a"><h2 class="acompanhe"> Histórico de solicitações</h2></div>
+                                <div class="b"><img class="image" src="../static/img/historico_admin.svg"/></div>
+                            
+                        </div>
                         </a>
                     </div>
-                </div>
 
-                <div class="col-sm-3">
-                    <div class="carda">
+                    <div class="col-sm-3">
                         <a href="/admin/permissoes">
-                            <div class="a">
-                                <h2 class="solicite">Permissões</h2>
-                            </div>
-                            <div class="b"><img class="image" src="../static/img/pessoa_admin.svg" /></div>
+                        <div class="carda">
+                            
+                                <div class="a"><h2 class="solicite">Permissões</h2></div>
+                                <div class="b"><img class="image" src="../static/img/pessoa_admin.svg"/></div>
+                            
+                        </div>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
-    <footer class="footer">
-        <hr class="linha-footer">
-        <p class="footer-titulo">DESENVOLVIDO POR WHATSCODE</p>
-    </footer>
+        <footer class="footer">
+            <p class="footer-titulo">DESENVOLVIDO POR WHATSCODE</p>
+        </footer>
 
 </body>
 
