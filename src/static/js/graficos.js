@@ -49,19 +49,19 @@ function graficoAvaliacoes(id, dado) {
   });
 }
 
-function graficoDinamico(solicitacoes_fechadas, solicitacoes_abertas, data_inicial, data_final, lista_datas_abertas, lista_quantidade_abertas, lista_quantidade_fechadas) {
+function graficoDinamico(lista_datas_abertas, lista_quantidade_abertas, lista_quantidade_fechadas, lista_data_fechadas) {
   // console.log(solicitacoes_fechadas, solicitacoes_abertas);
   // const total_dias = diasTotais(data_inicial, data_final);
   // console.log(total_dias);
   // const total_dias_array = Object.keys(new Array(total_dias + 1).fill(null).map(Number));
   // console.log(total_dias_array.slice(1));
-  const lista_dataJS_aberta = JSON.parse(lista_datas_abertas);
-  console.log(lista_dataJS_aberta);
-  console.log(typeof(lista_dataJS_aberta));
-  const dateChartJS_aberta = lista_dataJS_aberta.map((day, index) => {
-    let dayjs = new Date(day);
-    return dayjs.setHours(0,0,0,0);
-  });
+  //const lista_dataJS_aberta = JSON.parse();
+  //console.log(lista_dataJS_aberta);
+  //console.log(typeof (lista_dataJS_aberta));
+  //const dateChartJS_aberta = lista_dataJS_aberta.map((day, index) => {
+  //let dayjs = new Date(day);
+  //return dayjs.setHours(0, 0, 0, 0);
+  //});
 
   // const lista_dataJS_fechada = JSON.parse(lista_datas_fechadas);
   // console.log(lista_dataJS_aberta);
@@ -74,11 +74,11 @@ function graficoDinamico(solicitacoes_fechadas, solicitacoes_abertas, data_inici
   const myChart1 = new Chart(ctx1, {
     type: 'bar',
     data: {
-      labels: dateChartJS_aberta,
+      labels: lista_datas_abertas,
       datasets: [
         {
           label: 'Abertos',
-          data: JSON.parse(lista_quantidade_abertas),
+          data: lista_quantidade_abertas,
           backgroundColor: ['#FF4343'],
           borderColor: ['#292A2F'],
           borderWidth: 7,
@@ -86,7 +86,7 @@ function graficoDinamico(solicitacoes_fechadas, solicitacoes_abertas, data_inici
         },
         {
           label: 'Fechados',
-          data: JSON.parse(lista_quantidade_fechadas),
+          data: lista_quantidade_fechadas,
           backgroundColor: ['#6CEC90'],
           borderColor: ['#292A2F'],
           borderWidth: 7,
@@ -107,7 +107,7 @@ function graficoDinamico(solicitacoes_fechadas, solicitacoes_abertas, data_inici
           max: 50
         },
       }
-      }
+    }
   });
 };
 

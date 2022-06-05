@@ -8,10 +8,13 @@ from sqlalchemy import text, engine
 from utils.db import db
 from utils.verifica import distribui, verifica
 import json
+import datetime
 
 contacts = Blueprint('contacts', __name__)
     
-
+def daterange(start_date, end_date):
+    for n in range(int((end_date - start_date).days)):
+        yield start_date + datetime.timedelta(n)
 
 @contacts.before_request
 def before_request():
@@ -183,38 +186,64 @@ def teste():
     if g.user != None:
          if g.user[0] == 3:
             if request.method == 'POST':
-                data_inicio = request.form['data_inicio']
-                data_fim = request.form['data_fim']
+                data_inicio_string = request.form['data_inicio']
+                data_fim_string = request.form['data_fim']
+                data_inicio = datetime.datetime.strptime(data_inicio_string, '%Y-%m-%d').date()
+                data_fim = datetime.datetime.strptime(data_fim_string, '%Y-%m-%d').date() + datetime.timedelta(days=1)
+                if data_inicio > data_fim:
+                    flash('Data inicial não pode ser maior que a data final')
+                    return redirect('/relatorios/especificados')
+                
                 print(data_inicio, data_fim)
                 # usar COUNT(*)
                 query_solicitacoes_abertas = text(
-                        'SELECT DATE(data_abertura), COUNT(*) FROM solicitacoes WHERE data_abertura between DATE(:data_inicio) and DATE(:data_fim) and resposta_solicitacao is null group by DATE(data_abertura)')
+                        'SELECT DATE(data_abertura) as data_abertura, COUNT(*) as quantidade_solicitacoes FROM solicitacoes WHERE data_abertura between DATE(:data_inicio) and DATE(:data_fim) and resposta_solicitacao is null group by DATE(data_abertura)')
                 query_solicitacoes_fechadas = text(
-                        'SELECT data_abertura, COUNT(*) FROM solicitacoes WHERE resposta_solicitacao is not null and data_abertura between :data_inicio and :data_fim group by DATE(data_abertura)')
+                        'SELECT DATE(data_abertura) as data_abertura, COUNT(*) as quantidade_solicitacoes FROM solicitacoes WHERE data_abertura between DATE(:data_inicio) and DATE(:data_fim) and resposta_solicitacao is not null group by DATE(data_abertura)')
                 resultado_solicitacoes_abertas = db.engine.execute(query_solicitacoes_abertas, data_fim=data_fim, data_inicio=data_inicio)
-                print(resultado_solicitacoes_abertas)
-                lista_datas_abertas = []
-                lista_quantidade_abertas = []
+                print( resultado_solicitacoes_abertas)
+                data_solicitacoes_abertas = []
+                quantidade_solicitacoes_abertas = []
+                #start_date = data_inicio
+                #end_date = data_fim
+                #for single_date in daterange(start_date, end_date):       
                 for solicitacoes in resultado_solicitacoes_abertas:
-                    lista_datas_abertas.append(solicitacoes[0])
-                    lista_quantidade_abertas.append(solicitacoes[1])
-                print(lista_datas_abertas)
-                print(lista_quantidade_abertas)
-                total_solicitacoes_abertas = solicitacoes[0]
-                resultado_solicitacoes_fechadas = db.engine.execute(query_solicitacoes_fechadas, data_fim=data_fim, data_inicio=data_inicio)
-                lista_datas_fechadas = []
-                lista_quantidade_fechadas = []
-                for solicitacoes_fechadas in resultado_solicitacoes_fechadas:
-                    #lista_datas_abertas.append(solicitacoes[0])
-                    lista_quantidade_fechadas.append(solicitacoes[1])
-                print(lista_datas_fechadas)
-                print(lista_quantidade_fechadas)
-                total_solicitacoes_fechadas = solicitacoes_fechadas[0]
-                print(total_solicitacoes_fechadas, total_solicitacoes_abertas)
-                session['total_solicitacoes_fechadas'] = total_solicitacoes_fechadas
-                session['total_solicitacoes_abertas'] = total_solicitacoes_abertas
+                    data_solicitacoes_abertas.append(solicitacoes['data_abertura'])
+                    quantidade_solicitacoes_abertas.append(solicitacoes['quantidade_solicitacoes'])
+                    
+                #for single_date in daterange(start_date, end_date):
+                    #if single_date in data_solicitacoes_abertas:
+                        #pass    
+                    #else:
+                        #data_solicitacoes_abertas.append(single_date)
+                        #quantidade_solicitacoes_abertas.append(0)
+            
                 
-                return render_template('rel-especificado.html', total_solicitacoes_fechadas=total_solicitacoes_fechadas, total_solicitacoes_abertas=total_solicitacoes_abertas, data_inicio=data_inicio, data_fim=data_fim, lista_datas_abertas = lista_datas_abertas, lista_quantidade_abertas = lista_quantidade_abertas, lista_quantidade_fechadas=lista_quantidade_fechadas)
+                print(quantidade_solicitacoes_abertas)
+                print( data_solicitacoes_abertas)
+                resultado_solicitacoes_fechadas = db.engine.execute(query_solicitacoes_fechadas, data_fim=data_fim, data_inicio=data_inicio)
+                data_solicitacoes_fechadas = []
+                quantidade_solicitacoes_fechadas = []
+                for solicitacoes_fechadas in resultado_solicitacoes_fechadas:
+                    data_solicitacoes_fechadas.append(solicitacoes_fechadas['data_abertura'])
+                    quantidade_solicitacoes_fechadas.append(solicitacoes_fechadas['quantidade_solicitacoes'])
+                #for single_date in daterange(start_date, end_date):
+                    #if single_date in data_solicitacoes_fechadas:
+                        #pass    
+                    #else:
+                        #data_solicitacoes_fechadas.append(single_date)
+                        #quantidade_solicitacoes_fechadas.append(0)
+                print(data_solicitacoes_fechadas)
+                print(quantidade_solicitacoes_fechadas)
+                # Função para completar os dias com 0
+                #start_date = data_inicio
+                #end_date = data_fim
+                #for single_date in daterange(start_date, end_date):
+                #    print(single_date)
+                #total_solicitacoes_fechadas = lista_datas_fechadas
+                #print(total_solicitacoes_fechadas, total_solicitacoes_abertas)
+                
+                return render_template('rel-especificado.html', data_inicio=data_inicio, data_fim=data_fim, data_solicitacoes_abertas = data_solicitacoes_abertas, quantidade_solicitacoes_abertas=quantidade_solicitacoes_abertas, quantidade_solicitacoes_fechadas=quantidade_solicitacoes_fechadas, data_solicitacoes_fechadas=data_solicitacoes_fechadas)
     return render_template('rel-especificado.html')
     
 

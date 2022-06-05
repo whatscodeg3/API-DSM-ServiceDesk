@@ -49,27 +49,27 @@
    </div>
 
    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+   <script
+      src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 
    <script>
-      const dado_solicitacoes_fechadas = '{{ total_solicitacoes_fechadas }}';
-      const dado_solicitacoes_abertas = '{{ total_solicitacoes_abertas }}'
       const data_inicio = '{{ data_inicio }}';
       const data_fim = '{{ data_fim }}';
-      const lista_datas_abertas = '{{lista_datas_abertas|tojson}}';
-      const lista_quantidade_abertas = '{{lista_quantidade_abertas}}';
-      const lista_quantidade_fechadas = '{{lista_quantidade_fechadas}}';
-      function StartFilterData(date){
+      const lista_datas_abertas = '{{data_solicitacoes_abertas }}';
+      const lista_quantidade_abertas = '{{quantidade_solicitacoes_abertas}}';
+      const lista_quantidade_fechadas = '{{quantidade_solicitacoes_fechadas}}';
+      const lista_datas_fechadas = '{{data_solicitacoes_fechadas}}';
+      function StartFilterData(date) {
          const startdate = new Date(date.value)
          myChart1.config.options.scales.x.min = startdate.setHours(0, 0, 0, 0)
          myChart1.update()
       }
-      function EndFilterData(date){
+      function EndFilterData(date) {
          const endDate = new Date(date.value)
          myChart1.config.options.scales.x.max = endDate.setHours(0, 0, 0, 0)
          myChart1.update()
       }
-      graficoDinamico(dado_solicitacoes_fechadas, dado_solicitacoes_abertas, data_inicio, data_fim, lista_datas_abertas, lista_quantidade_abertas, lista_quantidade_fechadas);
+      graficoDinamico(data_inicio, data_fim, lista_datas_abertas, lista_quantidade_abertas, lista_quantidade_fechadas, lista_datas_fechadas);
    </script>
 </body>
 
