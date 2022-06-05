@@ -162,7 +162,7 @@ main{
 }
 
 @media screen and (max-width: 865px) {
-    #row{
+    .row{
         flex-direction: column;
         gap:50px;
     }
@@ -271,84 +271,6 @@ footer{
     }
 }
 
-<<<<<<< HEAD
-=======
-/*NAV BAR */
-
-.sidenav {
-    height: 100%;
-    width:0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 300;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 20px;
-    color: black;
-    display: block;
-    transition: 0.1s;
-}
-
- @media screen and (max-width: 600px) {                
- 
-    .col-sm-3{
-        padding-bottom: 3%;
-    }
-    .sidenav a {
-        font-size: 16px;
-    }
-}
-
-.sidenav a:hover {
-    color: #666666;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size:36px;
-    margin-left: 50px;
-}
-
-@media screen and (max-width: 600px) {                
-    .sidenav .closebtn {
-        font-size: 25px;
-    }
-}
-
-.icon_nav_style{
-    font-size: 35px;
-    cursor: pointer;
-    color: #fff;
-    padding-bottom: 0.4%;
-}
-@media screen and (max-width: 600px) {                
-    .icon_nav_style{
-        font-size: 25px;
-    }
-}
-
-#hr_black{
-    color: black;
-}
-
-
-/* FIM DA NAVBAR*/
-
-
->>>>>>> 35d1908dbad0026b414dfd6ae561c7eecc26a21d
 
     .solicite{
         margin-bottom: 5%;

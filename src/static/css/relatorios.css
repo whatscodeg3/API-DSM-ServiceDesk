@@ -92,9 +92,6 @@ main{
     padding-bottom: 0.5%;
 }
 
-
-<<<<<<< HEAD
-=======
 .sidenav {
     height: 100%;
     width:0;
@@ -156,7 +153,6 @@ main{
 
 
 /* FIM DA NAVBAR*/
->>>>>>> 35d1908dbad0026b414dfd6ae561c7eecc26a21d
 
 .relatorio_primeiro{
     margin: 2%;
@@ -171,7 +167,6 @@ main{
     color: #fff;
 }
 
-<<<<<<< HEAD
 .titulo {
     color: #fff;
     font-size: 100%;
@@ -190,30 +185,6 @@ main{
     }    
   } 
 
-=======
-footer {
-    margin-top: auto;
-    font-family: 'Monda';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 29px;
-    color: rgba(255, 255, 255, 0.58);
-    opacity: 0.2;
-}
-
-#footer-texto{
-    margin-bottom: 0px;
-}
-
-
-
-@media only screen and (max-width: 600px) {
-    footer {
-        font-size: 3vw;
-    }
-}
->>>>>>> 35d1908dbad0026b414dfd6ae561c7eecc26a21d
 
 .subtitulo {
     color: #fff;
