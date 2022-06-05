@@ -10,7 +10,7 @@
 
 }
 
-body{
+.fundo{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -23,6 +23,7 @@ html{
     min-height: 100%;
     height: 100%;
     width: 100%;
+    background-color: #292A2F;
 }
 
 header{
@@ -31,14 +32,45 @@ header{
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 9%;
+    height: 70px;
     background-color: #AE1414;
     padding: 0.3% 1.5%;
+}
+
+#header-nome-usuario {
+    color: #FFFFFF;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 35px;
+    margin-bottom: 0px;
+}
+
+@media only screen and (max-width: 600px) {
+    #header-nome-usuario {
+        font-size: 4vw;
+    }
+    header{
+        height: 50px;
+    }
 }
 
 main{
     width: 100%;
     height: 100%;
+}
+
+.grafico-bar {
+    width: 70%;
+    height: 70%;
+    margin: 3%;
+}
+
+.grafico-pie {
+    width: 40%;
+    height: 40%;
+    margin: 3%;
 }
 
 .footer {
@@ -59,8 +91,6 @@ main{
     padding-top: 0.5%;
     padding-bottom: 0.5%;
 }
-
-/*NAV BAR */
 
 .sidenav {
     height: 100%;
@@ -85,12 +115,6 @@ main{
     color: black;
     display: block;
     transition: 0.1s;
-}
-
- @media screen and (max-width: 600px) {                
-    .sidenav a {
-        font-size: 4.5vw;
-    }
 }
 
 .sidenav a:hover {
@@ -143,11 +167,131 @@ main{
     color: #fff;
 }
 
+.titulo {
+    color: #fff;
+    font-size: 100%;
+}
+
+.titulo-geral {
+    color: #fff;
+    font-size: 120%;
+    padding-top: 5%;
+}
+
+@media screen and (max-width: 380px) {                
+    .titulo-geral {
+        font-size: 15px;
+        text-align: center;
+    }    
+  } 
 
 
+.subtitulo {
+    color: #fff;
+    font-size: 100%;
+    margin: 0%;
+}
+
+@media screen and (max-width: 440px) {                
+    .titulo-avaliacao-geral {
+        font-size: 15px;
+        text-align: center;
+    }
+  }
+
+.div-filtro {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    align-items: center;
+    gap: 1%;
+    width: 100%;
+    height: 100%;
+}
+
+@media screen and (max-width: 440px) {                
+    .div-filtro {
+        flex-direction: column;
+    }    
+  } 
+
+.filtro-operadores {
+    width: 60%;
+    height: 1%;
+    background-color: #292A2F;
+    color: #fff;
+    border: #fff solid 1px;
+    border-radius: 6px;
+}
+
+.filtro-por-data {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 3%;
+}
+
+.botao {
+    color: #fff;
+    background-color: #292A2F;
+    border: #fff solid 1px;
+    border-radius: 6px;
+    width: 90%;
+}
+
+.botao2 {
+    color: #fff;
+    background-color: #292A2F;
+    border: #fff solid 1px;
+    border-radius: 6px;
+    width: 40%;
+}
+
+.botao:hover {
+    color: rgba(255, 255, 255, 0.623);
+    border: rgba(255, 255, 255, 0.623) solid 1px;
+}
 
 
+.form-filtro-operador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5%;
+}
 
 
+.linha-meio {
+    width: 80%;
+    height: 0.4vw;
+    background-color: #fff;
+    border: none;
+}
 
+.div-grafico-geral {
+    padding-top: 5%;
+}
 
+#data_inicio, #data_fim {
+    background-color: #292A2F;
+    color: #fff;
+    border: #fff solid 1px;
+    border-radius: 3px;
+    text-align: center;
+    width: 100%;
+}
+
+.form-filtro {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 3%;
+    width: 50%;
+    height: 100%;
+    padding-top: 2%;
+}
