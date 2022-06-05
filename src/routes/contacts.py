@@ -214,67 +214,129 @@ def attperm(id):
     return redirect(url_for('contacts.index'))
 
     # return render_template('adm_permissoes.html', consulta=consultar)
-
-
 @contacts.route('/relatorios/instantaneos', methods=['POST', 'GET'])
 def relInstantaneo():
     if g.user != None:
         if g.user[0] == 3:
-            ############### DIA ATUAL ######################
-            sql1 = text(
-                'select count(*) from solicitacoes where resposta_solicitacao is null and Date(data_abertura) = curdate()')
-            sql2 = text(
-                'select count(*) from solicitacoes where resposta_solicitacao is not null and Date(data_abertura) = curdate()')
-            results1 = db.engine.execute(sql1)
-            print(results1)
-            for i in results1:
-                pass
-            res1 = i[0]
-            results2 = db.engine.execute(sql2)
-            for j in results2:
-                pass
-            res2 = j[0]
-            ############### 7 DIAS ATRÁS ######################
-            sql3 = text(
-                'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
-            sql4 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
-            results3 = db.engine.execute(sql3)
-            for t in results3:
-                pass
-            res3 = t[0]
-            results4 = db.engine.execute(sql4)
-            for k in results4:
-                pass
-            res4 = k[0]
-            ############### 15 DIAS ATRÁS ######################
-            sql5 = text(
-                'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
-            sql6 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
-            results5 = db.engine.execute(sql5)
-            for m in results5:
-                pass
-            res5 = m[0]
-            results6 = db.engine.execute(sql6)
-            for n in results6:
-                pass
-            res6 = n[0]
-            ############### 30 DIAS ATRÁS ######################
-            sql7 = text(
-                'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
-            sql8 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
-            results7 = db.engine.execute(sql7)
-            for l in results7:
-                pass
-            res7 = l[0]
-            results8 = db.engine.execute(sql8)
-            for p in results8:
-                pass
-            res8 = p[0]
-            operador = Usuarios.query.filter_by(id_categoria_usuario=2)
-            return render_template('rel-instantaneos.html', data="teste", res1=res1, res2=res2, res3=res3, res4=res4, res5=res5, res6=res6, res7=res7, res8=res8, operadores=operador )
+            data=''
+            if request.method == 'POST':
+                data = request.form['data']
+                ############### DIA ATUAL ######################
+                sql1 = text(
+                    'select count(*) from solicitacoes where resposta_solicitacao is null and Date(data_abertura) = DATE(:data)')
+                sql2 = text(
+                    'select count(*) from solicitacoes where resposta_solicitacao is not null and Date(data_abertura) = DATE(:data)')
+                results1 = db.engine.execute(sql1, data=data)
+                print(results1)
+                for i in results1:
+                    pass
+                res1 = i[0]
+                results2 = db.engine.execute(sql2, data=data)
+                for j in results2:
+                    pass
+                res2 = j[0]
+                ############### 7 DIAS ATRÁS ######################
+                sql3 = text(
+                    'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(DATE(:data), interval 7 day) and DATE(:data) ')
+                sql4 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(DATE(:data), interval 7 day) and DATE(:data) ')
+                results3 = db.engine.execute(sql3, data=data)
+                for t in results3:
+                    pass
+                res3 = t[0]
+                results4 = db.engine.execute(sql4, data=data)
+                for k in results4:
+                    pass
+                res4 = k[0]
+                ############### 15 DIAS ATRÁS ######################
+                sql5 = text(
+                    'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(DATE(:data), interval 15 day) and DATE(:data) ')
+                sql6 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(DATE(:data), interval 15 day) and DATE(:data) ')
+                results5 = db.engine.execute(sql5, data=data)
+                for m in results5:
+                    pass
+                res5 = m[0]
+                results6 = db.engine.execute(sql6, data=data)
+                for n in results6:
+                    pass
+                res6 = n[0]
+                ############### 30 DIAS ATRÁS ######################
+                sql7 = text(
+                    'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(DATE(:data), interval 1 month) and DATE(:data) ')
+                sql8 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(DATE(:data), interval 1 month) and DATE(:data)')
+                results7 = db.engine.execute(sql7, data=data)
+                for l in results7:
+                    pass
+                res7 = l[0]
+                results8 = db.engine.execute(sql8, data=data)
+                for p in results8:
+                    pass
+                res8 = p[0]
+                operador = Usuarios.query.filter_by(id_categoria_usuario=2)
+                return render_template('rel-instantaneos.html', data=data, res1=res1, res2=res2, res3=res3, res4=res4, res5=res5, res6=res6, res7=res7, res8=res8, operadores=operador )
+            return render_template('rel-instantaneos.html', data=data)
     session.pop('user', None)
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
+
+# @contacts.route('/relatorios/instantaneos', methods=['POST', 'GET'])
+# def relInstantaneo():
+#     if g.user != None:
+#         if g.user[0] == 3:
+#             ############### DIA ATUAL ######################
+#             sql1 = text(
+#                 'select count(*) from solicitacoes where resposta_solicitacao is null and Date(data_abertura) = curdate()')
+#             sql2 = text(
+#                 'select count(*) from solicitacoes where resposta_solicitacao is not null and Date(data_abertura) = curdate()')
+#             results1 = db.engine.execute(sql1)
+#             print(results1)
+#             for i in results1:
+#                 pass
+#             res1 = i[0]
+#             results2 = db.engine.execute(sql2)
+#             for j in results2:
+#                 pass
+#             res2 = j[0]
+#             ############### 7 DIAS ATRÁS ######################
+#             sql3 = text(
+#                 'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
+#             sql4 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 7 day) and curdate() ')
+#             results3 = db.engine.execute(sql3)
+#             for t in results3:
+#                 pass
+#             res3 = t[0]
+#             results4 = db.engine.execute(sql4)
+#             for k in results4:
+#                 pass
+#             res4 = k[0]
+#             ############### 15 DIAS ATRÁS ######################
+#             sql5 = text(
+#                 'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
+#             sql6 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 15 day) and curdate() ')
+#             results5 = db.engine.execute(sql5)
+#             for m in results5:
+#                 pass
+#             res5 = m[0]
+#             results6 = db.engine.execute(sql6)
+#             for n in results6:
+#                 pass
+#             res6 = n[0]
+#             ############### 30 DIAS ATRÁS ######################
+#             sql7 = text(
+#                 'select count(*) from solicitacoes where resposta_solicitacao is null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
+#             sql8 = text('select count(*) from solicitacoes where resposta_solicitacao is not null and data_abertura between date_sub(curdate(), interval 1 month) and curdate() ')
+#             results7 = db.engine.execute(sql7)
+#             for l in results7:
+#                 pass
+#             res7 = l[0]
+#             results8 = db.engine.execute(sql8)
+#             for p in results8:
+#                 pass
+#             res8 = p[0]
+#             operador = Usuarios.query.filter_by(id_categoria_usuario=2)
+#             return render_template('rel-instantaneos.html', data="teste", res1=res1, res2=res2, res3=res3, res4=res4, res5=res5, res6=res6, res7=res7, res8=res8, operadores=operador )
+#     session.pop('user', None)
+#     session.pop('id_usuario', None)
+#     return redirect(url_for('contacts.index'))
 
 
 @contacts.route('/relatorios/especificados', methods=['POST', 'GET'])

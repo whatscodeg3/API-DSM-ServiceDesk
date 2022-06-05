@@ -52,8 +52,17 @@
   </header>
 
 
+  <h1 class="titulo">Relatório dos Chamados Abertos e Fechados com períodos fixos:</h1>
+  <br>
+  <form action="/relatorios/instantaneos" method="POST">
+     <p style="color:white">Escolha o dia que você quer consultar: </p>
+     <input type="date" name="data" id="data">
+     <button type="submit" name="botaoFiltroDinamico">Filtrar</button>
+  </form>
+  <br>
+
    <!-- -------------grafico por dia------------- -->
-   <h1 class="titulo-geral">Relatório dos Chamados Abertos e Fechados por dia</h1>
+   <h1 class="titulo">Relatório dos Chamados Abertos e Fechados no dia {{data}}</h1>
 
    <div class="grafico-pie">
       <canvas id="grafico-inst-dia"></canvas>
@@ -66,7 +75,7 @@
 
 
    <!-- -------------grafico por semana------------- -->
-   <h1 class="titulo">Relatório dos Chamados Abertos e Fechados por semana</h1>
+   <h1 class="titulo">Relatório dos Chamados Abertos e Fechados 7 dias para trás do dia {{data}}</h1>
 
    <div class="grafico-pie">
       <canvas id="grafico-inst-semana"></canvas>
@@ -78,7 +87,7 @@
 
 
    <!-- -------------grafico por quinzena------------- -->
-   <h1 class="titulo">Relatório dos Chamados Abertos e Fechados por quinzena</h1>
+   <h1 class="titulo">Relatório dos Chamados Abertos e Fechados 15 dias para trás do dia {{data}}</h1>
 
    <div class="grafico-pie">
       <canvas id="grafico-inst-quinze"></canvas>
@@ -90,7 +99,7 @@
 
 
    <!-- -------------grafico por mês------------- -->
-   <h1 class="titulo">Relatório dos Chamados Abertos e Fechados por mês</h1>
+   <h1 class="titulo">Relatório dos Chamados Abertos e Fechados 1 mês para trás do dia {{data}}</h1>
 
    <div class="grafico-pie">
       <canvas id="grafico-inst-mes"></canvas>
