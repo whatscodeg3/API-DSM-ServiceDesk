@@ -515,6 +515,7 @@ def cadastrando():
         db.session.add(usuario)
         db.session.commit()
         flash('ok')
+    return redirect('/')
 
 ##################################### Sair #######################################
 
