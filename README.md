@@ -11,7 +11,6 @@
   <a href ="#configuracoes"> Executando a aplicação </a>  | 
   <a href ="#planejamento"> Planejamento </a>  |
   <a href ="#mvp"> MVP </a>  |
-  <a href="#produto-final"> Produto Final</a> |
   <a href ="#equipe"> Equipe </a>
 </p>
 
@@ -247,10 +246,6 @@ Nosso MVP ficou da seguinte forma:
 
 Nós também realizamos um vídeo onde explicamos brevemente seu funcionamento e como conseguimos desenvolve-lo, segue o link: 
 <a href="https://youtu.be/B5IebZFQw_Q">Link para acessar o vídeo</a>
-
-
-# Produto Final <a id="produto-final"></a>
-Após todo este processo, nossa equipe consegue com muito orgulho entregar um produto fiel aos requisitos passados pelo nosso cliente. Segue abaixo uma breve demosntração de como ficou o seu resultado final:
 
 
 
