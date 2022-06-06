@@ -16,7 +16,7 @@
    <title>Relatórios - especificados</title>
 </head>
 
-<body>
+<body class="fundo">
    <header>
       <h1 id="header-nome-usuario"></h1>
       <div id="mySidenav" class="sidenav">
@@ -34,14 +34,16 @@
       <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
    </header>
 
-
-   <h1 class="titulo">Relatório dos Chamados Abertos e Fechados da Semana</h1>
-   <form action="/relatorios/especificados" method="POST">
+   
+   <h1 class="titulo-geral">Relatório dos Chamados Abertos e Fechados da Semana</h1>
+   <form action="/relatorios/especificados" method="POST" class="form-periodo">
       <p style="color:white">Escolha um período de: </p>
+      <div class="form-data">
       <input onchange="StartFilterData(this)" type="date" name="data_inicio" id="data_inicio">
       <p style="color:white">à</p>
       <input onchange="EndFilterData(this)" type="date" name="data_fim" id="data_fim">
-      <button type="submit" name="botaoFiltroDinamico">Filtrar</button>
+      <button type="submit" name="botaoFiltroDinamico" class="botao-especifico">Filtrar</button>
+      </div>
    </form>
 
    <section class="relatorio_primeiro">
@@ -70,7 +72,7 @@
             <thead>
                <tr>
                   <th>Data</th>
-                  <th>Chamados abertos</th>
+                  <th>Chamados fechados</th>
 
                </tr>
             </thead>
