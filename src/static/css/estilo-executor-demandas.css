@@ -178,6 +178,10 @@ display: flex;
 width: 100%;
 }
 
+#details-filtro{
+    height: 100%;
+}
+
 summary {
 display: flex;
 justify-content: space-between;
