@@ -49,23 +49,39 @@
          <table class="table table-bordered">
             <thead>
                <tr>
-                  <th>Total de solicitações</th>
+                  <th>Data</th>
                   <th>Chamados abertos</th>
-                  <th>Chamados fechados</th>
+
                </tr>
             </thead>
             <tbody>
+               {% for solicitacao in solicitacoes_abertas %}
                <tr>
-                  {% for data in data_solicitacoes_abertas %}
-                  <td> {{ data }} </td> <!-- dias -->
-                  {% endfor %}
-                  {% for qtd_aberta in quantidade_solicitacoes_abertas %}
-                  <td> {{ qtd_aberta }} </td> <!-- total de abertos -->
-                  {% endfor %}
-                  {% for qtd_fechada in quantidade_solicitacoes_fechadas %}
-                  <td> {{ qtd_fechada }} </td> <!-- total de fechados -->
+                  <td> {{ solicitacao[0] }} </td> <!-- dias -->
+                  <td> {{ solicitacao[1]}} </td> <!-- total de abertos -->
                   {% endfor %}
                </tr>
+
+            </tbody>
+         </table>
+      </div>
+      <div class="container">
+         <table class="table table-bordered">
+            <thead>
+               <tr>
+                  <th>Data</th>
+                  <th>Chamados abertos</th>
+
+               </tr>
+            </thead>
+            <tbody>
+               {% for solicitacao in solicitacoes_fechadas %}
+               <tr>
+                  <td> {{ solicitacao[0] }} </td> <!-- dias -->
+                  <td> {{ solicitacao[1]}} </td> <!-- total de abertos -->
+                  {% endfor %}
+               </tr>
+
             </tbody>
          </table>
       </div>

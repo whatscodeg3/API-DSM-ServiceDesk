@@ -77,45 +77,28 @@ def teste():
                 data_inicio= request.form['data_inicio']
                 data_fim= request.form['data_fim']
 
-                #if data_inicio > data_fim:
-                    #flash('Data inicial não pode ser maior que a data final')
-                    #return redirect('/relatorios/especificados')
+                if data_inicio > data_fim:
+                    flash('Data inicial não pode ser maior que a data final')
+                    return redirect('/relatorios/especificados')
                 
                 print(data_inicio, data_fim)
                 # usar COUNT(*)
-                query_solicitacoes_abertas = text(
-                        'SELECT DATE(data_abertura) as data_abertura, COUNT(*) as quantidade_solicitacoes FROM solicitacoes WHERE data_abertura between DATE(:data_inicio) and DATE(:data_fim) and resposta_solicitacao is null group by DATE(data_abertura)')
-                query_solicitacoes_fechadas = text(
-                        'SELECT DATE(data_abertura) as data_abertura, COUNT(*) as quantidade_solicitacoes FROM solicitacoes WHERE data_abertura between DATE(:data_inicio) and DATE(:data_fim) and resposta_solicitacao is not null group by DATE(data_abertura)')
-                resultado_solicitacoes_abertas = db.engine.execute(query_solicitacoes_abertas, data_fim=data_fim, data_inicio=data_inicio)
-                data_solicitacoes_abertas = []
-                quantidade_solicitacoes_abertas = []
-                for solicitacoes in resultado_solicitacoes_abertas:
-                    data_solicitacoes_abertas.append(solicitacoes['data_abertura'])
-                    quantidade_solicitacoes_abertas.append(solicitacoes['quantidade_solicitacoes'])
-                    
-                #for single_date in daterange(start_date, end_date):
-                    #if single_date in data_solicitacoes_abertas:
-                        #pass    
-                    #else:
-                        #data_solicitacoes_abertas.append(single_date)
-                        #quantidade_solicitacoes_abertas.append(0)
-                for data in data_solicitacoes_abertas:
-                    data_solicitacoes_abertas[data] = data_solicitacoes_abertas[data].datetime.strftime('%Y-%m-%d')
-                print(data_solicitacoes_abertas)
-                print(quantidade_solicitacoes_abertas)
-                resultado_solicitacoes_fechadas = db.engine.execute(query_solicitacoes_fechadas, data_fim=data_fim, data_inicio=data_inicio)
-                data_solicitacoes_fechadas = []
-                quantidade_solicitacoes_fechadas = []
-                for solicitacoes_fechadas in resultado_solicitacoes_fechadas:
-                    data_solicitacoes_fechadas.append(solicitacoes_fechadas['data_abertura'])
-                    quantidade_solicitacoes_fechadas.append(solicitacoes_fechadas['quantidade_solicitacoes'])
-
-                print(data_solicitacoes_fechadas)
-                print(quantidade_solicitacoes_fechadas)
-
                 
-                return render_template('rel-especificado.html', data_inicio=data_inicio, data_fim=data_fim, data_solicitacoes_abertas = data_solicitacoes_abertas, quantidade_solicitacoes_abertas=quantidade_solicitacoes_abertas, quantidade_solicitacoes_fechadas=quantidade_solicitacoes_fechadas, data_solicitacoes_fechadas=data_solicitacoes_fechadas)
+                query_solicitacoes_abertas = text(
+                        'SELECT DATE(data_abertura) as data_abertura, COUNT(*) as solicitacoes_abertas FROM solicitacoes WHERE(data_abertura) BETWEEN DATE(:data_inicio) AND  DATE(:data_fim) and resposta_solicitacao is null group by DATE(data_abertura);')
+                query_solicitacoes_fechadas = text(
+                        'SELECT DATE(data_abertura) as data_abertura, COUNT(*) as solicitacoes_abertas FROM solicitacoes WHERE(data_abertura) BETWEEN DATE(:data_inicio) AND  DATE(:data_fim) and resposta_solicitacao is not null group by DATE(data_abertura);')
+                resultado_solicitacoes_abertas = db.engine.execute(query_solicitacoes_abertas, data_fim=data_fim, data_inicio=data_inicio)
+                solicitacoes_abertas = []
+                for solicitacoes in resultado_solicitacoes_abertas:
+                    solicitacoes_abertas.append(solicitacoes)
+                resultado_solicitacoes_fechadas = db.engine.execute(query_solicitacoes_fechadas, data_fim=data_fim, data_inicio=data_inicio)
+                solicitacoes_fechadas = []
+                for solicitacoes in resultado_solicitacoes_fechadas:
+                    solicitacoes_fechadas.append(solicitacoes)
+                
+                
+                return render_template('rel-especificado.html', data_inicio=data_inicio, data_fim=data_fim,  resultado_solicitacoes_abertas = resultado_solicitacoes_abertas, solicitacoes_abertas = solicitacoes_abertas, solicitacoes_fechadas = solicitacoes_fechadas)
     return render_template('rel-especificado.html')
     
 
