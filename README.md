@@ -5,26 +5,34 @@
 
 <hr>
 
+<br>
+
 <p align="center">
   <a href ="#configuracoes"> Executando a aplicação </a>  | 
   <a href ="#planejamento"> Planejamento </a>  |
   <a href ="#mvp"> MVP </a>  |
-  <a href ="#equipe"> Equipe </a> 
+  <a href="#produto-final"> Produto Final</a> |
+  <a href ="#equipe"> Equipe </a>
 </p>
+
+<br>
 
 <h4 align="center">
  <a href="https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/HTML5"><img src = "https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/></a>
  <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS"><img src = "https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/></a>
+ <a href="https://getbootstrap.com/"><img src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"></a>
  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript"><img src = "https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"/></a>
  <a href="https://www.python.org/"><img src ="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/></a>
  <a href="https://flask.palletsprojects.com/"><img src ="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"/></a>
  <a href="https://www.mysql.com/"><img src ="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white"/></a>
  <a href="https://www.sqlalchemy.org/"><img src ="/doc/front-end/badge-sqlalchemy.svg" width="100"></a>
+ <a href="https://www.heroku.com/"><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
+"></a>
 </h4>
 
 <br>
 
-> Status do Projeto: Em andamento 🕓
+> Status do Projeto: Concluído ✅
 
 <br>
 
@@ -33,7 +41,7 @@ Em modo geral, uma Central de Serviços é uma ferramenta que presta assessoria 
 Este projeto será realizado baseado na metodologia ágil SCRUM, que foca no desenvolvimento da proatividade, autonomia e uma melhora da produtividade do time como um todo.
 
 # Executando a aplicação <a id="configuracoes"></a>
-- Primeiramente, clique em `tag` e aparecerá um arquivo *.zip* nominado v1.0.1. Clique para baixá-lo.
+- Primeiramente, clique em `tag` e aparecerá um arquivo *.zip* nominado v3.0.0. Clique para baixá-lo.
 - Para a excução deste sistema há duas formas: instalar um <a href="#instalar-banco">banco de dados local</a> ou utilizar um banco de dados na nuvem. Caso a sua rede seja restrita é recomendada a instalação de um banco local. Caso contrário, pode-se pular as etapas da instalação do banco de dados local e executar os passos de <a href="#rodar-app">Rodar a aplicação</a>.
 
 ## Instalação do banco de dados <a id="instalar-banco"></a>
@@ -139,12 +147,12 @@ CREATE TABLE IF NOT EXISTS solicitacoes(
 
 3. Entre na pasta src e abra o arquivo app.py 
 
-4. Comente a linha 7 desse arquivo (adicionando # no início da linha)
+4. Comente a linha 10 desse arquivo (adicionando # no início da linha)
 ```
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://bcda6317f670c5:56674bf3@us-cdbr-east-05.cleardb.net/heroku_041f3b642f4313b'
 
 ```
-5. Descomente a linha 8 (retirando o # do início da linha) e altere apenas a palavra 'SENHA' para a senha que você usou para entrar na conexão padrão (passo 2).
+5. Descomente a linha 11 (retirando o # do início da linha) e altere apenas a palavra 'SENHA' para a senha que você usou para entrar na conexão padrão (passo 2).
 ```
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:SENHA@localhost/service'
 ```
@@ -155,7 +163,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:SENHA@localhost/service'
 ```
 python --version
 ```
-2. Caso não possua siga os passos de instalação do site oficial do Python: https://www.python.org/
+2. Caso não possua, siga os passos de instalação do site oficial do Python: https://www.python.org/
 3. Caso a resposta seja positiva, pelo terminal de sua preferência, se dirija até a pasta criada pelo arquivo *.zip*. 
 ```
 cd <nome da pasta>
@@ -199,7 +207,7 @@ Como mencionado no início deste documento o desenvolvimento do projeto foi base
 
 - Sprint 1 (25/03 - 14/04): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint1.md)): Concluído ✅
 - Sprint 2 (25/04 - 15/05): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint2.md)): Concluído ✅
-- Sprint 3 (16/05 - 05/06): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint3.md)): Em andamento 🕓
+- Sprint 3 (16/05 - 05/06): ([Link da Pasta](https://github.com/whatscodeg3/API-DSM-ServiceDesk/blob/main/doc/sprints/sprint3.md)): Concluído ✅
 
 
 ## Backlog do produto <a id="backlog"></a>
@@ -213,16 +221,16 @@ Para uma melhor organização, o PO (Product Owner) da equipe maquetizou o backl
 | Modelagem do banco de dados                   | Realizar o modelo conceitual e lógico no BrModelo, e a criação das tabelas no Workbench. Por ser uma modelagem incremental, o foco maior será no necessário para a funcionalidade desta primeira entrega.                                      | Não funcional | Alta       | 1      | ✅ |
 | Banco de dados funcional                      | Através da modelagem do banco de dados feita anteriormente, precisará finalizar a estruração do mesmo.                                                                                                                                         | Não funcional | Alta       | 1      | ✅ |
 | Ligação com o banco de dados                  | Utilizando o SQLAlchemy e Python para realizar a ligação das páginas feitas pela equipe do front-end | Não funcional | Alta | 1 | ✅|
-| Relatório                                     | Uma das funcionalidades do administrador, em que realiza um cálculo percentual em cima das informaçõs das solcitações registradas do sistema.                                                                                                  | Funcional     | Alta       | 3      | 🕓 | 
-| Distribuição da solicitação de serviços       | No momento em que a solicitação é registrada no sistema, esta deverá ser direcionada para algum executor de forma sequencial.                                                                                                                  | Funcional     | Alta       | 2      | 🕓 |
+| Relatório                                     | Uma das funcionalidades do administrador, em que realiza um cálculo percentual em cima das informaçõs das solcitações registradas do sistema.                                                                                                  | Funcional     | Alta       | 3      | ✅ | 
+| Distribuição da solicitação de serviços       | No momento em que a solicitação é registrada no sistema, esta deverá ser direcionada para algum executor de forma sequencial.                                                                                                                  | Funcional     | Alta       | 2      | ✅ |
 | Navegabilidade com Flask                      | Utilizar do mini framework Flask para realizar a navegabilidade entre as páginas do sistema.                                                                                                                                                   | Não funcional | Média      | 1      | ✅ |
 | Vídeo do MVP                                  | Finalizando o desenvolvimento do MVP, algum menbro da equipe deverá gravar seu funcionamento e explicar tecnicamente os aspectos.                                                                                                              | Funcional     | Média      | 1      | ✅ |
 | Documentação no github                        | Escrever descritivamente os passos realizados em cada entrega, realiza-lo de modo incremental a cada entrega.                                                                                                                                  | Não funcional | Média      | 1      | ✅ | 
-| Usuário comum                                 | Determinar que este tipo de pessoa só poderá realizar solicaitações de serviços, verificar o seu histórico de envio e também avaliar a resposta do executor.                                                                                   | Funcional     | Média      | 2      | 🕓 | 
-| Executor                                      | Na sua interface aparecerá apenas as solicitações encaminhadas para ele, e um filtro em que mostre os status de cada solicitação.                                                                                                              | Funcional     | Média      | 2      | 🕓 | 
-| Administrador                                 | Será responsável por todo o sistema, então terá permissão de visualizar os históricos de solicitações (importante deixar filtro por executor), gerar relatórios e terá a permissão de tornar um usuário comum em executor ou vice versa.       | Funcional     | Média      | 2      | 🕓 | 
-| Cadastro e login de usuários                  | Utilizando HTML, CSS e Python (ou JavaScript) será feito uma página para obter os dados do usuário e registra-lo no banco do sistema, no qual será determinante para definir as tarefas que poderão realizar na plataforma.                    | Funcional     | Baixa      | 2      | 🕓 | 
-| Revisão e implementação do sistema            | Analisando as sugestões e orientações passadas nas entregas, revisar e/ou alterar pontos necessários do sistema.                                                                                                                               | Não funcional | Baixa      | 3      | 🕓 | 
+| Usuário comum                                 | Determinar que este tipo de pessoa só poderá realizar solicaitações de serviços, verificar o seu histórico de envio e também avaliar a resposta do executor.                                                                                   | Funcional     | Média      | 2      | ✅ | 
+| Executor                                      | Na sua interface aparecerá apenas as solicitações encaminhadas para ele, e um filtro em que mostre os status de cada solicitação.                                                                                                              | Funcional     | Média      | 2      | ✅ | 
+| Administrador                                 | Será responsável por todo o sistema, então terá permissão de visualizar os históricos de solicitações (importante deixar filtro por executor), gerar relatórios e terá a permissão de tornar um usuário comum em executor ou vice versa.       | Funcional     | Média      | 2      | ✅ | 
+| Cadastro e login de usuários                  | Utilizando HTML, CSS e Python (ou JavaScript) será feito uma página para obter os dados do usuário e registra-lo no banco do sistema, no qual será determinante para definir as tarefas que poderão realizar na plataforma.                    | Funcional     | Baixa      | 2      | ✅ | 
+| Revisão e implementação do sistema            | Analisando as sugestões e orientações passadas nas entregas, revisar e/ou alterar pontos necessários do sistema.                                                                                                                               | Não funcional | Baixa      | 3      | ✅ | 
 
 ## Histórias de usuário <a id="storys"></a>
 O backlog mostrado anteriormente foi baseado nas histórias de usuário coletadas também pela PO da equipe. Nelas podemos observar exatamente o valor desejado pelo cliente e assim dividir as tarefas necessárias para o desenvolvimento da aplicação conforme o esperado e combinado.
@@ -241,7 +249,12 @@ Nosso MVP ficou da seguinte forma:
 Nós também realizamos um vídeo onde explicamos brevemente seu funcionamento e como conseguimos desenvolve-lo, segue o link: 
 <a href="https://youtu.be/B5IebZFQw_Q">Link para acessar o vídeo</a>
 
-      
+
+# Produto Final <a id="produto-final"></a>
+Após todo este processo, nossa equipe consegue com muito orgulho entregar um produto fiel aos requisitos passados pelo nosso cliente. Segue abaixo uma breve demosntração de como ficou o seu resultado final:
+
+
+
 # Equipe <a id="equipe"></a>
 
 | Membro                | Função        | Github                                                                                                                                                | Linkedin                                                                                                                                                                                         |
