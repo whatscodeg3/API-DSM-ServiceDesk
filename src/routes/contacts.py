@@ -269,8 +269,36 @@ def relInstantaneo():
     session.pop('id_usuario', None)
     return redirect(url_for('contacts.index'))
 
-@contacts.route('/relatorios/especificados', methods=['POST', 'GET'])
-def relEspecificados():
+@contacts.route('/relatorios/especificados', methods=['GET', 'POST'])
+def relatorios():
+    if g.user != None:
+         if g.user[0] == 3:
+            if request.method == 'POST':
+                data_inicio= request.form['data_inicio']
+                data_fim= request.form['data_fim']
+
+                if data_inicio > data_fim:
+                    flash('Data inicial não pode ser maior que a data final')
+                    return redirect('/relatorios/especificados')
+                
+                print(data_inicio, data_fim)
+                # usar COUNT(*)
+                
+                query_solicitacoes_abertas = text(
+                        'SELECT DATE(data_abertura) as data_abertura, COUNT(*) as solicitacoes_abertas FROM solicitacoes WHERE(data_abertura) BETWEEN DATE(:data_inicio) AND  DATE(:data_fim) and resposta_solicitacao is null group by DATE(data_abertura);')
+                query_solicitacoes_fechadas = text(
+                        'SELECT DATE(data_abertura) as data_abertura, COUNT(*) as solicitacoes_abertas FROM solicitacoes WHERE(data_abertura) BETWEEN DATE(:data_inicio) AND  DATE(:data_fim) and resposta_solicitacao is not null group by DATE(data_abertura);')
+                resultado_solicitacoes_abertas = db.engine.execute(query_solicitacoes_abertas, data_fim=data_fim, data_inicio=data_inicio)
+                solicitacoes_abertas = []
+                for solicitacoes in resultado_solicitacoes_abertas:
+                    solicitacoes_abertas.append(solicitacoes)
+                resultado_solicitacoes_fechadas = db.engine.execute(query_solicitacoes_fechadas, data_fim=data_fim, data_inicio=data_inicio)
+                solicitacoes_fechadas = []
+                for solicitacoes in resultado_solicitacoes_fechadas:
+                    solicitacoes_fechadas.append(solicitacoes)
+                
+                
+                return render_template('rel-especificado.html', data_inicio=data_inicio, data_fim=data_fim,  resultado_solicitacoes_abertas = resultado_solicitacoes_abertas, solicitacoes_abertas = solicitacoes_abertas, solicitacoes_fechadas = solicitacoes_fechadas)
     return render_template('rel-especificado.html')
 
 

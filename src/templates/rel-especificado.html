@@ -5,77 +5,86 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
    <link rel="stylesheet" href="../static/css/relatorios.css">
    <link rel="stylesheet" href="../static/css/menu.css">
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 
    <script src="../static/js/menu.js"></script>
-   <script src="../static/js/graficos.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-   
+
    <title>Relatórios - especificados</title>
 </head>
 
 <body>
-
-   <div class="fundo">
-
    <header>
-      <div>
-          <div id="mySidenav" class="sidenav">
-              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <hr class="hr_black">
-              <a href="/admin">HOME</a>
-              <hr id="hr_black">
-              <details>
-                  <summary>
-                     RELATORIOS
-                  </summary>
-                  <a href="/relatorios/instantaneos">Instantâneo</a>
-                  <a href="/relatorios/especificados">Especificado</a>
-                  <a href="/relatorios/avaliacoes">Avaliações</a>
-              </details>
-              <hr id="hr_black">
-              <a href="">HISTORICO</a>
-              <hr id="hr_black">
-              <a href="/admin/permissoes">PERMISSÕES</a>
-              <hr id="hr_black">
-          </div>
+      <h1 id="header-nome-usuario"></h1>
+      <div id="mySidenav" class="sidenav">
+         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+         <hr class="hr_black">
+         <a href="/admin">HOME</a>
+         <hr id="hr_black">
+         <a href="/relatorios">RELATORIOS</a>
+         <hr id="hr_black">
+         <a href="">HISTORICO</a>
+         <hr id="hr_black">
+         <a href="/admin/permissoes">PERMISSÕES</a>
+         <hr id="hr_black">
       </div>
-
       <span class="icon_nav_style" onclick="openNav()">&#9776;</span>
+   </header>
 
-  </header>
 
-   
-   <h1 class="titulo-geral">Relatório dos Chamados Abertos e Fechados da Semana</h1>
-   <form action="/relatorios/especificados" class="form-filtro">
-      <p class="subtitulo">Escolha um período de: </p>
-      <div class="filtro-por-data">
-         <input type="date" name="filtro" id="data_inicio">
-         <p class="subtitulo">à</p>
-         <input type="date" name="filtro" id="data_fim">
-         <button type="submit" class="botao2">Filtrar</button>
-      </div>
+   <h1 class="titulo">Relatório dos Chamados Abertos e Fechados da Semana</h1>
+   <form action="/relatorios/especificados" method="POST">
+      <p style="color:white">Escolha um período de: </p>
+      <input onchange="StartFilterData(this)" type="date" name="data_inicio" id="data_inicio">
+      <p style="color:white">à</p>
+      <input onchange="EndFilterData(this)" type="date" name="data_fim" id="data_fim">
+      <button type="submit" name="botaoFiltroDinamico">Filtrar</button>
    </form>
 
-   <div class="grafico-bar">
-      <canvas id="grafico-especifico"></canvas>
-   </div>
-   
-   <script>
-        var dadoAber = [30, 24, 70];
-        var dadoFech = [24, 25, 26];
-        graficoEspecifico(dadoAber, dadoFech);
-    </script>
-   
-   </div>
+   <section class="relatorio_primeiro">
+      <div class="container">
+         <table class="table table-bordered">
+            <thead>
+               <tr>
+                  <th>Data</th>
+                  <th>Chamados abertos</th>
 
+               </tr>
+            </thead>
+            <tbody>
+               {% for solicitacao in solicitacoes_abertas %}
+               <tr>
+                  <td> {{ solicitacao[0] }} </td> <!-- dias -->
+                  <td> {{ solicitacao[1]}} </td> <!-- total de abertos -->
+                  {% endfor %}
+               </tr>
 
+            </tbody>
+         </table>
+      </div>
+      <div class="container">
+         <table class="table table-bordered">
+            <thead>
+               <tr>
+                  <th>Data</th>
+                  <th>Chamados abertos</th>
+
+               </tr>
+            </thead>
+            <tbody>
+               {% for solicitacao in solicitacoes_fechadas %}
+               <tr>
+                  <td> {{ solicitacao[0] }} </td> <!-- dias -->
+                  <td> {{ solicitacao[1]}} </td> <!-- total de abertos -->
+                  {% endfor %}
+               </tr>
+
+            </tbody>
+         </table>
+      </div>
 </body>
 
 </html>
