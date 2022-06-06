@@ -11,7 +11,6 @@
   <a href ="#configuracoes"> Executando a aplicação </a>  | 
   <a href ="#planejamento"> Planejamento </a>  |
   <a href ="#mvp"> MVP </a>  |
-  <a href="#produto-final"> Produto Final</a> |
   <a href ="#equipe"> Equipe </a>
 </p>
 
@@ -26,8 +25,7 @@
  <a href="https://flask.palletsprojects.com/"><img src ="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"/></a>
  <a href="https://www.mysql.com/"><img src ="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white"/></a>
  <a href="https://www.sqlalchemy.org/"><img src ="/doc/front-end/badge-sqlalchemy.svg" width="100"></a>
- <a href="https://www.heroku.com/"><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
-"></a>
+ <a href="https://www.heroku.com/"><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"></a>
 </h4>
 
 <br>
@@ -248,10 +246,6 @@ Nosso MVP ficou da seguinte forma:
 
 Nós também realizamos um vídeo onde explicamos brevemente seu funcionamento e como conseguimos desenvolve-lo, segue o link: 
 <a href="https://youtu.be/B5IebZFQw_Q">Link para acessar o vídeo</a>
-
-
-# Produto Final <a id="produto-final"></a>
-Após todo este processo, nossa equipe consegue com muito orgulho entregar um produto fiel aos requisitos passados pelo nosso cliente. Segue abaixo uma breve demosntração de como ficou o seu resultado final:
 
 
 
