@@ -31,6 +31,8 @@
 }
 
 .sidenav summary{
+   display: flex;
+   cursor: pointer;
    padding: 8px 8px 8px 32px;
    color: black;
    font-size: 20px;

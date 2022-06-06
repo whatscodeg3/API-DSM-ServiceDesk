@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="../static/assets/bootstrap/css/executor-bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/estilo-executor-demandas.css">
+    <link rel="stylesheet" href="../static/css/menu.css">
     <title>Demandas</title>
 </head>
 
@@ -24,7 +25,14 @@
                 <hr class="hr_black">
                 <a href="/admin">HOME</a>
                 <hr class="hr_black">
-                <a href="/relatorios">RELATÓRIOS</a>
+                <details>
+                    <summary>
+                    RELATÓRIOS
+                    </summary>
+                    <a href="/relatorios/instantaneos">INSTANTÂNEO</a>
+                    <a href="/relatorios/especificados">ESPECIFICADO</a>
+                    <a href="/relatorios/avaliacoes">AVALIAÇÕES</a>
+                </details>
                 <hr id="hr_black">
                 <a href="/admin/historico">HISTÓRICO GERAL</a>
                 <hr id="hr_black">

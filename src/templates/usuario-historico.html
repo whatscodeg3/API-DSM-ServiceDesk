@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../static/assets/bootstrap/css/executor-bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/estilo-usuario-historico.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css">
+    <link rel="stylesheet" href="../static/css/menu.css">
     <title>Usuário - Histórico</title>
 </head>
 <body>
@@ -18,7 +19,14 @@
                 <hr id="hr_black">
                 <a href="/admin">HOME</a>
                 <hr id="hr_black">
-                <a href="/relatorios">RELATÓRIOS</a>
+                <details>
+                    <summary>
+                    RELATÓRIOS
+                    </summary>
+                    <a href="/relatorios/instantaneos">INSTANTÂNEO</a>
+                    <a href="/relatorios/especificados">ESPECIFICADO</a>
+                    <a href="/relatorios/avaliacoes">AVALIAÇÕES</a>
+                </details>
                 <hr id="hr_black">
                 <a href="/admin/historico">HISTÓRICO GERAL</a>
                 <hr id="hr_black">

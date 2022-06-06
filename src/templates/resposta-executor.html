@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../static/css/resposta-executor.css">
+    <link rel="stylesheet" href="../static/css/menu.css">
     <title>Resposta</title>
 </head>
 <body>
@@ -18,7 +19,14 @@
                     <hr id="hr_black">
                     <a href="/admin">HOME</a>
                     <hr id="hr_black">
-                    <a href="/relatorios">RELATÓRIOS</a>
+                    <details>
+                        <summary>
+                        RELATÓRIOS
+                        </summary>
+                        <a href="/relatorios/instantaneos">INSTANTÂNEO</a>
+                        <a href="/relatorios/especificados">ESPECIFICADO</a>
+                        <a href="/relatorios/avaliacoes">AVALIAÇÕES</a>
+                    </details>
                     <hr id="hr_black">
                     <a href="/admin/historico">HISTÓRICO GERAL</a>
                     <hr id="hr_black">
