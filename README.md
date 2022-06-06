@@ -26,8 +26,7 @@
  <a href="https://flask.palletsprojects.com/"><img src ="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white"/></a>
  <a href="https://www.mysql.com/"><img src ="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white"/></a>
  <a href="https://www.sqlalchemy.org/"><img src ="/doc/front-end/badge-sqlalchemy.svg" width="100"></a>
- <a href="https://www.heroku.com/"><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
-"></a>
+ <a href="https://www.heroku.com/"><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"></a>
 </h4>
 
 <br>
