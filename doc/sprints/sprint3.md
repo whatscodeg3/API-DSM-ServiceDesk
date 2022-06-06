@@ -1,11 +1,15 @@
 # 3ª Sprint
-Na terceira sprint, foi negociado com o cliente ..., nós adicionamos os relatórios e revisamos o sistema inúmeras vezes a fim de achar possíveis falhas e assim resolvê-las
+Para a última entrega deste projeto, como mostrado no backlog apresentado desde a primeira sprint, ficou acordado em focarmos no desenvolvimento e implementações dos relatórios e também para correções de erros.
 
 ## Front-end
-...
+Nos relatórios conseguimos passar os dados, que estavam sendo exibidos em formato de tabela, para gráficos dinâmicos. Os tipos de cada gráfico foi acordado anteriormente com o cliente. Utilizando a biblioteca Chart.js, ficaram da seguinte forma:
 
-**Página adicionada:**
 <img src="/doc/front-end/#" alt="Gif nevegando na pág. relatorios" width="855" >
 
+Outros detalhes como: padronização do menu, implementação gráfica das avaliações,  responsividade, e adição das últimas páginas do wireframe formulado na primeira sprint. Possui uma melhor visualização no gif colocado no tópico **Produto final** do <a href='.. /../README.md'>README</a> principal
+
 ## Back-end
-...
+Para os relatórios realizamos a integração do banco de dados com os gráficos, realizando um tratamento nos dados e também modulando-os para a melhor maneira de se utilizar no gráfico dinâmico, usufruimos de Python e JavaScript para a maior parte desta tarefa.
+
+## Vídeo
+Para demonstrar melhor estes tópicos apresentados, gravamos um vídeo explicando o que foi feito.

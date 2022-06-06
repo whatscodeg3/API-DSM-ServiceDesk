@@ -253,6 +253,11 @@ font-size: 16px;
     width: 90%;
 }
 
+.botao:hover {
+    color: rgba(255, 255, 255, 0.623);
+    border: rgba(255, 255, 255, 0.623) solid 1px;
+}
+
 .botao2 {
     color: #fff;
     background-color: #292A2F;
@@ -261,7 +266,20 @@ font-size: 16px;
     width: 40%;
 }
 
-.botao:hover {
+.botao2:hover {
+    color: rgba(255, 255, 255, 0.623);
+    border: rgba(255, 255, 255, 0.623) solid 1px;
+}
+
+.botao-especifico {
+    color: #fff;
+    background-color: #292A2F;
+    border: #fff solid 1px;
+    border-radius: 6px;
+    width: 70%;
+}
+
+.botao-especifico:hover {
     color: rgba(255, 255, 255, 0.623);
     border: rgba(255, 255, 255, 0.623) solid 1px;
 }
@@ -273,6 +291,23 @@ font-size: 16px;
     align-items: center;
     flex-direction: row;
     gap: 5%;
+}
+
+.form-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 5%;
+    width: 100%;
+}
+
+.form-periodo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 3%;
 }
 
 
